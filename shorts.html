@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Podcast clips for founder shows: done-for-you Shorts, Reels and TikToks | sh. industries</title>
+<title>SH Shorts</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%231A1A17'/%3E%3Ccircle cx='32' cy='32' r='10' fill='%23C6FF3D'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap">
 <style>
 /* Layout: one column, an editing-timeline strip as the hero (episode → clips), then three plain blocks. Single dark theme on purpose: SH ink + gold, SH Shorts pink. */
 :root{
@@ -58,6 +59,67 @@ a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:2px solid var(-
 .btn{padding:13px 20px;border-radius:999px;font:600 15px/1 var(--body);text-decoration:none;color:var(--ink);background:var(--gold)}
 .btn.pink{background:var(--pink)}.btn.ghost{background:transparent;color:var(--cream);border:1px solid var(--line)}
 .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.cta .row{margin-top:4px}
+/* sh. v2 2026-10-15: tokens v2, brand/tools/apply_v2_pages.py; do not hand-edit */
+:root{--ink:var(--v-paper);--ink2:var(--v-raised);--cream:var(--v-ink)}
+:root{--v-paper:#F7F6F1;--v-raised:#FFFFFF;--v-sunken:#EFEDE6;--v-ink:#1A1A17;--v-ink2:#2B2A26;
+--v-g700:#55534C;--v-g500:#85827A;--v-g300:#C9C6BC;--v-g200:#DEDBD2;--v-line:#E3E0D7;
+--v-green:#C6FF3D;--v-green-ink:#1E2A00;--v-green-deep:#86B800;
+--v-display:"Funnel Display", "Funnel Sans", system-ui, sans-serif;--v-sans:"Funnel Sans", system-ui, -apple-system, "Segoe UI", sans-serif;--v-code:ui-monospace, "SF Mono", Menlo, monospace;--v-ease:cubic-bezier(0.2, 0, 0, 1);
+--display:var(--v-display);--body:var(--v-sans);--mono:var(--v-sans);
+--line:var(--v-line);--muted:var(--v-g700);--dim:var(--v-g700);--teal:var(--v-g700);--gold:var(--v-ink);--gold2:var(--v-ink);--pink:var(--v-ink);--amber:var(--v-g700);--warn:var(--v-g700);
+--gold-ink:var(--v-paper);--pink-soft:transparent;color-scheme:light}
+body{font-family:var(--v-sans);font-feature-settings:"kern" 1;background:var(--v-paper);color:var(--v-ink)}
+h1,h2,h3{font-family:var(--v-display);color:var(--v-ink)}
+h1{font-weight:780;line-height:1.02;letter-spacing:-.02em}
+h2{font-weight:700;letter-spacing:-.01em;line-height:1.12}
+h3{font-weight:700;letter-spacing:-.01em}
+h1 em{font-style:normal;font-weight:300;color:inherit}
+h1 .sh{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:inherit;-webkit-text-fill-color:currentColor;animation:none}
+p{color:var(--v-g700)}.lede{color:var(--v-ink)}li b,.tier li b,.plan li b,.card li b{color:var(--v-ink)}
+a{color:var(--v-ink);text-decoration-thickness:1px;text-underline-offset:.3em}a:hover{text-decoration-color:var(--v-green);text-decoration-thickness:2px}
+a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:2px solid var(--v-ink);outline-offset:2px}
+.num,.price,.n,time,.r em,.clip b{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+/* labels: 12px uppercase, grey_700 */
+.k,.who,.tier .who,.q,.ml,.st b,.node b,.clip b,.fact b,.flow b,.step b,.tl-head,.pipe-head,.card .meta,.card .meta .line,.card.kit .meta .line{font:600 12px/1.3 var(--v-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--v-g700)}
+footer,.fine,.card .fine,.biz .fine,.note,.proofline,.tile .l,.ship time,.r span,.ticker,.price small,.card .price small,.biz .price small,.was,.card .was{font-family:var(--v-sans);color:var(--v-g700)}
+footer{font-size:13px}footer a{color:var(--v-ink);display:inline-block;padding-block:13px}
+.cmd{font-family:var(--v-code);color:var(--v-ink);background:var(--v-sunken);border-radius:4px}
+.price,.card .price,.biz .price,.tile .n{font-family:var(--v-display);font-weight:700;color:var(--v-ink)}
+/* nav: 56px, paper, wordmark left */
+nav{background:var(--v-paper);backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid var(--v-line)}
+nav .brand{font:800 22px/1 var(--v-display);letter-spacing:-.03em;color:var(--v-ink);text-decoration:none}nav .brand .dot{font:inherit;margin:0;letter-spacing:inherit;color:var(--v-green)}
+nav .brand span:not(.dot){font:500 22px/1 var(--v-sans);letter-spacing:0;text-transform:none;color:var(--v-ink);margin-left:.42em}
+nav a,nav .links a{color:var(--v-g700);font-weight:500}nav a:hover,nav .links a:hover{color:var(--v-ink)}
+/* buttons: 8px, ink primary, paper secondary, green signature once per view */
+.btn,a.btn{border-radius:8px;min-height:48px;padding:0 20px;font:500 16px/1.15 var(--v-sans);background:var(--v-ink);color:var(--v-paper);border:1px solid var(--v-ink);box-shadow:none;transform:none;transition:background 160ms var(--v-ease),border-color 160ms var(--v-ease)}
+.btn:hover,a.btn:hover{background:#000;transform:none;box-shadow:none;text-decoration:none}.btn:active{transform:translateY(1px)}
+.btn.pink,a.btn.pink{background:var(--v-ink);color:var(--v-paper);border-color:var(--v-ink)}
+.btn.ghost,a.btn.ghost{background:var(--v-raised);color:var(--v-ink);border:1px solid var(--v-line)}.btn.ghost:hover,a.btn.ghost:hover{background:var(--v-raised);border-color:var(--v-ink2)}
+/* surfaces: paper_raised, 1px line, radius 8, no lift, no shadow, no gradient */
+.card,.tier,.plan,.tile,.st,.node,.fact,.step,.biz,.flow li,.tl,.pipe,.chart,.clip,.cta,.proof .tile{border-radius:8px;background:var(--v-raised);border:1px solid var(--v-line);box-shadow:none;transform:none}
+.card:hover,.tier:hover,.tier.shorts:hover,.tier.kit:hover,.tier.auto:hover,.plan:hover{transform:none;border-color:var(--v-ink2)}
+.card.pink,.card.teal,.card.first,.plan.hot,.tile.pink,.st.human,.biz,.cta{border-color:var(--v-ink);box-shadow:none}
+.tile.pink .n,.st.human b{color:var(--v-ink)}
+.tag,.tier .tag,.plan .tag,.card .tag{border-radius:4px;background:var(--v-ink);color:var(--v-paper);font:600 12px/1 var(--v-sans);letter-spacing:.06em;padding:6px 8px}
+.anchor{border-radius:4px;background:var(--v-raised);border:1px solid var(--v-line);font:500 13px/1 var(--v-sans);letter-spacing:0;color:var(--v-ink)}.anchor b{color:var(--v-ink)}
+.step::before,.step i{border-radius:8px;background:var(--v-ink);color:var(--v-paper);font-family:var(--v-sans)}
+.rules{border-left:2px solid var(--v-ink)}.pol{border-left:2px solid var(--v-ink)}
+.ship a{color:var(--v-ink);text-decoration:underline;font-family:var(--v-sans)}
+summary{color:var(--v-ink)}summary::after{color:var(--v-ink);font-family:var(--v-sans)}
+details{border-color:var(--v-line)}
+/* illustrations: ink on paper */
+.track{border-radius:4px;background:repeating-linear-gradient(90deg,var(--v-g200) 0 2px,transparent 2px 9px)}
+.cut{border-radius:4px;border:2px solid var(--v-ink);background:rgba(26,26,23,.06)}
+.link{background:var(--v-g300)}.link::after{background:var(--v-ink);box-shadow:none;animation:none;border-radius:2px}
+.bar{border-radius:2px;background:var(--v-g300)}.bar.gold{background:var(--v-ink)}.bar.pink{background:var(--v-green-deep)}
+.st::after{color:var(--v-g500)}
+/* motion: fade up 8px over 220ms, one easing */
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:no-preference){.rise{animation-duration:220ms;animation-timing-function:var(--v-ease)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+header .btn.pink,.cta .btn.pink,a.cta .btn.pink{background:var(--v-green);color:var(--v-green-ink)!important;border:1px solid var(--v-green);font-weight:600;border-radius:8px;padding-inline:16px}
+header .btn.pink:hover,.cta .btn.pink:hover,a.cta .btn.pink:hover{background:#B8F22A;border-color:#B8F22A;color:var(--v-green-ink)}
+/* end sh. v2 */
 </style>
 
 </head>
