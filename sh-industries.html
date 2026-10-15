@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>sh. industries</title>
+<meta name="description" content="sh. industries is a one-person studio that turns founder podcast episodes into captioned vertical clips, and sells the scripts it runs on. From $99.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2308151c'/%3E%3Ctext x='8' y='44' font-family='Georgia,serif' font-size='34' fill='%23e5c477'%3Esh.%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,500;0,600;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* sh. industries brand page. Order: outcome headline → one person, on purpose → what we sell (dated cards, live links) → three steps → shipped work → policy → contact.
+   Tokens from brand/tokens.json; dark by choice, like content/sh-shorts/catalog.html. No client logos or testimonials exist yet, so the page shows process and shipped work instead. */
+:root{--bg:#08151c;--bg2:#0b1c25;--panel:#0f212b;--line:rgba(242,239,223,.14);--fg:#f2efdf;--muted:#bac8c9;--dim:#8fa1a3;--gold:#e5c477;--gold-ink:#1d1606;--teal:#70caba;--pink:#ff6fae;--amber:#ffb347;
+--display:"Newsreader","New York",ui-serif,Georgia,serif;--body:"IBM Plex Sans","SF Pro Text",system-ui,-apple-system,sans-serif;--mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--body);padding:0 16px 72px;overflow-x:hidden}
+.wrap{max-width:1040px;margin:0 auto;display:grid;gap:88px}
+.k{font:600 12px/1.3 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+h1{font:600 clamp(40px,7.4vw,76px)/1.03 var(--display);margin:14px 0 0;letter-spacing:-.015em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--gold)}
+h2{font:600 clamp(26px,4vw,38px)/1.12 var(--display);margin:8px 0 12px;text-wrap:balance}
+h3{font:600 19px/1.25 var(--body);margin:0}
+p{margin:0;color:var(--muted);max-width:64ch}
+.lede{color:var(--fg);font-size:19px;margin-top:18px}
+a{color:var(--fg)}
+nav{position:sticky;top:0;z-index:5;background:rgba(8,21,28,.88);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);margin:0 -16px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+nav .brand{font:600 22px/1 var(--display);color:var(--gold);text-decoration:none}nav .brand span{font:500 11px/1 var(--mono);letter-spacing:.3em;color:var(--dim);margin-left:8px;text-transform:uppercase}
+nav .links{display:flex;gap:16px;font-size:14px;flex-wrap:wrap}nav .links a{color:var(--muted);text-decoration:none;padding:6px 0}nav .links a:hover{color:var(--fg)}
+@media (max-width:620px){nav{position:static}nav .links{gap:4px 14px;font-size:13.5px}header{padding-top:32px}}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:12px 20px;border-radius:999px;font:600 15px/1 var(--body);text-decoration:none;color:var(--gold-ink);background:var(--gold);transition:transform .16s cubic-bezier(.2,.8,.2,1),box-shadow .16s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(229,196,119,.22)}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.anchor{display:inline-block;margin-top:22px;font:600 13px/1 var(--mono);letter-spacing:.08em;color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:9px 14px;background:var(--panel)}.anchor b{color:var(--gold)}
+header{padding-top:56px}
+.rise{opacity:1}
+@media (prefers-reduced-motion:no-preference){.rise{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}.d1{animation-delay:.08s}.d2{animation-delay:.16s}.d3{animation-delay:.24s}}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* one person */
+.pair{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px;align-items:start}
+.facts{display:grid;gap:10px}
+.fact{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px 16px}.fact b{display:block;font:600 12px/1.2 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}.fact span{font-size:15px;color:var(--fg)}
+@media (max-width:760px){.pair{grid-template-columns:1fr}}
+/* product cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.card{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:22px;display:grid;gap:12px;align-content:start;min-width:0;position:relative;transition:transform .2s cubic-bezier(.2,.8,.2,1),border-color .2s}
+.card:hover{transform:translateY(-3px);border-color:rgba(229,196,119,.45)}
+.card .meta{display:flex;justify-content:space-between;gap:10px;font:500 12px/1.3 var(--mono);color:var(--dim)}
+.card .meta .line{color:var(--pink);letter-spacing:.06em;text-transform:uppercase}.card.kit .meta .line{color:var(--teal)}
+.card .price{font:600 36px/1 var(--display);font-variant-numeric:tabular-nums}.card .price small{font:500 13px/1 var(--mono);color:var(--dim);margin-left:6px}
+.card .was{font:500 13px/1 var(--mono);color:var(--dim);text-decoration:line-through;margin-right:8px}
+.card p{font-size:15px}
+.card .fine{font:500 12px/1.5 var(--mono);color:var(--dim)}
+.card .btn{justify-self:start}
+.card.first{border-color:rgba(229,196,119,.55)}
+.card .tag{position:absolute;top:-11px;left:20px;background:var(--gold);color:var(--gold-ink);font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:6px 10px;border-radius:999px}
+/* on-site setup */
+.biz{border:1px solid rgba(112,202,186,.45);border-radius:18px;background:linear-gradient(180deg,var(--panel),var(--bg2));padding:26px;display:grid;gap:18px;min-width:0}
+.biz .top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.biz .price{font:600 36px/1 var(--display);font-variant-numeric:tabular-nums}.biz .price small{font:500 13px/1 var(--mono);color:var(--dim);margin-left:6px}
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.flow li{border:1px solid var(--line);border-radius:12px;padding:14px;background:rgba(8,21,28,.5);min-width:0}
+.flow b{display:block;font:600 12px/1.2 var(--mono);letter-spacing:.1em;color:var(--teal);margin-bottom:6px}
+.flow span{display:block;font-weight:600;color:var(--fg);font-size:15px}.flow small{display:block;color:var(--dim);font-size:13.5px;margin-top:4px;line-height:1.45}
+.biz .fine{font:500 12px/1.5 var(--mono);color:var(--dim)}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;counter-reset:s}
+.step{border:1px solid var(--line);border-radius:14px;background:var(--panel);padding:18px;min-width:0}
+.step b{display:block;font:600 12px/1.2 var(--mono);color:var(--gold);letter-spacing:.1em;margin-bottom:8px}
+.step h3{margin-bottom:6px}.step p{font-size:15px}
+/* shipped */
+.ship{display:grid;gap:0;border-top:1px solid var(--line)}
+.ship div{display:grid;grid-template-columns:130px minmax(0,1fr) auto;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.ship time{font:500 13px/1.3 var(--mono);color:var(--dim);font-variant-numeric:tabular-nums}
+.ship span{color:var(--fg)}.ship small{display:block;color:var(--dim);font-size:13.5px;margin-top:2px}
+.ship a{font:500 13px/1 var(--mono);color:var(--gold);text-decoration:none;white-space:nowrap}
+@media (max-width:620px){.ship div{grid-template-columns:1fr}.ship a{justify-self:start}}
+/* policy */
+.policy{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.pol{border-left:2px solid var(--gold);padding:4px 0 4px 16px}.pol h3{font-size:16px;margin-bottom:6px}.pol p{font-size:15px}
+footer{font:500 12px/1.6 var(--mono);color:var(--dim);border-top:1px solid var(--line);padding-top:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:var(--muted)}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+/* fit pass 2026-10-15: sizing at every width, touch targets, focus, motion (content/sh-shorts/PAGE_AUDIT_2026-10-15.md) */
+html{overflow-x:clip;-webkit-text-size-adjust:100%}body{overflow-x:clip;margin:0}
+img,video,svg,canvas{max-width:100%;height:auto}
+h1,h2,h3{overflow-wrap:break-word;min-width:0}h1 em{font-style:normal}
+.wrap>*,nav,nav .brand{min-width:0}nav .brand{flex:none}
+p,li{text-wrap:pretty}
+.btn,a.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;text-align:center;line-height:1.15}
+nav .links a{display:inline-flex;align-items:center;min-height:44px;white-space:nowrap}
+summary{min-height:44px;align-items:center}
+a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@keyframes rise{from{transform:translateY(14px)}to{transform:none}}
+@media (max-width:560px){nav{flex-wrap:nowrap}nav .links{flex-wrap:nowrap;overflow-x:auto;gap:14px;min-width:0;scrollbar-width:none;margin-right:-18px;padding-right:18px}nav .links::-webkit-scrollbar{display:none}.row>.btn{flex:1 1 100%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+nav .brand{display:inline-flex;align-items:center;min-height:44px}.ship a{display:inline-flex;align-items:center;min-height:44px}
+@media (max-width:560px){nav .links{margin-right:-16px;padding-right:16px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><a class="brand" href="#top">sh.<span>industries</span></a><div class="links"><a href="#work">What we sell</a><a href="#setup">For businesses</a><a href="#how">How it starts</a><a href="#shipped">Shipped</a><a href="#policy">Policy</a><a href="https://discord.gg/aVfPyskQbd">Discord</a></div></nav>
+
+  <header id="top">
+    <div class="k rise">sh. industries · founded October 2026</div>
+    <h1 class="rise d1">Your podcast already has a week of clips in it. <em>We cut them.</em></h1>
+    <p class="lede rise d2">sh. industries turns founder podcast episodes into captioned vertical clips for Shorts, Reels and TikTok, delivered in 48 hours. The same scripts that run the studio are for sale, if you'd rather run them yourself.</p>
+    <div class="row rise d3"><a class="btn" href="https://buy.stripe.com/dRmeVebkaacj69fbPMdjO01">Start with a founding pack, $99</a><a class="btn ghost" href="mailto:stevenhainley@gmail.com?subject=3%20free%20clips">Or ask for 3 free clips</a></div>
+    <div class="anchor rise d3">Paid work <b>from $99</b> · scripts from $49 at launch</div>
+  </header>
+
+  <section id="one-person" class="pair">
+    <div>
+      <div class="k">One person, on purpose</div>
+      <h2>You deal with the person who cuts your clips.</h2>
+      <p>sh. industries is Steven Hainley and a system he built that handles the slow parts: transcripts, captions, framing, loudness and file sizes. Steven picks every moment and watches every clip before it leaves. There's no account manager in between and no hand-off to a team you never meet.</p>
+      <p style="margin-top:14px">Being small is the point. It keeps prices at a level a weekly show can afford and keeps the person who knows your show on every episode.</p>
+    </div>
+    <div class="facts">
+      <div class="fact"><b>Turnaround</b><span>48 hours from your episode link</span></div>
+      <div class="fact"><b>Every clip watched</b><span>Nothing is sent unseen</span></div>
+      <div class="fact"><b>You own everything</b><span>The clips, captions and files are yours to post, edit and keep</span></div>
+      <div class="fact"><b>Straight about results</b><span>Nobody can promise views. The founding pack exists so you can test before you commit.</span></div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="k">What we sell</div>
+    <h2>Five things, all live today.</h2>
+    <div class="cards">
+      <article class="card first"><div class="tag">Start here</div>
+        <div class="meta"><span class="line">SH Shorts</span><time datetime="2026-10-15">Live 15 Oct 2026</time></div>
+        <h3>Founding Pack</h3><div class="price">$99<small>one episode</small></div>
+        <p>The full Episode Pack at the founding price, for the first three shows. In return: honest feedback and permission to show the clips.</p>
+        <div class="fine">Refundable: if it isn't worth $99 to you, reply within 7 days of delivery.</div>
+        <a class="btn" href="https://buy.stripe.com/dRmeVebkaacj69fbPMdjO01">Claim a founding slot</a></article>
+
+      <article class="card">
+        <div class="meta"><span class="line">SH Shorts</span><time datetime="2026-10-15">Live 15 Oct 2026</time></div>
+        <h3>Episode Pack</h3><div class="price">$149<small>per episode</small></div>
+        <p>8 captioned vertical clips of one episode's best moments: speaker crop, captions in your colour, a hook line and a post caption for each. One round of changes.</p>
+        <a class="btn ghost" href="https://buy.stripe.com/3cI9AUag6ckr0OVbPMdjO00">Order a pack</a></article>
+
+      <article class="card">
+        <div class="meta"><span class="line">SH Shorts</span><time datetime="2026-10-15">Live 15 Oct 2026</time></div>
+        <h3>Monthly</h3><div class="price">$399<small>per month</small></div>
+        <p>Four episodes a month, 8 clips each, one in the queue at a time. Same editor and style every week. Pause or cancel any time.</p>
+        <div class="fine">Best after a first pack, so you've seen the work.</div>
+        <a class="btn ghost" href="https://buy.stripe.com/9B63cw4VMckr0OVaLIdjO02">Start Monthly</a></article>
+
+      <article class="card kit">
+        <div class="meta"><span class="line">SH Workflows</span><time datetime="2026-10-15">Live 15 Oct 2026</time></div>
+        <h3>The Kit v0.1</h3><div class="price"><span class="was">$79</span>$49<small>first 25</small></div>
+        <p>The lead finder, clip engine and outreach tracker the studio runs on. One setup file, one command, macOS. Use it for your own client work.</p>
+        <div class="fine">14-day refund · no API keys or subscriptions</div>
+        <a class="btn ghost" href="https://clutchcut.gumroad.com/l/sh-workflows-kit/LAUNCH49">Get the kit</a></article>
+
+      <article class="card kit">
+        <div class="meta"><span class="line">SH Workflows</span><time datetime="2026-10-15">Live 15 Oct 2026</time></div>
+        <h3>Membership</h3><div class="price">$19<small>per month</small></div>
+        <p>The kit, every new version the week it's used on real work, the weekly build log, and the sh. lab Discord. Cancel any time; keep what you downloaded.</p>
+        <a class="btn ghost" href="https://clutchcut.gumroad.com/l/sh-workflows-membership">Join</a></article>
+    </div>
+  </section>
+
+  <section id="setup">
+    <div class="k" style="color:var(--teal)">For businesses</div>
+    <h2>We set it up for you.</h2>
+    <div class="biz">
+      <div class="top">
+        <p>The same system that runs this studio, installed on your own machine to do one real job: turning recordings into clips, researching and emailing leads, sorting an inbox, posting on a schedule, or a morning summary. You answer ten questions; we arrive with it ready.</p>
+        <div><div class="price">from $900</div><div class="fine">remote setup · on-site visits quoted</div></div>
+      </div>
+      <ol class="flow">
+        <li><b>01 · QUESTIONNAIRE</b><span>Ten questions by email</span><small>About 10 minutes. Your answers decide which workflow we install and what "done" looks like.</small></li>
+        <li><b>02 · PREPARED USB</b><span>Your install, built ahead</span><small>The kit plus a config for your sources and voice, and a one-page runbook in your words. No passwords on the stick.</small></li>
+        <li><b>03 · SETUP VISIT</b><span>Half a day, on site or remote</span><small>Install on your machine, connect your accounts (you type every password), run the first real job together.</small></li>
+        <li><b>04 · PAID ON THE DAY</b><span>Balance due on the day</span><small>A deposit holds the date; the rest is paid after the first real job runs.</small></li>
+        <li><b>05 · UPKEEP</b><span>Optional, monthly</span><small>Fixes, changes and updates as the system improves. Cancel any time.</small></li>
+      </ol>
+      <a class="btn" style="justify-self:start" href="mailto:stevenhainley@gmail.com?subject=Setup%20questionnaire">Get the setup questionnaire</a>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="k">How it starts</div>
+    <h2>Three steps, and the first one is refundable.</h2>
+    <div class="steps">
+      <div class="step"><b>01 · SEND</b><h3>Your latest episode link</h3><p>YouTube or a file. Add your brand colour and anything that must stay out of the clips. No call needed.</p></div>
+      <div class="step"><b>02 · TRY</b><h3>A founding pack for $99</h3><p>8 finished clips in 48 hours. Post them next to your own. If they aren't worth it, reply within 7 days and the $99 comes back.</p></div>
+      <div class="step"><b>03 · DECIDE</b><h3>A fixed monthly price</h3><p>If the pack earned its place, Monthly is $399 for four episodes. The price is set before you start, with pause and cancel terms in writing.</p></div>
+    </div>
+  </section>
+
+  <section id="shipped">
+    <div class="k">Shipped work</div>
+    <h2>No client logos yet. Here is what's been built and released.</h2>
+    <div class="ship">
+      <div><time datetime="2026-10-15">15 Oct 2026</time><span>SH Shorts offers go live<small>Founding, Episode Pack and Monthly, payable by card</small></span><a href="https://buy.stripe.com/dRmeVebkaacj69fbPMdjO01">Founding pack</a></div>
+      <div><time datetime="2026-10-15">15 Oct 2026</time><span>SH Workflows v0.1 on Gumroad<small>Cold-tested from a fresh copy before release</small></span><a href="https://clutchcut.gumroad.com/l/sh-workflows-kit/LAUNCH49">Kit</a></div>
+      <div><time datetime="2026-10-14">14 Oct 2026</time><span>First outreach run<small>About 1,300 podcast feeds screened, 23 shows qualified, 16 personal notes sent. No replies yet.</small></span><a href="https://clutchcut.gumroad.com/l/sh-workflows-kit/LAUNCH49">The tool used</a></div>
+      <div><time datetime="2026-10-14">14 Oct 2026</time><span>Clipper Payout Calculator<small>Free tool for paid clippers, from the ClutchCut line</small></span><a href="https://claude.ai/artifact/2zHX5yk2riBBy8RZnHDxgt">Open</a></div>
+      <div><time datetime="2026-10-14">Oct 2026</time><span>ClutchCut Clipper Business Tracker<small>Campaigns, clips, payouts and dollars per hour in one sheet</small></span><a href="https://clutchcut.gumroad.com/l/clipper-tracker">$12</a></div>
+      <div><time datetime="2026-10-14">Oct 2026</time><span>Clip Hook Bank<small>111 hook templates for short-form clips</small></span><a href="https://clutchcut.gumroad.com/l/clip-hook-bank">$7</a></div>
+    </div>
+    <p style="margin-top:14px">Figures are from the studio's own logs as of 15 October 2026.</p>
+  </section>
+
+  <section id="policy">
+    <div class="k">Refunds and support</div>
+    <h2>The terms, before you pay.</h2>
+    <div class="policy">
+      <div class="pol"><h3>Founding pack</h3><p>Not worth $99 to you? Reply within 7 days of delivery for a full refund.</p></div>
+      <div class="pol"><h3>Packs and Monthly</h3><p>A pack more than 24 hours late is free. Monthly pauses or cancels any time; no refund for a month whose pack was delivered.</p></div>
+      <div class="pol"><h3>Kit and membership</h3><p>Kit: full refund within 14 days through Gumroad. Membership: first month refundable within 14 days; cancel any time after.</p></div>
+      <div class="pol"><h3>Support</h3><p>Email <a href="mailto:stevenhainley@gmail.com">stevenhainley@gmail.com</a>. Replies within one business day. Members can also ask in the sh. lab Discord.</p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="k">Talk to us</div>
+    <h2>Send an episode, or come say hello.</h2>
+    <p>The sh. lab Discord is where the weekly build log goes out and where kit questions get answered.</p>
+    <div class="row"><a class="btn" href="mailto:stevenhainley@gmail.com?subject=Episode%20link">Email an episode link</a><a class="btn ghost" href="https://discord.gg/aVfPyskQbd">Join the Discord</a></div>
+  </section>
+
+  <footer><span>A product by sh. industries · Created by Steven Hainley</span><span>sh. industries is a trade name · <a href="mailto:stevenhainley@gmail.com">stevenhainley@gmail.com</a></span></footer>
+</div>
+</body>
+</html>

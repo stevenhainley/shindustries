@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://stevenhainley.github.io/shindustries/sitemap.xml
