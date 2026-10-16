@@ -1,216 +1,95 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>SH Workflows</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='13' fill='%231A1A17'/%3E%3Ccircle cx='32' cy='32' r='10' fill='%23C6FF3D'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SH Workflows · the clip studio kit · sh. industries</title>
+<meta name="description" content="The clip engine, lead finder and outreach pipeline the studio runs on. Kit $49 at launch, membership $19 a month. macOS.">
+<link rel="canonical" href="https://shindustries.co/workflows.html">
+<meta property="og:title" content="SH Workflows · the clip studio kit · sh. industries"><meta property="og:description" content="The clip engine, lead finder and outreach pipeline the studio runs on. Kit $49 at launch, membership $19 a month. macOS."><meta property="og:type" content="website"><meta property="og:url" content="https://shindustries.co/workflows.html"><meta property="og:image" content="https://shindustries.co/assets/og.jpg"><meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F7F6F1">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32"><link rel="apple-touch-icon" href="/assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap">
-<style>
-/* Layout: a product page in the shape buyers know (hero → live pipeline → what's inside → plans → honest FAQ). Brand tokens from brand/tokens.json, dark on purpose. Motion: one orchestrated load sequence, a looping pipeline, quiet hover lifts; all off under reduced motion. */
-:root{--bg:#08151c;--bg2:#0b1c25;--panel:#0f212b;--line:rgba(242,239,223,.14);--fg:#f2efdf;--muted:#bac8c9;--dim:#8fa1a3;--gold:#e5c477;--gold2:#ffcf5a;--pink:#ff6fae;--teal:#70caba;
---display:"Newsreader","New York",ui-serif,Georgia,serif;--body:"IBM Plex Sans",system-ui,-apple-system,sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;color-scheme:dark}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 var(--body);padding-inline:18px;padding-block:28px 72px;overflow-x:hidden}
-.wrap{max-width:1040px;margin:0 auto;display:grid;gap:72px}
-.k{font:600 12px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
-h1{font:600 clamp(40px,7.5vw,78px)/1.02 var(--display);margin:14px 0 0;letter-spacing:-.015em;text-wrap:balance}
-h1 .sh{background:linear-gradient(92deg,#ffd66b 0%,#ff9a3c 48%,#ff6fae 100%);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:shimmer 6s linear infinite}
-h2{font:600 clamp(26px,4vw,38px)/1.1 var(--display);margin:0 0 12px;text-wrap:balance}
-h3{font:600 18px/1.25 var(--body);margin:0}
-p{margin:0;color:var(--muted);max-width:62ch}.lede{color:var(--fg);font-size:19px;margin-top:18px}
-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-nav .brand{font:600 22px/1 var(--display)}nav .links{display:flex;gap:18px;font-size:14px}nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--fg)}
-.btn{display:inline-block;padding:13px 20px;border-radius:999px;font:600 15px/1 var(--body);text-decoration:none;color:var(--bg);background:var(--gold);transition:transform .16s cubic-bezier(.2,.8,.2,1),box-shadow .16s}
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(229,196,119,.25)}.btn.pink{background:var(--pink)}.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--line)}
-.row{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
-/* hero rise-in */
-.rise{opacity:1;transform:none}
-@media (prefers-reduced-motion:no-preference){.rise{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}.rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.16s}.rise.d3{animation-delay:.24s}.rise.d4{animation-delay:.32s}}
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-@keyframes shimmer{to{background-position:200% 0}}
-/* the pipeline: three stations and two travelling particles */
-.pipe{border:1px solid var(--line);border-radius:18px;background:var(--bg2);padding:22px;display:grid;gap:18px}
-.pipe-head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font:500 12px/1.3 var(--mono);color:var(--dim)}
-.lane{display:grid;grid-template-columns:1fr 56px 1fr 56px 1fr;align-items:center;gap:0}
-.node{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:14px;min-width:0}
-.node b{display:block;font:600 12px/1.2 var(--mono);color:var(--gold);margin-bottom:6px}.node span{display:block;font-size:14px;color:var(--fg)}.node small{display:block;color:var(--dim);font-size:12px;margin-top:6px}
-.link{position:relative;height:2px;background:var(--line)}.link::after{content:"";position:absolute;top:-3px;left:0;width:8px;height:8px;border-radius:50%;background:var(--pink);box-shadow:0 0 12px var(--pink)}
-@media (prefers-reduced-motion:no-preference){.link::after{animation:travel 2.4s cubic-bezier(.2,.8,.2,1) infinite}.link.l2::after{animation-delay:1.2s}}
-@keyframes travel{0%{left:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{left:calc(100% - 8px);opacity:0}}
-.ticker{font:500 12px/1.5 var(--mono);color:var(--teal)}
-@media (max-width:720px){.lane{grid-template-columns:1fr;gap:10px}.link{height:28px;width:2px;margin:0 auto}.link::after{left:-3px;top:0}@media (prefers-reduced-motion:no-preference){.link::after{animation:traveld 2.4s cubic-bezier(.2,.8,.2,1) infinite}}}
-@keyframes traveld{0%{top:0;opacity:0}15%{opacity:1}85%{opacity:1}100%{top:calc(100% - 8px);opacity:0}}
-/* inside */
-.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.card{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:22px;display:grid;gap:10px;min-width:0;transition:transform .2s cubic-bezier(.2,.8,.2,1),border-color .2s}
-.card:hover{transform:translateY(-3px);border-color:rgba(229,196,119,.5)}
-.card ul{margin:0;padding-left:18px;color:var(--muted);display:grid;gap:6px;font-size:14.5px}.card li b{color:var(--fg);font-weight:600}
-.cmd{font:500 12.5px/1.5 var(--mono);color:var(--teal);background:rgba(112,202,186,.08);border-radius:8px;padding:8px 10px;overflow-x:auto;white-space:nowrap}
-/* plans */
-.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;align-items:stretch}
-.plan{border:1px solid var(--line);border-radius:18px;background:var(--panel);padding:26px;display:grid;gap:14px;align-content:start;position:relative;min-width:0}
-.plan.hot{border-color:var(--pink);box-shadow:0 30px 90px rgba(0,0,0,.45)}
-.plan .tag{position:absolute;top:-12px;left:22px;background:var(--pink);color:var(--bg);font:600 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:7px 10px;border-radius:999px}
-.price{font:600 44px/1 var(--display);font-variant-numeric:tabular-nums}.price small{font:500 14px/1 var(--mono);color:var(--dim);margin-left:6px}
-.was{color:var(--dim);text-decoration:line-through;font:500 14px/1 var(--mono)}
-.plan ul{margin:0;padding-left:18px;color:var(--muted);display:grid;gap:7px;font-size:14.5px}.plan li b{color:var(--fg);font-weight:600}
-.fine{font:500 12px/1.5 var(--mono);color:var(--dim)}
-/* faq */
-details{border-top:1px solid var(--line);padding:14px 0}details:last-child{border-bottom:1px solid var(--line)}summary{cursor:pointer;font-weight:600;color:var(--fg);list-style:none;display:flex;justify-content:space-between;gap:12px}summary::after{content:"+";color:var(--gold);font:600 20px/1 var(--mono)}details[open] summary::after{content:"–"}details p{margin-top:10px;font-size:15px}
-footer{font:500 12px/1.5 var(--mono);color:var(--dim);border-top:1px solid var(--line);padding-top:18px}
-a:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-/* fit pass 2026-10-15: sizing at every width, touch targets, focus, motion (content/sh-shorts/PAGE_AUDIT_2026-10-15.md) */
-html{overflow-x:clip;-webkit-text-size-adjust:100%}body{overflow-x:clip;margin:0}
-img,video,svg,canvas{max-width:100%;height:auto}
-h1,h2,h3{overflow-wrap:break-word;min-width:0}h1 em{font-style:normal}
-.wrap>*,nav,nav .brand{min-width:0}nav .brand{flex:none}
-p,li{text-wrap:pretty}
-.btn,a.btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;text-align:center;line-height:1.15}
-nav .links a{display:inline-flex;align-items:center;min-height:44px;white-space:nowrap}
-summary{min-height:44px;align-items:center}
-a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
-@keyframes rise{from{transform:translateY(14px)}to{transform:none}}
-@media (max-width:560px){nav{flex-wrap:nowrap}nav .links{flex-wrap:nowrap;overflow-x:auto;gap:14px;min-width:0;scrollbar-width:none;margin-right:-18px;padding-right:18px}nav .links::-webkit-scrollbar{display:none}.row>.btn{flex:1 1 100%}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-h1{font-size:clamp(34px,3.2vw + 22px,62px);line-height:1.04}
-/* sh. v2 2026-10-15: tokens v2, brand/tools/apply_v2_pages.py; do not hand-edit */
-:root{--bg:var(--v-paper);--bg2:var(--v-sunken);--panel:var(--v-raised);--fg:var(--v-ink)}
-:root{--v-paper:#F7F6F1;--v-raised:#FFFFFF;--v-sunken:#EFEDE6;--v-ink:#1A1A17;--v-ink2:#2B2A26;
---v-g700:#55534C;--v-g500:#85827A;--v-g300:#C9C6BC;--v-g200:#DEDBD2;--v-line:#E3E0D7;
---v-green:#C6FF3D;--v-green-ink:#1E2A00;--v-green-deep:#86B800;
---v-display:"Funnel Display", "Funnel Sans", system-ui, sans-serif;--v-sans:"Funnel Sans", system-ui, -apple-system, "Segoe UI", sans-serif;--v-code:ui-monospace, "SF Mono", Menlo, monospace;--v-ease:cubic-bezier(0.2, 0, 0, 1);
---display:var(--v-display);--body:var(--v-sans);--mono:var(--v-sans);
---line:var(--v-line);--muted:var(--v-g700);--dim:var(--v-g700);--teal:var(--v-g700);--gold:var(--v-ink);--gold2:var(--v-ink);--pink:var(--v-ink);--amber:var(--v-g700);--warn:var(--v-g700);
---gold-ink:var(--v-paper);--pink-soft:transparent;color-scheme:light}
-body{font-family:var(--v-sans);font-feature-settings:"kern" 1;background:var(--v-paper);color:var(--v-ink)}
-h1,h2,h3{font-family:var(--v-display);color:var(--v-ink)}
-h1{font-weight:780;line-height:1.02;letter-spacing:-.02em}
-h2{font-weight:700;letter-spacing:-.01em;line-height:1.12}
-h3{font-weight:700;letter-spacing:-.01em}
-h1 em{font-style:normal;font-weight:300;color:inherit}
-h1 .sh{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:inherit;-webkit-text-fill-color:currentColor;animation:none}
-p{color:var(--v-g700)}.lede{color:var(--v-ink)}li b,.tier li b,.plan li b,.card li b{color:var(--v-ink)}
-a{color:var(--v-ink);text-decoration-thickness:1px;text-underline-offset:.3em}a:hover{text-decoration-color:var(--v-green);text-decoration-thickness:2px}
-a:focus-visible,summary:focus-visible,.btn:focus-visible{outline:2px solid var(--v-ink);outline-offset:2px}
-.num,.price,.n,time,.r em,.clip b{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
-/* labels: 12px uppercase, grey_700 */
-.k,.who,.tier .who,.q,.ml,.st b,.node b,.clip b,.fact b,.flow b,.step b,.tl-head,.pipe-head,.card .meta,.card .meta .line,.card.kit .meta .line{font:600 12px/1.3 var(--v-sans);letter-spacing:.06em;text-transform:uppercase;color:var(--v-g700)}
-footer,.fine,.card .fine,.biz .fine,.note,.proofline,.tile .l,.ship time,.r span,.ticker,.price small,.card .price small,.biz .price small,.was,.card .was{font-family:var(--v-sans);color:var(--v-g700)}
-footer{font-size:13px}footer a{color:var(--v-ink);display:inline-block;padding-block:13px}
-.cmd{font-family:var(--v-code);color:var(--v-ink);background:var(--v-sunken);border-radius:4px}
-.price,.card .price,.biz .price,.tile .n{font-family:var(--v-display);font-weight:700;color:var(--v-ink)}
-/* nav: 56px, paper, wordmark left */
-nav{background:var(--v-paper);backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid var(--v-line)}
-nav .brand{font:800 22px/1 var(--v-display);letter-spacing:-.03em;color:var(--v-ink);text-decoration:none}nav .brand .dot{font:inherit;margin:0;letter-spacing:inherit;color:var(--v-green)}
-nav .brand span:not(.dot){font:500 22px/1 var(--v-sans);letter-spacing:0;text-transform:none;color:var(--v-ink);margin-left:.42em}
-nav a,nav .links a{color:var(--v-g700);font-weight:500}nav a:hover,nav .links a:hover{color:var(--v-ink)}
-/* buttons: 8px, ink primary, paper secondary, green signature once per view */
-.btn,a.btn{border-radius:8px;min-height:48px;padding:0 20px;font:500 16px/1.15 var(--v-sans);background:var(--v-ink);color:var(--v-paper);border:1px solid var(--v-ink);box-shadow:none;transform:none;transition:background 160ms var(--v-ease),border-color 160ms var(--v-ease)}
-.btn:hover,a.btn:hover{background:#000;transform:none;box-shadow:none;text-decoration:none}.btn:active{transform:translateY(1px)}
-.btn.pink,a.btn.pink{background:var(--v-ink);color:var(--v-paper);border-color:var(--v-ink)}
-.btn.ghost,a.btn.ghost{background:var(--v-raised);color:var(--v-ink);border:1px solid var(--v-line)}.btn.ghost:hover,a.btn.ghost:hover{background:var(--v-raised);border-color:var(--v-ink2)}
-/* surfaces: paper_raised, 1px line, radius 8, no lift, no shadow, no gradient */
-.card,.tier,.plan,.tile,.st,.node,.fact,.step,.biz,.flow li,.tl,.pipe,.chart,.clip,.cta,.proof .tile{border-radius:8px;background:var(--v-raised);border:1px solid var(--v-line);box-shadow:none;transform:none}
-.card:hover,.tier:hover,.tier.shorts:hover,.tier.kit:hover,.tier.auto:hover,.plan:hover{transform:none;border-color:var(--v-ink2)}
-.card.pink,.card.teal,.card.first,.plan.hot,.tile.pink,.st.human,.biz,.cta{border-color:var(--v-ink);box-shadow:none}
-.tile.pink .n,.st.human b{color:var(--v-ink)}
-.tag,.tier .tag,.plan .tag,.card .tag{border-radius:4px;background:var(--v-ink);color:var(--v-paper);font:600 12px/1 var(--v-sans);letter-spacing:.06em;padding:6px 8px}
-.anchor{border-radius:4px;background:var(--v-raised);border:1px solid var(--v-line);font:500 13px/1 var(--v-sans);letter-spacing:0;color:var(--v-ink)}.anchor b{color:var(--v-ink)}
-.step::before,.step i{border-radius:8px;background:var(--v-ink);color:var(--v-paper);font-family:var(--v-sans)}
-.rules{border-left:2px solid var(--v-ink)}.pol{border-left:2px solid var(--v-ink)}
-.ship a{color:var(--v-ink);text-decoration:underline;font-family:var(--v-sans)}
-summary{color:var(--v-ink)}summary::after{color:var(--v-ink);font-family:var(--v-sans)}
-details{border-color:var(--v-line)}
-/* illustrations: ink on paper */
-.track{border-radius:4px;background:repeating-linear-gradient(90deg,var(--v-g200) 0 2px,transparent 2px 9px)}
-.cut{border-radius:4px;border:2px solid var(--v-ink);background:rgba(26,26,23,.06)}
-.link{background:var(--v-g300)}.link::after{background:var(--v-ink);box-shadow:none;animation:none;border-radius:2px}
-.bar{border-radius:2px;background:var(--v-g300)}.bar.gold{background:var(--v-ink)}.bar.pink{background:var(--v-green-deep)}
-.st::after{color:var(--v-g500)}
-/* motion: fade up 8px over 220ms, one easing */
-@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media (prefers-reduced-motion:no-preference){.rise{animation-duration:220ms;animation-timing-function:var(--v-ease)}}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
-.plan.hot .btn.pink,a.plan.hot .btn.pink{background:var(--v-green);color:var(--v-green-ink)!important;border:1px solid var(--v-green);font-weight:600;border-radius:8px;padding-inline:16px}
-.plan.hot .btn.pink:hover,a.plan.hot .btn.pink:hover{background:#B8F22A;border-color:#B8F22A;color:var(--v-green-ink)}
-/* end sh. v2 */
-</style>
-
+<link rel="stylesheet" href="/assets/site.css?v=0.3.0-1792112190">
+<script>document.documentElement.classList.add('js');try{if(localStorage.getItem('sh-mode')==='simple')document.documentElement.dataset.mode='simple'}catch(e){}</script>
 </head>
 <body>
-<div class="wrap">
-  <nav class="rise">
-    <div class="brand">sh<span class="dot">.</span></div>
-    <div class="links"><a href="#inside">What's inside</a><a href="#plans">Plans</a><a href="#faq">FAQ</a><a href="https://discord.gg/aVfPyskQbd">Discord</a></div>
-  </nav>
-
-  <header>
-    <div class="k rise">SH Workflows · v0.1</div>
-    <h1 class="rise d1">The <span class="sh">automated clip studio</span> one person runs from a Mac. One setup file. Updated every week.</h1>
-    <p class="lede rise d2">Run <code style="font:500 .9em var(--mono);color:var(--teal)">./setup.sh</code> once. Then one command finds founder podcasts worth pitching, emails them with their real numbers, and turns an episode into finished vertical clips. Members get every improvement the week SH ships it, with the build log of the company it runs. The same files that sent 13 pitches and cut 9 client-ready clips in one evening.</p>
-    <div class="row rise d3"><a class="btn pink" href="#plans">Join for $19 a month</a><a class="btn ghost" href="#inside">What's inside</a></div>
-  </header>
-
-  <section class="pipe rise d4" aria-label="How an episode becomes clips">
-    <div class="pipe-head"><span>LIVE PIPELINE · one episode</span><span>81 min in · 3 clips out · 84 s of machine time</span></div>
-    <div class="lane">
-      <div class="node"><b>INGEST</b><span>Episode link in</span><small>download + word-level transcript, ~5 min</small></div>
-      <div class="link l1" aria-hidden="true"></div>
-      <div class="node"><b>PICK</b><span>You choose 3 to 8 moments</span><small>a 12-line JSON file: start, length, hook, caption</small></div>
-      <div class="link l2" aria-hidden="true"></div>
-      <div class="node"><b>RENDER</b><span>Clips, captions, notes</span><small>speaker crop · word highlight · −14 LUFS · under 9 MB</small></div>
-    </div>
-    <div class="ticker">14 Oct 2026 · packs/startup-dad · 01-satisfied-founder.mp4 40.1 s 8.7 MB −14.8 LUFS · 02 46.0 s · 03 30.5 s · clips.md written</div>
-  </section>
-
-  <section id="inside">
-    <div class="k">What's inside</div>
-    <h2>Three workflows. Each one did real work this week.</h2>
-    <div class="grid3">
-      <div class="card"><h3>Clip engine</h3><p>Episode in, clip pack out. You pick the moments; it does everything else.</p>
-        <ul><li><b>Speaker crop</b> for single and two-up layouts</li><li><b>Word-highlight captions</b> in your show's colour</li><li><b>Hook card, CTA plate, loudness, size limits</b></li><li><b>Notes file</b> with a post caption per clip</li><li><b>48-hour runbook</b> from "yes" to delivered</li></ul>
-        <div class="cmd">./sh ingest &lt;url&gt; packs/show · ./sh render packs/show --crop 0.5 --accent "#ff6fae"</div></div>
-      <div class="card"><h3>Lead finder</h3><p>Hundreds of podcast feeds in, a short list of shows with a real Shorts gap out, with their public contact email.</p>
-        <ul><li><b>Feed-first</b>: active shows with a contact address</li><li><b>Verified YouTube match</b>, no guessing</li><li><b>Shorts views vs episode views</b>, read that day</li><li><b>GAP rows</b> are the only ones you pitch</li></ul>
-        <div class="cmd">./sh leads "founder podcast" "bootstrapped saas"</div></div>
-      <div class="card"><h3>Outreach pipeline</h3><p>One SQLite file and six commands. No CRM, no tabs.</p>
-        <ul><li><b>add · sent · replied · yes · no · paid</b></li><li><b>Follow-ups</b> due on day 3, with the line to paste</li><li><b>The note template</b> that went out 11 times</li><li><b>Rule built in</b>: every number verified, none invented</li></ul>
-        <div class="cmd">./sh pipeline sent "Startup Dad" · ./sh pipeline followups</div></div>
-    </div>
-  </section>
-
-  <section id="plans">
-    <div class="k">Plans</div>
-    <h2>Stay on the build, or buy today's version once.</h2>
-    <div class="plans">
-      <div class="plan hot"><div class="tag">Flagship</div><h3>SH Workflows membership</h3><div><span class="price">$19<small>/ month</small></span></div>
-        <p>The workflow, the setup file, every update the week it ships, and the open build log of the company that runs on it.</p>
-        <ul><li><b>Every new version</b> the day it's used for real</li><li><b>Weekly build log</b>: what shipped, what broke, what it cost</li><li><b>sh. lab Discord</b> with the people running their own</li><li><b>Your questions answered</b> in the lab, in order</li><li><b>Cancel any time</b>; keep the kit you have</li></ul>
-        <a class="btn pink" href="https://clutchcut.gumroad.com/l/sh-workflows-membership">Join for $19/mo</a><div class="fine">Billed monthly. The first 25 memberships keep $19 for as long as they stay.</div></div>
-      <div class="plan"><h3>Kit</h3><div><span class="was">$79</span> <span class="price">$49<small>once</small></span></div>
-        <p>Launch price on the first 25 copies. Everything above, today's version, yours to run and modify.</p>
-        <ul><li><b>Clip engine, lead finder, pipeline</b></li><li><b>One setup file</b> (<code style="font:500 .9em var(--mono)">./setup.sh</code>) and one command (<code style="font:500 .9em var(--mono)">./sh</code>)</li><li><b>Runbook + note template</b></li><li><b>Licence</b> for your own client work</li></ul>
-        <a class="btn ghost" href="https://clutchcut.gumroad.com/l/sh-workflows-kit">Buy the kit</a><div class="fine">macOS · Python 3.9+ · ~1 GB disk for the speech model</div></div>
-      <div class="plan"><h3>Done for you</h3><div><span class="price">$149<small>/ episode</small></span></div>
-        <p>Skip the kit. Send an episode, get 8 captioned clips in 48 hours with a hook line and caption each. First 3 shows at $99. Weekly shows: Monthly is 4 episodes for $399, one in the queue at a time, pause any time.</p>
-        <ul><li><b>3 free clips</b> from your latest episode to start</li><li><b>One round of changes</b></li><li><b>Private folder delivery</b></li></ul>
-        <a class="btn ghost" href="mailto:stevenhainley@gmail.com?subject=3%20free%20clips">Email an episode link</a><div class="fine">or write to stevenhainley@gmail.com</div></div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="k">Straight answers</div>
-    <h2>Before you pay</h2>
-    <details open><summary>Is this the whole system SH runs on?</summary><p>No. SH also runs a private operations layer (task routing, a morning brief, health checks) that is welded to one Mac and not for sale. The kit is the part that touches customers: finding them, writing to them, delivering clips. It is the part that earned its keep this week.</p></details>
-    <details><summary>Does it pick the moments for me?</summary><p>No, and that is on purpose. The moment choice is the product you sell; the kit removes everything around it. The runbook tells you how to pick in ten minutes.</p></details>
-    <details><summary>Will this make me money?</summary><p>Nobody can promise that and this page won't. What's true: the kit cut the cost of a clip pack to under a dollar of compute and about thirty minutes of your time, and found 23 pitchable shows in an evening. Whether they say yes depends on your notes and your clips.</p></details>
-    <details><summary>What do I need?</summary><p>A Mac, Homebrew, Python 3.9 or newer, about a gigabyte of disk for the speech model, and ten minutes: <code style="font:500 .9em var(--mono)">./setup.sh</code> installs the tools, fetches the model and self-checks. No accounts, no API keys. Windows and Linux are not supported in v0.1.</p></details>
-    <details><summary>Refunds?</summary><p>Fourteen days, no questions, through the store. Memberships cancel from your account at any time.</p></details>
-  </section>
-
-  <footer>SH Workflows is new. No client logos because there are none yet; the first buyers get the launch price and set the direction. A product by sh. industries · Created by Steven Hainley.</footer>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr"><div class="wrap hdr-in">
+  <a class="logo" href="/" aria-label="sh. industries home"><img src="/assets/marks/wordmark-box-paper.svg" alt="sh." height="34" width="65"><span aria-hidden="true">industries</span></a>
+  <nav class="switch" aria-label="Products"><a href="/shorts.html"><svg class="gl" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><rect class="k" x="1" y="0" width="1" height="1"/><rect class="k" x="2" y="0" width="1" height="1"/><rect class="k" x="3" y="0" width="1" height="1"/><rect class="k" x="4" y="0" width="1" height="1"/><rect class="k" x="5" y="0" width="1" height="1"/><rect class="k" x="6" y="0" width="1" height="1"/><rect class="k" x="1" y="1" width="1" height="1"/><rect class="k" x="2" y="1" width="1" height="1"/><rect class="k" x="4" y="1" width="1" height="1"/><rect class="k" x="5" y="1" width="1" height="1"/><rect class="k" x="6" y="1" width="1" height="1"/><rect class="k" x="1" y="2" width="1" height="1"/><rect class="k" x="2" y="2" width="1" height="1"/><rect class="k" x="5" y="2" width="1" height="1"/><rect class="k" x="6" y="2" width="1" height="1"/><rect class="k" x="1" y="3" width="1" height="1"/><rect class="k" x="2" y="3" width="1" height="1"/><rect class="k" x="6" y="3" width="1" height="1"/><rect class="k" x="1" y="4" width="1" height="1"/><rect class="k" x="2" y="4" width="1" height="1"/><rect class="k" x="5" y="4" width="1" height="1"/><rect class="k" x="6" y="4" width="1" height="1"/><rect class="k" x="1" y="5" width="1" height="1"/><rect class="k" x="2" y="5" width="1" height="1"/><rect class="k" x="4" y="5" width="1" height="1"/><rect class="k" x="5" y="5" width="1" height="1"/><rect class="k" x="6" y="5" width="1" height="1"/><rect class="k" x="1" y="6" width="1" height="1"/><rect class="k" x="2" y="6" width="1" height="1"/><rect class="k" x="3" y="6" width="1" height="1"/><rect class="k" x="4" y="6" width="1" height="1"/><rect class="k" x="5" y="6" width="1" height="1"/><rect class="k" x="6" y="6" width="1" height="1"/><rect class="k" x="1" y="7" width="1" height="1"/><rect class="k" x="2" y="7" width="1" height="1"/><rect class="k" x="3" y="7" width="1" height="1"/><rect class="k" x="4" y="7" width="1" height="1"/><rect class="g" x="5" y="7" width="1" height="1"/><rect class="k" x="6" y="7" width="1" height="1"/></svg>Shorts</a><a href="/workflows.html" aria-current="page"><svg class="gl" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><rect class="k" x="0" y="0" width="1" height="1"/><rect class="k" x="1" y="0" width="1" height="1"/><rect class="k" x="6" y="0" width="1" height="1"/><rect class="k" x="7" y="0" width="1" height="1"/><rect class="k" x="0" y="1" width="1" height="1"/><rect class="k" x="1" y="1" width="1" height="1"/><rect class="k" x="6" y="1" width="1" height="1"/><rect class="k" x="7" y="1" width="1" height="1"/><rect class="k" x="1" y="2" width="1" height="1"/><rect class="k" x="6" y="2" width="1" height="1"/><rect class="k" x="1" y="3" width="1" height="1"/><rect class="k" x="2" y="3" width="1" height="1"/><rect class="k" x="3" y="3" width="1" height="1"/><rect class="k" x="4" y="3" width="1" height="1"/><rect class="k" x="5" y="3" width="1" height="1"/><rect class="k" x="6" y="3" width="1" height="1"/><rect class="k" x="4" y="4" width="1" height="1"/><rect class="k" x="3" y="5" width="1" height="1"/><rect class="k" x="4" y="5" width="1" height="1"/><rect class="k" x="5" y="5" width="1" height="1"/><rect class="k" x="3" y="6" width="1" height="1"/><rect class="g" x="4" y="6" width="1" height="1"/><rect class="k" x="5" y="6" width="1" height="1"/><rect class="k" x="3" y="7" width="1" height="1"/><rect class="k" x="4" y="7" width="1" height="1"/><rect class="k" x="5" y="7" width="1" height="1"/></svg>Workflows</a><a href="/setup.html"><svg class="gl" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><rect class="k" x="2" y="0" width="1" height="1"/><rect class="k" x="3" y="0" width="1" height="1"/><rect class="k" x="4" y="0" width="1" height="1"/><rect class="k" x="5" y="0" width="1" height="1"/><rect class="k" x="1" y="1" width="1" height="1"/><rect class="k" x="2" y="1" width="1" height="1"/><rect class="k" x="3" y="1" width="1" height="1"/><rect class="k" x="4" y="1" width="1" height="1"/><rect class="k" x="5" y="1" width="1" height="1"/><rect class="k" x="6" y="1" width="1" height="1"/><rect class="k" x="0" y="2" width="1" height="1"/><rect class="k" x="1" y="2" width="1" height="1"/><rect class="k" x="2" y="2" width="1" height="1"/><rect class="g" x="3" y="2" width="1" height="1"/><rect class="k" x="4" y="2" width="1" height="1"/><rect class="k" x="5" y="2" width="1" height="1"/><rect class="k" x="6" y="2" width="1" height="1"/><rect class="k" x="7" y="2" width="1" height="1"/><rect class="k" x="0" y="3" width="1" height="1"/><rect class="k" x="1" y="3" width="1" height="1"/><rect class="k" x="2" y="3" width="1" height="1"/><rect class="k" x="3" y="3" width="1" height="1"/><rect class="k" x="4" y="3" width="1" height="1"/><rect class="k" x="5" y="3" width="1" height="1"/><rect class="k" x="6" y="3" width="1" height="1"/><rect class="k" x="7" y="3" width="1" height="1"/><rect class="k" x="1" y="4" width="1" height="1"/><rect class="k" x="2" y="4" width="1" height="1"/><rect class="k" x="3" y="4" width="1" height="1"/><rect class="k" x="4" y="4" width="1" height="1"/><rect class="k" x="5" y="4" width="1" height="1"/><rect class="k" x="6" y="4" width="1" height="1"/><rect class="k" x="2" y="5" width="1" height="1"/><rect class="k" x="3" y="5" width="1" height="1"/><rect class="k" x="4" y="5" width="1" height="1"/><rect class="k" x="5" y="5" width="1" height="1"/><rect class="k" x="3" y="6" width="1" height="1"/><rect class="k" x="4" y="6" width="1" height="1"/><rect class="k" x="3" y="7" width="1" height="1"/><rect class="k" x="4" y="7" width="1" height="1"/></svg>Setup</a><a href="/hq.html"><svg class="gl" viewBox="0 0 8 8" shape-rendering="crispEdges" aria-hidden="true"><rect class="k" x="0" y="0" width="1" height="1"/><rect class="k" x="1" y="0" width="1" height="1"/><rect class="k" x="2" y="0" width="1" height="1"/><rect class="k" x="3" y="0" width="1" height="1"/><rect class="k" x="4" y="0" width="1" height="1"/><rect class="k" x="5" y="0" width="1" height="1"/><rect class="k" x="6" y="0" width="1" height="1"/><rect class="k" x="7" y="0" width="1" height="1"/><rect class="k" x="0" y="1" width="1" height="1"/><rect class="g" x="5" y="1" width="1" height="1"/><rect class="k" x="7" y="1" width="1" height="1"/><rect class="k" x="0" y="2" width="1" height="1"/><rect class="k" x="5" y="2" width="1" height="1"/><rect class="k" x="7" y="2" width="1" height="1"/><rect class="k" x="0" y="3" width="1" height="1"/><rect class="k" x="3" y="3" width="1" height="1"/><rect class="k" x="5" y="3" width="1" height="1"/><rect class="k" x="7" y="3" width="1" height="1"/><rect class="k" x="0" y="4" width="1" height="1"/><rect class="k" x="2" y="4" width="1" height="1"/><rect class="k" x="3" y="4" width="1" height="1"/><rect class="k" x="5" y="4" width="1" height="1"/><rect class="k" x="7" y="4" width="1" height="1"/><rect class="k" x="0" y="5" width="1" height="1"/><rect class="k" x="1" y="5" width="1" height="1"/><rect class="k" x="2" y="5" width="1" height="1"/><rect class="k" x="3" y="5" width="1" height="1"/><rect class="k" x="4" y="5" width="1" height="1"/><rect class="k" x="5" y="5" width="1" height="1"/><rect class="k" x="6" y="5" width="1" height="1"/><rect class="k" x="7" y="5" width="1" height="1"/><rect class="k" x="3" y="6" width="1" height="1"/><rect class="k" x="4" y="6" width="1" height="1"/><rect class="k" x="1" y="7" width="1" height="1"/><rect class="k" x="2" y="7" width="1" height="1"/><rect class="k" x="3" y="7" width="1" height="1"/><rect class="k" x="4" y="7" width="1" height="1"/><rect class="k" x="5" y="7" width="1" height="1"/><rect class="k" x="6" y="7" width="1" height="1"/></svg>HQ<span class="soon">soon</span></a></nav>
+  <div class="hdr-end">
+    <button class="simple" type="button" role="switch" aria-checked="false" data-simple title="Plain, large-type version of the site"><span class="simple-track" aria-hidden="true"><span class="simple-knob"></span></span><span class="simple-lbl">Simple</span></button>
+    <button class="btn btn-line btn-sm menu-btn" type="button" aria-expanded="false" aria-controls="menu"><span class="lg">Products</span><span class="sm">Menu</span></button>
+    <a class="btn btn-ink btn-sm hdr-cta" href="mailto:stevenhainley@gmail.com?subject=Episode%20link">Send an episode</a>
+  </div>
 </div>
+<div class="menu" id="menu" hidden><div class="menu-scrim" data-close></div>
+  <div class="menu-panel" role="dialog" aria-label="Products and pages" tabindex="-1">
+    <p class="label">Products</p><ul class="menu-products"><li><a href="/shorts.html"><img class="mark" src="/assets/marks/mark-shorts-paper.svg" alt="SH Shorts mark" width="190" height="80"><span><b>SH Shorts</b><span>Done-for-you clips · from $99</span></span></a></li><li><a href="/workflows.html" aria-current="page"><img class="mark" src="/assets/marks/mark-workflows-paper.svg" alt="SH Workflows mark" width="190" height="80"><span><b>SH Workflows</b><span>The kit + membership · from $19/mo</span></span></a></li><li><a href="/setup.html"><img class="mark" src="/assets/marks/mark-setup-paper.svg" alt="On-site setup mark" width="190" height="80"><span><b>On-site setup</b><span>We install it for you · from $900</span></span></a></li><li><a href="/hq.html"><img class="mark" src="/assets/marks/mark-hq-paper.svg" alt="sh. HQ mark" width="190" height="80"><span><b>sh. HQ</b><span>The cockpit · coming</span></span></a></li></ul>
+    <ul class="menu-links"><li><a href="/store.html">All plans</a></li><li><a href="/#story">Story</a></li><li><a href="/how-it-works.html">How it works</a></li><li><a href="https://discord.gg/aVfPyskQbd">Discord</a></li></ul>
+    <a class="btn btn-ink" href="mailto:stevenhainley@gmail.com?subject=Episode%20link">Send an episode</a>
+  </div></div>
+</header>
+<main id="main" tabindex="-1">
+
+<div class="wrap pp">
+  <div class="pp-gallery deco fold" data-gallery><div class="gallery-main"><div class="gpanel on" role="tabpanel" id="g-0" aria-labelledby="t-0"><div class="room"><div class="term"><p class="c"># clip engine · one episode</p><p><span class="p">$</span> ./sh ingest &lt;episode-url&gt; packs/show</p><p class="c">download + word-level transcript, ~5 min</p>
+      <p><span class="p">$</span> ./sh render packs/show --crop 0.5</p><p class="c">speaker crop · word-highlight captions · −14 LUFS · under 9 MB</p>
+      <div class="row"><span>01-clip.mp4</span><span>40.1 s · 8.7 MB</span></div><div class="row"><span>02-clip.mp4</span><span>46.0 s</span></div><div class="row"><span>03-clip.mp4</span><span>30.5 s</span></div>
+      <p class="c" style="margin-top:12px"># 81 min in · 3 clips out · 84 s of machine time</p></div></div></div><div class="gpanel" role="tabpanel" id="g-1" aria-labelledby="t-1"><div class="room"><div class="term"><p class="c"># lead finder</p><p><span class="p">$</span> ./sh leads "founder podcast" "bootstrapped saas"</p>
+      <p class="c">feed-first: active shows with a contact address</p><p class="c">verified YouTube match, no guessing</p><p class="c">Shorts views vs episode views, read that day</p>
+      <div class="row"><span>GAP</span><span>the only rows you pitch</span></div><div class="row"><span>ok</span><span>Shorts already working, skip</span></div>
+      <p class="c" style="margin-top:12px"># 23 pitchable shows found in one evening</p></div></div></div><div class="gpanel" role="tabpanel" id="g-2" aria-labelledby="t-2"><div class="room"><div class="term"><p class="c"># outreach pipeline · one SQLite file, six commands</p>
+      <p><span class="p">$</span> ./sh pipeline add · sent · replied · yes · no · paid</p><p><span class="p">$</span> ./sh pipeline followups</p>
+      <p class="c">follow-ups due on day 3, with the line to paste</p><p class="c">rule built in: every number verified, none invented</p>
+      <p class="c" style="margin-top:12px"># no CRM, no tabs</p></div></div></div></div><div class="thumbs" role="tablist" aria-label="SH Workflows gallery"><button class="thumb" role="tab" type="button" id="t-0" aria-controls="g-0" aria-selected="true">Clip engine</button><button class="thumb" role="tab" type="button" id="t-1" aria-controls="g-1" aria-selected="false" tabindex="-1">Lead finder</button><button class="thumb" role="tab" type="button" id="t-2" aria-controls="g-2" aria-selected="false" tabindex="-1">Pipeline</button></div></div>
+  <div class="pp-buy buy">
+    <p class="crumb"><img class="mark" src="/assets/marks/mark-workflows-paper.svg" alt="SH Workflows mark" width="190" height="80"><span>sh. HQ</span></p>
+    <h1>SH Workflows</h1>
+    <p class="lede">The clip studio one person runs from a Mac. One setup file, one command, updated every week.</p>
+    <form data-plans onsubmit="return false"><fieldset class="plans"><legend class="label">Choose a plan</legend><label><input type="radio" name="plan" value="member" checked><span class="pl"><b>Membership</b><small>$19/mo</small></span></label><label><input type="radio" name="plan" value="kit"><span class="pl"><b>The Kit v0.1</b><small>$49 once</small></span></label></fieldset></form>
+    <div class="plan" data-plan="member">
+      <div class="price"><b>$19</b><span>per month</span></div>
+      <p>The kit, every new version the week it's used on real work, the weekly build log and the sh. lab Discord.</p><ul><li>Every new version the day it ships</li><li>Weekly build log: what shipped, what broke, what it cost</li><li>Cancel any time; keep what you downloaded</li></ul>
+      <a class="btn btn-sig" href="https://clutchcut.gumroad.com/l/sh-workflows-membership">Join for $19 a month <span class="arr" aria-hidden="true">→</span></a><span class="alt muted">The first 25 memberships keep $19 for as long as they stay.</span></div><div class="plan" data-plan="kit" hidden>
+      <div class="price"><s>$79</s><b>$49</b><span>once · launch price, first 25 copies</span></div>
+      <p>Today's version of the clip engine, lead finder and outreach pipeline, yours to run and modify for your own client work.</p><ul><li>One setup file (./setup.sh) and one command (./sh)</li><li>Runbook and the note template</li><li>14-day refund through Gumroad</li></ul>
+      <a class="btn btn-ink" href="https://clutchcut.gumroad.com/l/sh-workflows-kit/LAUNCH49">Buy the kit · $49 <span class="arr" aria-hidden="true">→</span></a></div>
+    <p class="terms">Payment by Stripe or Gumroad. Questions: <a href="mailto:stevenhainley@gmail.com">stevenhainley@gmail.com</a>. Terms on the <a href="/refunds.html">refund policy</a>.</p>
+  </div>
+</div>
+<section class="sec sec-line" aria-labelledby="inside-h"><div class="wrap"><div class="sec-head" data-reveal><div><p class="label">What's inside</p><h2 class="h2" id="inside-h">Three workflows. Each one did real work this week.</h2></div></div><div class="benefits" data-reveal style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+      <div class="benefit"><span class="pill">Clip engine</span><h3 class="h4">Episode in, clip pack out</h3><p>You pick the moments; it does the rest: speaker crop, word-highlight captions, hook card, loudness, size limits and a notes file.</p></div>
+      <div class="benefit"><span class="pill">Lead finder</span><h3 class="h4">Feeds in, a short list out</h3><p>Hundreds of podcast feeds in, the shows with a real Shorts gap out, with their public contact email.</p></div>
+      <div class="benefit"><span class="pill">Pipeline</span><h3 class="h4">Six commands, no CRM</h3><p>Add, sent, replied, yes, no, paid. Follow-ups come due on day 3 with the line to paste.</p></div></div></div></section><section class="sec sec-line" aria-labelledby="plans-h"><div class="wrap"><div class="sec-head" data-reveal><div><p class="label">Plans</p><h2 class="h2" id="plans-h">Stay on the build, or buy today's version once.</h2></div></div><table class="ptable"><thead><tr><th scope="col">Plan</th><th scope="col">What you get</th><th scope="col">Billing</th><th scope="col">Price</th><th scope="col"><span class="sr">Buy</span></th></tr></thead><tbody><tr><th scope="row">Membership</th><td data-l="What you get">Kit + every update + build log + Discord</td><td data-l="Billing">Monthly</td><td data-l="Price" class="num">$19 / mo</td><td class="go"><a class="btn btn-ink btn-sm" href="https://clutchcut.gumroad.com/l/sh-workflows-membership">Join</a></td></tr><tr><th scope="row">The Kit v0.1</th><td data-l="What you get">Today's version, yours to run and modify</td><td data-l="Billing">Once</td><td data-l="Price" class="num">$49 <small class="muted">(was $79)</small></td><td class="go"><a class="btn btn-ink btn-sm" href="https://clutchcut.gumroad.com/l/sh-workflows-kit/LAUNCH49">Buy</a></td></tr><tr><th scope="row">Done for you</th><td data-l="What you get">Skip the kit: SH Shorts cuts the clips</td><td data-l="Billing">Per episode</td><td data-l="Price" class="num">$149</td><td class="go"><a class="btn btn-line btn-sm" href="/shorts.html">See</a></td></tr></tbody></table></div></section><section class="sec sec-line" aria-label="Details"><div class="wrap" style="max-width:900px"><div class="xs"><details class="x" open><summary>Story</summary><div class="x-body"><p>These are the files the studio runs on: the same ones that sent 13 pitches and cut 9 client-ready clips in one evening. The kit is the part that touches customers: finding them, writing to them, delivering clips.</p></div></details><details class="x"><summary>What you need</summary><div class="x-body"><p>A Mac, Homebrew, Python 3.9 or newer, about a gigabyte of disk for the speech model, and ten minutes: ./setup.sh installs the tools, fetches the model and checks itself. No accounts, no API keys. Windows and Linux are not supported in v0.1.</p></div></details><details class="x"><summary>Refunds</summary><div class="x-body"><ul><li><strong>Kit:</strong> full refund within 14 days through Gumroad, no questions.</li><li><strong>Membership:</strong> first month refundable within 14 days; cancel from your Gumroad account any time after.</li></ul></div></details><details class="x"><summary>Questions</summary><div class="x-body"><dl><dt>Is this the whole system SH runs on?</dt><dd>No. SH also runs a private operations layer (task routing, a morning brief, health checks) that is tied to one Mac and not for sale. That layer is <a href="/hq.html">sh. HQ</a>.</dd><dt>Does it pick the moments for me?</dt><dd>No, on purpose. The moment choice is the product you sell; the kit removes everything around it. The runbook shows how to pick in ten minutes.</dd><dt>Will this make me money?</dt><dd>Nobody can promise that. The kit cut the cost of a clip pack to under a dollar of compute and about thirty minutes of your time; whether shows say yes depends on your notes and your clips.</dd></dl></div></details></div></div></section><section class="sec sec-line" aria-labelledby="more-h"><div class="wrap"><div class="sec-head"><div><p class="label">Also from sh. industries</p><h2 class="h2" id="more-h">The rest of the shop.</h2></div></div><div class="xsell" data-reveal><a class="pcard" href="/shorts.html"><img class="mark" src="/assets/marks/mark-shorts-paper.svg" alt="SH Shorts mark" width="190" height="80"><h3 class="h4">SH Shorts</h3><p>Done-for-you clips · from $99</p><span class="more">See SH Shorts <span class="arr" aria-hidden="true">→</span></span></a><a class="pcard" href="/setup.html"><img class="mark" src="/assets/marks/mark-setup-paper.svg" alt="On-site setup mark" width="190" height="80"><h3 class="h4">On-site setup</h3><p>We install it for you · from $900</p><span class="more">See On-site setup <span class="arr" aria-hidden="true">→</span></span></a><a class="pcard" href="/hq.html"><img class="mark" src="/assets/marks/mark-hq-paper.svg" alt="sh. HQ mark" width="190" height="80"><h3 class="h4">sh. HQ</h3><p>The cockpit · coming</p><span class="more">See sh. HQ <span class="arr" aria-hidden="true">→</span></span></a></div></div></section>
+</main>
+<section class="built" aria-labelledby="built-h"><div class="wrap built-in">
+  <div class="built-head"><h2 class="label" id="built-h">Built by the system</h2><span class="vchip">v0.3.0</span>
+    <p><span class="live-dot" aria-hidden="true"></span>Last shipped <time datetime="2026-10-15T20:56:30-0400">15 Oct 2026, 20:56 EDT</time>. This site is built and deployed by the same system that cuts the clips.</p></div>
+  <ol aria-label="Latest releases"><li><span class="v">v0.3.0 · 15 Oct 2026</span><b>Payments live, brand set</b></li><li><span class="v">v0.2.0 · 14 Oct 2026</span><b>Audit + first outreach</b></li><li><span class="v">v0.1.0 · 13 Oct 2026</span><b>System overhaul</b></li></ol>
+</div></section>
+<footer class="ftr"><div class="wrap">
+  <div class="ftr-grid">
+    <div class="ftr-brand"><a class="logo" href="/" aria-label="sh. industries home"><img src="/assets/marks/wordmark-box-paper.svg" alt="sh." height="44" width="84"><span aria-hidden="true">industries</span></a>
+      <p>A one-person studio that sells clips, the scripts behind them, and setups for small businesses. Taste, shipped.</p>
+      <ul class="divs" aria-label="Divisions">
+        <li><span class="lk"><img src="/assets/marks/wordmark-box-paper.svg" alt="sh." height="22" width="42">Studio</span><small>SH Shorts · On-site setup</small></li>
+        <li><span class="lk"><img src="/assets/marks/wordmark-box-paper.svg" alt="sh." height="22" width="42">HQ</span><small>SH Workflows · sh. HQ</small></li>
+        <li><span class="lk"><img src="/assets/marks/wordmark-box-paper.svg" alt="sh." height="22" width="42">Lab</span><small>Discord · build log</small></li>
+      </ul></div>
+    <div><h2>Shop</h2><ul><li><a href="/shorts.html">SH Shorts</a></li><li><a href="/workflows.html">SH Workflows</a></li><li><a href="/setup.html">On-site setup</a></li><li><a href="/hq.html">sh. HQ</a></li><li><a href="/store.html">All plans</a></li></ul></div>
+    <div><h2>Company</h2><ul><li><a href="/#story">Story</a></li><li><a href="/how-it-works.html">How it works</a></li><li><a href="/design-system.html">Design system</a></li><li><a href="https://discord.gg/aVfPyskQbd">Discord</a></li><li><a href="mailto:stevenhainley@gmail.com">stevenhainley@gmail.com</a></li></ul></div>
+    <div><h2>Legal</h2><ul><li><a href="/terms.html">Terms</a></li><li><a href="/privacy.html">Privacy</a></li><li><a href="/refunds.html">Refund policy</a></li><li><a href="/cookies.html">Cookie policy</a></li><li><button class="linkbtn" type="button" data-prefs>Manage cookies</button></li></ul></div>
+  </div>
+  <div class="ftr-end"><svg class="glim" viewBox="0 0 16 16" shape-rendering="crispEdges" role="img" aria-label="Glim, the sh. industries mascot"><rect x="7" y="1" width="1" height="1" fill="var(--green)"/><rect x="7" y="2" width="1" height="1" fill="currentColor"/><rect x="5" y="3" width="1" height="1" fill="currentColor"/><rect x="6" y="3" width="1" height="1" fill="currentColor"/><rect x="7" y="3" width="1" height="1" fill="currentColor"/><rect x="8" y="3" width="1" height="1" fill="currentColor"/><rect x="9" y="3" width="1" height="1" fill="currentColor"/><rect x="10" y="3" width="1" height="1" fill="currentColor"/><rect x="4" y="4" width="1" height="1" fill="currentColor"/><rect x="5" y="4" width="1" height="1" fill="currentColor"/><rect x="6" y="4" width="1" height="1" fill="currentColor"/><rect x="7" y="4" width="1" height="1" fill="currentColor"/><rect x="8" y="4" width="1" height="1" fill="currentColor"/><rect x="9" y="4" width="1" height="1" fill="currentColor"/><rect x="10" y="4" width="1" height="1" fill="currentColor"/><rect x="11" y="4" width="1" height="1" fill="currentColor"/><rect x="3" y="5" width="1" height="1" fill="currentColor"/><rect x="4" y="5" width="1" height="1" fill="currentColor"/><rect x="5" y="5" width="1" height="1" fill="currentColor"/><rect x="6" y="5" width="1" height="1" fill="currentColor"/><rect x="7" y="5" width="1" height="1" fill="currentColor"/><rect x="8" y="5" width="1" height="1" fill="currentColor"/><rect x="9" y="5" width="1" height="1" fill="currentColor"/><rect x="10" y="5" width="1" height="1" fill="currentColor"/><rect x="11" y="5" width="1" height="1" fill="currentColor"/><rect x="12" y="5" width="1" height="1" fill="currentColor"/><rect x="3" y="6" width="1" height="1" fill="currentColor"/><rect x="4" y="6" width="1" height="1" fill="var(--paper)"/><rect x="5" y="6" width="1" height="1" fill="var(--paper)"/><rect x="6" y="6" width="1" height="1" fill="currentColor"/><rect x="7" y="6" width="1" height="1" fill="currentColor"/><rect x="8" y="6" width="1" height="1" fill="currentColor"/><rect x="9" y="6" width="1" height="1" fill="currentColor"/><rect x="10" y="6" width="1" height="1" fill="var(--paper)"/><rect x="11" y="6" width="1" height="1" fill="var(--paper)"/><rect x="12" y="6" width="1" height="1" fill="currentColor"/><rect x="3" y="7" width="1" height="1" fill="currentColor"/><rect x="4" y="7" width="1" height="1" fill="var(--paper)"/><rect x="5" y="7" width="1" height="1" fill="currentColor"/><rect x="6" y="7" width="1" height="1" fill="currentColor"/><rect x="7" y="7" width="1" height="1" fill="currentColor"/><rect x="8" y="7" width="1" height="1" fill="currentColor"/><rect x="9" y="7" width="1" height="1" fill="currentColor"/><rect x="10" y="7" width="1" height="1" fill="var(--paper)"/><rect x="11" y="7" width="1" height="1" fill="currentColor"/><rect x="12" y="7" width="1" height="1" fill="currentColor"/><rect x="3" y="8" width="1" height="1" fill="currentColor"/><rect x="4" y="8" width="1" height="1" fill="currentColor"/><rect x="5" y="8" width="1" height="1" fill="currentColor"/><rect x="6" y="8" width="1" height="1" fill="currentColor"/><rect x="7" y="8" width="1" height="1" fill="currentColor"/><rect x="8" y="8" width="1" height="1" fill="currentColor"/><rect x="9" y="8" width="1" height="1" fill="currentColor"/><rect x="10" y="8" width="1" height="1" fill="currentColor"/><rect x="11" y="8" width="1" height="1" fill="currentColor"/><rect x="12" y="8" width="1" height="1" fill="currentColor"/><rect x="3" y="9" width="1" height="1" fill="currentColor"/><rect x="4" y="9" width="1" height="1" fill="currentColor"/><rect x="5" y="9" width="1" height="1" fill="currentColor"/><rect x="6" y="9" width="1" height="1" fill="currentColor"/><rect x="7" y="9" width="1" height="1" fill="var(--paper)"/><rect x="8" y="9" width="1" height="1" fill="var(--paper)"/><rect x="9" y="9" width="1" height="1" fill="currentColor"/><rect x="10" y="9" width="1" height="1" fill="currentColor"/><rect x="11" y="9" width="1" height="1" fill="currentColor"/><rect x="12" y="9" width="1" height="1" fill="currentColor"/><rect x="3" y="10" width="1" height="1" fill="currentColor"/><rect x="4" y="10" width="1" height="1" fill="currentColor"/><rect x="5" y="10" width="1" height="1" fill="currentColor"/><rect x="6" y="10" width="1" height="1" fill="currentColor"/><rect x="7" y="10" width="1" height="1" fill="currentColor"/><rect x="8" y="10" width="1" height="1" fill="currentColor"/><rect x="9" y="10" width="1" height="1" fill="currentColor"/><rect x="10" y="10" width="1" height="1" fill="currentColor"/><rect x="11" y="10" width="1" height="1" fill="currentColor"/><rect x="12" y="10" width="1" height="1" fill="currentColor"/><rect x="4" y="11" width="1" height="1" fill="currentColor"/><rect x="5" y="11" width="1" height="1" fill="currentColor"/><rect x="6" y="11" width="1" height="1" fill="currentColor"/><rect x="7" y="11" width="1" height="1" fill="currentColor"/><rect x="8" y="11" width="1" height="1" fill="currentColor"/><rect x="9" y="11" width="1" height="1" fill="currentColor"/><rect x="10" y="11" width="1" height="1" fill="currentColor"/><rect x="11" y="11" width="1" height="1" fill="currentColor"/><rect x="5" y="12" width="1" height="1" fill="currentColor"/><rect x="6" y="12" width="1" height="1" fill="currentColor"/><rect x="7" y="12" width="1" height="1" fill="currentColor"/><rect x="8" y="12" width="1" height="1" fill="currentColor"/><rect x="9" y="12" width="1" height="1" fill="currentColor"/><rect x="10" y="12" width="1" height="1" fill="currentColor"/><rect x="5" y="13" width="1" height="1" fill="currentColor"/><rect x="10" y="13" width="1" height="1" fill="currentColor"/><rect x="4" y="14" width="1" height="1" fill="currentColor"/><rect x="5" y="14" width="1" height="1" fill="currentColor"/><rect x="10" y="14" width="1" height="1" fill="currentColor"/><rect x="11" y="14" width="1" height="1" fill="currentColor"/></svg><span>That's the whole shop. Questions go to <a href="mailto:stevenhainley@gmail.com">stevenhainley@gmail.com</a>, answered within one business day.</span>
+    <span class="sp vchip">v0.3.0</span><span>sh. industries is a trade name · built by Steven Hainley</span></div>
+</div></footer>
+<dialog class="dlg" id="prefs" aria-labelledby="prefs-h"><h2 id="prefs-h">Cookies and stored settings</h2>
+  <p>This site sets no cookies and runs no analytics or ads. It keeps one setting in your browser's local storage: whether Simple mode is on.</p>
+  <p><strong>Stored now:</strong> <span data-stored>Nothing stored yet.</span></p>
+  <div class="cta-row"><button class="btn btn-ink btn-sm" type="button" data-clear>Clear stored settings</button><button class="btn btn-line btn-sm" type="button" data-dismiss>Close</button></div>
+  <p class="small" style="margin-top:16px">Details in the <a href="/cookies.html">cookie policy</a>.</p></dialog>
+<script src="/assets/site.js?v=0.3.0-1792112190" defer></script>
 </body>
 </html>
