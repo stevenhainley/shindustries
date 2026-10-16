@@ -487,3 +487,15 @@ h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;font-weight:70
 [data-mode="simple"] .sw-grp{display:none}
 @media (max-width:519px),(min-width:1024px) and (max-width:1199px){.kick-more{display:none}}
 .hero-copy>.label{white-space:nowrap}
+
+/* product accents (Steven 2026-10-15; tokens.v2 color.products): each product pops in its own colour; the sh. dot stays green */
+[data-product="shorts"]{--p:#FF5C8A;--p-ink:#3A0716;--p-deep:#D93A6A;--p-hover:#EF5681}
+[data-product="workflows"]{--p:#FFC23D;--p-ink:#3A2600;--p-deep:#C78A00;--p-hover:#EFB639}
+[data-product="setup"]{--p:#4CC9FF;--p-ink:#002A3D;--p-deep:#1A93C9;--p-hover:#47BCEF}
+[data-product="hq"]{--p:#A68BFF;--p-ink:#1C0F4A;--p-deep:#7556E0;--p-hover:#9C82EF}
+[data-product="leads"]{--p:#2EE6A8;--p-ink:#00301F;--p-deep:#12A877;--p-hover:#2BD89D}
+.pcard[data-product]{border-top:4px solid var(--p)}.pcard[data-product]:hover{border-color:var(--p-deep);border-top-color:var(--p)}
+body[data-product]{border-top:4px solid var(--p)}
+body[data-product] .btn-sig{background:var(--p);color:var(--p-ink)}body[data-product] .btn-sig:hover{background:var(--p-hover)}
+body[data-product] .timeline i.on,body[data-product] .cock .bar i.on{background:var(--p)}
+body[data-product] ::selection{background:var(--p);color:var(--p-ink)}
