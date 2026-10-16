@@ -455,3 +455,13 @@ h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;font-weight:70
 @media (max-width:1023px){.hero-media{max-width:600px}}
 [data-mode="simple"] .media-note{display:none}
 @media (min-width:1180px){[data-mode="simple"] .menu-btn{display:inline-flex}}
+/* Meet Glim (story collage) */
+.story-glim{display:grid;grid-template-columns:132px 1fr;gap:20px;align-items:center;background:var(--raised);border:1px solid var(--line);border-radius:var(--r-media);padding:16px 20px 16px 8px}
+.story-glim img{width:132px;height:132px}
+.story-glim .chip{margin-bottom:10px}
+.story-glim h3{margin-bottom:6px}
+.story-glim p{margin:0;color:var(--g700);font-size:15px}
+@media (min-width:1024px){.story-photo{grid-row:1/4}.story-glim{grid-column:7/13;grid-row:2}.story-logs{grid-column:7/13;grid-row:3}}
+@media (max-width:479px){.story-glim{grid-template-columns:96px 1fr;gap:12px}.story-glim img{width:96px;height:96px}}
+[data-mode="simple"] .story-glim{display:block;border-color:var(--ink);padding:20px;margin-bottom:16px}
+[data-mode="simple"] .story-glim img{display:none}
