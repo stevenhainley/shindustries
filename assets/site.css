@@ -454,5 +454,4 @@ h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;font-weight:70
 .tc{font-size:5cqw}
 @media (max-width:1023px){.hero-media{max-width:600px}}
 [data-mode="simple"] .media-note{display:none}
-[data-mode="simple"] .menu-btn{display:inline-flex}
-[data-mode="simple"] .menu-btn .lg{display:inline}[data-mode="simple"] .menu-btn .sm{display:none}
+@media (min-width:1180px){[data-mode="simple"] .menu-btn{display:inline-flex}}
