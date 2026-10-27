@@ -1,0 +1,209 @@
+/* Hallmark · pre-emit critique: P5 H4 E5 S4 R5 V4
+ * sh. industries site · shared layer: tokens, type scale, header, nav, buttons, footer, transitions.
+ * theme: custom (vibe: "night shift, one green light, workwear plain" · paper #0E0E0D dark / #F7F6F1 light
+ * · accent #C6FF3D chromatic-green, dot-only glow · Funnel Display + Funnel Sans, fonts from repo)
+ * nav: N1b three-section + Products menu · footer: Ft3 grouped columns (hub site) · pixel theme ≤5 % (eyebrows, dither, Glim)
+ * Every page links this first; page-specific styles stay inline on that page. */
+
+/* the two preloaded faces (every page preloads them) use font-display:block so the hero never re-wraps on swap; the rest swap */
+@font-face{font-family:"Funnel Display";font-weight:700;font-display:swap;src:url(fonts/FunnelDisplay-700.ttf) format("truetype")}
+@font-face{font-family:"Funnel Display";font-weight:800;font-display:block;src:url(fonts/FunnelDisplay-800.ttf) format("truetype")}
+@font-face{font-family:"Funnel Sans";font-weight:400;font-display:block;src:url(fonts/FunnelSans-400.ttf) format("truetype")}
+@font-face{font-family:"Funnel Sans";font-weight:500;font-display:swap;src:url(fonts/FunnelSans-500.ttf) format("truetype")}
+@font-face{font-family:"Funnel Sans";font-weight:600;font-display:swap;src:url(fonts/FunnelSans-600.ttf) format("truetype")}
+@font-face{font-family:"Silkscreen";font-weight:400;font-display:swap;src:url(fonts/Silkscreen-Regular.ttf) format("truetype")} /* OFL 1.1, fonts/Silkscreen-OFL.txt · eyebrows only (brand/PIXEL_THEME.md device 3) */
+
+:root{
+  color-scheme:dark light;
+  /* dark (favourite) */
+  --bg:#0E0E0D; --surface:#161614; --surface-2:#1E1E1B; --surface-3:#262623;
+  --line:rgba(255,255,255,.12); --line-strong:rgba(255,255,255,.22);
+  --text:#F2F1EC; --text-2:#A8A69F; --text-3:#85827A;
+  --green:#C6FF3D; --green-ink:#1E2A00; --green-text:#D7FF6E; --green-dim:rgba(198,255,61,.14);
+  --warn:#FFC23D; --warn-ink:#3A2600; --warn-soft:rgba(255,194,61,.14); --warn-text:#FFC23D;
+  --cf:#3A2600; --cf-bg:#FFC23D;
+  --btn:#F2F1EC; --btn-ink:#0E0E0D;
+  --phone:#0E0E0D; --phone-edge:rgba(255,255,255,.16);
+  --shadow:0 24px 64px rgba(0,0,0,.55);
+  --focus:#FFFFFF;
+  --fd:"Funnel Display","Funnel Sans",system-ui,sans-serif; --fs:"Funnel Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fpx:"Silkscreen","Funnel Sans",monospace;
+  --ease:cubic-bezier(.2,0,0,1); --ease-exit:cubic-bezier(.4,0,1,1);
+  --dur-fast:160ms; --dur:220ms; --dur-slow:360ms; --dur-reveal:520ms;
+  --r:12px; --r-lg:20px;
+  /* 4x4 Bayer dither tile, 3px cells, used at 2-3% (PIXEL_THEME device 4) */
+  --dither:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' shape-rendering='crispEdges'%3E%3Cg fill='%23fff'%3E%3Crect x='0' y='0' width='3' height='3'/%3E%3Crect x='6' y='6' width='3' height='3'/%3E%3Crect x='6' y='0' width='3' height='3' opacity='.5'/%3E%3Crect x='0' y='6' width='3' height='3' opacity='.5'/%3E%3Crect x='3' y='3' width='3' height='3' opacity='.25'/%3E%3Crect x='9' y='9' width='3' height='3' opacity='.25'/%3E%3C/g%3E%3C/svg%3E");
+  --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:48px; --sp-8:64px; --sp-9:96px; --sp-10:128px;
+  /* type scale (one scale, every page) */
+  --t-display:clamp(42px,8.6vw,78px); --t-h1:clamp(36px,7vw,60px); --t-h2:clamp(30px,5vw,48px); --t-h3:22px; --t-lede:19px; --t-body:17px; --t-small:14.5px; --t-fine:13px; --t-px:12px;
+}
+@media (prefers-color-scheme:light){
+  :root{
+    --bg:#F7F6F1; --surface:#FFFFFF; --surface-2:#EFEDE6; --surface-3:#E6E3DA;
+    --line:#E3E0D7; --line-strong:#C9C6BC;
+    --text:#1A1A17; --text-2:#55534C; --text-3:#6B6860;
+    --green-text:#5E8A00; --green-dim:rgba(134,184,0,.16);
+    --warn:#C77800; --warn-ink:#FFFFFF; --warn-soft:#FFF4DC; --warn-text:#8A5A00;
+    --cf:#5C3C00; --cf-bg:#FFE9A8;
+    --btn:#1A1A17; --btn-ink:#F7F6F1;
+    --phone-edge:rgba(0,0,0,.35);
+    --shadow:0 24px 64px rgba(20,20,18,.22);
+    --focus:#1A1A17;
+  }
+}
+
+/* ---------- cross-document page transitions (View Transitions API; browsers without it just navigate) ---------- */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:vt-out 160ms var(--ease-exit) both}
+::view-transition-new(root){animation:vt-in 240ms var(--ease) both}
+@keyframes vt-out{to{opacity:0}}
+@keyframes vt-in{from{opacity:0;transform:translateY(6px)}}
+.hdr{view-transition-name:site-header}
+::view-transition-old(site-header),::view-transition-new(site-header){animation:none}
+@media (prefers-reduced-motion:reduce){
+  ::view-transition-old(root),::view-transition-new(root){animation:vt-fade 120ms linear both}
+  @keyframes vt-fade{from{opacity:0}}
+}
+
+/* ---------- base ---------- */
+[hidden]{display:none!important}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--text);font:400 var(--t-body)/1.55 var(--fs);font-feature-settings:"kern" 1;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--fd);font-weight:800;letter-spacing:-.02em;margin:0;overflow-wrap:anywhere;min-width:0}
+p{margin:0}
+b,strong{font-weight:600}
+.wrap{max-width:1160px;margin:0 auto;padding:0 16px}
+@media(min-width:760px){.wrap{padding:0 32px}}
+.skip{position:absolute;left:-999px;top:8px;background:var(--btn);color:var(--btn-ink);padding:8px 12px;border-radius:8px;z-index:50}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:6px}
+.num{font-feature-settings:"tnum" 1}
+.px{font-family:var(--fpx);font-weight:400;font-size:var(--t-px);letter-spacing:.12em;text-transform:uppercase;-webkit-font-smoothing:none;font-smooth:never}
+.gt{display:inline-grid;place-items:center;flex:0 0 auto;width:32px;height:32px;border-radius:9px;background:#0E0E0D;border:1px solid var(--line-strong)}
+.gt svg{width:72%;height:72%;image-rendering:pixelated}
+
+/* ---------- section type scale (shared by every page) ---------- */
+.sec{padding:72px 0}
+@media(min-width:980px){.sec{padding:112px 0}}
+.sec-line{border-top:1px solid var(--line)}
+.lbl{font:400 var(--t-px)/1 var(--fpx);letter-spacing:.12em;text-transform:uppercase;color:var(--text-3);margin-bottom:16px;-webkit-font-smoothing:none}
+.h1{font-size:var(--t-display);line-height:1.0;letter-spacing:-.03em;max-width:11em}
+.h2{font-size:var(--t-h2);line-height:1.06;max-width:18em}
+.sub{color:var(--text-2);margin-top:16px;max-width:36em;font-size:18px}
+.rv{opacity:0;transform:translateY(10px);transition:opacity var(--dur-reveal) var(--ease),transform var(--dur-reveal) var(--ease)}
+.rv.on{opacity:1;transform:none}
+html:not(.js) .rv{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+/* ---------- buttons (magnetic on fine pointers: --mx/--my set by site.js) ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 24px;border-radius:999px;font:600 17px var(--fs);text-decoration:none;border:1px solid transparent;cursor:pointer;white-space:nowrap;transform:translate(var(--mx,0px),var(--my,0px));transition:transform var(--dur) var(--ease),background var(--dur-fast) var(--ease),border-color var(--dur-fast) var(--ease)}
+.btn:active{transform:translate(var(--mx,0px),var(--my,0px)) scale(.97);transition-duration:60ms}
+.btn-go{background:var(--green);color:var(--green-ink)}
+.btn-go:hover{background:#D3FF66}
+.btn-ink{background:var(--btn);color:var(--btn-ink)}
+.btn-ink:hover{background:color-mix(in srgb,var(--btn) 86%,var(--bg))}
+.btn-line{border-color:var(--line-strong);color:var(--text);background:transparent}
+.btn-line:hover{border-color:var(--text);background:var(--surface)}
+.btn-sm{min-height:40px;padding:0 16px;font-size:15px}
+.btn:disabled{opacity:.6;cursor:progress}
+.btn:focus-visible{outline-offset:3px}
+@media (prefers-reduced-motion:reduce){.btn{transform:none!important}}
+
+/* ---------- launch switches (SALES_OPEN in assets/switches.js; no-JS = waitlist state) ---------- */
+.when-open{display:none}
+.sales-open .when-open{display:inline}
+.sales-open .when-closed{display:none!important}
+html:not(.founding-full) .if-full{display:none}
+.founding-full .if-full{display:flex}
+html.founding-full .if-founding{display:none}
+
+/* ---------- header (sticky, morphs to glass after 8px of scroll) ---------- */
+.hdr{position:sticky;top:0;z-index:20;transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);border-bottom:1px solid transparent}
+.hdr.on,.hdr.open{background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border-bottom-color:var(--line)}
+html:not(.js) .hdr{border-bottom-color:var(--line)}
+@media (prefers-reduced-transparency:reduce){.hdr.on,.hdr.open{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}}
+.hdr-in{display:flex;align-items:center;gap:12px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 19px var(--fd);letter-spacing:-.01em;flex:0 0 auto}
+.logo small{font:500 13px var(--fs);color:var(--text-3);letter-spacing:0;margin-left:2px}
+@media(max-width:439px){.logo small{display:none}}
+.logo .gt svg{transition:filter var(--dur-fast) var(--ease)}
+.nav{display:none}
+.nav a,.dd > a{text-decoration:none;color:var(--text-2);padding:8px 12px;border-radius:999px;transition:color var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease);font-size:15px}
+.nav a:hover,.dd > a:hover,.dd:focus-within > a{color:var(--text);background:var(--surface-2)}
+.nav a[aria-current="page"]{color:var(--text)}
+.hdr .btn{margin-left:auto}
+.menu-btn{display:inline-grid;place-items:center;flex:0 0 auto;width:44px;height:44px;border:1px solid var(--line-strong);border-radius:12px;background:transparent;color:var(--text);cursor:pointer;padding:0}
+.menu-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+.menu-btn .ic-x{display:none}
+.hdr.open .menu-btn .ic-x{display:block}
+.hdr.open .menu-btn .ic-bars{display:none}
+html:not(.js) .menu-btn{display:none}
+
+/* products menu: a real link (hub page) that also opens on hover / focus. No JS needed. */
+.dd{position:relative}
+.dd > a{display:inline-flex;align-items:center;gap:5px}
+.dd > a svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--dur-fast) var(--ease)}
+.dd:hover > a svg,.dd:focus-within > a svg{transform:translateY(1px)}
+.dd-menu{position:absolute;top:100%;left:0;padding-top:10px;display:none;z-index:30}
+.dd:hover .dd-menu,.dd:focus-within .dd-menu{display:block}
+.dd-in{min-width:320px;background:var(--surface);border:1px solid var(--line-strong);border-radius:16px;padding:8px;box-shadow:var(--shadow);display:grid;gap:2px;transform-origin:top left;animation:dd-pop var(--dur) var(--ease)}
+@keyframes dd-pop{from{opacity:0;transform:translateY(-4px) scale(.98)}}
+.dd-in a{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:center;padding:10px 12px;border-radius:10px;color:var(--text)}
+.dd-in a:hover,.dd-in a:focus-visible{background:var(--surface-2)}
+.dd-in a b{display:block;font:700 15px/1.2 var(--fd);letter-spacing:-.01em;color:var(--text)}
+.dd-in a span{display:block;font-size:13.5px;color:var(--text-3);margin-top:2px;line-height:1.35}
+.dd-in a img{width:30px;height:auto;justify-self:center}
+.dd-in .gt{width:36px;height:36px;border-radius:10px}
+.dd-in .dd-sep{height:1px;background:var(--line);margin:6px 8px}
+.dd-in .dd-plain{grid-template-columns:1fr;padding:9px 12px}
+.dd-in .dd-plain b{font:600 14.5px var(--fs);color:var(--text-2)}
+.dd-in .dd-plain:hover b{color:var(--text)}
+@media (prefers-reduced-motion:reduce){.dd-in{animation:none}}
+
+@media(min-width:900px){
+  .menu-btn{display:none}
+  .nav{display:flex;align-items:center;gap:2px;margin-left:auto}
+  .hdr .btn{margin-left:8px}
+}
+@media(max-width:899px){
+  html:not(.js) .nav{display:flex;flex-wrap:wrap;gap:0 4px;order:9;width:100%;padding-bottom:10px}
+  html:not(.js) .hdr-in{flex-wrap:wrap;height:auto;padding-top:12px}
+  .hdr.open .nav{display:flex;flex-direction:column;align-items:stretch;position:absolute;left:0;right:0;top:100%;padding:8px 16px 24px;background:var(--bg);border-bottom:1px solid var(--line);box-shadow:0 24px 48px -24px rgba(0,0,0,.5);max-height:calc(100dvh - 64px);overflow:auto;animation:dd-pop var(--dur) var(--ease)}
+  .hdr.open .nav > a,.hdr.open .dd > a{display:flex;font:600 20px/1.2 var(--fs);padding:14px 8px;border-radius:0;border-bottom:1px solid var(--line)}
+  .hdr.open .dd > a svg{display:none}
+  .hdr.open .dd-menu{display:block;position:static;padding:4px 0 0}
+  .hdr.open .dd-in{min-width:0;box-shadow:none;border:0;background:transparent;padding:0 0 8px;animation:none}
+  .hdr.open .dd-in a{padding:12px 8px}
+  .hdr.open .dd-in .dd-sep{display:none}
+  .hdr.open .menu-btn{background:var(--surface-2)}
+}
+
+/* ---------- footer (grouped columns: Glim · Products · Company · Legal) ---------- */
+.ft{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--text-3);font-size:14.5px;position:relative}
+.ft::before{content:"";position:absolute;left:0;right:0;top:0;height:120px;pointer-events:none;background:var(--dither);opacity:.022;-webkit-mask-image:linear-gradient(to bottom,#000,transparent);mask-image:linear-gradient(to bottom,#000,transparent)}
+@media (prefers-color-scheme:light){.ft::before{opacity:.05;filter:invert(1)}}
+.ft-top{display:grid;gap:40px}
+@media(min-width:900px){.ft-top{grid-template-columns:minmax(0,1.1fr) minmax(0,2fr);gap:64px}}
+.ft-brand .gt{width:44px;height:44px;border-radius:12px}
+.ft-brand .ft-tag{font:800 22px/1.15 var(--fd);letter-spacing:-.02em;color:var(--text);margin-top:16px;max-width:14em}
+.ft-brand .ft-co{margin-top:12px;max-width:30em;line-height:1.5}
+.ft-brand a{color:var(--text-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
+.ft-brand a:hover{color:var(--text)}
+.ft-cols{display:grid;gap:28px 24px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:720px){.ft-cols{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ft-h{font:600 12px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px}
+.ft-cols ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.ft-cols a{color:var(--text-2);text-decoration:none;display:inline-block;transition:color var(--dur-fast) var(--ease)}
+.ft-cols a:hover{color:var(--text);text-decoration:underline;text-underline-offset:3px}
+.ft-cols a small{display:block;font-size:12.5px;color:var(--text-3)}
+.ft-bot{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;align-items:center;margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px}
+.ft-bot .px{color:var(--text-3)}
+.ft-bot a{color:var(--text-2);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
+.ft-bot a:hover{color:var(--text)}
+/* Glim blinks on hover: stepped, the only pixel motion on the page (PIXEL_THEME device 2) */
+.ft-brand .gt:hover svg{animation:blink .5s steps(2,end) 1}
+@keyframes blink{50%{opacity:.35}}

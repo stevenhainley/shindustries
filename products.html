@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script src="assets/switches.js"></script>
+<title>Products · Glim and DuckyGuard · sh. industries</title>
+<meta name="description" content="Glim, the founding-beta product: texts back the calls your business misses. DuckyGuard, a free Mac tool on the side. That is the whole list.">
+<link rel="canonical" href="https://shindustries.co/products.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="sh. industries">
+<meta property="og:title" content="Products · Glim and DuckyGuard · sh. industries">
+<meta property="og:description" content="Glim, the founding-beta product: texts back the calls your business misses. DuckyGuard, a free Mac tool on the side. That is the whole list.">
+<meta property="og:url" content="https://shindustries.co/products.html">
+<meta property="og:image" content="https://shindustries.co/assets/og/og-products.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glim, the pixel creature with one green dot, and the words Products">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Products · Glim and DuckyGuard · sh. industries">
+<meta name="twitter:description" content="Glim, the founding-beta product: texts back the calls your business misses. DuckyGuard, a free Mac tool on the side. That is the whole list.">
+<meta name="twitter:image" content="https://shindustries.co/assets/og/og-products.png">
+<meta name="theme-color" content="#0E0E0D" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F6F1" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preload" href="assets/fonts/FunnelDisplay-800.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/FunnelSans-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V4
+ * products.html · macrostructure: Catalogue (one large entry, one small aside) · nav/footer shared · enrichment: Tier-A CSS tile
+ * differs from about (Long Document) and index (Marquee Hero) on structure */
+.pr-hero{padding:56px 0 8px}
+@media(min-width:980px){.pr-hero{padding:88px 0 16px}}
+#glim.sec{padding-top:0}
+.pr-hero .lede{font-size:var(--t-lede);color:var(--text-2);margin-top:22px;max-width:32em}
+.card{margin-top:24px;background:var(--surface);border:1px solid var(--line-strong);border-radius:28px;padding:28px 24px;display:grid;gap:28px;position:relative;overflow:clip}
+@media(min-width:980px){.card{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;padding:48px;align-items:center}}
+.card::after{content:"";position:absolute;inset:auto 0 0 0;height:160px;pointer-events:none;background:var(--dither);opacity:.025;-webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent)}
+@media (prefers-color-scheme:light){.card::after{opacity:.05;filter:invert(1)}}
+.card .name{display:flex;align-items:center;gap:12px;font:800 22px var(--fd);letter-spacing:-.01em}
+.card .name .gt{width:40px;height:40px;border-radius:12px}
+.badge{font-size:11px;color:var(--green-ink);background:var(--green);padding:5px 7px 4px;clip-path:polygon(2px 0,calc(100% - 2px) 0,100% 2px,100% calc(100% - 2px),calc(100% - 2px) 100%,2px 100%,0 calc(100% - 2px),0 2px)}
+.card h2{font-size:clamp(32px,5.4vw,56px);line-height:1;letter-spacing:-.03em;margin-top:22px;max-width:11em}
+.card .desc{font:500 clamp(18px,2vw,21px)/1.4 var(--fs);margin-top:18px;max-width:26em}
+.card .p{color:var(--text-2);margin-top:12px;max-width:34em}
+.card .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.card .fine{font-size:var(--t-small);color:var(--text-3);margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.card .fine span{display:inline-flex;align-items:center;gap:6px}
+.card .fine svg{width:14px;height:14px;stroke:var(--green-text);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+/* right column: a still of the app's Today screen, CSS only, no fake phone chrome */
+.shot{background:var(--phone);color:#F2F1EC;border:1px solid var(--phone-edge);border-radius:24px;padding:22px 20px;display:grid;gap:14px;font-size:14px;box-shadow:var(--shadow);max-width:360px;justify-self:center;width:100%}
+.shot *{font-family:var(--fs)}
+.shot .shop{font:600 11px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:#A8A69F}
+.shot .watch{display:flex;align-items:center;gap:6px;font-size:12px;color:#A8A69F}
+.shot .watch i{width:6px;height:6px;border-radius:50%;background:#C6FF3D;box-shadow:0 0 8px 2px rgba(198,255,61,.5)}
+.shot .count{display:flex;align-items:flex-end;justify-content:space-between}
+.shot .count b{font:800 56px/1 var(--fd);letter-spacing:-.04em;display:block}
+.shot .count small{display:block;color:#A8A69F;margin-top:6px}
+.shot .mascot{width:48px;height:48px}
+.shot .thread{background:#161614;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:12px;display:grid;gap:8px}
+.shot .who{display:flex;justify-content:space-between;font-size:12px;color:#A8A69F}
+.shot .who b{color:#F2F1EC;font-size:14px}
+.shot .msg{max-width:92%;padding:8px 11px;border-radius:14px;font-size:13px;line-height:1.35}
+.shot .out{background:#C6FF3D;color:#1E2A00;border-bottom-right-radius:4px;justify-self:end}
+.shot .in{background:#262623;border-bottom-left-radius:4px}
+.shot .needs{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#161614;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 12px 12px 14px}
+.shot .needs small{display:block;font:600 10.5px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:#A8A69F;margin-bottom:5px}
+.shot .needs b{font:700 15px/1.1 var(--fd)}
+.shot .go{flex:0 0 40px;height:40px;border-radius:50%;background:#C6FF3D;color:#1E2A00;display:grid;place-items:center;font-weight:700}
+.shot-cap{font-size:13px;color:var(--text-3);text-align:center;margin-top:12px}
+.statusline{display:grid;gap:12px;margin-top:16px}
+@media(min-width:760px){.statusline{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.statusline > div{border-top:1px solid var(--line);padding-top:14px}
+.statusline b{display:block;font:700 16px var(--fd);letter-spacing:-.01em}
+.statusline span{display:block;color:var(--text-2);font-size:15px;margin-top:4px}
+/* aside */
+.aside{margin-top:64px}
+.aside .lbl{margin-bottom:12px}
+.dg{--dg-orange:#FF6B00;display:grid;grid-template-columns:auto 1fr;gap:16px 20px;align-items:start;max-width:620px;padding:20px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);margin-top:16px}
+.dg img{width:56px;height:auto}
+.dg .wm{height:24px;width:auto;overflow:visible}
+.dg .wm text{font-family:var(--fd);font-weight:800}
+.dg .wm .o{fill:var(--dg-orange)} .dg .wm .k{fill:var(--text)}
+.dg .t{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dg .free{font-size:12px;font-weight:600;color:var(--text-2);border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+.dg p{color:var(--text-2);font-size:15.5px;margin-top:8px;max-width:40em}
+.dg .links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px;font-size:15px}
+.dg .links a{color:var(--text);text-underline-offset:3px}
+.nothing{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);color:var(--text-3);font-size:var(--t-small);max-width:40em}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="glim" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="6" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="2" width="1" height="1" fill="#1A1A17"/><rect x="5" y="3" width="6" height="1" fill="#1A1A17"/><rect x="4" y="4" width="8" height="1" fill="#1A1A17"/><rect x="3" y="5" width="10" height="1" fill="#1A1A17"/><rect x="3" y="6" width="1" height="1" fill="#1A1A17"/><rect x="4" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="6" y="6" width="4" height="1" fill="#1A1A17"/><rect x="10" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="12" y="6" width="1" height="1" fill="#1A1A17"/><rect x="3" y="7" width="1" height="1" fill="#1A1A17"/><rect x="4" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="7" width="5" height="1" fill="#1A1A17"/><rect x="10" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="7" width="2" height="1" fill="#1A1A17"/><rect x="3" y="8" width="10" height="1" fill="#1A1A17"/><rect x="3" y="9" width="4" height="1" fill="#1A1A17"/><rect x="7" y="9" width="2" height="1" fill="#F2F1EC"/><rect x="9" y="9" width="4" height="1" fill="#1A1A17"/><rect x="3" y="10" width="10" height="1" fill="#1A1A17"/><rect x="4" y="11" width="8" height="1" fill="#1A1A17"/><rect x="5" y="12" width="6" height="1" fill="#1A1A17"/><rect x="5" y="13" width="1" height="1" fill="#1A1A17"/><rect x="10" y="13" width="1" height="1" fill="#1A1A17"/><rect x="4" y="14" width="2" height="1" fill="#1A1A17"/><rect x="10" y="14" width="2" height="1" fill="#1A1A17"/><circle cx="7.5" cy="1.5" r="2.4" fill="#C6FF3D" opacity=".28"/><circle cx="7.5" cy="1.5" r="1.4" fill="#C6FF3D" opacity=".55"/><rect x="7" y="1" width="1" height="1" fill="#C6FF3D"/></symbol></svg>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr" id="hdr"><div class="wrap hdr-in">
+  <a class="logo" href="index.html" aria-label="Glim, by sh. industries. Home"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>Glim <small>by sh. industries</small></a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html#explain">Explain</a><a href="index.html#trade">Try it</a><a href="index.html#beta">Beta</a><a href="index.html#pricing">Pricing</a><a href="index.html#faq">Questions</a>
+    <div class="dd"><a href="products.html">Products<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="dd-menu"><div class="dd-in">
+        <a href="products.html#glim"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span><span><b>Glim</b><span>Texts back the calls your business misses. Founding beta.</span></span></a>
+        <a href="duckyguard/"><img src="duckyguard/assets/duck-96.png" alt="" width="84" height="96" loading="lazy"><span><b>DuckyGuard</b><span>A free Mac tool that spots USB gadgets typing like a machine.</span></span></a>
+        <div class="dd-sep" role="presentation"></div>
+        <a class="dd-plain" href="products.html"><b>All products</b></a>
+        <a class="dd-plain" href="about.html"><b>About sh. industries</b></a>
+      </div></div>
+    </div>
+  </nav>
+  <a class="btn btn-ink btn-sm" data-buy href="index.html#waitlist"><span class="when-closed">Join waitlist</span><span class="when-open">Get Glim</span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg class="ic-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="ic-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div></header>
+<main id="main">
+<section class="pr-hero"><div class="wrap">
+  <p class="lbl rv">Products</p>
+  <h1 class="h1 rv">One product. One side project. Nothing padded.</h1>
+  <p class="lede rv">Glim is what sh. industries builds and sells. DuckyGuard is a free tool we keep on the side. If something else ever becomes real, it shows up on this page before it shows up anywhere else.</p>
+</div></section>
+
+<section class="sec" id="glim" aria-labelledby="glim-h"><div class="wrap">
+  <article class="card rv">
+    <div>
+      <p class="name"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>Glim <span class="badge px">Founding beta</span></p>
+      <h2 id="glim-h">Never lose a customer to a missed call.</h2>
+      <p class="desc">Give your business a second brain. When your phone rings out, the caller gets a text from your business within seconds, in your own words. You see the reply, tap once, and the customer is yours.</p>
+      <p class="p">For any business that lives on calls: salons, cleaners, plumbers, HVAC, electricians, landscapers, roofers, painters, handymen, pest control, auto repair, and “Something else” for everyone else. Installs to your phone's home screen in 30 seconds, no app store.</p>
+      <div class="cta"><a class="btn btn-go" data-buy href="index.html#waitlist"><span class="when-closed">Join the founding shops waitlist</span><span class="when-open">Get Glim · <span class="pr">$29</span>/month</span></a><a class="btn btn-line" href="index.html#explain">Explain Glim, 2 min</a></div>
+      <p class="fine">
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Founding price $29/month, kept while you stay</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>First 10 businesses, then $39</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>400 texts a month included</span>
+        <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>7-day money-back, no contract</span>
+      </p>
+    </div>
+    <figure style="margin:0">
+      <div class="shot" role="img" aria-label="Glim's Today screen for a demo plumbing business: one call saved today, a missed call from Dana Reyes answered by text within seconds, her reply about a leaking sink, and a drafted answer waiting for a one-tap approve.">
+        <p class="shop">Northside Plumbing</p>
+        <p class="watch"><i></i>Watching your phone</p>
+        <div class="count"><div><b class="num">1</b><small>call saved today</small></div><span class="mascot"><svg><use href="#glim"/></svg></span></div>
+        <div class="thread">
+          <p class="who"><b>Dana Reyes</b><span>Missed call · 2:14 PM</span></p>
+          <p class="msg out">Hi, this is Rob's assistant at Northside Plumbing. Rob's on a job and will call you back today. Is it a leak, a clog, or no hot water?</p>
+          <p class="msg in">Leak. Under the kitchen sink, water everywhere. Can someone come today?</p>
+        </div>
+        <div class="needs"><div><small>Needs you</small><b>Approve reply to Dana</b></div><span class="go" aria-hidden="true">→</span></div>
+      </div>
+      <figcaption class="shot-cap">Demo business, made-up names and numbers.</figcaption>
+    </figure>
+  </article>
+  <div class="statusline rv">
+    <div><b>Status</b><span>In beta and in use. Not for sale yet: the first 10 founding spots open when enough businesses say yes.</span></div>
+    <div><b>Works today</b><span>Missed-call text-back, quote follow-up, twelve business setups, three autopilot levels, home-screen install.</span></div>
+    <div><b>Rolling out</b><span>Review requests and invoice reminders, as free updates. App Store and Google Play listings later, nothing to re-buy.</span></div>
+  </div>
+</div></section>
+
+<section class="sec sec-line aside" id="duckyguard" aria-labelledby="dg-h"><div class="wrap">
+  <p class="lbl rv">Also from sh.</p>
+  <h2 class="h2 rv" id="dg-h" style="font-size:clamp(24px,3.4vw,34px)">A side project, kept small on purpose.</h2>
+  <div class="dg rv">
+    <img src="duckyguard/assets/duck-96.png" alt="DuckyGuard mascot: a pixel-art yellow duck holding an orange shield" width="84" height="96" loading="lazy">
+    <div>
+      <div class="t"><svg class="wm" viewBox="0 -72 606 94" role="img" aria-label="DuckyGuard."><text y="0" font-size="100" letter-spacing="-3.5"><tspan class="o">Ducky</tspan><tspan class="k">Guard</tspan><tspan class="o">.</tspan></text></svg><span class="free">Free for everyone</span><span class="free">macOS · in development</span></div>
+      <p>A Mac tool that spots USB gadgets typing like a machine (Rubber Ducky, Flipper Zero BadUSB), pulls focus away from your terminal, and writes an incident report. Runs locally and sends nothing. Free, with an optional pay-what-you-want tip that unlocks nothing: everyone gets the same app.</p>
+      <div class="links"><a href="duckyguard/">About DuckyGuard and the download</a><a href="duckyguard/#limits">Read the limits first</a></div>
+    </div>
+  </div>
+  <p class="nothing">That's the whole list. No bundles, no “enterprise”, no third product to pad the page. Questions about either: <a href="mailto:glim@shindustries.co" style="color:var(--text-2)">glim@shindustries.co</a>.</p>
+</div></section>
+</main>
+<footer class="ft"><div class="wrap">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>
+      <p class="ft-tag">Give your business a second brain.</p>
+      <p class="ft-co">sh. industries, Massachusetts. Small software that does the boring part for small businesses. Questions, setup help, anything: <a href="mailto:glim@shindustries.co">glim@shindustries.co</a>, a person reads it.</p>
+    </div>
+    <nav class="ft-cols" aria-label="Site">
+      <div><p class="ft-h">Glim</p><ul>
+        <li><a href="index.html#explain">Explain Glim</a></li><li><a href="index.html#trade">Try it with your business</a></li><li><a href="index.html#beta">Beta, honestly</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#install">Install</a></li><li><a href="index.html#faq">Questions</a></li>
+      </ul></div>
+      <div><p class="ft-h">Products</p><ul>
+        <li><a href="products.html#glim">Glim<small>Founding beta · $29 a month</small></a></li>
+        <li><a href="duckyguard/">DuckyGuard<small>Free Mac tool · in development</small></a></li>
+        <li><a href="products.html">All products</a></li>
+      </ul></div>
+      <div><p class="ft-h">Company</p><ul>
+        <li><a href="about.html">About sh. industries</a></li>
+        <li><a href="https://stevenhainley.net" rel="noopener">Steven Hainley, founder<small>stevenhainley.net</small></a></li>
+        <li><a href="mailto:glim@shindustries.co">glim@shindustries.co</a></li>
+      </ul></div>
+      <div><p class="ft-h">Legal</p><ul>
+        <li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="refunds.html">Refunds</a></li><li><a href="sms.html">Text messaging</a></li>
+      </ul></div>
+    </nav>
+  </div>
+  <div class="ft-bot">
+    <span>© 2026 sh. industries · Massachusetts, USA</span>
+    <span>Made by <a href="https://stevenhainley.net" rel="noopener">Steven Hainley</a></span>
+    <span class="px">No trackers · no cookies</span>
+  </div>
+</div></footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

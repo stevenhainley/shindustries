@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script src="assets/switches.js"></script>
+<title>About sh. industries · Software that does the boring part</title>
+<meta name="description" content="sh. industries is a small Massachusetts software company started by a student: Glim texts back the calls a business misses; DuckyGuard is a free Mac tool. Founder Steven Hainley, WPI.">
+<link rel="canonical" href="https://shindustries.co/about.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="sh. industries">
+<meta property="og:title" content="About sh. industries · Software that does the boring part">
+<meta property="og:description" content="sh. industries is a small Massachusetts software company started by a student: Glim texts back the calls a business misses; DuckyGuard is a free Mac tool. Founder Steven Hainley, WPI.">
+<meta property="og:url" content="https://shindustries.co/about.html">
+<meta property="og:image" content="https://shindustries.co/assets/og/og-about.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glim, the pixel creature with one green dot, and the words About sh. industries">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About sh. industries · Software that does the boring part">
+<meta name="twitter:description" content="sh. industries is a small Massachusetts software company started by a student: Glim texts back the calls a business misses; DuckyGuard is a free Mac tool. Founder Steven Hainley, WPI.">
+<meta name="twitter:image" content="https://shindustries.co/assets/og/og-about.png">
+<meta name="theme-color" content="#0E0E0D" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F6F1" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AboutPage","url":"https://shindustries.co/about.html","name":"About sh. industries","mainEntity":{"@type":"Organization","@id":"https://shindustries.co/#org","name":"sh. industries","url":"https://shindustries.co/","email":"glim@shindustries.co","address":{"@type":"PostalAddress","addressRegion":"MA","addressCountry":"US"},"founder":{"@type":"Person","name":"Steven Hainley","url":"https://stevenhainley.net","alumniOf":{"@type":"CollegeOrUniversity","name":"Worcester Polytechnic Institute"}}}}</script>
+<link rel="preload" href="assets/fonts/FunnelDisplay-800.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/FunnelSans-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* Hallmark · pre-emit critique: P5 H4 E4 S5 R5 V4
+ * about.html · macrostructure: Long Document (letter-led) · nav/footer shared · enrichment: none (typography only)
+ * differs from index (Marquee Hero + scroll story) on structure; same custom theme, same scale */
+.ab-hero{padding:56px 0 40px}
+@media(min-width:980px){.ab-hero{padding:88px 0 56px}}
+.ab-hero .lede{font-size:var(--t-lede);color:var(--text-2);margin-top:22px;max-width:34em}
+.ab-hero .h1{max-width:12em}
+.cols{display:grid;gap:32px;margin-top:40px}
+@media(min-width:900px){.cols{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:start}}
+.cols .h2{font-size:clamp(26px,3.6vw,36px)}
+.prose p{color:var(--text-2);margin-top:14px;max-width:38em;font-size:17.5px}
+.prose p:first-child{margin-top:0}
+.prose p b{color:var(--text)}
+.status{display:grid;gap:12px;margin-top:40px}
+@media(min-width:760px){.status{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.status > div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 22px 20px;display:grid;gap:10px;align-content:start}
+.status .top{display:flex;align-items:center;gap:12px}
+.status h3{font-size:var(--t-h3);line-height:1.15;letter-spacing:-.015em}
+.status .st{font:600 12px/1 var(--fs);letter-spacing:.05em;padding:7px 10px;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;margin-left:auto}
+.st-live{background:var(--green-dim);color:var(--green-text)}
+.st-live i{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.st-soon{border:1px solid var(--line-strong);color:var(--text-2)}
+.st-plain{border:1px solid var(--line);color:var(--text-3)}
+.status p{color:var(--text-2);font-size:15.5px}
+.status ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:15px;color:var(--text-2)}
+.status li{display:flex;gap:10px;align-items:flex-start}
+.status li svg{flex:0 0 16px;height:16px;margin-top:4px;stroke:var(--green-text);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.status li.wait svg{stroke:var(--text-3)}
+.status a{color:var(--text)}
+.status img{width:30px;height:auto;flex:none}
+.how{margin-top:40px;border-top:1px solid var(--line)}
+.how > div{display:grid;gap:8px 24px;padding:22px 0;border-bottom:1px solid var(--line)}
+@media(min-width:760px){.how > div{grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr)}}
+.how h3{font-size:20px;line-height:1.2;letter-spacing:-.01em;font-weight:700}
+.how p{color:var(--text-2);font-size:16px;max-width:40em}
+.founder{margin-top:40px;background:var(--surface);border:1px solid var(--line-strong);border-radius:24px;padding:28px 24px;display:grid;gap:20px}
+@media(min-width:900px){.founder{grid-template-columns:auto minmax(0,1fr);gap:32px;padding:36px;align-items:start}}
+.founder .gt{width:72px;height:72px;border-radius:20px}
+.founder h3{font-size:clamp(24px,3vw,30px);line-height:1.1;letter-spacing:-.02em}
+.founder .role{color:var(--text-2);margin-top:8px;font-size:17px}
+.founder p+p{margin-top:12px;color:var(--text-2);max-width:40em}
+.founder .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.ab-cta{border-top:1px solid var(--line);padding:72px 0;text-align:center}
+.ab-cta h2{font-size:clamp(30px,5vw,52px);line-height:1.02;letter-spacing:-.03em;max-width:14em;margin:0 auto}
+.ab-cta .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="glim" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="6" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="2" width="1" height="1" fill="#1A1A17"/><rect x="5" y="3" width="6" height="1" fill="#1A1A17"/><rect x="4" y="4" width="8" height="1" fill="#1A1A17"/><rect x="3" y="5" width="10" height="1" fill="#1A1A17"/><rect x="3" y="6" width="1" height="1" fill="#1A1A17"/><rect x="4" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="6" y="6" width="4" height="1" fill="#1A1A17"/><rect x="10" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="12" y="6" width="1" height="1" fill="#1A1A17"/><rect x="3" y="7" width="1" height="1" fill="#1A1A17"/><rect x="4" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="7" width="5" height="1" fill="#1A1A17"/><rect x="10" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="7" width="2" height="1" fill="#1A1A17"/><rect x="3" y="8" width="10" height="1" fill="#1A1A17"/><rect x="3" y="9" width="4" height="1" fill="#1A1A17"/><rect x="7" y="9" width="2" height="1" fill="#F2F1EC"/><rect x="9" y="9" width="4" height="1" fill="#1A1A17"/><rect x="3" y="10" width="10" height="1" fill="#1A1A17"/><rect x="4" y="11" width="8" height="1" fill="#1A1A17"/><rect x="5" y="12" width="6" height="1" fill="#1A1A17"/><rect x="5" y="13" width="1" height="1" fill="#1A1A17"/><rect x="10" y="13" width="1" height="1" fill="#1A1A17"/><rect x="4" y="14" width="2" height="1" fill="#1A1A17"/><rect x="10" y="14" width="2" height="1" fill="#1A1A17"/><circle cx="7.5" cy="1.5" r="2.4" fill="#C6FF3D" opacity=".28"/><circle cx="7.5" cy="1.5" r="1.4" fill="#C6FF3D" opacity=".55"/><rect x="7" y="1" width="1" height="1" fill="#C6FF3D"/></symbol></svg>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr" id="hdr"><div class="wrap hdr-in">
+  <a class="logo" href="index.html" aria-label="Glim, by sh. industries. Home"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>Glim <small>by sh. industries</small></a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html#explain">Explain</a><a href="index.html#trade">Try it</a><a href="index.html#beta">Beta</a><a href="index.html#pricing">Pricing</a><a href="index.html#faq">Questions</a>
+    <div class="dd"><a href="products.html">Products<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="dd-menu"><div class="dd-in">
+        <a href="products.html#glim"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span><span><b>Glim</b><span>Texts back the calls your business misses. Founding beta.</span></span></a>
+        <a href="duckyguard/"><img src="duckyguard/assets/duck-96.png" alt="" width="84" height="96" loading="lazy"><span><b>DuckyGuard</b><span>A free Mac tool that spots USB gadgets typing like a machine.</span></span></a>
+        <div class="dd-sep" role="presentation"></div>
+        <a class="dd-plain" href="products.html"><b>All products</b></a>
+        <a class="dd-plain" href="about.html"><b>About sh. industries</b></a>
+      </div></div>
+    </div>
+  </nav>
+  <a class="btn btn-ink btn-sm" data-buy href="index.html#waitlist"><span class="when-closed">Join waitlist</span><span class="when-open">Get Glim</span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg class="ic-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="ic-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div></header>
+<main id="main">
+<section class="ab-hero"><div class="wrap">
+  <p class="lbl rv">About sh. industries</p>
+  <h1 class="h1 rv">Software that does the boring part.</h1>
+  <p class="lede rv">sh. industries is a small software company in Massachusetts, started by a student. We build tools that handle the parts of running a business nobody has time for: the missed call, the follow-up, the reminder. Plain words, honest numbers, and you keep the final say.</p>
+</div></section>
+
+<section class="sec sec-line"><div class="wrap cols">
+  <div><p class="lbl rv">The story</p><h2 class="h2 rv">Started at a desk between classes. Built for people who work with their hands.</h2></div>
+  <div class="prose">
+    <p class="rv">sh. industries began in 2026 as one student's company: Steven Hainley, studying cybersecurity at WPI, building the things he kept wishing existed. The first product is <b>Glim</b>, a second brain for a small business's phone. The idea came from a simple pattern: a plumber under a sink, a stylist mid-cut, a front desk with a line out the door, and a phone that rings out. That caller usually dials the next number. Glim texts them back in the business's own words before they do.</p>
+    <p class="rv">We are small on purpose. One founder, a lot of modern tooling, and a rule that every message a customer sees reads like a person wrote it. There is no sales team and no “call for pricing”: the price is on the page, the beta is called a beta, and the first ten businesses get a founding price kept for as long as they stay.</p>
+    <p class="rv">Beside Glim there is a side project, <b>DuckyGuard</b>, a free Mac tool that grew out of the cybersecurity coursework. It stays free. It is not a second product line and never competes with Glim for attention.</p>
+  </div>
+</div></section>
+
+<section class="sec sec-line"><div class="wrap">
+  <p class="lbl rv">What we are building</p>
+  <h2 class="h2 rv">What is live, what is in beta, what is still being built.</h2>
+  <p class="sub rv">Every line here is checked against the product, not the pitch. “Rolling out” means being built and shipped as a free update, with no date promised.</p>
+  <div class="status">
+    <div class="rv"><div class="top"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span><h3>Glim</h3><span class="st st-soon">Founding beta</span></div>
+      <p>Texts back the calls your business misses, follows up quotes that went quiet, and waits for your OK when you want it. Any business that lives on calls.</p>
+      <ul>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Missed-call text-back within seconds, in your words</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Quote follow-up that stops when it should</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Twelve ready-made setups plus “Something else”</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Three autopilot levels; installs from the browser</li>
+        <li class="wait"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>Review requests and invoice reminders: rolling out</li>
+        <li class="wait"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>Not for sale yet: the first 10 founding spots open when enough businesses say yes</li>
+      </ul>
+      <p><a href="index.html#explain">Explain Glim</a> · <a href="index.html#beta">Beta, honestly</a> · <a href="index.html#pricing">Pricing</a></p>
+    </div>
+    <div class="rv"><div class="top"><img src="duckyguard/assets/duck-96.png" alt="" width="84" height="96" loading="lazy"><h3>DuckyGuard</h3><span class="st st-plain">In development</span></div>
+      <p>A free macOS tool that watches typing rhythm for keystroke-injection USB gadgets (Rubber Ducky, Flipper Zero BadUSB), pulls focus away when a burst looks machine-typed, and writes an incident report. Runs locally.</p>
+      <ul>
+        <li class="wait"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>Early build on the founder's Mac; the first public download is being packaged</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Free for everyone, always; an optional pay-what-you-want tip, which unlocks nothing</li>
+      </ul>
+      <p><a href="duckyguard/">About DuckyGuard</a></p>
+    </div>
+    <div class="rv"><div class="top"><h3>sh. Studio</h3><span class="st st-plain">By email</span></div>
+      <p>Short clips cut from long videos for podcasters and creators, done with our own tools and a person's judgement. Not a product page yet; it runs by email while Glim is the focus.</p>
+      <p><a href="mailto:glim@shindustries.co?subject=sh.%20Studio">Ask about clips</a></p>
+    </div>
+    <div class="rv"><div class="top"><h3>This site</h3><span class="st st-live"><i></i>Live</span></div>
+      <p>Static pages, fonts served from here, no analytics, no trackers, no cookies. The waitlist form sends what you typed and nothing else. See <a href="privacy.html">Privacy</a>.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="sec sec-line"><div class="wrap">
+  <p class="lbl rv">How we work</p>
+  <h2 class="h2 rv">Four rules we hold ourselves to.</h2>
+  <div class="how">
+    <div class="rv"><h3>Plain words</h3><p>Every screen and every text reads like a person wrote it. No jargon, no exclamation marks in your name, no price you didn't set.</p></div>
+    <div class="rv"><h3>Honest numbers</h3><p>We never publish a number we didn't get. No invented customers, results or testimonials. The cost calculator on the Glim page uses your numbers, and says so.</p></div>
+    <div class="rv"><h3>You decide</h3><p>Nothing goes out in your business's name without your tap unless you choose otherwise, and you can change that any time. Cancel from Settings, no call needed.</p></div>
+    <div class="rv"><h3>Your data is yours</h3><p>Your customer list, quotes and message history can be exported or deleted whenever you want. We don't sell or share anything.</p></div>
+  </div>
+</div></section>
+
+<section class="sec sec-line"><div class="wrap">
+  <p class="lbl rv">Founder</p>
+  <div class="founder rv">
+    <span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>
+    <div>
+      <h3>Steven Hainley</h3>
+      <p class="role">Cybersecurity BS at WPI, Class of 2029, Law &amp; Technology minor. Founder of sh. industries.</p>
+      <p>Steven builds and runs sh. industries from Massachusetts while he studies. He reads every email to glim@shindustries.co, sets up call forwarding with the first businesses himself, and is the person who answers when something breaks.</p>
+      <div class="links"><a class="btn btn-line btn-sm" href="https://stevenhainley.net" rel="noopener">Portfolio: stevenhainley.net</a><a class="btn btn-line btn-sm" href="mailto:glim@shindustries.co">Email Steven</a></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="ab-cta"><div class="wrap">
+  <h2 class="rv">The next missed call can still be a customer.</h2>
+  <div class="cta rv"><a class="btn btn-go" data-buy href="index.html#waitlist"><span class="when-closed">Join the founding shops waitlist</span><span class="when-open">Get Glim · <span class="pr">$29</span>/month</span></a><a class="btn btn-line" href="index.html#explain">Explain Glim</a></div>
+</div></section>
+</main>
+<footer class="ft"><div class="wrap">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>
+      <p class="ft-tag">Give your business a second brain.</p>
+      <p class="ft-co">sh. industries, Massachusetts. Small software that does the boring part for small businesses. Questions, setup help, anything: <a href="mailto:glim@shindustries.co">glim@shindustries.co</a>, a person reads it.</p>
+    </div>
+    <nav class="ft-cols" aria-label="Site">
+      <div><p class="ft-h">Glim</p><ul>
+        <li><a href="index.html#explain">Explain Glim</a></li><li><a href="index.html#trade">Try it with your business</a></li><li><a href="index.html#beta">Beta, honestly</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#install">Install</a></li><li><a href="index.html#faq">Questions</a></li>
+      </ul></div>
+      <div><p class="ft-h">Products</p><ul>
+        <li><a href="products.html#glim">Glim<small>Founding beta · $29 a month</small></a></li>
+        <li><a href="duckyguard/">DuckyGuard<small>Free Mac tool · in development</small></a></li>
+        <li><a href="products.html">All products</a></li>
+      </ul></div>
+      <div><p class="ft-h">Company</p><ul>
+        <li><a href="about.html">About sh. industries</a></li>
+        <li><a href="https://stevenhainley.net" rel="noopener">Steven Hainley, founder<small>stevenhainley.net</small></a></li>
+        <li><a href="mailto:glim@shindustries.co">glim@shindustries.co</a></li>
+      </ul></div>
+      <div><p class="ft-h">Legal</p><ul>
+        <li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="refunds.html">Refunds</a></li><li><a href="sms.html">Text messaging</a></li>
+      </ul></div>
+    </nav>
+  </div>
+  <div class="ft-bot">
+    <span>© 2026 sh. industries · Massachusetts, USA</span>
+    <span>Made by <a href="https://stevenhainley.net" rel="noopener">Steven Hainley</a></span>
+    <span class="px">No trackers · no cookies</span>
+  </div>
+</div></footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

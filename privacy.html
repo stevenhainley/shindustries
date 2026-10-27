@@ -1,19 +1,199 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Privacy · sh. industries</title><meta name="description" content="What data sh. industries handles and why.">
-<link rel="icon" href="favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"><link rel="apple-touch-icon" href="assets/favicon-180.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap">
-<link rel="stylesheet" href="assets/v5.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "sh. industries", "url": "https://shindustries.co", "email": "steven@shindustries.co", "founder": {"@type": "Person", "name": "Steven Hainley"}}</script></head>
-<body class="">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<script src="assets/switches.js"></script>
+<title>Privacy · Glim by sh. industries</title>
+<meta name="description" content="What Glim collects, why, who sees it, and how to export or delete it. No trackers or cookies on this site.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://shindustries.co/privacy.html">
 
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="sh. industries">
+<meta property="og:title" content="Privacy · Glim by sh. industries">
+<meta property="og:description" content="What Glim collects, why, who sees it, and how to export or delete it. No trackers or cookies on this site.">
+<meta property="og:url" content="https://shindustries.co/privacy.html">
+<meta property="og:image" content="https://shindustries.co/assets/og/og-home.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Glim, the pixel creature with one green dot, and the words Privacy">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy · Glim by sh. industries">
+<meta name="twitter:description" content="What Glim collects, why, who sees it, and how to export or delete it. No trackers or cookies on this site.">
+<meta name="twitter:image" content="https://shindustries.co/assets/og/og-home.png">
+<meta name="theme-color" content="#0E0E0D" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F7F6F1" media="(prefers-color-scheme: light)">
+<meta name="color-scheme" content="dark light">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preload" href="assets/fonts/FunnelDisplay-800.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/FunnelSans-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<style>
+/* Hallmark · doc page · shares tokens with index.html (dark favourite, auto light) */
+.banner{background:var(--warn-soft);color:var(--warn-text);border-bottom:1px solid var(--line);font-size:15px;font-weight:600;text-align:center;padding:10px 16px}
+.doc{max-width:720px;margin:0 auto;padding:40px 16px 72px}
+@media(min-width:760px){.doc{padding:64px 0 96px}}
+.doc h1{font-size:clamp(34px,6vw,52px);line-height:1.05;letter-spacing:-.03em}
+.doc .upd{color:var(--text-3);font-size:15px;margin-top:12px}
+.doc .intro{font-size:19px;color:var(--text-2);margin-top:20px}
+.doc h2{font-size:24px;line-height:1.2;font-weight:700;letter-spacing:-.015em;margin:44px 0 12px}
+.doc p{margin-top:12px}
+.doc ul,.doc ol{margin:12px 0 0;padding-left:22px}
+.doc li{margin-top:8px}
+.doc a{color:var(--text);text-decoration-color:var(--text-3);text-underline-offset:3px}
+.sum{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--green);border-radius:var(--r);padding:18px 20px;margin-top:28px}
+.sum b{display:block;margin-bottom:6px}
+.sum ul{margin-top:6px}
+.sample{background:var(--surface-2);border-radius:12px;padding:10px 14px;margin-top:10px;color:var(--text-2);font-size:16px}
+.cf{background:var(--cf-bg);padding:0 4px;border-radius:4px;font-weight:600;color:var(--cf)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="glim" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="6" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="2" width="1" height="1" fill="#1A1A17"/><rect x="5" y="3" width="1" height="1" fill="#1A1A17"/><rect x="6" y="3" width="1" height="1" fill="#1A1A17"/><rect x="7" y="3" width="1" height="1" fill="#1A1A17"/><rect x="8" y="3" width="1" height="1" fill="#1A1A17"/><rect x="9" y="3" width="1" height="1" fill="#1A1A17"/><rect x="10" y="3" width="1" height="1" fill="#1A1A17"/><rect x="4" y="4" width="1" height="1" fill="#1A1A17"/><rect x="5" y="4" width="1" height="1" fill="#1A1A17"/><rect x="6" y="4" width="1" height="1" fill="#1A1A17"/><rect x="7" y="4" width="1" height="1" fill="#1A1A17"/><rect x="8" y="4" width="1" height="1" fill="#1A1A17"/><rect x="9" y="4" width="1" height="1" fill="#1A1A17"/><rect x="10" y="4" width="1" height="1" fill="#1A1A17"/><rect x="11" y="4" width="1" height="1" fill="#1A1A17"/><rect x="3" y="5" width="1" height="1" fill="#1A1A17"/><rect x="4" y="5" width="1" height="1" fill="#1A1A17"/><rect x="5" y="5" width="1" height="1" fill="#1A1A17"/><rect x="6" y="5" width="1" height="1" fill="#1A1A17"/><rect x="7" y="5" width="1" height="1" fill="#1A1A17"/><rect x="8" y="5" width="1" height="1" fill="#1A1A17"/><rect x="9" y="5" width="1" height="1" fill="#1A1A17"/><rect x="10" y="5" width="1" height="1" fill="#1A1A17"/><rect x="11" y="5" width="1" height="1" fill="#1A1A17"/><rect x="12" y="5" width="1" height="1" fill="#1A1A17"/><rect x="3" y="6" width="1" height="1" fill="#1A1A17"/><rect x="4" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="6" width="1" height="1" fill="#1A1A17"/><rect x="7" y="6" width="1" height="1" fill="#1A1A17"/><rect x="8" y="6" width="1" height="1" fill="#1A1A17"/><rect x="9" y="6" width="1" height="1" fill="#1A1A17"/><rect x="10" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="6" width="1" height="1" fill="#1A1A17"/><rect x="3" y="7" width="1" height="1" fill="#1A1A17"/><rect x="4" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="7" width="1" height="1" fill="#1A1A17"/><rect x="6" y="7" width="1" height="1" fill="#1A1A17"/><rect x="7" y="7" width="1" height="1" fill="#1A1A17"/><rect x="8" y="7" width="1" height="1" fill="#1A1A17"/><rect x="9" y="7" width="1" height="1" fill="#1A1A17"/><rect x="10" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="7" width="1" height="1" fill="#1A1A17"/><rect x="12" y="7" width="1" height="1" fill="#1A1A17"/><rect x="3" y="8" width="1" height="1" fill="#1A1A17"/><rect x="4" y="8" width="1" height="1" fill="#1A1A17"/><rect x="5" y="8" width="1" height="1" fill="#1A1A17"/><rect x="6" y="8" width="1" height="1" fill="#1A1A17"/><rect x="7" y="8" width="1" height="1" fill="#1A1A17"/><rect x="8" y="8" width="1" height="1" fill="#1A1A17"/><rect x="9" y="8" width="1" height="1" fill="#1A1A17"/><rect x="10" y="8" width="1" height="1" fill="#1A1A17"/><rect x="11" y="8" width="1" height="1" fill="#1A1A17"/><rect x="12" y="8" width="1" height="1" fill="#1A1A17"/><rect x="3" y="9" width="1" height="1" fill="#1A1A17"/><rect x="4" y="9" width="1" height="1" fill="#1A1A17"/><rect x="5" y="9" width="1" height="1" fill="#1A1A17"/><rect x="6" y="9" width="1" height="1" fill="#1A1A17"/><rect x="7" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="9" width="1" height="1" fill="#1A1A17"/><rect x="10" y="9" width="1" height="1" fill="#1A1A17"/><rect x="11" y="9" width="1" height="1" fill="#1A1A17"/><rect x="12" y="9" width="1" height="1" fill="#1A1A17"/><rect x="3" y="10" width="1" height="1" fill="#1A1A17"/><rect x="4" y="10" width="1" height="1" fill="#1A1A17"/><rect x="5" y="10" width="1" height="1" fill="#1A1A17"/><rect x="6" y="10" width="1" height="1" fill="#1A1A17"/><rect x="7" y="10" width="1" height="1" fill="#1A1A17"/><rect x="8" y="10" width="1" height="1" fill="#1A1A17"/><rect x="9" y="10" width="1" height="1" fill="#1A1A17"/><rect x="10" y="10" width="1" height="1" fill="#1A1A17"/><rect x="11" y="10" width="1" height="1" fill="#1A1A17"/><rect x="12" y="10" width="1" height="1" fill="#1A1A17"/><rect x="4" y="11" width="1" height="1" fill="#1A1A17"/><rect x="5" y="11" width="1" height="1" fill="#1A1A17"/><rect x="6" y="11" width="1" height="1" fill="#1A1A17"/><rect x="7" y="11" width="1" height="1" fill="#1A1A17"/><rect x="8" y="11" width="1" height="1" fill="#1A1A17"/><rect x="9" y="11" width="1" height="1" fill="#1A1A17"/><rect x="10" y="11" width="1" height="1" fill="#1A1A17"/><rect x="11" y="11" width="1" height="1" fill="#1A1A17"/><rect x="5" y="12" width="1" height="1" fill="#1A1A17"/><rect x="6" y="12" width="1" height="1" fill="#1A1A17"/><rect x="7" y="12" width="1" height="1" fill="#1A1A17"/><rect x="8" y="12" width="1" height="1" fill="#1A1A17"/><rect x="9" y="12" width="1" height="1" fill="#1A1A17"/><rect x="10" y="12" width="1" height="1" fill="#1A1A17"/><rect x="5" y="13" width="1" height="1" fill="#1A1A17"/><rect x="10" y="13" width="1" height="1" fill="#1A1A17"/><rect x="4" y="14" width="1" height="1" fill="#1A1A17"/><rect x="5" y="14" width="1" height="1" fill="#1A1A17"/><rect x="10" y="14" width="1" height="1" fill="#1A1A17"/><rect x="11" y="14" width="1" height="1" fill="#1A1A17"/><circle cx="7.5" cy="1.5" r="2.4" fill="#C6FF3D" opacity=".28"/><circle cx="7.5" cy="1.5" r="1.4" fill="#C6FF3D" opacity=".55"/><rect x="7" y="1" width="1" height="1" fill="#C6FF3D"/></symbol></svg>
 <a class="skip" href="#main">Skip to content</a>
-<header class="hdr"><div class="wrap hdr-in"><a class="logo" href="index.html"><img src="assets/wordmark-box-paper.svg" alt="sh." height="30" width="49"><span>industries</span></a>
-<nav class="nav" aria-label="Main"><a href="glim.html">Glim · for businesses</a><a href="glim.html#plans">Prices</a><a href="studio.html">sh. Studio · for podcasters</a><a href="index.html#steven">Steven</a><a href="index.html#faq">FAQ</a></nav><a class="btn btn-ink btn-sm" href="mailto:steven@shindustries.co?subject=Talk%20to%20Steven">Talk to Steven</a></div></header>
-<main id="main"><section class="sec legal"><div class="wrap"><p class="label">Policy</p><h1 class="h2">Privacy</h1><p class="muted">Last updated 19 October 2026.</p><h2 class="h3">Who we are</h2><p>sh. industries is a trade name used by Steven Hainley. This page says what data we handle and why. Contact: <a href="mailto:steven@shindustries.co">steven@shindustries.co</a>.</p><h2 class="h3">What this website collects</h2><p>Nothing about you directly. There are no analytics, no ads, no tracking pixels, no cookies and nothing stored in your browser.</p><h2 class="h3">Services the site loads</h2><ul class="terms"><li>GitHub Pages hosts the site and may log IP addresses for security, under GitHub's privacy statement.</li><li>Google Fonts serves the typefaces, so your browser requests them from Google.</li></ul><h2 class="h3">When you buy</h2><p>Stripe processes payments and sends us your name, email and what you bought (and, for a Discord tier, the Discord username you enter). We use that to deliver the order and answer questions.</p><h2 class="h3">When you use Glim</h2><p>Your customers' names, numbers, quotes and invoices are used only to run your office. Never sold or shared. Glim's texts and calls run through a business phone provider and a cloud server we look after.</p><h2 class="h3">When you email us</h2><p>We keep the thread to do the work and reply. Episodes you send and the clips we make are stored in a private folder shared with you.</p><h2 class="h3">Waitlist</h2><p>If you join the clipper-tool waitlist, we keep your email address on a list used only to tell you when it opens. Ask to be removed at any time.</p><h2 class="h3">What we don't do</h2><p>We don't sell or rent personal data, and we don't use it to train anything.</p><h2 class="h3">Your rights</h2><p>Email us to see, correct or delete what we hold about you. We answer within one business day.</p></div></section></main>
-<footer class="ftr"><div class="wrap ftr-in">
-  <div><a class="logo" href="index.html"><img src="assets/wordmark-box-paper.svg" alt="sh." height="26" width="42"><span>industries</span></a>
-  <p class="tagline">Give every business a second brain.</p>
-  <p class="muted small">sh. industries makes Glim, an office helper that lives in your texts, and sh. Studio, done-for-you podcast clips. Founded by Steven Hainley. A trade name of Steven Hainley.</p></div>
-  <ul><li><a href="glim.html">Glim · your office, in your texts</a></li><li><a href="glim.html#plans">Glim plans and prices</a></li><li><a href="studio.html">sh. Studio · podcast clips</a></li><li><a href="https://discord.gg/aVfPyskQbd">sh. lab Discord · the build log</a></li><li><a href="https://www.youtube.com/@shdotindustries">YouTube</a></li></ul>
-  <ul><li><a href="mailto:steven@shindustries.co">steven@shindustries.co</a></li><li><a href="refunds.html">Refund policy</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="cookies.html">Cookies</a></li></ul>
-</div></footer></body></html>
+<aside class="banner" aria-label="Draft notice">Draft: have a lawyer review before launch.</aside>
+<header class="hdr" id="hdr"><div class="wrap hdr-in">
+  <a class="logo" href="index.html" aria-label="Glim, by sh. industries. Home"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>Glim <small>by sh. industries</small></a>
+  <nav class="nav" id="nav" aria-label="Main">
+    <a href="index.html#explain">Explain</a><a href="index.html#trade">Try it</a><a href="index.html#beta">Beta</a><a href="index.html#pricing">Pricing</a><a href="index.html#faq">Questions</a>
+    <div class="dd"><a href="products.html">Products<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+      <div class="dd-menu"><div class="dd-in">
+        <a href="products.html#glim"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span><span><b>Glim</b><span>Texts back the calls your business misses. Founding beta.</span></span></a>
+        <a href="duckyguard/"><img src="duckyguard/assets/duck-96.png" alt="" width="84" height="96" loading="lazy"><span><b>DuckyGuard</b><span>A free Mac tool that spots USB gadgets typing like a machine.</span></span></a>
+        <div class="dd-sep" role="presentation"></div>
+        <a class="dd-plain" href="products.html"><b>All products</b></a>
+        <a class="dd-plain" href="about.html"><b>About sh. industries</b></a>
+      </div></div>
+    </div>
+  </nav>
+  <a class="btn btn-ink btn-sm" data-buy href="index.html#waitlist"><span class="when-closed">Join waitlist</span><span class="when-open">Get Glim</span></a>
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg class="ic-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="ic-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+</div></header>
+<main id="main" class="doc">
+<h1>Privacy</h1>
+<p class="upd">Last updated: October 26, 2026 (draft)</p>
+<p class="intro">Glim is made by sh. industries (Steven Hainley, a sole proprietor in Massachusetts). This page says what we collect, why, who sees it, and how to get it deleted. Questions: <a href="mailto:glim@shindustries.co">glim@shindustries.co</a>.</p>
+
+<div class="sum"><b>The short version</b><ul>
+<li>We collect what Glim needs to do its job: your account, your business details, your customer list, and your calls, texts and quotes.</li>
+<li>We never sell your data or your customers' data.</li>
+<li>When Glim drafts a message, only the text it needs goes to an AI model.</li>
+<li>You can export or delete your data any time. Delete your account in the app and it goes.</li>
+</ul></div>
+
+<h2>Who is who</h2>
+<p>"You" is the business owner who signs up for Glim. "Your customers" are the people who call or text your business. Glim texts your customers on your behalf, so you decide who gets a message. We hold your customers' information for you, to run Glim for you.</p>
+
+<h2>What we collect</h2>
+<p>From you:</p>
+<ul>
+<li>Your name, email, business name, business type and business phone number.</li>
+<li>Your Glim settings, such as how you want messages to sound and what needs your OK first.</li>
+<li>Payment status. Stripe takes your card details. We never see or store your full card number.</li>
+</ul>
+<p>About your customers, because Glim needs it to work:</p>
+<ul>
+<li>Names and phone numbers, and anything you add to their record.</li>
+<li>Missed-call records (the number that called, and when).</li>
+<li>The texts Glim sends them and the replies they send back.</li>
+<li>Quotes and invoices, such as the service or job, the amount and whether it is paid.</li>
+<li>Whether a customer has replied STOP, so we never text them again.</li>
+</ul>
+
+<h2>The founding shops waitlist and beta invites</h2>
+<p>If you join the waitlist on our site, we keep your email, business name, business type, your answers about missed calls and whether you would pay, anything you write in the optional comment box and, if you give it, your phone carrier. We use them to decide whether to open Glim, to email you once when founding spots open, to send occasional beta updates (each with a one-click unsubscribe) and to help you set up call forwarding. Beta testers who use an invite code also give us the code, so we know who invited them. We never sell this list or share it for marketing. Ask us at <a href="mailto:glim@shindustries.co">glim@shindustries.co</a> and we delete it. <span class="cf">[CONFIRM: waitlist storage provider once WAITLIST_ENDPOINT is live]</span></p>
+
+<h2>What we use it for</h2>
+<ul>
+<li>To text back missed calls, follow up quotes and invoices, and send the messages you approve.</li>
+<li>To bill you and keep your account running.</li>
+<li>To answer your emails and fix problems.</li>
+<li>To keep Glim safe and stop misuse.</li>
+</ul>
+<p>We do not use your customers' information to advertise to them, and we do not use it for anything unrelated to running Glim for you.</p>
+
+<h2>AI models</h2>
+<p>Glim uses AI models to draft messages. Today that is Claude, made by Anthropic. When Glim drafts a message, only the text needed for that message is sent, for example the customer's first name, the service or job and the quote amount. We do not send your whole customer list. <span class="cf">[CONFIRM: confirm with Anthropic's current terms whether data sent through the API is kept or used for training, and state it here]</span></p>
+
+<h2>Who else sees your data</h2>
+<p>We use a small number of companies to run Glim. They handle data only to provide their service to us.</p>
+<ul>
+<li><b>Stripe</b> takes payments.</li>
+<li><b>Our texting provider</b> sends and receives texts and calls. <span class="cf">[CONFIRM: name the provider, expected to be Twilio]</span></li>
+<li><b>Anthropic</b> runs the AI model that drafts messages.</li>
+<li><b>Hosting and storage.</b> <span class="cf">[CONFIRM: name the hosting provider, and say where data is stored (Glim is a hosted web app, so name the cloud provider and region)]</span></li>
+</ul>
+<p>We may also share information if the law requires it, such as a valid court order.</p>
+
+<h2>What we never do</h2>
+<ul>
+<li>We do not sell personal information, yours or your customers'.</li>
+<li>We do not share mobile phone numbers or text opt-in information with third parties or affiliates for their marketing. This includes text messaging originator opt-in data and consent. It is never shared with anyone for marketing.</li>
+</ul>
+
+<h2>How long we keep it</h2>
+<p>We keep your data while your account is open. If you cancel and delete your account, we delete your data. <span class="cf">[CONFIRM: number of days until deleted data is removed from backups]</span> We keep billing records as long as the law and tax rules require. After a customer replies STOP, we keep the fact that they opted out so we do not text them again. <span class="cf">[CONFIRM: retention period for message history while an account is open]</span></p>
+
+<h2>Where it is stored</h2>
+<p><span class="cf">[CONFIRM: data region / country where data is stored]</span></p>
+
+<h2>Your choices</h2>
+<ul>
+<li><b>Export.</b> You can export your customer list, quotes and message history from the app.</li>
+<li><b>Delete.</b> You can delete your customers' records, or your whole account, inside the app. Email us if you are stuck.</li>
+<li><b>Customers.</b> If someone texted by your business asks us to see or delete their information, we pass it to the business, and we help the business do it. They can also reply STOP at any time to end texts.</li>
+</ul>
+
+<h2>Security</h2>
+<p>We use reasonable steps to protect your data, including encrypted connections. No system is perfectly safe. If we learn of a problem that affects your data, we will tell you.</p>
+
+<h2>Children</h2>
+<p>Glim is for businesses. It is not meant for anyone under 18.</p>
+
+<h2>Changes</h2>
+<p>If we change this page in a way that matters, we will email you before it takes effect.</p>
+
+<h2>Contact</h2>
+<p>sh. industries, Massachusetts, USA. <span class="cf">[CONFIRM: mailing address, if the lawyer or Twilio registration needs one on this page]</span><br>Email: <a href="mailto:glim@shindustries.co">glim@shindustries.co</a></p>
+
+</main>
+<footer class="ft"><div class="wrap">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>
+      <p class="ft-tag">Give your business a second brain.</p>
+      <p class="ft-co">sh. industries, Massachusetts. Small software that does the boring part for small businesses. Questions, setup help, anything: <a href="mailto:glim@shindustries.co">glim@shindustries.co</a>, a person reads it.</p>
+    </div>
+    <nav class="ft-cols" aria-label="Site">
+      <div><p class="ft-h">Glim</p><ul>
+        <li><a href="index.html#explain">Explain Glim</a></li><li><a href="index.html#trade">Try it with your business</a></li><li><a href="index.html#beta">Beta, honestly</a></li><li><a href="index.html#pricing">Pricing</a></li><li><a href="index.html#install">Install</a></li><li><a href="index.html#faq">Questions</a></li>
+      </ul></div>
+      <div><p class="ft-h">Products</p><ul>
+        <li><a href="products.html#glim">Glim<small>Founding beta · $29 a month</small></a></li>
+        <li><a href="duckyguard/">DuckyGuard<small>Free Mac tool · in development</small></a></li>
+        <li><a href="products.html">All products</a></li>
+      </ul></div>
+      <div><p class="ft-h">Company</p><ul>
+        <li><a href="about.html">About sh. industries</a></li>
+        <li><a href="https://stevenhainley.net" rel="noopener">Steven Hainley, founder<small>stevenhainley.net</small></a></li>
+        <li><a href="mailto:glim@shindustries.co">glim@shindustries.co</a></li>
+      </ul></div>
+      <div><p class="ft-h">Legal</p><ul>
+        <li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="refunds.html">Refunds</a></li><li><a href="sms.html">Text messaging</a></li>
+      </ul></div>
+    </nav>
+  </div>
+  <div class="ft-bot">
+    <span>© 2026 sh. industries · Massachusetts, USA</span>
+    <span>Made by <a href="https://stevenhainley.net" rel="noopener">Steven Hainley</a></span>
+    <span class="px">No trackers · no cookies</span>
+  </div>
+</div></footer>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
