@@ -5,7 +5,7 @@ document.documentElement.classList.add("js");
   /* --- download state --- */
   if (DOWNLOAD_URL) {
     const btn = document.querySelector("[data-dl-btn]");
-    btn.href = DOWNLOAD_URL; btn.textContent = "Download v2.0.0 for macOS 26+ (Apple Silicon)";
+    btn.href = DOWNLOAD_URL; btn.textContent = "Download for macOS (Apple Silicon)";
     document.querySelector("[data-dl-title]").textContent = "Download DuckyGuard";
     document.querySelector("[data-dl-copy]").textContent = "Free. Runs locally. After install, allow it in System Settings → Privacy & Security → Accessibility so it can see keystrokes.";
     document.querySelector("[data-dl-gk]").textContent = DOWNLOAD_NOTARIZED
