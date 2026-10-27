@@ -19,7 +19,7 @@ document.documentElement.classList.add("js");
   /* --- support state --- */
   if (SUPPORT_URL) {
     const b = document.querySelector("[data-support-btn]");
-    b.href = SUPPORT_URL; b.textContent = "Chip in · you pick the amount";
+    b.href = SUPPORT_URL; b.textContent = "☕ Buy me a coffee";
     document.querySelector("[data-support-note]").textContent = "Secure checkout by Stripe. You choose the amount; it doesn't unlock anything.";
   }
 
