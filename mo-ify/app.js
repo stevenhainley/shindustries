@@ -2,7 +2,7 @@
 // Steven: this is the one line to change. Paste your own Mo Space link here once you
 // have signed up at movember.com, so donations from this page count toward your page.
 // Until then it sends people to Movember's own general donate page.
-const DONATE_URL = "https://movember.com/donate";
+const DONATE_URL = "https://us.movember.com/donate/details?memberId=15609313";
 // Where this page will live once published. Used in the caption and printed on the card.
 const PAGE_URL = "https://shindustries.co/mo-ify/";
 // ====================================================================================
