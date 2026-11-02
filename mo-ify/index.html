@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Privacy by construction: the page may only load files from its own site (its origin) and may not send data anywhere else. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' blob: data:; font-src 'self'; connect-src 'self'; worker-src 'self' blob:; media-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Mo-ify me, supporting Movember</title>
+<meta name="description" content="Add an AI moustache to your photo in your browser, then donate to Movember or grow a real one. Your photo never leaves your device.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Mo-ify me: grow an AI mo, then donate or grow a real one">
+<meta property="og:description" content="A free in-browser tool supporting Movember. Your photo never leaves your device.">
+<meta property="og:image" content="https://shindustries.co/mo-ify/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<a class="skip" href="#make">Skip to the tool</a>
+
+<header class="top">
+  <a class="wordmark" href="https://shindustries.co" aria-label="sh. industries home">sh<span class="dot">.</span></a>
+  <a class="btn btn-head" data-donate href="https://movember.com/donate" target="_blank" rel="noopener">Donate</a>
+</header>
+
+<main>
+  <section class="hero" id="make" aria-labelledby="title">
+    <div class="intro">
+      <p class="eyebrow">A free tool supporting Movember 2026</p>
+      <h1 id="title">Mo-ify me</h1>
+      <p class="lede">Add an AI moustache to your photo in a few seconds. Then do the real thing: donate to Movember, or grow one this November.</p>
+
+      <div class="pick">
+        <input id="photo" class="visually-hidden" type="file" accept="image/*">
+        <label class="btn btn-ink" for="photo">Choose a photo</label>
+        <button class="btn btn-line" id="sample" type="button">Try a sample face</button>
+      </div>
+      <p class="privacy"><span class="lock" aria-hidden="true"></span>Your photo never leaves your device. The face detection runs in your browser; nothing is uploaded or stored.</p>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="stage">
+      <canvas id="card" width="1080" height="1350" tabindex="0" role="img" aria-label="Example card: a face with a drawn moustache. Choose a photo to make your own."></canvas>
+      <p class="hint" id="hint">Drag a mo to move it. Arrow keys work too.</p>
+
+      <fieldset class="controls" id="controls" disabled>
+        <legend>Style your mo</legend>
+        <div class="row" role="radiogroup" aria-label="Moustache style" id="styles"></div>
+        <div class="row" role="radiogroup" aria-label="Moustache colour" id="colors"></div>
+        <label class="slider" for="size">Size <input id="size" type="range" min="70" max="140" value="100" step="1"></label>
+        <button class="btn btn-small btn-line" id="reset" type="button">Reset position</button>
+      </fieldset>
+    </div>
+
+      <ol class="steps">
+        <li class="step" id="step-donate">
+          <h2>Donate, even a little</h2>
+          <p id="donate-note">Your gift goes straight to Movember through its own site. Nothing passes through me.</p>
+          <a class="btn btn-donate" data-donate href="https://movember.com/donate" target="_blank" rel="noopener">Donate to Movember</a>
+        </li>
+        <li class="step" id="step-share">
+          <h2>Share your mo</h2>
+          <p>Post the card with the caption below. The image is made on your device.</p>
+          <div class="pick">
+            <button class="btn btn-ink" id="save" type="button" disabled>Save image</button>
+            <button class="btn btn-line" id="share" type="button" disabled hidden>Share</button>
+            <button class="btn btn-line" id="copy-caption" type="button">Copy caption</button>
+          </div>
+          <p class="caption" id="caption"></p>
+        </li>
+        <li class="step" id="step-nominate">
+          <h2>Nominate 3 friends</h2>
+          <p>The Ice Bucket Challenge spread because each person named three more and gave them 24 hours. Same deal.</p>
+          <div class="friends">
+            <label for="f1">Friend 1</label><input id="f1" type="text" autocomplete="off" placeholder="Name or @handle">
+            <label for="f2">Friend 2</label><input id="f2" type="text" autocomplete="off" placeholder="Name or @handle">
+            <label for="f3">Friend 3</label><input id="f3" type="text" autocomplete="off" placeholder="Name or @handle">
+          </div>
+          <label class="out-label" for="nomination">Your message</label>
+          <textarea id="nomination" rows="7" readonly></textarea>
+          <div class="pick">
+            <button class="btn btn-ink" id="copy-nomination" type="button">Copy message</button>
+            <button class="btn btn-line" id="share-nomination" type="button" hidden>Send</button>
+          </div>
+          <p class="tip">On LinkedIn, type @ and pick each name from the list so they get notified.</p>
+        </li>
+      </ol>
+  </section>
+
+  <section class="facts" aria-labelledby="why">
+    <h2 id="why">Why men's health</h2>
+    <ul class="fact-list">
+      <li>
+        <p class="fact">In the US, about 1 in 8 men will be diagnosed with prostate cancer during their lifetime.</p>
+        <p class="src">Source: <a href="https://www.cancer.org/cancer/types/prostate-cancer/about/key-statistics.html">American Cancer Society, Key Statistics for Prostate Cancer</a></p>
+      </li>
+      <li>
+        <p class="fact">In the US, the average age at a testicular cancer diagnosis is about 33, and it can usually be treated successfully.</p>
+        <p class="src">Source: <a href="https://www.cancer.org/cancer/types/testicular-cancer/about/key-statistics.html">American Cancer Society, Key Statistics for Testicular Cancer</a></p>
+      </li>
+      <li>
+        <p class="fact">In 2023 the US suicide rate among males was nearly 4 times the rate among females.</p>
+        <p class="src">Source: <a href="https://www.nimh.nih.gov/health/statistics/suicide">National Institute of Mental Health, Suicide statistics</a></p>
+      </li>
+      <li>
+        <p class="fact">Movember's Move challenge is 60 miles in November: one mile for each of the 60 men lost to suicide every hour around the world.</p>
+        <p class="src">Source: <a href="https://us.movember.com/uploads/files/Fundraising-Resources/Guides%20-%20US/Movember%20Fundraising%20Guide%202025%20US.pdf">Movember Fundraising Guide (US, PDF)</a></p>
+      </li>
+    </ul>
+    <p class="help">If you are struggling, you can call or text <a href="tel:988">988</a> in the US (Suicide &amp; Crisis Lifeline), any time. Outside the US, <a href="https://findahelpline.com">find a helpline near you</a>.</p>
+  </section>
+
+  <section class="how" aria-labelledby="how">
+    <h2 id="how">How it works, and why your photo stays put</h2>
+    <ul>
+      <li>A small face model (about 550 KB) finds the nose and lips in your photo. It runs in your browser with face-api.js on TensorFlow.js, loaded from this site.</li>
+      <li>The page's Content Security Policy only lets it talk to its own site, and no code here sends your photo anywhere. No cookies, no analytics, no backend: the host only serves the files.</li>
+      <li>Once the face model has loaded (the page says so under the buttons), it keeps working with the network off.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <p class="disclosure">Made by Steven Hainley with AI. Not affiliated with Movember; donations go directly to Movember.</p>
+  <p class="small">Sample face: generated by StyleGAN2, not a real person (public domain, <a href="https://commons.wikimedia.org/wiki/File:This_Person_Does_Not_Exist_example.jpg">Wikimedia Commons</a>). Face detection: <a href="https://github.com/vladmandic/face-api">face-api</a> 1.7.14 (MIT) with TensorFlow.js 4.21.0 (<a href="vendor/face-api/LICENSE-tensorflowjs.txt">Apache-2.0</a>). Fonts: Funnel Sans and Funnel Display (OFL).</p>
+  <p class="small"><a href="https://shindustries.co">sh. industries</a></p>
+</footer>
+</body>
+</html>
