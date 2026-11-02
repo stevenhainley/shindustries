@@ -89,7 +89,7 @@ function drawMo(c, mo, style, color) {
   c.save();
   c.translate(mo.x, mo.y);
   c.rotate(mo.a);
-  c.scale(s * style.wide, s);
+  c.scale(s * style.wide, s * (mo.v ?? 1));
   // soft shadow so it sits on the face
   c.save();
   c.shadowColor = "rgba(0,0,0,.35)"; c.shadowBlur = 0.06 * s; c.shadowOffsetY = 0.03 * s;
@@ -185,6 +185,87 @@ function drawBand(c) {
   c.fillText(SHORT_URL, CARD_W - pad, PHOTO + 236);
 }
 
+// ---------- story image (1080x1920, for Instagram Stories) ----------
+// Instagram puts its progress bar and name over about the top 250px of a story and the reply bar over
+// the bottom 340px, so everything that matters sits between them.
+const STORY_W = 1080, STORY_H = 1920, SAFE_TOP = 250, SAFE_BOTTOM = 340;
+const STORY_FILE = "my-ai-mo-story.png";
+const STORY_LINES = ["Got my *AI mo*", "for Movember"]; // text between asterisks sits on a lime highlighter
+function roundRect(c, x, y, w, h, r) { c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, h, r); else c.rect(x, y, w, h); }
+function storyLineWidth(c, line, size) {
+  c.font = `800 ${size}px "Funnel Display"`;
+  return line.split("*").reduce((s, t, i) => s + c.measureText(t).width + (i % 2 ? 0.32 * size : 0), 0);
+}
+function storyLine(c, line, y, size) {
+  const pad = 0.16 * size;
+  let x = (STORY_W - storyLineWidth(c, line, size)) / 2;
+  line.split("*").forEach((t, i) => {
+    const w = c.measureText(t).width;
+    if (i % 2) {
+      c.save();
+      c.translate(x + pad + w / 2, y - 0.3 * size); c.rotate(-0.03);
+      c.fillStyle = LIME; roundRect(c, -w / 2 - pad, -0.5 * size, w + 2 * pad, 0.98 * size, 0.2 * size); c.fill();
+      c.restore();
+      c.fillStyle = INK; c.fillText(t, x + pad, y);
+      x += w + 2 * pad;
+    } else {
+      c.fillStyle = PAPER; c.fillText(t, x, y);
+      x += w;
+    }
+  });
+}
+// o.lines: headline (two lines at most), o.mo: false draws the photo without the mo, o.note: small label on the photo
+function paintStory(c, o = {}) {
+  const lines = o.lines || STORY_LINES, showMo = o.mo !== false, maxW = STORY_W - 160;
+  c.save();
+  c.fillStyle = INK; c.fillRect(0, 0, STORY_W, STORY_H);
+  c.textAlign = "left"; c.textBaseline = "alphabetic";
+  // headline, sized so the widest line fits, centred in a fixed block just under the top safe zone
+  let size = 112;
+  while (size > 40 && Math.max(...lines.map((l) => storyLineWidth(c, l, size))) > maxW) size -= 2;
+  const lh = 1.06 * size, top = SAFE_TOP + 28 + (240 - lines.length * lh) / 2 + 0.8 * size;
+  lines.forEach((l, i) => storyLine(c, l, top + i * lh, size));
+  // the photo: the same square crop as the feed card (place() handles groups and wide or tall photos),
+  // on a paper frame with a slight tilt
+  const S = 860, cx = STORY_W / 2, cy = 990;
+  c.save();
+  c.translate(cx, cy); c.rotate(-0.035);
+  c.save();
+  c.shadowColor = "rgba(0,0,0,.55)"; c.shadowBlur = 48; c.shadowOffsetY = 18;
+  c.fillStyle = PAPER; roundRect(c, -S / 2 - 18, -S / 2 - 18, S + 36, S + 36, 30); c.fill();
+  c.restore();
+  roundRect(c, -S / 2, -S / 2, S, S, 16); c.clip();
+  c.translate(-S / 2, -S / 2); c.scale(S / PHOTO, S / PHOTO);
+  if (state.hasPhoto) {
+    c.drawImage(photoLayer, 0, 0);
+    if (showMo) for (const mo of state.mos) drawMo(c, mo, state.style, state.color);
+  } else drawPlaceholder(c);
+  if (o.note) drawNote(c, o.note);
+  c.restore();
+  // sticker on the photo's corner
+  if (o.badge ?? showMo) {
+    c.save();
+    c.translate(cx + S / 2 - 20, cy - S / 2 + 36); c.rotate(0.2);
+    c.fillStyle = LIME; c.beginPath(); c.arc(0, 0, 82, 0, Math.PI * 2); c.fill();
+    c.lineWidth = 6; c.strokeStyle = INK; c.stroke();
+    c.fillStyle = INK; c.textAlign = "center";
+    c.font = '800 46px "Funnel Display"'; c.fillText("FREE", 0, 6);
+    c.font = '600 24px "Funnel Sans"'; c.fillText("no upload", 0, 38);
+    c.restore();
+  }
+  // call to action, above the bottom safe zone
+  const a = "Get yours: ";
+  fitFont(c, a + SHORT_URL, 600, 56, "Funnel Sans", maxW);
+  const wa = c.measureText(a).width;
+  let x = (STORY_W - c.measureText(a + SHORT_URL).width) / 2;
+  c.textAlign = "left";
+  c.fillStyle = PAPER; c.fillText(a, x, 1524);
+  c.fillStyle = LIME; c.fillText(SHORT_URL, x + wa, 1524);
+  c.font = '400 28px "Funnel Sans"'; c.fillStyle = MUTED; c.textAlign = "center";
+  c.fillText("Not affiliated with Movember", STORY_W / 2, STORY_H - SAFE_BOTTOM - 14);
+  c.restore();
+}
+
 let frame = 0;
 const schedule = () => { if (!frame) frame = requestAnimationFrame(() => { frame = 0; render(); }); };
 let blobTimer = 0;
@@ -199,12 +280,27 @@ function paint(c) {
   drawBand(c);
 }
 // The saved and shared image is painted off screen, so the selection ring never ends up in it.
-function exportCard(cb) {
+function exportPNG(w, h, painter, cb) {
   const out = document.createElement("canvas");
-  out.width = CARD_W; out.height = CARD_H;
-  paint(out.getContext("2d"));
+  out.width = w; out.height = h;
+  painter(out.getContext("2d"));
   out.toBlob(cb, "image/png");
 }
+// a card or story made from the bundled sample face says on the photo that it is not a real person
+const SAMPLE_NOTE = "Sample face: AI-generated, not a real person";
+const isSample = () => state.label.startsWith("The sample face");
+function drawNote(c, text) {
+  c.save();
+  c.font = '600 30px "Funnel Sans"'; c.textAlign = "left"; c.textBaseline = "alphabetic";
+  const w = c.measureText(text).width + 36;
+  c.fillStyle = "rgba(0,0,0,.6)"; roundRect(c, 28, PHOTO - 84, w, 56, 28); c.fill();
+  c.fillStyle = PAPER; c.fillText(text, 46, PHOTO - 45);
+  c.restore();
+}
+const exportCard = (cb) => exportPNG(CARD_W, CARD_H, (c) => { paint(c); if (isSample()) drawNote(c, SAMPLE_NOTE); }, cb);
+const exportStory = (cb) => exportPNG(STORY_W, STORY_H, (c) => paintStory(c, isSample() ? { note: SAMPLE_NOTE } : {}), cb);
+// what the exported images depend on, so a ready story image is only reused while it is still current
+const look = () => JSON.stringify([picks, state.style.id, state.color.id, state.size, state.mos.map((m) => [m.x, m.y, m.w, m.a])]);
 // Dashed ring around the selected mo while the card has focus, so keyboard users can see which one the arrows move.
 function drawRing(c, mo) {
   const s = (mo.w / 2) * state.size;
@@ -221,7 +317,12 @@ function render() {
   if (state.hasPhoto && state.mos.length > 1 && document.activeElement === canvas) drawRing(ctx, state.mos[state.active]);
   if (state.hasPhoto) {
     clearTimeout(blobTimer);
-    blobTimer = setTimeout(() => exportCard((b) => { state.blob = b; }), 250);
+    blobTimer = setTimeout(() => {
+      exportCard((b) => { state.blob = b; });
+      // ready before the tap, because a share sheet only opens straight from a tap
+      const k = look();
+      exportStory((b) => { state.story = { k, b }; if (!$("story-preview").hidden) showPreview(b); });
+    }, 250);
   }
 }
 
@@ -284,7 +385,9 @@ function place(img, faces) {
     const le = avg([36, 37, 38, 39, 40, 41].map(P)), re = avg([42, 43, 44, 45, 46, 47].map(P));
     const anchor = lerp(P(33), P(51), 0.12);
     const w = 0.5 * (dist(P(48), P(54)) * 1.5 + dist(le, re) * 1.15);
-    return { x: anchor.x, y: anchor.y, a: Math.atan2(re.y - le.y, re.x - le.x), w };
+    // a grin widens the mouth (and so w) but not the lip: cap the depth at the inner upper lip so teeth stay visible
+    const v = Math.min(1, dist(anchor, P(62)) / (0.46 * w / 2));
+    return { x: anchor.x, y: anchor.y, a: Math.atan2(re.y - le.y, re.x - le.x), w, v };
   }).filter((m) => m.x > -m.w && m.x < PHOTO + m.w && m.y > 0 && m.y < PHOTO);
   const placed = state.mos.length;
 
@@ -295,7 +398,7 @@ function place(img, faces) {
     ? "Drag a mo to move it, or use the arrow keys. Press N to pick the next face."
     : "Drag a mo to move it. Arrow keys work too.";
   $("hint").hidden = false;
-  $("save").disabled = false;
+  for (const id of ["save", "save-story", "share-story"]) $(id).disabled = false;
   updateLabel();
   render();
   return placed;
@@ -479,14 +582,46 @@ async function copy(text, btn) {
 }
 $("copy-caption").addEventListener("click", (e) => copy(fullCaption(), e.currentTarget));
 
-$("save").addEventListener("click", () => {
-  exportCard((b) => {
-    const url = URL.createObjectURL(b);
-    const a = document.createElement("a");
-    a.href = url; a.download = "my-ai-mo.png"; document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(() => URL.revokeObjectURL(url), 4000);
-  });
-});
+function saveFile(blob, name) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = name; document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 4000);
+}
+$("save").addEventListener("click", () => exportCard((b) => saveFile(b, "my-ai-mo.png")));
+
+// story: the share sheet where the browser can share image files (phones: its "Save Image" puts it in Photos,
+// where Instagram looks), otherwise a download plus the image on the page, since a download can fail silently
+// (in-app browsers) or land in Files instead of Photos
+const STICKER_HINT = `In your story, add a Link sticker (sticker icon > Link > ${SHORT_URL}) so friends can tap through and make their own.`;
+let previewUrl = "";
+function showPreview(b) {
+  if (previewUrl) URL.revokeObjectURL(previewUrl);
+  previewUrl = URL.createObjectURL(b); // kept alive while the image is shown
+  $("story-img").src = previewUrl;
+  $("story-preview").hidden = false;
+}
+const saveStory = (b) => { saveFile(b, STORY_FILE); showPreview(b); };
+function storyOut(b) {
+  const file = new File([b], STORY_FILE, { type: "image/png" });
+  if (!(navigator.share && navigator.canShare && navigator.canShare({ files: [file] }))) { saveStory(b); return Promise.resolve(); }
+  // cancelled (AbortError) or already open (InvalidStateError): do nothing
+  return navigator.share({ files: [file] }).catch((e) => { if (e && ["NotAllowedError", "TypeError", "DataError"].includes(e.name)) saveStory(b); });
+}
+let sharing = false; // one share sheet at a time, so a double tap doesn't also download a copy
+function storyClick() {
+  if (!state.hasPhoto || sharing) return;
+  sharing = true;
+  $("story-hint").textContent = STICKER_HINT;
+  const done = () => { sharing = false; };
+  const go = (b) => { try { storyOut(b).finally(done); } catch { done(); } };
+  if (state.story && state.story.k === look()) go(state.story.b);
+  else exportStory(go);
+}
+$("share-story").addEventListener("click", storyClick);
+$("save-story").addEventListener("click", storyClick);
+// Instagram's and Facebook's in-app browsers can't share files and may drop downloads
+if (/Instagram|FBAN|FBAV/.test(navigator.userAgent)) $("inapp").hidden = false;
 
 const probe = typeof File === "function" ? new File([new Blob(["x"], { type: "image/png" })], "probe.png", { type: "image/png" }) : null;
 if (navigator.canShare && probe && navigator.canShare({ files: [probe] })) {
@@ -520,3 +655,6 @@ document.fonts.load('800 70px "Funnel Display"').then(() => document.fonts.load(
 render();
 // load the face model right away (not when idle) and say when it's in, since from then on it works offline
 loadAI().then(() => { if (!$("status").textContent) setStatus("Face model loaded. It now works with the network off."); }).catch(() => {});
+
+// for test/check.mjs and test/make-story-kit.mjs, which import this same module in the page
+export { paintStory, STORY_W, STORY_H, SAFE_TOP, SAFE_BOTTOM, SAMPLE_NOTE };

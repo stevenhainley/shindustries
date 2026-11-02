@@ -33,6 +33,7 @@
       <h1 id="title">Mo-ify me</h1>
       <p class="lede">Add an AI moustache to your photo in a few seconds. Then do the real thing: donate to Movember, or grow one this November.</p>
 
+      <p class="inapp" id="inapp" hidden>For the story image, open this page in Safari or Chrome: tap ⋯ at the top, then Open in browser.</p>
       <div class="pick">
         <input id="photo" class="visually-hidden" type="file" accept="image/*">
         <label class="btn btn-ink" for="photo">Choose a photo</label>
@@ -63,10 +64,21 @@
         </li>
         <li class="step" id="step-share">
           <h2>Share your mo</h2>
-          <p>Post the card with the caption below. The image is made on your device.</p>
+          <p>Both images are made on your device, never uploaded.</p>
+          <h3 class="sub">Instagram story (9:16)</h3>
           <div class="pick">
-            <button class="btn btn-ink" id="save" type="button" disabled>Save image</button>
-            <button class="btn btn-line" id="share" type="button" disabled hidden>Share</button>
+            <button class="btn btn-ink" id="share-story" type="button" disabled>Share to story</button>
+            <button class="btn btn-line" id="save-story" type="button" disabled>Save for story</button>
+          </div>
+          <p class="tip" id="story-hint" role="status" aria-live="polite">In your story, add a Link sticker (sticker icon > Link > shindustries.co/mo-ify) so friends can tap through and make their own.</p>
+          <figure class="story-preview" id="story-preview" hidden>
+            <img id="story-img" alt="Your story image: your photo with the mo, 9:16">
+            <figcaption class="tip">If it didn't save, press and hold the image to save it, then add it to your story.</figcaption>
+          </figure>
+          <h3 class="sub">Feed post (4:5)</h3>
+          <div class="pick">
+            <button class="btn btn-line" id="save" type="button" disabled>Save feed post</button>
+            <button class="btn btn-line" id="share" type="button" disabled hidden>Share feed post</button>
             <button class="btn btn-line" id="copy-caption" type="button">Copy caption</button>
           </div>
           <p class="caption" id="caption"></p>

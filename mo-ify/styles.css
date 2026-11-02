@@ -126,6 +126,14 @@ input[type="text"], textarea {
 textarea { resize: vertical; }
 input::placeholder, textarea::placeholder { color: var(--text-2); opacity: 1; }
 .tip { font-size: 14px !important; }
+.inapp { font-size: 15px; font-weight: 600; padding: 10px 12px; border-radius: 8px; background: var(--donate-bg); color: var(--donate); max-width: 34em; }
+.inapp[hidden], .story-preview[hidden] { display: none; }
+.story-preview { margin: 0; display: grid; gap: 8px; justify-items: start; }
+.story-preview img { width: 180px; max-width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--line); -webkit-touch-callout: default; }
+.story-preview figcaption { color: var(--text-2); }
+.sub { font: 600 15px/1.3 var(--sans); margin: 4px 0 -4px; }
+#story-hint { color: var(--text) !important; margin: -4px 0 0; }
+#story-hint:empty { margin-top: -12px; }
 
 .facts, .how { padding: 32px 0; border-top: 1px solid var(--line); }
 .facts h2, .how h2 { font-size: clamp(26px, 6vw, 36px); margin-bottom: 18px; }
