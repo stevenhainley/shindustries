@@ -189,16 +189,22 @@ function drawBand(c) {
 // Instagram puts its progress bar and name over about the top 250px of a story and the reply bar over
 // the bottom 340px, so everything that matters sits between them.
 const STORY_W = 1080, STORY_H = 1920, SAFE_TOP = 250, SAFE_BOTTOM = 340;
-const STORY_FILE = "my-ai-mo-story.png";
-const STORY_LINES = ["Got my *AI mo*", "for Movember"]; // text between asterisks sits on a lime highlighter
+const STORY_FILE = "my-ai-mo-story.png", DONATE_FILE = "why-im-doing-this-story.png";
+// The cause leads and the mo is the fun way to join in. Text between asterisks sits on a lime highlighter.
+const STORY_LINES = ["I'm backing *men's health*", "this Movember."];
+const CAUSES = ["Prostate cancer", "Testicular cancer", "Men's mental health"];
+// where the photo sits on the story: centre and side of the square (test/check.mjs finds the sample label with it)
+const STORY_PHOTO = { cx: STORY_W / 2, cy: 846, S: 600 };
 function roundRect(c, x, y, w, h, r) { c.beginPath(); if (c.roundRect) c.roundRect(x, y, w, h, r); else c.rect(x, y, w, h); }
 function storyLineWidth(c, line, size) {
   c.font = `800 ${size}px "Funnel Display"`;
   return line.split("*").reduce((s, t, i) => s + c.measureText(t).width + (i % 2 ? 0.32 * size : 0), 0);
 }
-function storyLine(c, line, y, size) {
+// x0: left edge; without it the line is centred
+function storyLine(c, line, y, size, x0) {
   const pad = 0.16 * size;
-  let x = (STORY_W - storyLineWidth(c, line, size)) / 2;
+  const full = storyLineWidth(c, line, size); // also sets the font
+  let x = x0 ?? (STORY_W - full) / 2;
   line.split("*").forEach((t, i) => {
     const w = c.measureText(t).width;
     if (i % 2) {
@@ -214,20 +220,45 @@ function storyLine(c, line, y, size) {
     }
   });
 }
+// outlined pills, centred, wrapping onto as many rows as they need; returns the bottom edge
+function drawChips(c, items, top, size, fg, line) {
+  c.save();
+  c.font = `600 ${size}px "Funnel Sans"`; c.textAlign = "left"; c.textBaseline = "alphabetic";
+  const padX = 0.62 * size, h = 1.72 * size, gap = 0.36 * size, maxW = STORY_W - 120;
+  const rows = [[]];
+  let w = 0;
+  for (const t of items) {
+    const iw = c.measureText(t).width + 2 * padX;
+    let row = rows[rows.length - 1];
+    if (row.length && w + gap + iw > maxW) { row = []; rows.push(row); w = 0; }
+    w += (row.length ? gap : 0) + iw; row.push([t, iw]);
+  }
+  rows.forEach((row, r) => {
+    let x = (STORY_W - row.reduce((s, [, iw]) => s + iw, 0) - gap * (row.length - 1)) / 2;
+    const y = top + r * (h + gap);
+    for (const [t, iw] of row) {
+      c.lineWidth = 4; c.strokeStyle = line; roundRect(c, x + 2, y + 2, iw - 4, h - 4, h / 2); c.stroke();
+      c.fillStyle = fg; c.fillText(t, x + padX, y + h / 2 + 0.35 * size);
+      x += iw + gap;
+    }
+  });
+  c.restore();
+  return top + rows.length * h + (rows.length - 1) * gap;
+}
 // o.lines: headline (two lines at most), o.mo: false draws the photo without the mo, o.note: small label on the photo
 function paintStory(c, o = {}) {
   const lines = o.lines || STORY_LINES, showMo = o.mo !== false, maxW = STORY_W - 160;
   c.save();
   c.fillStyle = INK; c.fillRect(0, 0, STORY_W, STORY_H);
   c.textAlign = "left"; c.textBaseline = "alphabetic";
-  // headline, sized so the widest line fits, centred in a fixed block just under the top safe zone
-  let size = 112;
+  // headline first, and it's the cause: sized so the widest line fits, centred in a block under the top safe zone
+  let size = 104;
   while (size > 40 && Math.max(...lines.map((l) => storyLineWidth(c, l, size))) > maxW) size -= 2;
-  const lh = 1.06 * size, top = SAFE_TOP + 28 + (240 - lines.length * lh) / 2 + 0.8 * size;
+  const lh = 1.1 * size, top = SAFE_TOP + 30 + (200 - lines.length * lh) / 2 + 0.8 * size;
   lines.forEach((l, i) => storyLine(c, l, top + i * lh, size));
   // the photo: the same square crop as the feed card (place() handles groups and wide or tall photos),
-  // on a paper frame with a slight tilt
-  const S = 860, cx = STORY_W / 2, cy = 990;
+  // on a paper frame with a slight tilt; big enough to see the mo, small enough that the words lead
+  const { S, cx, cy } = STORY_PHOTO;
   c.save();
   c.translate(cx, cy); c.rotate(-0.035);
   c.save();
@@ -235,34 +266,73 @@ function paintStory(c, o = {}) {
   c.fillStyle = PAPER; roundRect(c, -S / 2 - 18, -S / 2 - 18, S + 36, S + 36, 30); c.fill();
   c.restore();
   roundRect(c, -S / 2, -S / 2, S, S, 16); c.clip();
+  c.save();
   c.translate(-S / 2, -S / 2); c.scale(S / PHOTO, S / PHOTO);
   if (state.hasPhoto) {
     c.drawImage(photoLayer, 0, 0);
     if (showMo) for (const mo of state.mos) drawMo(c, mo, state.style, state.color);
   } else drawPlaceholder(c);
-  if (o.note) drawNote(c, o.note);
   c.restore();
-  // sticker on the photo's corner
-  if (o.badge ?? showMo) {
-    c.save();
-    c.translate(cx + S / 2 - 20, cy - S / 2 + 36); c.rotate(0.2);
-    c.fillStyle = LIME; c.beginPath(); c.arc(0, 0, 82, 0, Math.PI * 2); c.fill();
-    c.lineWidth = 6; c.strokeStyle = INK; c.stroke();
-    c.fillStyle = INK; c.textAlign = "center";
-    c.font = '800 46px "Funnel Display"'; c.fillText("FREE", 0, 6);
-    c.font = '600 24px "Funnel Sans"'; c.fillText("no upload", 0, 38);
-    c.restore();
-  }
-  // call to action, above the bottom safe zone
-  const a = "Get yours: ";
-  fitFont(c, a + SHORT_URL, 600, 56, "Funnel Sans", maxW);
-  const wa = c.measureText(a).width;
-  let x = (STORY_W - c.measureText(a + SHORT_URL).width) / 2;
-  c.textAlign = "left";
-  c.fillStyle = PAPER; c.fillText(a, x, 1524);
-  c.fillStyle = LIME; c.fillText(SHORT_URL, x + wa, 1524);
-  c.font = '400 28px "Funnel Sans"'; c.fillStyle = MUTED; c.textAlign = "center";
+  // the sample-face label in story pixels (not the shrunken photo's), top left, clear of the face and the mo
+  if (o.note) drawNote(c, o.note, 14 - S / 2, 14 - S / 2, 34, S - 28);
+  c.restore();
+  // what it's for, then the two ways in, under the chips however many rows they take
+  const chipsBottom = drawChips(c, CAUSES, cy + S / 2 + 58, 36, PAPER, LIME), ctaY = Math.max(1426, chipsBottom + 85);
+  c.textAlign = "center";
+  fitFont(c, "Donate or make your mo:", 600, 46, "Funnel Sans", maxW);
+  c.fillStyle = PAPER; c.fillText("Donate or make your mo:", STORY_W / 2, ctaY);
+  fitFont(c, SHORT_URL, 800, 66, "Funnel Display", maxW);
+  c.fillStyle = LIME; c.fillText(SHORT_URL, STORY_W / 2, ctaY + 74);
+  c.font = '400 32px "Funnel Sans"'; c.fillStyle = MUTED;
   c.fillText("Not affiliated with Movember", STORY_W / 2, STORY_H - SAFE_BOTTOM - 14);
+  c.restore();
+}
+
+// ---------- donate story: a second frame with the why, two sourced facts and room for a Link sticker ----------
+// No photo, so there is nothing personal in it. Wording and scope are the page's own (see "Why men's health").
+const FACTS = [
+  { cause: "Prostate cancer", big: "1 in 8", text: "In the US, about 1 in 8 men will be diagnosed with prostate cancer during their lifetime.", src: "Source: American Cancer Society, Key Statistics for Prostate Cancer" },
+  { cause: "Men's mental health", big: "Nearly 4 times", text: "In 2023 the US suicide rate among males was nearly 4 times the rate among females.", src: "Source: National Institute of Mental Health, Suicide statistics" },
+];
+// left empty on purpose: the Link sticker (a Mo Space or movember.com/donate) goes here, as the steps say
+const DONATE_STICKER = { y0: 1384, y1: 1530 };
+// the page's own crisis line (index.html, "Why men's health"), named, on its own two lines
+const CRISIS = ["Struggling? In the US, call or text 988", "(Suicide & Crisis Lifeline), any time."];
+function wrapText(c, text, maxW) {
+  const out = [];
+  let line = "";
+  for (const w of text.split(" ")) {
+    const t = line ? line + " " + w : w;
+    if (line && c.measureText(t).width > maxW) { out.push(line); line = w; } else line = t;
+  }
+  return line ? [...out, line] : out;
+}
+function paintDonateStory(c) {
+  const pad = 90, maxW = STORY_W - 2 * pad;
+  c.save();
+  c.fillStyle = INK; c.fillRect(0, 0, STORY_W, STORY_H);
+  c.textAlign = "left"; c.textBaseline = "alphabetic";
+  storyLine(c, "Why I'm *doing this*", SAFE_TOP + 100, 96, pad);
+  let y = SAFE_TOP + 186;
+  FACTS.forEach((f, i) => {
+    if (i) { c.fillStyle = "#3A3A35"; c.fillRect(pad, y - 50, maxW, 2); }
+    // which cause the number is about, in the first frame's chip words, then the number spelled out
+    c.fillStyle = PAPER; c.font = '600 34px "Funnel Sans"'; c.fillText(f.cause, pad, y);
+    c.fillStyle = LIME; c.font = '800 100px "Funnel Display"'; c.fillText(f.big, pad - 6, y + 102);
+    y += 102 + 58;
+    c.fillStyle = PAPER; c.font = '400 40px "Funnel Sans"';
+    for (const l of wrapText(c, f.text, maxW)) { c.fillText(l, pad, y); y += 50; }
+    c.fillStyle = MUTED; c.font = '400 32px "Funnel Sans"';
+    for (const l of breakAtComma(c, f.src, maxW)) { c.fillText(l, pad, y); y += 38; }
+    y += 48;
+  });
+  // the page's crisis line goes wherever the suicide figure goes, set apart from the source so it doesn't read as one
+  c.fillStyle = PAPER; c.font = '600 34px "Funnel Sans"';
+  CRISIS.forEach((l, i) => c.fillText(l, pad, y - 22 + i * 44));
+  storyLine(c, "Your gift goes", DONATE_STICKER.y0 - 108, 64, pad);
+  storyLine(c, "*straight to Movember.*", DONATE_STICKER.y0 - 34, 64, pad);
+  c.font = '400 32px "Funnel Sans"'; c.fillStyle = MUTED;
+  c.fillText("Not affiliated with Movember", pad, STORY_H - SAFE_BOTTOM - 14);
   c.restore();
 }
 
@@ -289,12 +359,19 @@ function exportPNG(w, h, painter, cb) {
 // a card or story made from the bundled sample face says on the photo that it is not a real person
 const SAMPLE_NOTE = "Sample face: AI-generated, not a real person";
 const isSample = () => state.label.startsWith("The sample face");
-function drawNote(c, text) {
+// one line if it fits in maxW with the current font, otherwise two, broken after the first comma
+function breakAtComma(c, text, maxW) {
+  const cut = text.indexOf(", ");
+  return c.measureText(text).width > maxW && cut > 0 ? [text.slice(0, cut + 1), text.slice(cut + 2)] : [text];
+}
+// a dark pill at (x, top); the defaults are the feed card's bottom-left. Wider than maxW, it breaks after the comma.
+function drawNote(c, text, x = 28, top = PHOTO - 84, size = 30, maxW = Infinity) {
   c.save();
-  c.font = '600 30px "Funnel Sans"'; c.textAlign = "left"; c.textBaseline = "alphabetic";
-  const w = c.measureText(text).width + 36;
-  c.fillStyle = "rgba(0,0,0,.6)"; roundRect(c, 28, PHOTO - 84, w, 56, 28); c.fill();
-  c.fillStyle = PAPER; c.fillText(text, 46, PHOTO - 45);
+  c.font = `600 ${size}px "Funnel Sans"`; c.textAlign = "left"; c.textBaseline = "alphabetic";
+  const pad = 0.6 * size, lh = 1.25 * size, lines = breakAtComma(c, text, maxW - 2 * pad);
+  const w = Math.max(...lines.map((l) => c.measureText(l).width)) + 2 * pad, h = (56 / 30) * size + (lines.length - 1) * lh;
+  c.fillStyle = "rgba(0,0,0,.6)"; roundRect(c, x, top, w, h, (28 / 30) * size); c.fill();
+  c.fillStyle = PAPER; lines.forEach((l, i) => c.fillText(l, x + pad, top + 1.3 * size + i * lh));
   c.restore();
 }
 const exportCard = (cb) => exportPNG(CARD_W, CARD_H, (c) => { paint(c); if (isSample()) drawNote(c, SAMPLE_NOTE); }, cb);
@@ -321,7 +398,7 @@ function render() {
       exportCard((b) => { state.blob = b; });
       // ready before the tap, because a share sheet only opens straight from a tap
       const k = look();
-      exportStory((b) => { state.story = { k, b }; if (!$("story-preview").hidden) showPreview(b); });
+      exportStory((b) => { state.story = { k, b }; if (!$("story-preview").hidden && previewKind === "mo") showPreview(b); });
     }, 250);
   }
 }
@@ -593,20 +670,24 @@ $("save").addEventListener("click", () => exportCard((b) => saveFile(b, "my-ai-m
 // story: the share sheet where the browser can share image files (phones: its "Save Image" puts it in Photos,
 // where Instagram looks), otherwise a download plus the image on the page, since a download can fail silently
 // (in-app browsers) or land in Files instead of Photos
-const STICKER_HINT = `In your story, add a Link sticker (sticker icon > Link > ${SHORT_URL}) so friends can tap through and make their own.`;
-let previewUrl = "";
-function showPreview(b) {
+const STICKER_HINT = `In your story, add a Link sticker (sticker icon > Link > ${SHORT_URL}) so friends can tap through and make their own. Then tap Save donate story for your next frame.`;
+const DONATE_HINT = "Post it as your next frame. Add a Link sticker (sticker icon > Link) to your Mo Space or movember.com/donate, and place it in the empty space under \"straight to Movember.\"";
+const ALT = { mo: "Your story image: your photo with the mo, 9:16", donate: "Your donate story image: why you're doing this, two facts with sources, and room for a Link sticker, 9:16" };
+let previewUrl = "", previewKind = "";
+function showPreview(b, kind = "mo") {
   if (previewUrl) URL.revokeObjectURL(previewUrl);
   previewUrl = URL.createObjectURL(b); // kept alive while the image is shown
+  previewKind = kind;
+  $("story-img").alt = ALT[kind];
   $("story-img").src = previewUrl;
   $("story-preview").hidden = false;
 }
-const saveStory = (b) => { saveFile(b, STORY_FILE); showPreview(b); };
-function storyOut(b) {
-  const file = new File([b], STORY_FILE, { type: "image/png" });
-  if (!(navigator.share && navigator.canShare && navigator.canShare({ files: [file] }))) { saveStory(b); return Promise.resolve(); }
+function storyOut(b, name = STORY_FILE, kind = "mo") {
+  const save = () => { saveFile(b, name); showPreview(b, kind); };
+  const file = new File([b], name, { type: "image/png" });
+  if (!(navigator.share && navigator.canShare && navigator.canShare({ files: [file] }))) { save(); return Promise.resolve(); }
   // cancelled (AbortError) or already open (InvalidStateError): do nothing
-  return navigator.share({ files: [file] }).catch((e) => { if (e && ["NotAllowedError", "TypeError", "DataError"].includes(e.name)) saveStory(b); });
+  return navigator.share({ files: [file] }).catch((e) => { if (e && ["NotAllowedError", "TypeError", "DataError"].includes(e.name)) save(); });
 }
 let sharing = false; // one share sheet at a time, so a double tap doesn't also download a copy
 function storyClick() {
@@ -620,6 +701,17 @@ function storyClick() {
 }
 $("share-story").addEventListener("click", storyClick);
 $("save-story").addEventListener("click", storyClick);
+// the donate frame has no photo, so it works before one is chosen; made ahead, like the story, for the share sheet
+let donateBlob = null;
+const exportDonate = (cb) => exportPNG(STORY_W, STORY_H, paintDonateStory, cb);
+$("save-donate").addEventListener("click", () => {
+  if (sharing) return;
+  sharing = true;
+  $("story-hint").textContent = DONATE_HINT;
+  const done = () => { sharing = false; };
+  const go = (b) => { donateBlob = b; try { storyOut(b, DONATE_FILE, "donate").finally(done); } catch { done(); } };
+  if (donateBlob) go(donateBlob); else fontsReady.then(() => exportDonate(go)); // never cached in a fallback font
+});
 // Instagram's and Facebook's in-app browsers can't share files and may drop downloads
 if (/Instagram|FBAN|FBAV/.test(navigator.userAgent)) $("inapp").hidden = false;
 
@@ -651,10 +743,11 @@ if (navigator.share) {
 
 // ---------- start ----------
 $("hint").hidden = true;
-document.fonts.load('800 70px "Funnel Display"').then(() => document.fonts.load('400 44px "Funnel Sans"')).then(() => document.fonts.load('600 38px "Funnel Sans"')).catch(() => {}).finally(render);
+const fontsReady = document.fonts.load('800 70px "Funnel Display"').then(() => document.fonts.load('400 44px "Funnel Sans"')).then(() => document.fonts.load('600 38px "Funnel Sans"')).catch(() => {});
+fontsReady.then(() => { render(); if (!donateBlob) exportDonate((b) => { donateBlob = donateBlob || b; }); });
 render();
 // load the face model right away (not when idle) and say when it's in, since from then on it works offline
 loadAI().then(() => { if (!$("status").textContent) setStatus("Face model loaded. It now works with the network off."); }).catch(() => {});
 
 // for test/check.mjs and test/make-story-kit.mjs, which import this same module in the page
-export { paintStory, STORY_W, STORY_H, SAFE_TOP, SAFE_BOTTOM, SAMPLE_NOTE };
+export { paintStory, paintDonateStory, drawChips, CAUSES, STORY_PHOTO, DONATE_STICKER, STORY_W, STORY_H, SAFE_TOP, SAFE_BOTTOM, SAMPLE_NOTE };
