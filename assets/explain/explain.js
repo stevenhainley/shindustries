@@ -1,9 +1,11 @@
 /* Explain Glim · hand-rolled scroll-scrubbed timeline (no libraries).
  * One sticky stage, one global progress t (0..1) read from scrollY every frame,
  * ten scenes mapped to sub-ranges of t. Only transform / opacity / custom properties are written.
- * Edit the story in SCENES below; the HTML in index.html holds the real text. */
+ * Edit the story in SCENES below; the HTML in glim/index.html holds the real text. */
 (() => {
   "use strict";
+  // asset URLs relative to this script (assets/explain/explain.js), not the page
+  const HERE = (document.currentScript && document.currentScript.src) || new URL("/assets/explain/explain.js", location.href).href;
   const root = document.getElementById("explain");
   if (!root) return;
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -84,7 +86,7 @@
   };
   const loadSheet = () => {
     if (sheet) return;
-    const img = new Image(); img.decoding = "async"; img.src = "assets/explain/phone-seq.webp";
+    const img = new Image(); img.decoding = "async"; img.src = new URL("phone-seq.webp", HERE).href;
     img.onload = () => {
       const ready = bm => {
         cvs = document.createElement("canvas"); cvs.width = 1120; cvs.height = 630; cvs.setAttribute("aria-hidden", "true");
@@ -187,7 +189,7 @@
   soundBtn.addEventListener("click", () => {
     soundOn = !soundOn; soundBtn.setAttribute("aria-pressed", soundOn);
     soundBtn.querySelector("span").textContent = soundOn ? "Sound on" : "Sound off";
-    if (soundOn && !audio) { audio = new Audio("assets/explain/ding-clunk.mp3"); audio.preload = "auto"; audio.volume = .5; }
+    if (soundOn && !audio) { audio = new Audio(new URL("ding-clunk.mp3", HERE).href); audio.preload = "auto"; audio.volume = .5; }
     if (soundOn) audio.play().then(() => { audio.pause(); audio.currentTime = 0; }).catch(() => {});
   });
   const ding = () => { if (!soundOn || !audio) return; audio.currentTime = 0; audio.play().catch(() => {}); };
@@ -234,6 +236,12 @@
   const restY = i => top + REST[i] * span;
   html.classList.add("x-on");
   measure();
+  // x-on makes this section much taller after the browser already scrolled to a #hash below it
+  // (glim/#waitlist, #pricing, #faq from other pages): jump to the target again so the link lands.
+  if (location.hash) {
+    let t = null; try { t = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (_) {}
+    if (t && !doc.contains(t) && t.getBoundingClientRect().top > innerHeight) t.scrollIntoView({ behavior: "instant", block: "start" });
+  }
   addEventListener("resize", () => { measure(); }, { passive: true });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
 

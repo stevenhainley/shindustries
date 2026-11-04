@@ -1,0 +1,215 @@
+/* sh. industries company homepage (index.html only). Loads after site.css and chrome.css (header, footer).
+ * Flow: the company in one sentence (the only H1) -> its two apps as an index, Glim first with its price and
+ * button, GoodDucky second, beside Glim running on a phone -> GoodDucky in detail -> the Movember fundraiser,
+ * a small dated card gone after November -> a note from Steven -> where to write.
+ * Type steps (outside the phone): 13 label, 15 small, --t-read body, 22 lead, --t-h2b section, --t-hero H1.
+ * Green is only ever a dot: the sh. dot and the Glim app's own dot in the phone. Movember never outranks an app:
+ * no colour field, nothing above the 22px lead. No inline styles anywhere (CSP style-src 'self'). */
+
+:root{
+  color-scheme:dark;
+  --t-hero:clamp(40px,5.2vw,66px);
+  --t-h2b:clamp(28px,3.1vw,40px);
+  --t-read:clamp(17px,1.45vw,19px);
+  --t-lab:13px;
+  --sec:clamp(96px,11vw,160px);
+  --measure:34em;
+  --green-glow:rgba(198,255,61,.5);
+  --green-ring:rgba(198,255,61,.55);
+  /* Glim app UI (the app's own palette; the phone is always dark) */
+  --ui-bg:#0E0E0D; --ui-card:#161614; --ui-in:#262623; --ui-tab:#1E1E1B; --ui-tab-cur:#2B2B27;
+  --ui-text:#F2F1EC; --ui-text-2:#A8A69F; --ui-line:rgba(255,255,255,.1); --ui-line-2:rgba(255,255,255,.08);
+  --ui-out:#C6FF3D; --ui-out-ink:#1E2A00;
+  --ui-notif:#F2F1EC; --ui-notif-ink:#1A1A17; --ui-notif-2:#55534C; --ui-notif-3:#85827A; --ui-call:#C8322E; --ui-call-ink:#FFFFFF;
+  /* GoodDucky: its mascot's shield orange, only on the line where it steps in */
+  --duck:#F08A24;
+  /* Movember: one warm cream for its label (never the house lime, never a colour field) */
+  --mo-ink-2:#F6D9BF;
+}
+/* Brand rule: black body. The shared sheet switches to cream paper in light mode; this page stays dark. */
+@media (prefers-color-scheme:light){
+  :root{
+    --bg:#0E0E0D; --surface:#161614; --surface-2:#1E1E1B; --surface-3:#262623;
+    --line:rgba(255,255,255,.12); --line-strong:rgba(255,255,255,.22);
+    --text:#F2F1EC; --text-2:#A8A69F; --text-3:#85827A;
+    --green-text:#D7FF6E; --green-dim:rgba(198,255,61,.14);
+    --btn:#F2F1EC; --btn-ink:#0E0E0D;
+    --phone-edge:rgba(255,255,255,.16); --shadow:0 24px 64px rgba(0,0,0,.55);
+    --focus:#FFFFFF;
+  }
+  .co-mark .co-dot{fill:var(--green)}
+}
+
+/* ---------- shared bits ---------- */
+.sprite{position:absolute;width:0;height:0;overflow:hidden}
+.read{font-size:var(--t-read);line-height:1.55;margin:0}
+.h-2{font:800 var(--t-h2b)/1.08 var(--fd);letter-spacing:-.025em;text-wrap:balance;margin:0}
+.sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.tl{display:inline-flex;align-items:center;gap:6px;padding:10px 0;font:500 var(--t-read)/1.2 var(--fs);color:var(--text);text-decoration:underline;text-decoration-color:var(--line-strong);text-underline-offset:5px;white-space:nowrap;transition:text-decoration-color var(--dur-fast) var(--ease)}
+.tl:hover{text-decoration-color:var(--text)}
+.tl svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--dur) var(--ease)}
+.tl:hover svg{transform:translateX(3px)}
+
+/* ---------- 1 · hero: the company in one sentence, its two apps as an index, Glim running beside them ---------- */
+.hero{padding:clamp(28px,4vw,48px) 0 clamp(64px,8vw,112px)}
+.hero-h{font:800 var(--t-hero)/1.02 var(--fd);letter-spacing:-.034em;text-wrap:balance;max-width:15em;margin:0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr);row-gap:56px;margin-top:clamp(18px,2.2vw,28px)}
+.hero-sub{color:var(--text-2);max-width:34em;text-wrap:pretty}
+/* the index: one hairline-ruled row per app, each with its own mark at the same size */
+.apps{list-style:none;margin:clamp(24px,2.6vw,32px) 0 0;padding:0;border-top:1px solid var(--line)}
+.app{display:grid;grid-template-columns:44px minmax(0,1fr);column-gap:18px;align-items:start;padding:24px 0;border-bottom:1px solid var(--line)}
+.app .gt.app-mark{width:44px;height:44px;border-radius:12px}
+.app img.app-mark{width:40px;height:auto;margin:0 2px;image-rendering:pixelated}
+.app-name{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 12px;margin:0;font:800 var(--t-read)/1.3 var(--fd);letter-spacing:-.01em;color:var(--text)}
+.app-name span{font:400 15px/1.4 var(--fs);letter-spacing:0;color:var(--text-3)}
+.app-line{margin:6px 0 0;font:700 22px/1.3 var(--fd);letter-spacing:-.01em;color:var(--text);text-wrap:balance}
+.app-desc{margin:10px 0 0;font-size:15px;line-height:1.5;color:var(--text-2);max-width:34em;text-wrap:pretty}
+.hero-cta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;margin-top:20px}
+.hero-cta .btn{font-size:var(--t-read)}
+.app-price{margin:14px 0 0;max-width:34em;font-size:15px;line-height:1.5;color:var(--text-2)}
+.app-price b{color:var(--text);font-weight:600}
+.app-body>.tl{margin-top:4px}
+.stage{margin:0;display:grid;justify-items:center;gap:14px}
+.demo-note{margin:0;font-size:13px;line-height:1.5;color:var(--text-3);text-align:center;max-width:300px}
+.demo-note button{font:inherit;color:var(--text-2);background:none;border:0;padding:6px 0;margin-left:4px;text-decoration:underline;text-underline-offset:3px;cursor:pointer;white-space:nowrap}
+.demo-note button:hover{color:var(--text)}
+.demo-note button[hidden]{display:none}
+@media (max-width:759px){.app-desc{display:none}}
+@media (min-width:1000px){
+  .hero-grid{grid-template-columns:minmax(0,1fr) 312px;column-gap:clamp(56px,8vw,112px);align-items:start}
+  .stage{justify-items:end}
+  .stage .phone{width:312px}
+  .demo-note{width:312px}
+}
+
+/* ---------- the Glim app, as on /glim/ (timings in assets/home2.js). 300 x 650, a modern phone. ---------- */
+.phone{position:relative;width:min(100%,320px);aspect-ratio:300/650;background:var(--ui-bg);border-radius:44px;border:1px solid var(--phone-edge);box-shadow:var(--shadow);overflow:hidden;color:var(--ui-text);font-size:14px;line-height:1.35;isolation:isolate}
+.phone *{font-family:var(--fs)}
+.scr{position:absolute;inset:0;padding:18px 16px 84px;display:flex;flex-direction:column}
+.shop{font:600 11px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:var(--ui-text-2);margin-top:10px}
+.watch{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ui-text-2);margin-top:6px}
+.watch i{width:6px;height:6px;border-radius:50%;background:var(--ui-out);box-shadow:0 0 8px 2px var(--green-glow)}
+.counter{display:flex;align-items:flex-end;justify-content:space-between;margin-top:8px}
+.counter b{font:800 56px/1 var(--fd);letter-spacing:-.04em;color:var(--ui-text);display:block}
+.counter small{display:block;font-size:14px;color:var(--ui-text-2);margin-top:4px}
+.mascot{position:relative;width:50px;height:50px;margin-bottom:6px}
+.mascot svg{width:100%;height:100%}
+.mascot::after{content:"";position:absolute;left:50%;top:4px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:transparent;transition:box-shadow var(--dur-slow) var(--ease),background var(--dur-slow) var(--ease)}
+.phone.lit .mascot::after{background:var(--green-ring);box-shadow:0 0 14px 5px var(--green-ring)}
+/* when the text-back lands, Glim's dot sends out one ring. Once, then it settles. */
+.mascot::before{content:"";position:absolute;left:50%;top:4px;width:10px;height:10px;margin-left:-5px;border-radius:50%;border:2px solid var(--ui-out);opacity:0;pointer-events:none}
+.phone[data-step="3"] .mascot::before{animation:ping 1100ms var(--ease) 1 both}
+@keyframes ping{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(5.5)}}
+.stamp{position:absolute;right:4px;bottom:-10px;transform:rotate(-8deg) scale(1.6);opacity:0;font:800 11px/1 var(--fd);letter-spacing:.14em;color:var(--ui-out);border:2px solid var(--ui-out);clip-path:polygon(2px 0,calc(100% - 2px) 0,100% 2px,100% calc(100% - 2px),calc(100% - 2px) 100%,2px 100%,0 calc(100% - 2px),0 2px);padding:4px 7px;background:var(--ui-bg);transition:transform var(--dur) var(--ease),opacity var(--dur) var(--ease)}
+.phone[data-step="6"] .stamp{opacity:1;transform:rotate(-8deg) scale(1)}
+/* the conversation reads top-down. The card is as tall as what is in it (no long empty card at the start),
+ * and the needs bar keeps its slot when hidden, so nothing below it jumps when Rob approves. */
+.thread{margin-top:12px;flex:0 1 auto;min-height:0;display:flex;flex-direction:column;gap:8px;background:var(--ui-card);border:1px solid var(--ui-line);border-radius:18px;padding:12px 11px 10px}
+.thr-body{flex:1 1 auto;min-height:0;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-start;gap:7px;padding-top:4px}
+/* when the conversation outgrows the card, assets/home2.js scrolls it to the newest line and fades the top edge */
+.thr-body.clip{-webkit-mask-image:linear-gradient(transparent 0,#000 18px);mask-image:linear-gradient(transparent 0,#000 18px)}
+.thread [data-at]:not(.on){display:none}
+.thr-body>.on{animation:rise var(--dur-slow) var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}}
+.who{flex:0 0 auto;display:flex;justify-content:space-between;align-items:baseline}
+.who b{font-weight:600;font-size:15px}
+.who span{font-size:11.5px;color:var(--ui-text-2)}
+.empty{margin:auto 0;align-self:center;font-size:12.5px;color:var(--ui-text-2)}
+.msg{flex:0 0 auto;max-width:94%;padding:7px 10px;border-radius:14px;font-size:13px;line-height:1.36}
+.msg.in{background:var(--ui-in);border-bottom-left-radius:4px;align-self:flex-start}
+.msg.out{background:var(--ui-out);color:var(--ui-out-ink);border-bottom-right-radius:4px;align-self:flex-end}
+/* a draft waits with a lime outline; Approve fills it */
+.msg.out.draft{background:transparent;color:var(--ui-text);border:1.5px dashed var(--ui-out);transition:background var(--dur-slow) var(--ease),color var(--dur-slow) var(--ease)}
+.msg.out.draft.sent{background:var(--ui-out);color:var(--ui-out-ink);border-style:solid}
+.by{flex:0 0 auto;display:flex;align-items:center;gap:6px;font:600 10.5px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:var(--ui-text-2)}
+.by .gt{width:16px;height:16px;border-radius:4px;border:0}
+.typing{display:inline-flex;gap:3px;align-items:center;height:12px}
+.typing i{width:5px;height:5px;border-radius:50%;background:var(--ui-out-ink);opacity:.4;animation:ty 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes ty{0%,100%{opacity:.3}50%{opacity:1}}
+.msg.out .txt{display:none}.msg.out .typing{display:inline-flex}
+.msg.out.sent .txt{display:block}.msg.out.sent .typing{display:none}
+.msg.out.draft .txt{display:block}
+.sentline{flex:0 0 auto;font-size:11px;color:var(--ui-text-2);align-self:flex-end;margin-top:-2px}
+.needs{flex:0 0 auto;margin-top:8px;display:flex;visibility:hidden;opacity:0;align-items:center;justify-content:space-between;gap:10px;background:var(--ui-card);border:1px solid var(--ui-line);border-radius:16px;padding:11px 11px 11px 14px}
+.needs.on{visibility:visible;opacity:1;animation:rise var(--dur-slow) var(--ease) both}
+.needs small{display:block;font:600 10.5px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:var(--ui-text-2);margin-bottom:5px}
+.needs b{font:700 17px/1.1 var(--fd);letter-spacing:-.01em}
+.needs .go{flex:0 0 42px;height:42px;border-radius:50%;background:var(--ui-out);color:var(--ui-out-ink);display:grid;place-items:center;font-weight:700}
+.tabs{position:absolute;left:10px;right:10px;bottom:12px;height:60px;border-radius:30px;background:var(--ui-tab);border:1px solid var(--ui-line-2);display:grid;grid-template-columns:repeat(4,1fr);align-items:center;padding:0 6px}
+.tabs span{text-align:center;font-size:11px;color:var(--ui-text-2);display:grid;gap:3px;justify-items:center}
+.tabs span svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tabs span.cur{color:var(--ui-text);background:var(--ui-tab-cur);border-radius:24px;padding:7px 0}
+.notif{position:absolute;left:10px;right:10px;top:10px;background:var(--ui-notif);color:var(--ui-notif-ink);border-radius:18px;padding:10px 12px;display:flex;gap:10px;align-items:center;transform:translateY(-120%);opacity:0;transition:transform var(--dur-slow) var(--ease),opacity var(--dur-slow) var(--ease);z-index:3}
+.notif.on{transform:none;opacity:1}
+.notif .ph{width:34px;height:34px;border-radius:9px;background:var(--ui-call);display:grid;place-items:center;flex:0 0 auto}
+.notif .ph svg{width:18px;height:18px;stroke:var(--ui-call-ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.notif b{display:block;font-size:13px;font-weight:600}
+.notif small{font-size:12px;color:var(--ui-notif-2)}
+.notif em{margin-left:auto;font-style:normal;font-size:11px;color:var(--ui-notif-3);align-self:flex-start}
+
+/* ---------- 2 · GoodDucky: one centred column, the keypress diagram full width under it ---------- */
+.duck{padding:0 0 var(--sec)}
+/* the rule sits on the content edge, like every other rule on the page */
+.duck-in{display:grid;justify-items:center;text-align:center;border-top:1px solid var(--line);padding-top:clamp(64px,8vw,112px)}
+.duck-img{width:112px;height:auto;image-rendering:pixelated;margin:0 0 18px}
+.duck-id{margin:0 0 18px;font-size:15px;color:var(--text-3)}
+.duck-id b{font:800 var(--t-read)/1.3 var(--fd);letter-spacing:-.01em;color:var(--text);margin-right:8px}
+.duck-in .h-2{max-width:17em}
+.duck-p{color:var(--text-2);margin-top:20px;max-width:var(--measure);text-wrap:pretty}
+.keys{width:100%;margin:40px 0 0;padding:clamp(20px,2.6vw,28px);border:1px solid var(--line);border-radius:var(--r-lg);display:grid;gap:14px;text-align:left}
+.k-row{display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.k-lab{font-size:var(--t-lab);color:var(--text-3)}
+.k-ticks{width:100%;height:24px}
+.k-human rect{fill:var(--text-2)}
+.k-bot .k-hit rect{fill:var(--text)}
+.k-bot .k-held rect{fill:var(--text);opacity:.42}
+.k-bot .k-stop{fill:var(--duck)}
+.keys figcaption{font-size:15px;line-height:1.5;color:var(--text-3);max-width:46em;padding-top:4px}
+.duck-in>.tl{margin-top:20px}
+@media (min-width:760px){
+  .k-row{grid-template-columns:200px minmax(0,1fr);align-items:center;gap:20px}
+}
+
+/* ---------- 3 · Movember: a small dated card on the page's own surface, not a product ----------
+ * The before/after of Mo-ify me's drawn face is the picture; the days left are one line. Nothing in it is
+ * bigger than the 22px lead, and its only colour is the warm cream of its label. */
+.mv{padding:0 0 var(--sec)}
+.mv-card{display:grid;gap:28px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(22px,3.4vw,40px)}
+.mv-ba{margin:0;width:min(100%,320px)}
+.mv-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.mv-pair img{display:block;width:100%;height:auto;border-radius:14px}
+.mv-ba figcaption{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;font-size:var(--t-lab);color:var(--text-3)}
+.mv-h{margin:0;font:inherit}
+.mv-tag{display:block;font:600 15px/1.4 var(--fs);color:var(--mo-ink-2);margin:0 0 6px}
+.mv-title{display:block;font:700 22px/1.3 var(--fd);letter-spacing:-.01em;color:var(--text);text-wrap:balance}
+.mv-left{margin:6px 0 0;font-size:15px;line-height:1.5;color:var(--text-2)}
+.mv-left b{font-weight:600;color:var(--text)}
+.mv-p{margin:14px 0 0;font-size:15px;line-height:1.55;color:var(--text-2);max-width:40em;text-wrap:pretty}
+.mv-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.mv-acts .btn svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.mv-fine{margin:16px 0 0;font-size:var(--t-lab);line-height:1.5;color:var(--text-3)}
+@media (min-width:860px){
+  .mv-card{grid-template-columns:300px minmax(0,1fr);column-gap:clamp(40px,5vw,64px);align-items:center}
+  .mv-ba{width:100%}
+}
+
+/* ---------- 4 · a note from Steven: one narrow column, signed at the end ---------- */
+.note{padding:0 0 var(--sec)}
+.note-in{max-width:36em;margin:0 auto}
+.letter{margin-top:24px;font-size:var(--t-read);line-height:1.6;color:var(--text-2)}
+.letter p{margin:0}
+.letter p+p{margin-top:16px}
+.sig{display:grid;gap:3px;margin:28px 0 0;padding-top:18px;border-top:1px solid var(--line);max-width:280px}
+.sig-name{font:800 var(--t-read)/1.2 var(--fd);letter-spacing:-.01em;color:var(--text)}
+.sig-role{font-size:var(--t-lab);color:var(--text-3)}
+.letter-more{margin:20px 0 0}
+
+@media (prefers-reduced-motion:reduce){
+  .typing i{animation:none}
+  .notif,.stamp{transition-duration:120ms}
+  .thr-body>.on,.needs.on{animation:none}
+  .phone[data-step="3"] .mascot::before{animation:none}
+  .tl svg,.msg.out.draft{transition:none}
+}
+@media print{.mv,.stage,.keys{display:none!important}}

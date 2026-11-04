@@ -1,0 +1,66 @@
+/* products.html: page styles, moved out of an inline <style> block so the page can run the strict CSP (style-src 'self').
+ * Loads after site.css and chrome.css. */
+/* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V4
+ * products.html · macrostructure: Catalogue (one large entry, one small aside) · nav/footer shared · enrichment: Tier-A CSS tile
+ * differs from about (Long Document) and index (Marquee Hero) on structure */
+.pr-hero{padding:56px 0 8px}
+@media(min-width:980px){.pr-hero{padding:88px 0 16px}}
+#glim.sec{padding-top:0}
+.pr-hero .lede{font-size:var(--t-lede);color:var(--text-2);margin-top:22px;max-width:32em}
+.card{margin-top:24px;background:var(--surface);border:1px solid var(--line-strong);border-radius:28px;padding:28px 24px;display:grid;gap:28px;position:relative;overflow:clip}
+@media(min-width:980px){.card{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:56px;padding:48px;align-items:center}}
+.card::after{content:"";position:absolute;inset:auto 0 0 0;height:160px;pointer-events:none;background:var(--dither);opacity:.025;-webkit-mask-image:linear-gradient(to top,#000,transparent);mask-image:linear-gradient(to top,#000,transparent)}
+@media (prefers-color-scheme:light){.card::after{opacity:.05;filter:invert(1)}}
+.card .name{display:flex;align-items:center;gap:12px;font:800 22px var(--fd);letter-spacing:-.01em}
+.card .name .gt{width:40px;height:40px;border-radius:12px}
+.badge{font-size:11px;color:var(--green-ink);background:var(--green);padding:5px 7px 4px;clip-path:polygon(2px 0,calc(100% - 2px) 0,100% 2px,100% calc(100% - 2px),calc(100% - 2px) 100%,2px 100%,0 calc(100% - 2px),0 2px)}
+.card h2{font-size:clamp(32px,5.4vw,56px);line-height:1;letter-spacing:-.03em;margin-top:22px;max-width:11em}
+.card .desc{font:500 clamp(18px,2vw,21px)/1.4 var(--fs);margin-top:18px;max-width:26em}
+.card .p{color:var(--text-2);margin-top:12px;max-width:34em}
+.card .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.card .fine{font-size:var(--t-small);color:var(--text-3);margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.card .fine span{display:inline-flex;align-items:center;gap:6px}
+.card .fine svg{width:14px;height:14px;stroke:var(--green-text);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+/* right column: a still of the app's Today screen, CSS only, no fake phone chrome */
+.shot{background:var(--phone);color:#F2F1EC;border:1px solid var(--phone-edge);border-radius:24px;padding:22px 20px;display:grid;gap:14px;font-size:14px;box-shadow:var(--shadow);max-width:360px;justify-self:center;width:100%}
+.shot *{font-family:var(--fs)}
+.shot .shop{font:600 11px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:#A8A69F}
+.shot .watch{display:flex;align-items:center;gap:6px;font-size:12px;color:#A8A69F}
+.shot .watch i{width:6px;height:6px;border-radius:50%;background:#C6FF3D;box-shadow:0 0 8px 2px rgba(198,255,61,.5)}
+.shot .count{display:flex;align-items:flex-end;justify-content:space-between}
+.shot .count b{font:800 56px/1 var(--fd);letter-spacing:-.04em;display:block}
+.shot .count small{display:block;color:#A8A69F;margin-top:6px}
+.shot .mascot{display:block;width:48px;height:48px}
+.shot .mascot svg{width:100%;height:100%;image-rendering:pixelated}
+.shot .thread{background:#161614;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:12px;display:grid;gap:8px}
+.shot .who{display:flex;justify-content:space-between;font-size:12px;color:#A8A69F}
+.shot .who b{color:#F2F1EC;font-size:14px}
+.shot .msg{max-width:92%;padding:8px 11px;border-radius:14px;font-size:13px;line-height:1.35}
+.shot .out{background:#C6FF3D;color:#1E2A00;border-bottom-right-radius:4px;justify-self:end}
+.shot .in{background:#262623;border-bottom-left-radius:4px}
+.shot .needs{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#161614;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:12px 12px 12px 14px}
+.shot .needs small{display:block;font:600 10.5px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:#A8A69F;margin-bottom:5px}
+.shot .needs b{font:700 15px/1.1 var(--fd)}
+.shot .go{flex:0 0 40px;height:40px;border-radius:50%;background:#C6FF3D;color:#1E2A00;display:grid;place-items:center;font-weight:700}
+.shot-cap{font-size:13px;color:var(--text-3);text-align:center;margin-top:12px}
+.statusline{display:grid;gap:12px;margin-top:16px}
+@media(min-width:760px){.statusline{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.statusline > div{border-top:1px solid var(--line);padding-top:14px}
+.statusline b{display:block;font:700 16px var(--fd);letter-spacing:-.01em}
+.statusline span{display:block;color:var(--text-2);font-size:15px;margin-top:4px}
+/* aside */
+.aside{margin-top:64px}
+.aside .lbl{margin-bottom:12px}
+.dg{--dg-orange:#FF6B00;display:grid;grid-template-columns:auto 1fr;gap:16px 20px;align-items:start;max-width:620px;padding:20px;border:1px solid var(--line);border-radius:var(--r-lg);background:var(--surface);margin-top:16px}
+.dg img{width:56px;height:auto}
+.dg .gd{font:800 24px/1 var(--fd);letter-spacing:-.02em;color:var(--text)}
+.dg .t{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.dg .gd-st{font-size:15px;color:var(--text-3)}
+.dg p{color:var(--text-2);font-size:15.5px;margin-top:8px;max-width:40em}
+.dg .links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-top:12px;font-size:15px}
+.dg .links a{color:var(--text);text-underline-offset:3px}
+.nothing{margin-top:56px;padding-top:24px;border-top:1px solid var(--line);color:var(--text-3);font-size:var(--t-small);max-width:40em}
+/* formerly inline style attributes (strict CSP: style-src 'self') */
+.shot-fig{margin:0}
+.dg-h2{font-size:clamp(24px,3.4vw,34px)}
+.nothing a{color:var(--text-2)}

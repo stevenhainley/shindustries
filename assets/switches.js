@@ -31,7 +31,7 @@ const SUPPORT_EMAIL = "glim@shindustries.co";
   root.classList.toggle("founding-full", SALES_OPEN && full);
   window.GLIM_CFG = { SALES_OPEN, CHECKOUT_URL, FOUNDING_SPOTS_TOTAL, FOUNDING_SPOTS_TAKEN, WAITLIST_ENDPOINT, SUPPORT_EMAIL, left, full };
   document.addEventListener("DOMContentLoaded", () => {
-    // Authored hrefs point at the waitlist (on sub-pages: index.html#waitlist). Open = checkout.
+    // Authored hrefs point at the waitlist (glim/#waitlist; on the Glim page itself #waitlist). Open = checkout.
     if (SALES_OPEN) document.querySelectorAll("[data-buy]").forEach(a => { a.href = CHECKOUT_URL; });
     if (SALES_OPEN && full) document.querySelectorAll(".pr").forEach(p => { p.textContent = "$39"; });
     const msg = !SALES_OPEN

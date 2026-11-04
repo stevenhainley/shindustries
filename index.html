@@ -2,1019 +2,207 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'">
+<script src="assets/legacy-hash.js"></script>
 <script src="assets/switches.js"></script>
-<title>Glim · Never lose a customer to a missed call</title>
-<meta name="description" content="Glim texts back the calls your business misses, in your own words, follows up quotes that went quiet, and waits for your OK when you want it. Founding beta: $29 a month for the first 10 businesses, kept while you stay subscribed. 400 texts included, 7-day money-back, no contract.">
+<!-- Company homepage (rebuilt 2026-11-03). Glim's own page is glim/ (it was this page until 2026-11-03).
+     Flow: the company in one sentence (the only H1) -> its two apps as an index, Glim first with its price and
+     button, GoodDucky second, beside Glim running on a phone -> GoodDucky's detail (not out yet) -> the
+     Movember fundraiser, a small dated card gone after November (no top strip on this page: the card replaces
+     it) -> a note from Steven -> where to write.
+     Products are Glim and GoodDucky only; Mo-ify me is a seasonal fundraiser, never in a product list.
+     No inline scripts or styles: page CSS is assets/chrome.css + assets/company.css, page JS is assets/home2.js. -->
+<title>sh. industries · Small apps that each do one job</title>
+<meta name="description" content="sh. industries is a small software company in Massachusetts. Glim texts back the calls a business misses: $29 a month for the first 10 businesses, then $39, 7-day money-back, no contract. GoodDucky, a free Mac app, is coming soon.">
 <link rel="canonical" href="https://shindustries.co/">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="sh. industries">
-<meta property="og:title" content="Glim · Never lose a customer to a missed call">
-<meta property="og:description" content="Glim texts back the calls your business misses, in your own words, follows up quotes that went quiet, and waits for your OK when you want it. Founding beta: $29 a month for the first 10 businesses, kept while you stay subscribed. 400 texts included, 7-day money-back, no contract.">
+<meta property="og:title" content="sh. industries · Small apps that each do one job">
+<meta property="og:description" content="A small software company in Massachusetts. Glim texts back the calls a business misses. GoodDucky, a free Mac app, is coming soon.">
 <meta property="og:url" content="https://shindustries.co/">
-<meta property="og:image" content="https://shindustries.co/assets/og/og-home.png">
+<meta property="og:image" content="https://shindustries.co/assets/og/og-about.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Glim, the pixel creature with one green dot, and the words: Glim · Never lose a customer to a missed call">
+<meta property="og:image:alt" content="sh. industries: Software that does the boring part. A small Massachusetts software company, started by a student. Beside it, Glim, the pixel creature with one green dot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Glim · Never lose a customer to a missed call">
-<meta name="twitter:description" content="Glim texts back the calls your business misses, in your own words, follows up quotes that went quiet, and waits for your OK when you want it. Founding beta: $29 a month for the first 10 businesses, kept while you stay subscribed. 400 texts included, 7-day money-back, no contract.">
-<meta name="twitter:image" content="https://shindustries.co/assets/og/og-home.png">
-<meta name="theme-color" content="#0E0E0D" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#F7F6F1" media="(prefers-color-scheme: light)">
-<meta name="color-scheme" content="dark light">
+<meta name="twitter:title" content="sh. industries · Small apps that each do one job">
+<meta name="twitter:description" content="A small software company in Massachusetts. Glim texts back the calls a business misses. GoodDucky, a free Mac app, is coming soon.">
+<meta name="twitter:image" content="https://shindustries.co/assets/og/og-about.png">
+<meta name="theme-color" content="#0E0E0D">
+<meta name="color-scheme" content="dark">
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://shindustries.co/#org","name":"sh. industries","url":"https://shindustries.co/","email":"glim@shindustries.co","logo":"https://shindustries.co/assets/icons/icon-512.png","address":{"@type":"PostalAddress","addressRegion":"MA","addressCountry":"US"},"founder":{"@type":"Person","name":"Steven Hainley","url":"https://stevenhainley.net","sameAs":["https://stevenhainley.net"]}},{"@type":"SoftwareApplication","@id":"https://shindustries.co/#glim","name":"Glim","url":"https://shindustries.co/","description":"Texts back the calls a small business misses, in the business's own words, follows up quotes that went quiet, and waits for the owner's OK when they want it.","applicationCategory":"BusinessApplication","operatingSystem":"Web app (iPhone, Android), installs to the home screen","softwareVersion":"beta","author":{"@id":"https://shindustries.co/#org"},"offers":{"@type":"Offer","name":"Founding beta","price":"29.00","priceCurrency":"USD","availability":"https://schema.org/PreOrder","url":"https://shindustries.co/#pricing","description":"$29 a month for the first 10 businesses, kept while subscribed. Standard price later $39 a month. 400 texts a month, 7-day money-back, no contract. Not for sale until the readiness checklist passes."}},{"@type":"WebSite","url":"https://shindustries.co/","name":"sh. industries","publisher":{"@id":"https://shindustries.co/#org"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://shindustries.co/#org","name":"sh. industries","url":"https://shindustries.co/","email":"steven@shindustries.co","logo":"https://shindustries.co/assets/icons/icon-512.png","address":{"@type":"PostalAddress","addressRegion":"MA","addressCountry":"US"},"founder":{"@type":"Person","name":"Steven Hainley","url":"https://stevenhainley.net","sameAs":["https://stevenhainley.net"]}},{"@type":"WebSite","url":"https://shindustries.co/","name":"sh. industries","publisher":{"@id":"https://shindustries.co/#org"}},{"@type":"SoftwareApplication","@id":"https://shindustries.co/glim/#glim","name":"Glim","url":"https://shindustries.co/glim/","author":{"@id":"https://shindustries.co/#org"}}]}</script>
 <link rel="preload" href="assets/fonts/FunnelDisplay-800.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="assets/fonts/FunnelSans-400.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="preload" href="assets/fonts/Silkscreen-Regular.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
-<link rel="stylesheet" href="assets/movember-banner.css">
-<style>
-/* Hallmark · pre-emit critique: P4 H4 E4 S5 R4 V4
- * Hallmark · macrostructure: Marquee Hero (scroll story) · tone: foreman-plain, dark-first
- * theme: custom (vibe: "night shift, one green light, workwear plain" · paper #0E0E0D dark / #F7F6F1 light
- * · accent #C6FF3D chromatic-green, dot-only glow · Funnel Display + Funnel Sans, fonts from repo)
- * nav: shared N1b + Products menu (assets/site.css) · footer: Ft3 grouped · enrichment: Tier-A CSS app mockup (brief-mandated)
- * axes: dark / geometric-sans / chromatic-green */
-/* tokens, base, header, buttons, section scale and footer come from assets/site.css */
-/* ---------- hero ---------- */
-.hero{padding:40px 0 48px;position:relative}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:180px;pointer-events:none;background:var(--dither);opacity:.028;-webkit-mask-image:linear-gradient(to bottom,transparent,#000);mask-image:linear-gradient(to bottom,transparent,#000)}
-@media (prefers-color-scheme:light){.hero::after{opacity:.06;filter:invert(1)}}
-.hero-grid{display:grid;gap:40px}
-@media(min-width:980px){.hero{padding:36px 0 64px}.hero-grid{grid-template-columns:1.1fr .9fr;align-items:center;gap:48px}}
-.kick{display:flex;align-items:center;gap:10px;font:600 13px/1 var(--fs);letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);margin-bottom:24px}
-.kick i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(198,255,61,.5);animation:dot 4s var(--ease) infinite}
-@keyframes dot{0%,88%,100%{box-shadow:0 0 0 0 rgba(198,255,61,0)}92%{box-shadow:0 0 0 6px rgba(198,255,61,.35),0 0 18px 4px rgba(198,255,61,.45)}}
-.hook{margin-top:24px;font:500 clamp(19px,2.3vw,23px)/1.4 var(--fs);color:var(--text);max-width:26em}
-.lede{font-size:18px;color:var(--text-2);margin-top:14px;max-width:34em}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
-.fine{font-size:14.5px;color:var(--text-3);margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 18px}
-.fine span{display:inline-flex;align-items:center;gap:6px}
-.fine svg{width:14px;height:14px;color:var(--green-text)}
-
-/* ---------- phone (Tier-A CSS mockup of the real app; brief-mandated) ---------- */
-.stage{display:grid;place-items:center;position:relative}
-.phone{position:relative;width:min(100%,300px);aspect-ratio:300/620;background:var(--phone);border-radius:44px;border:1px solid var(--phone-edge);box-shadow:var(--shadow);overflow:hidden;color:#F2F1EC;font-size:14px;line-height:1.35;isolation:isolate;container-type:inline-size}
-.phone *{font-family:var(--fs)}
-.scr{position:absolute;inset:0;padding:18px 16px 0;display:flex;flex-direction:column}
-.shop{font:600 11px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:#A8A69F;margin-top:10px}
-.watch{display:flex;align-items:center;gap:6px;font-size:12px;color:#A8A69F;margin-top:6px}
-.watch i{width:6px;height:6px;border-radius:50%;background:#C6FF3D;box-shadow:0 0 8px 2px rgba(198,255,61,.5)}
-.counter{display:flex;align-items:flex-end;justify-content:space-between;margin-top:14px}
-.counter b{font:800 64px/1 var(--fd);letter-spacing:-.04em;color:#F2F1EC;display:block}
-.counter small{display:block;font-size:14px;color:#A8A69F;margin-top:6px}
-.mascot{position:relative;width:54px;height:54px;margin-bottom:6px}
-.mascot svg{width:100%;height:100%}
-.mascot::after{content:"";position:absolute;left:50%;top:4px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:rgba(198,255,61,.0);box-shadow:0 0 0 0 rgba(198,255,61,0);transition:box-shadow var(--dur-slow) var(--ease),background var(--dur-slow) var(--ease)}
-.phone.lit .mascot::after{background:rgba(198,255,61,.55);box-shadow:0 0 14px 5px rgba(198,255,61,.55)}
-.stamp{position:absolute;right:6px;bottom:-10px;transform:rotate(-8deg) scale(1.6);opacity:0;font:800 11px/1 var(--fd);letter-spacing:.14em;color:#C6FF3D;border:2px solid #C6FF3D;border-radius:0;clip-path:polygon(2px 0,calc(100% - 2px) 0,100% 2px,100% calc(100% - 2px),calc(100% - 2px) 100%,2px 100%,0 calc(100% - 2px),0 2px);padding:4px 7px;background:#0E0E0D;transition:transform var(--dur) var(--ease),opacity var(--dur) var(--ease)}
-.phone[data-step="6"] .stamp{opacity:1;transform:rotate(-8deg) scale(1)}
-.thread{margin-top:14px;background:#161614;border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:12px 12px 10px;flex:0 0 auto;display:grid;gap:8px;min-height:0}
-.who{display:flex;justify-content:space-between;align-items:baseline}
-.who b{font-weight:600;font-size:15px}
-.who span{font-size:11.5px;color:#A8A69F}
-.msg{max-width:92%;padding:8px 11px;border-radius:14px;font-size:13.5px;line-height:1.35;opacity:0;transform:translateY(8px);transition:opacity var(--dur-slow) var(--ease),transform var(--dur-slow) var(--ease)}
-.msg.in{background:#262623;border-bottom-left-radius:4px;justify-self:start}
-.msg.out{background:#C6FF3D;color:#1E2A00;border-bottom-right-radius:4px;justify-self:end}
-.msg.on{opacity:1;transform:none}
-.by{display:flex;align-items:center;gap:6px;font:600 10.5px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:#A8A69F;opacity:0;transition:opacity var(--dur) var(--ease)}
-.by.on{opacity:1}
-.by .gt{width:16px;height:16px;border-radius:4px;border:0}
-.typing{display:inline-flex;gap:3px;align-items:center;height:12px}
-.typing i{width:5px;height:5px;border-radius:50%;background:#1E2A00;opacity:.4;animation:ty 1s infinite}
-.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
-@keyframes ty{0%,100%{opacity:.3}50%{opacity:1}}
-.msg.out .txt{display:none}.msg.out .typing{display:inline-flex}
-.msg.out.sent .txt{display:block}.msg.out.sent .typing{display:none}
-.sentline{font-size:11px;color:#A8A69F;justify-self:end;opacity:0;transition:opacity var(--dur) var(--ease)}
-.sentline.on{opacity:1}
-.needs{margin-top:auto;margin-bottom:76px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#161614;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:12px 12px 12px 14px;opacity:0;transform:translateY(8px);transition:opacity var(--dur-slow) var(--ease),transform var(--dur-slow) var(--ease)}
-.needs.on{opacity:1;transform:none}
-.needs small{display:block;font:600 10.5px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;color:#A8A69F;margin-bottom:5px}
-.needs b{font:700 17px/1.1 var(--fd);letter-spacing:-.01em}
-.needs .go{flex:0 0 44px;height:44px;border-radius:50%;background:#C6FF3D;color:#1E2A00;display:grid;place-items:center;font-weight:700}
-.phone[data-step="6"] .needs{opacity:0;transform:translateY(6px)}
-.tabs{position:absolute;left:10px;right:10px;bottom:12px;height:60px;border-radius:30px;background:#1E1E1B;border:1px solid rgba(255,255,255,.08);display:grid;grid-template-columns:repeat(4,1fr);align-items:center;padding:0 6px}
-.tabs span{text-align:center;font-size:11px;color:#A8A69F;display:grid;gap:3px;justify-items:center}
-.tabs span svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.tabs span.cur{color:#F2F1EC;background:#2B2B27;border-radius:24px;padding:7px 0}
-.notif{position:absolute;left:10px;right:10px;top:10px;background:#F2F1EC;color:#1A1A17;border-radius:18px;padding:10px 12px;display:flex;gap:10px;align-items:center;transform:translateY(-120%);opacity:0;transition:transform var(--dur-slow) var(--ease),opacity var(--dur-slow) var(--ease);z-index:3}
-.notif.on{transform:none;opacity:1}
-.notif .ph{width:34px;height:34px;border-radius:9px;background:#C8322E;display:grid;place-items:center;flex:0 0 auto}
-.notif .ph svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.notif b{display:block;font-size:13px;font-weight:600}
-.notif small{font-size:12px;color:#55534C}
-.notif em{margin-left:auto;font-style:normal;font-size:11px;color:#85827A;align-self:flex-start}
-.demo{font-size:13px;color:var(--text-3);text-align:center;margin-top:14px}
-.demo button{font:inherit;color:inherit;background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
-.demo button:hover{color:var(--text)}
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  .kick i,.typing i{animation:none}
-  .msg,.needs,.notif,.by,.sentline,.stamp{transition-duration:120ms;transform:none}
-}
-
-/* ---------- the 17 minutes (timeline) ---------- */
-.tl{margin-top:48px;display:grid;gap:0;position:relative;counter-reset:beat}
-.tl::before{content:"";position:absolute;left:11px;top:12px;bottom:12px;width:1px;background:var(--line)}
-.beat{position:relative;padding:0 0 32px 40px}
-.beat:last-child{padding-bottom:0}
-.beat::before{content:"";position:absolute;left:6px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--line-strong)}
-.beat.glim::before{background:var(--green);border-color:var(--green);box-shadow:0 0 10px 2px rgba(198,255,61,.35)}
-.beat time{display:block;font:600 13px/1 var(--fs);letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:8px}
-.beat h3{font-size:22px;line-height:1.15;letter-spacing:-.015em}
-.beat p{color:var(--text-2);margin-top:8px;max-width:30em}
-.beat q{display:block;margin-top:10px;padding:10px 14px;border-radius:12px;background:var(--surface);border:1px solid var(--line);font-size:15.5px;color:var(--text);max-width:32em;quotes:none}
-@media(min-width:900px){
-  .tl{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
-  .tl::before{left:6px;right:6px;top:7px;bottom:auto;height:1px;width:auto}
-  .beat{padding:28px 0 0 0}
-  .beat::before{left:0;top:2px}
-  .beat q{min-height:0}
-}
-.tl-note{margin-top:28px;font-size:14px;color:var(--text-3)}
-
-/* ---------- form fields (shared: try it, calculator, waitlist) ---------- */
-.fld{display:grid;gap:8px;min-width:0}
-.fld > span{font:600 14.5px/1.3 var(--fs);color:var(--text)}
-.fld small{font-weight:500;color:var(--text-3);margin-left:4px}
-.fld input,.fld select{font:500 17px var(--fs);color:var(--text);background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r);min-height:52px;padding:0 14px;width:100%;min-width:0;transition:border-color var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease)}
-.fld select{appearance:none;-webkit-appearance:none;padding-right:40px;background-image:linear-gradient(45deg,transparent 50%,var(--text-2) 50%),linear-gradient(135deg,var(--text-2) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat}
-.fld input::placeholder{color:var(--text-3)}
-.fld input:hover,.fld select:hover{border-color:var(--text-2)}
-.fld input:focus-visible,.fld select:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-color:var(--text)}
-.fld input[aria-invalid="true"],.fld select[aria-invalid="true"]{border-color:var(--warn)}
-.fld input:disabled,.fld select:disabled{opacity:.5;cursor:not-allowed}
-.fld textarea{font:500 17px/1.45 var(--fs);color:var(--text);background:var(--surface);border:1px solid var(--line-strong);border-radius:var(--r);padding:12px 14px;width:100%;min-width:0;min-height:96px;resize:vertical}
-.fld textarea:hover{border-color:var(--text-2)}
-.fld textarea:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-color:var(--text)}
-.fld textarea::placeholder{color:var(--text-3)}
-.fld .cnt{font-size:13px;color:var(--text-3);justify-self:end}
-fieldset.pay{border:0;margin:0;padding:0;min-width:0;display:grid;gap:8px}
-fieldset.pay legend{font:600 14.5px/1.3 var(--fs);color:var(--text);padding:0;margin-bottom:8px}
-.pay-opts{display:grid;gap:8px;grid-template-columns:repeat(3,minmax(0,1fr))}
-.pay-opts label{position:relative;display:flex;align-items:center;justify-content:center;min-height:52px;padding:0 8px;text-align:center;border:1px solid var(--line-strong);border-radius:var(--r);background:var(--surface);font:600 16px var(--fs);cursor:pointer}
-.pay-opts input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
-.pay-opts label:hover{border-color:var(--text-2)}
-.pay-opts label:has(input:checked){border-color:var(--green);background:var(--green-dim)}
-.pay-opts label:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:2px}
-fieldset.pay[aria-invalid="true"] .pay-opts label{border-color:var(--warn)}
-
-/* ---------- hero beta pill ---------- */
-.betapill{gap:8px!important}
-.betapill b{font-size:11px;color:var(--green-ink);background:var(--green);padding:4px 6px 3px;clip-path:polygon(2px 0,calc(100% - 2px) 0,100% 2px,100% calc(100% - 2px),calc(100% - 2px) 100%,2px 100%,0 calc(100% - 2px),0 2px)}
-.betapill a{color:var(--text-2);text-underline-offset:3px}
-.betapill a:hover{color:var(--text)}
-
-/* ---------- try it ---------- */
-.try{display:grid;gap:32px;margin-top:40px}
-@media(min-width:980px){.try{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:start}}
-.tryform{display:grid;gap:18px;align-content:start}
-.tryform .btn{justify-self:start}
-.tryhint{font-size:14px;color:var(--text-3)}
-.thr{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;display:grid;gap:12px;min-height:420px;align-content:start}
-.thr-miss{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--text-2)}
-.thr-miss b{color:var(--text);font-weight:600}
-.thr-ic{width:30px;height:30px;border-radius:8px;background:var(--surface-3);display:grid;place-items:center;flex:0 0 auto}
-.thr-ic svg{width:16px;height:16px;stroke:var(--text);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.tb{max-width:88%;padding:11px 14px 12px;border-radius:16px;font-size:16px;line-height:1.45;opacity:0;transform:translateY(8px);transition:opacity var(--dur-slow) var(--ease),transform var(--dur-slow) var(--ease)}
-.tb.on{opacity:1;transform:none}
-.tb small{display:flex;align-items:center;gap:6px;font:600 11.5px/1 var(--fs);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px;opacity:.75}
-.tb small .gt{width:16px;height:16px;border-radius:4px;border:0}
-.tb-out{justify-self:end;background:var(--green);color:var(--green-ink);border-bottom-right-radius:4px}
-.tb-in{justify-self:start;background:var(--surface-3);color:var(--text);border-bottom-left-radius:4px}
-.tb-draft{background:var(--surface-2);color:var(--text);border:1px dashed var(--line-strong)}
-.tb-ok{display:inline-flex;margin-top:10px;font:600 13px/1 var(--fs);padding:8px 12px;border-radius:999px;background:var(--green);color:var(--green-ink)}
-.thr-meta{font-size:14px;color:var(--text-2);margin-top:4px}
-.thr-note{font-size:13px;color:var(--text-3)}
-@media (prefers-reduced-motion:reduce){.tb{transition:opacity 120ms linear;transform:none}}
-
-/* ---------- cost calculator ---------- */
-.calc{display:grid;gap:14px;margin-top:40px;max-width:900px}
-@media(min-width:900px){.calc{grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,.6fr);align-items:end;gap:16px}}
-.calc .op{font:800 26px/52px var(--fd);color:var(--text-3);text-align:center;display:none}
-@media(min-width:900px){.calc .op{display:block}}
-.calc-out{margin-top:28px;max-width:900px;border-top:1px solid var(--line);padding-top:24px}
-.calc-sum{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 18px}
-.calc-sum output{font:800 clamp(44px,8vw,72px)/1 var(--fd);letter-spacing:-.04em;color:var(--text)}
-.calc-sum span{color:var(--text-2);font-size:16px}
-.calc-note{margin-top:14px;font-size:14.5px;color:var(--text-3);max-width:44em}
-
-/* ---------- autopilot ---------- */
-.auto{margin-top:40px;display:grid;gap:12px}
-@media(min-width:900px){.auto{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;align-items:start}}
-.modes{display:grid;gap:8px}
-.mode{display:grid;grid-template-columns:24px 1fr;gap:14px;align-items:start;padding:16px 18px;border-radius:var(--r-lg);border:1px solid var(--line);background:var(--surface);cursor:pointer;transition:border-color var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease)}
-.mode:hover{border-color:var(--line-strong)}
-.mode:has(input:checked){border-color:var(--green);background:color-mix(in srgb,var(--green) 6%,var(--surface))}
-.mode:has(input:focus-visible){outline:2px solid var(--focus);outline-offset:3px}
-.mode input{appearance:none;width:22px;height:22px;margin:2px 0 0;border-radius:50%;border:1.5px solid var(--line-strong);display:grid;place-items:center;transition:border-color var(--dur-fast) var(--ease)}
-.mode input::after{content:"";width:12px;height:12px;border-radius:50%;background:var(--green);transform:scale(0);transition:transform var(--dur-fast) var(--ease)}
-.mode input:checked{border-color:var(--green)}
-.mode input:checked::after{transform:scale(1)}
-.mode .mt{display:block;min-width:0}
-.mode b{display:block;font:700 18px/1.2 var(--fd);letter-spacing:-.01em}
-.mode span{display:block;color:var(--text-2);font-size:15.5px;margin-top:4px}
-.outcome{background:var(--surface-2);border-radius:var(--r-lg);padding:22px 24px;position:sticky;top:88px}
-.outcome small{display:block;font:600 12px/1 var(--fs);letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:12px}
-.outcome p{font-size:17px;transition:opacity var(--dur) var(--ease)}
-.outcome.swap p{opacity:0}
-.outcome .nt{margin-top:14px;font-size:14px;color:var(--text-3)}
-
-/* ---------- what's in ---------- */
-.inv{margin-top:40px;border-top:1px solid var(--line)}
-.inv > div{display:grid;grid-template-columns:1fr auto;gap:8px 24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start}
-.inv h3{font-size:19px;line-height:1.25;letter-spacing:-.01em;font-weight:700}
-.inv p{color:var(--text-2);font-size:15.5px;margin-top:4px;max-width:40em}
-.st{font:600 12px/1 var(--fs);letter-spacing:.05em;padding:7px 10px;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;margin-top:2px}
-.st-live{background:var(--green-dim);color:var(--green-text)}
-.st-live i{width:6px;height:6px;border-radius:50%;background:var(--green)}
-.st-soon{border:1px solid var(--line-strong);color:var(--text-2)}
-.st-later{border:1px solid var(--line);color:var(--text-3)}
-
-/* ---------- pricing ---------- */
-.price-grid{display:grid;gap:32px;margin-top:40px}
-@media(min-width:980px){.price-grid{grid-template-columns:minmax(0,1fr) 440px;gap:64px;align-items:start}}
-.plan{background:var(--surface);border:1px solid var(--line-strong);border-radius:24px;padding:28px;display:flex;flex-direction:column;position:relative}
-.plan-name{display:flex;align-items:center;gap:10px;font:800 20px var(--fd)}
-.plan-price{margin-top:22px;font:800 64px/1 var(--fd);letter-spacing:-.04em;display:flex;align-items:baseline;gap:6px}
-.plan-price small{font:500 17px var(--fs);color:var(--text-2);letter-spacing:0}
-.plan-from{font-size:14.5px;color:var(--text-3);margin-top:8px}
-.plan ul{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:11px;font-size:16px}
-.plan li{display:flex;gap:12px;align-items:flex-start}
-.plan li svg{flex:0 0 18px;height:18px;margin-top:3px;stroke:var(--green-text);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.plan li.soon{color:var(--text-2)}
-.plan li.soon svg{stroke:var(--text-3)}
-.texts{margin-top:22px;padding:16px 18px;border-radius:14px;background:var(--surface-2);font-size:15.5px}
-.texts b{display:block;font:800 22px/1 var(--fd);letter-spacing:-.02em;margin-bottom:6px}
-.plan .btn{margin-top:24px;width:100%}
-.guar{display:flex;gap:12px;align-items:flex-start;margin-top:14px;font-size:14.5px;color:var(--text-2)}
-.guar svg{flex:0 0 20px;height:20px;stroke:var(--green-text);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-top:2px}
-.why{display:grid;gap:22px;margin-top:8px}
-.why div{padding-left:18px;border-left:2px solid var(--line)}
-.why b{display:block;font:700 19px/1.25 var(--fd);letter-spacing:-.01em;margin-bottom:6px}
-.why p{color:var(--text-2);font-size:16px;max-width:30em}
-
-.badge{font-size:11px;color:var(--green-ink);background:var(--green);padding:5px 7px 4px;margin-left:auto;clip-path:polygon(2px 0,calc(100% - 2px) 0,100% 2px,100% calc(100% - 2px),calc(100% - 2px) 100%,2px 100%,0 calc(100% - 2px),0 2px)}
-.plan-lock{margin-top:12px;font-size:16px;color:var(--text)}
-.plan-later{margin-top:6px;font-size:15px;color:var(--text-2)}
-.plan-later s{color:var(--text-3);text-decoration-thickness:1.5px}
-.spots{margin-top:12px;font-size:14px;color:var(--text-2);text-align:center}
-.wl{margin-top:48px;background:var(--surface);border:1px solid var(--line-strong);border-radius:24px;padding:28px 24px;display:grid;gap:24px}
-@media(min-width:900px){.wl{grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);padding:36px;gap:48px}}
-.wl h3{font-size:clamp(24px,3vw,30px);line-height:1.1;letter-spacing:-.02em}
-.wl-head p,.wl-done p{color:var(--text-2);margin-top:12px;max-width:30em}
-.wl-form{display:grid;gap:16px}
-.wl-form .btn{width:100%}
-.wl-err{color:var(--warn);font-size:14.5px;min-height:0}
-.wl-err:empty{display:none}
-.wl-priv{font-size:13.5px;color:var(--text-3)}
-.wl-done{outline:none}
-.wl-done:focus-visible{outline:2px solid var(--focus);outline-offset:6px}
-.honest{display:grid;gap:12px;margin-top:40px}
-@media(min-width:760px){.honest{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(min-width:1100px){.honest{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.honest > div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px}
-.honest h3{font-size:19px;line-height:1.2;letter-spacing:-.01em;font-weight:700}
-.honest p{color:var(--text-2);font-size:15.5px;margin-top:8px}
-
-/* ---------- install strip ---------- */
-.install{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:28px 24px;display:grid;gap:24px;margin-top:40px}
-@media(min-width:900px){.install{grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding:36px}}
-.install h3{font-size:20px;letter-spacing:-.01em;margin-bottom:14px;display:flex;align-items:center;gap:10px}
-.install h3 svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.install ol{margin:0;padding:0;list-style:none;display:grid;gap:10px;counter-reset:i}
-.install li{display:grid;grid-template-columns:28px 1fr;gap:12px;align-items:start;color:var(--text-2);font-size:16px}
-.install li::before{counter-increment:i;content:counter(i);width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text);font:700 14px/28px var(--fd);text-align:center}
-.install li b{color:var(--text)}
-.install-note{grid-column:1/-1;font-size:14.5px;color:var(--text-3);padding-top:4px;border-top:1px solid var(--line);margin-top:4px;padding-top:16px}
-
-/* ---------- FAQ ---------- */
-.faq{margin-top:36px;border-top:1px solid var(--line);max-width:820px}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:16px;padding:20px 0;font:600 18px/1.35 var(--fs)}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"";flex:0 0 22px;height:22px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center/22px no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center/22px no-repeat;color:var(--text-3);transition:transform var(--dur) var(--ease);margin-top:2px}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq .ans{padding:0 0 22px;color:var(--text-2);max-width:42em}
-.faq .ans p+p{margin-top:10px}
-
-/* ---------- closing ---------- */
-.close{border-top:1px solid var(--line);padding:80px 0 72px;text-align:center}
-.close .gt{width:64px;height:64px;border-radius:18px;margin:0 auto 24px}
-.close h2{font-size:clamp(34px,6vw,64px);line-height:1;letter-spacing:-.03em;margin:0 auto;max-width:12em}
-.close p{color:var(--text-2);margin-top:16px;font-size:18px}
-.close .cta{justify-content:center}
-
-/* ================= explain.css (Explain Glim scroll story) · inlined here so the home page has one fewer render-blocking request; edit it here ================= */
-/* Explain Glim · scroll experience · layered only when html.x-on (set by explain.js)
- * Without JS, or with prefers-reduced-motion, the same DOM renders as stacked, static scenes. */
-
-.x{position:relative;border-top:1px solid var(--line);background:var(--bg);overflow:clip}
-.xtrack{position:relative}
-.xstage{position:relative}
-.xs{position:relative;padding:72px 0;min-height:0}
-.xs+.xs{border-top:1px solid var(--line)}
-.xs-in{position:relative;z-index:2}
-.xk{display:inline-flex;align-items:center;gap:10px;font:600 13px/1 var(--fs);letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);margin-bottom:18px}
-.xk i{width:7px;height:7px;border-radius:50%;background:var(--green)}
-.xh{font:800 clamp(34px,8.4vw,86px)/.98 var(--fd);letter-spacing:-.035em;max-width:10em;margin:0}
-.xh .xw{display:inline-block;white-space:nowrap;overflow:clip;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
-.xh .xwi{display:inline-block;will-change:transform}
-.xh2{font:800 clamp(26px,5.2vw,54px)/1.02 var(--fd);letter-spacing:-.03em;margin:18px 0 0;max-width:12em;color:var(--text)}
-.xp{font-size:clamp(16px,1.7vw,19px);color:var(--text-2);max-width:30em;margin-top:18px}
-.xp b{color:var(--text)}
-.xtag{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 var(--fs);letter-spacing:.05em;padding:7px 10px;border-radius:999px;border:1px solid var(--line-strong);color:var(--text-2);margin-left:10px;vertical-align:middle}
-.xfine{font-size:13px;color:var(--text-3);margin-top:14px}
-
-/* skip + hero button */
-.xbtn{display:inline-flex;align-items:center;gap:10px;min-height:40px;padding:0 16px 0 10px;border-radius:999px;border:1px solid var(--line-strong);background:var(--surface);color:var(--text);text-decoration:none;font:600 15px var(--fs);margin-bottom:22px;transition:border-color var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease),transform var(--dur-fast) var(--ease)}
-.xbtn:hover{border-color:var(--text);background:var(--surface-2)}
-.xbtn:active{transform:scale(.98)}
-.xbtn .gt{width:24px;height:24px;border-radius:7px}
-.xbtn small{font:500 13px var(--fs);color:var(--text-3)}
-.xskip-static{display:inline-block;margin:0 0 8px;font-size:14px;color:var(--text-2);text-decoration:underline;text-underline-offset:3px}
-
-/* the twisted word */
-.xtw{position:relative;display:inline-block;font:800 clamp(78px,24vw,300px)/.9 var(--fd);letter-spacing:-.05em;margin-top:14px;color:var(--text);white-space:nowrap;--tw:0}
-.xtw canvas{position:absolute;inset:-10% -6%;width:112%;height:120%;pointer-events:none;display:none}
-.x-on .xtw.gl{color:transparent}
-.x-on .xtw.gl canvas{display:block}
-.x-on .xtw.css{transform:perspective(700px) rotateX(calc(var(--tw) * 72deg));transform-origin:50% 50%}
-
-/* phone media layer (Blender render, demo shop) */
-.xphone{position:relative;margin:32px 0 0;width:min(100%,760px)}
-.xphone-in{position:relative;aspect-ratio:16/9;border-radius:22px;overflow:clip;background:#3d3d3c;-webkit-mask-image:radial-gradient(120% 110% at 50% 50%,#000 58%,transparent 100%);mask-image:radial-gradient(120% 110% at 50% 50%,#000 58%,transparent 100%)}
-.xphone-in img,.xphone-in canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.xphone-in .xsaved{opacity:0}
-.xphone-cap{font-size:12.5px;color:var(--text-3);margin-top:10px;letter-spacing:.02em}
-
-/* scene 2 rows */
-.xrows{margin-top:28px;display:grid;gap:4px;font:800 clamp(28px,6.2vw,64px)/1.05 var(--fd);letter-spacing:-.03em;color:var(--text-3);white-space:nowrap;overflow:clip;max-width:100%}
-.xrow{display:block;will-change:transform}
-.xrow b{color:var(--text);font-weight:800}
-.xrow b u{text-decoration:none;color:var(--green)}
-
-/* scene 3 */
-.xmascot{position:relative;width:clamp(96px,16vw,170px);height:clamp(96px,16vw,170px);margin:0 0 20px}
-.xmascot svg{width:100%;height:100%}
-.xmascot i{position:absolute;left:50%;top:9%;width:10%;height:10%;margin-left:-5%;border-radius:50%;background:var(--green);opacity:var(--glow,0);box-shadow:0 0 calc(var(--glow,0) * 28px) calc(var(--glow,0) * 10px) rgba(198,255,61,.75);transform:scale(calc(.6 + var(--glow,0) * .9))}
-.xbub{display:block;max-width:26em;margin-top:22px;padding:14px 16px;border-radius:18px;font:400 clamp(15px,1.6vw,18px)/1.4 var(--fs);position:relative;overflow:clip}
-.xbub.out{background:var(--green);color:var(--green-ink);border-bottom-left-radius:6px}
-.xbub.in{background:var(--surface-2);color:var(--text);border-bottom-right-radius:6px;margin-left:auto}
-.xbub small{display:block;font:600 11px/1 var(--fs);letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-bottom:8px}
-.xthread{max-width:34em}
-
-/* scene 4 approve */
-.xapprove{display:inline-grid;grid-template-columns:auto auto;align-items:center;gap:18px;margin-top:26px}
-.xring{position:relative;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;font:700 14px var(--fs);color:var(--text);background:conic-gradient(var(--green) calc(var(--fill,0) * 1turn),var(--line) 0)}
-.xring::before{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--bg)}
-.xring span{position:relative;z-index:1}
-.xring.done{background:var(--green);color:var(--green-ink)}
-.xring.done::before{display:none}
-.xapprove p{color:var(--text-2);font-size:15.5px;max-width:16em}
-.xstamp{display:inline-block;font:800 13px/1 var(--fd);letter-spacing:.14em;color:var(--green);border:2px solid var(--green);clip-path:polygon(2px 0,calc(100% - 2px) 0,100% 2px,100% calc(100% - 2px),calc(100% - 2px) 100%,2px 100%,0 calc(100% - 2px),0 2px);padding:6px 9px;transform:rotate(-7deg);margin-left:14px;opacity:var(--st,0);transform:rotate(-7deg) scale(calc(1.6 - var(--st,0) * .6))}
-
-/* scene 5 follow-up line */
-.xline{position:relative;margin-top:40px;height:92px;max-width:720px}
-.xline-bar{position:absolute;left:0;right:0;top:14px;height:2px;background:var(--line)}
-.xline-fill{position:absolute;left:0;top:14px;height:2px;width:100%;background:var(--green);transform-origin:0 50%;transform:scaleX(var(--fill,0))}
-.xdot{position:absolute;top:0;display:grid;justify-items:start;gap:10px;font:600 13px/1.2 var(--fs);color:var(--text-3);width:9em;--on:0}
-.xdot i{width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--line-strong);transition:none;box-shadow:0 0 0 0 rgba(198,255,61,0)}
-.xdot b{display:block;font-weight:600;color:var(--text)}
-.xdot.lit i{background:var(--green);border-color:var(--green);box-shadow:0 0 12px 2px rgba(198,255,61,.4)}
-.xdot:nth-child(3){left:0}.xdot:nth-child(4){left:30%}.xdot:nth-child(5){left:60%}.xdot:nth-child(6){left:88%;width:auto}
-.xdot:nth-child(6) i{border-style:dashed}
-
-/* scene 6 stars */
-.xstars{display:flex;gap:8px;margin-top:26px}
-.xstars svg{width:clamp(30px,5vw,48px);height:auto;stroke:var(--text-3);fill:none;stroke-width:1.6;stroke-linejoin:round}
-.xstars svg.lit{fill:var(--green);stroke:var(--green)}
-
-/* scene 7 morph */
-.xtrades{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
-.xtrades span{font:600 14px var(--fs);padding:8px 13px;border-radius:999px;border:1px solid var(--line-strong);color:var(--text-2)}
-.xtrades span.on{background:var(--green);color:var(--green-ink);border-color:var(--green)}
-.xmorph{position:relative;margin-top:22px;font:800 clamp(22px,4.6vw,46px)/1.1 var(--fd);letter-spacing:-.025em;max-width:16em;min-height:2.3em}
-.xmorph .xq{display:block}
-.x-on .xmorph .xq{position:absolute;left:0;top:0;width:100%;visibility:hidden}
-.x-on .xs.on .xmorph .xq.on{visibility:visible}
-.xmorph .xc{display:inline-block;white-space:pre;will-change:transform}
-.xmorph small{display:block;font:500 14px var(--fs);letter-spacing:0;color:var(--text-3);margin-bottom:10px}
-.x-on .xmorph small{display:none}
-
-/* scene 8 autopilot */
-.xauto{display:grid;grid-template-columns:28px 1fr;gap:0 18px;margin-top:26px;max-width:36em}
-.xauto-rail{position:relative;width:4px;background:var(--line);border-radius:2px;margin:12px auto 0}
-.xauto-knob{position:absolute;left:50%;top:0;width:22px;height:22px;margin-left:-11px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px color-mix(in srgb,var(--green) 25%,transparent);transform:translateY(calc(var(--k,0) * 1px))}
-.xauto ol{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.xauto li{padding:14px 16px;border-radius:16px;border:1px solid var(--line);background:var(--surface);opacity:.55}
-.xauto li.on{opacity:1;border-color:var(--green)}
-.xauto li b{display:block;font:700 17px/1.2 var(--fd);letter-spacing:-.01em}
-.xauto li span{display:block;color:var(--text-2);font-size:14.5px;margin-top:4px}
-
-/* scene 9 install */
-.xsteps{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:10px;max-width:28em;counter-reset:s}
-.xsteps li{display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:center;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--surface);font-size:16px;color:var(--text-2);will-change:transform,opacity}
-.xsteps li::before{counter-increment:s;content:counter(s);width:30px;height:30px;border-radius:50%;background:var(--surface-2);color:var(--text);font:700 14px/30px var(--fd);text-align:center}
-.xsteps li b{color:var(--text)}
-.xsteps li.lit::before{background:var(--green);color:var(--green-ink)}
-
-/* scene 10 close */
-.xprice{font:800 clamp(64px,14vw,150px)/.95 var(--fd);letter-spacing:-.05em;margin-top:10px}
-.xprice small{font:500 clamp(16px,2vw,22px) var(--fs);letter-spacing:0;color:var(--text-2);margin-left:10px}
-.xlist{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:18px;font-size:15.5px;color:var(--text-2)}
-.xlist span{display:inline-flex;align-items:center;gap:7px}
-.xlist svg{width:14px;height:14px;stroke:var(--green-text);fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-.xcta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-
-/* UI chrome: progress, skip, sound (only in layered mode) */
-.xui{display:none}
-
-/* ============ LAYERED MODE ============ */
-html.x-on .xtrack{height:calc(var(--xlen,12) * 100svh)}
-html.x-on .xstage{position:sticky;top:0;height:100svh;overflow:clip;contain:layout paint style}
-html.x-on .xs{position:absolute;inset:0;padding:0;border:0;display:grid;align-items:center;visibility:hidden;pointer-events:none}
-html.x-on .xs.on{visibility:visible;pointer-events:auto}
-html.x-on .xs-in{width:100%;max-width:1160px;margin:0 auto;padding:84px 16px 20svh;will-change:transform,opacity;transform:skewY(var(--skew,0deg));transform-origin:50% 60%}
-html.x-on .xs[data-i="0"] .xs-in{padding-bottom:40svh}
-html.x-on .xskip-static{display:none}
-html.x-on .xh .xw{transform:translate(calc(var(--mx,0) * var(--d,0) * 10px),calc(var(--my,0) * var(--d,0) * 6px))}
-html.x-on .xphone{position:absolute;left:16px;right:16px;bottom:max(14px,env(safe-area-inset-bottom));width:auto;margin:0;z-index:1;visibility:hidden;will-change:transform,opacity}
-html.x-on .xphone.on{visibility:visible}
-html.x-on .xphone-cap{position:absolute;left:4px;bottom:-22px}
-html.x-on .xui{display:block}
-.xprog{position:fixed;left:16px;right:16px;top:70px;height:2px;background:var(--line);z-index:30;pointer-events:none;opacity:0;transition:opacity var(--dur) var(--ease)}
-html:not(.x-live) .xprog .xdotb{pointer-events:none}
-.xprog i{position:absolute;left:0;top:0;height:100%;width:100%;background:var(--green);transform-origin:0 50%;transform:scaleX(var(--t,0))}
-.xprog .xdotb{position:absolute;top:-9px;width:20px;height:20px;margin-left:-8px;padding:0;border:0;background:none;cursor:pointer;pointer-events:auto;display:grid;place-items:center}
-.xprog .xdotb::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--text-3);transition:transform var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease)}
-.xprog .xdotb:hover::before,.xprog .xdotb[aria-current="step"]::before{background:var(--text);transform:scale(1.6)}
-.xprog .xdotb:focus-visible{outline:2px solid var(--focus);outline-offset:2px;border-radius:50%}
-.xsnap{position:absolute;left:0;width:1px;height:1px;pointer-events:none}
-/* CSS scroll-snap (y proximity) was tried for touch and removed: Chromium's proximity radius is ~half the viewport,
-   so slow drags and wheel ticks were pulled back to the previous rest point. The JS assist alone never traps. */
-.xprog-lbl{position:fixed;left:16px;top:80px;font:600 12px/1 var(--fs);letter-spacing:.06em;text-transform:uppercase;color:var(--text-3);z-index:30;pointer-events:none;opacity:0;transition:opacity var(--dur) var(--ease)}
-.xprog-lbl b{color:var(--text);font-weight:600}
-.xctl{position:fixed;left:16px;right:16px;bottom:max(14px,env(safe-area-inset-bottom));display:flex;justify-content:space-between;gap:10px;z-index:30;opacity:0;pointer-events:none;transition:opacity var(--dur) var(--ease)}
-.xctl .btn{pointer-events:auto;min-height:40px;padding:0 14px;font-size:14px;background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-color:var(--line-strong)}
-.xctl .btn[aria-pressed="true"]{border-color:var(--green);color:var(--green-text)}
-.xctl .btn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.xgrid{position:absolute;inset:0;width:100%;height:100%;z-index:5;pointer-events:none;opacity:0;image-rendering:pixelated}
-.xglim{position:fixed;right:16px;top:74px;width:28px;height:28px;z-index:31;opacity:0;pointer-events:none;transition:opacity var(--dur) var(--ease);image-rendering:pixelated;will-change:transform}
-.xglim svg{width:100%;height:100%;shape-rendering:crispEdges}
-.xglim.blink svg{animation:xblink .5s steps(2,end) 1}
-@keyframes xblink{0%{transform:scaleY(1)}50%{transform:scaleY(.72) translateY(14%)}100%{transform:scaleY(1)}}
-html.x-live .xglim{opacity:1}
-@media(min-width:900px){.xglim{right:9px;top:calc(50% - min(22vh,180px) - 44px);width:32px;height:32px}}
-html.x-live .xprog,html.x-live .xprog-lbl,html.x-live .xctl{opacity:1}
-html.x-live .xctl{pointer-events:auto}
-
-@media(min-width:900px){
-  html.x-on .xs-in{padding:100px 32px 60px;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr)}
-  html.x-on .xs[data-i="0"] .xs-in{padding-bottom:60px}
-  html.x-on .xphone{left:auto;right:max(32px,calc((100vw - 1160px) / 2 + 32px));bottom:auto;top:50%;transform:translateY(-50%);width:min(46vw,620px)}
-  html.x-on .xphone-cap{left:0;bottom:-24px}
-  .xprog{left:auto;right:24px;top:50%;width:2px;height:min(44vh,360px);transform:translateY(-50%)}
-  .xprog i{transform-origin:50% 0;transform:scaleY(var(--t,0))}
-  .xprog .xdotb{left:-9px;margin:-9px 0 0;top:auto}
-  .xprog{pointer-events:none}
-  .xprog-lbl{left:auto;right:20px;top:78px;text-align:right;white-space:nowrap}
-  html.x-on .xbub{margin-top:12px;padding:11px 14px}
-  html.x-on .xapprove{margin-top:16px}
-}
-@media(min-width:900px) and (max-height:880px){
-  html.x-on .xh{font-size:clamp(34px,6vw,62px)}
-  html.x-on .xh2{font-size:clamp(24px,3.6vw,40px)}
-  html.x-on .xtw{font-size:clamp(78px,17vw,200px);margin-top:6px}
-  html.x-on .xs-in{padding-top:84px}
-  html.x-on .xp{margin-top:12px;font-size:16.5px}
-  html.x-on .xprice{font-size:clamp(64px,10vw,112px)}
-  .xctl{left:auto;right:32px;bottom:28px;flex-direction:column;align-items:flex-end}
-}
-@media(max-width:899px){
-  html.x-on .xh{font-size:clamp(32px,9.4vw,52px)}
-  html.x-on .xtw{font-size:clamp(76px,25vw,120px)}
-  html.x-on .xs-in{padding-top:96px}
-  html.x-on .xthread{max-width:100%}
-  html.x-on .xbub{font-size:15px;padding:11px 13px;margin-top:12px}
-  html.x-on .xs[data-i="0"] .xp,html.x-on .xs[data-i="1"] .xp,html.x-on .xs[data-i="2"] .xp{font-size:15.5px}
-  html.x-on .xphone{bottom:max(60px,calc(env(safe-area-inset-bottom) + 60px))}
-  html.x-on .xmascot{width:72px;height:72px;margin-bottom:12px}
-}
-@media(max-height:620px) and (max-width:899px){
-  html.x-on .xphone{display:none}
-}
-@media (prefers-reduced-motion:reduce){
-  .xs-in,.xw,.xwi,.xrow{transform:none!important}
-}
-@media (prefers-reduced-transparency:reduce){.xctl .btn{background:var(--bg);-webkit-backdrop-filter:none;backdrop-filter:none}}
-
-/* v6 fixes (2026-10-26): morph wraps only between words; twisted word sized to its column */
-.xmorph .xcw{display:inline-block;white-space:nowrap}
-.xinstall{max-width:16em}
-/* "missed" (≈3.2em wide) must end before the phone card: the text column's free width is .54vw-88px up to 1160px and 1072px-.46vw above it */
-@media(min-width:900px){html.x-on .xtw{font-size:clamp(96px,min(calc((54vw - 88px) / 3.4),calc((1072px - 46vw) / 3.4)),132px)}}
-
-</style>
+<link rel="stylesheet" href="assets/chrome.css">
+<link rel="stylesheet" href="assets/company.css">
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="glim" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="6" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="2" width="1" height="1" fill="#1A1A17"/><rect x="5" y="3" width="6" height="1" fill="#1A1A17"/><rect x="4" y="4" width="8" height="1" fill="#1A1A17"/><rect x="3" y="5" width="10" height="1" fill="#1A1A17"/><rect x="3" y="6" width="1" height="1" fill="#1A1A17"/><rect x="4" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="6" y="6" width="4" height="1" fill="#1A1A17"/><rect x="10" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="12" y="6" width="1" height="1" fill="#1A1A17"/><rect x="3" y="7" width="1" height="1" fill="#1A1A17"/><rect x="4" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="7" width="5" height="1" fill="#1A1A17"/><rect x="10" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="7" width="2" height="1" fill="#1A1A17"/><rect x="3" y="8" width="10" height="1" fill="#1A1A17"/><rect x="3" y="9" width="4" height="1" fill="#1A1A17"/><rect x="7" y="9" width="2" height="1" fill="#F2F1EC"/><rect x="9" y="9" width="4" height="1" fill="#1A1A17"/><rect x="3" y="10" width="10" height="1" fill="#1A1A17"/><rect x="4" y="11" width="8" height="1" fill="#1A1A17"/><rect x="5" y="12" width="6" height="1" fill="#1A1A17"/><rect x="5" y="13" width="1" height="1" fill="#1A1A17"/><rect x="10" y="13" width="1" height="1" fill="#1A1A17"/><rect x="4" y="14" width="2" height="1" fill="#1A1A17"/><rect x="10" y="14" width="2" height="1" fill="#1A1A17"/><circle cx="7.5" cy="1.5" r="2.4" fill="#C6FF3D" opacity=".28"/><circle cx="7.5" cy="1.5" r="1.4" fill="#C6FF3D" opacity=".55"/><rect x="7" y="1" width="1" height="1" fill="#C6FF3D"/></symbol></svg>
+<svg class="sprite" width="0" height="0" aria-hidden="true">
+  <symbol id="glim" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="6" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="2" width="1" height="1" fill="#1A1A17"/><rect x="5" y="3" width="6" height="1" fill="#1A1A17"/><rect x="4" y="4" width="8" height="1" fill="#1A1A17"/><rect x="3" y="5" width="10" height="1" fill="#1A1A17"/><rect x="3" y="6" width="1" height="1" fill="#1A1A17"/><rect x="4" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="6" y="6" width="4" height="1" fill="#1A1A17"/><rect x="10" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="12" y="6" width="1" height="1" fill="#1A1A17"/><rect x="3" y="7" width="1" height="1" fill="#1A1A17"/><rect x="4" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="7" width="5" height="1" fill="#1A1A17"/><rect x="10" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="7" width="2" height="1" fill="#1A1A17"/><rect x="3" y="8" width="10" height="1" fill="#1A1A17"/><rect x="3" y="9" width="4" height="1" fill="#1A1A17"/><rect x="7" y="9" width="2" height="1" fill="#F2F1EC"/><rect x="9" y="9" width="4" height="1" fill="#1A1A17"/><rect x="3" y="10" width="10" height="1" fill="#1A1A17"/><rect x="4" y="11" width="8" height="1" fill="#1A1A17"/><rect x="5" y="12" width="6" height="1" fill="#1A1A17"/><rect x="5" y="13" width="1" height="1" fill="#1A1A17"/><rect x="10" y="13" width="1" height="1" fill="#1A1A17"/><rect x="4" y="14" width="2" height="1" fill="#1A1A17"/><rect x="10" y="14" width="2" height="1" fill="#1A1A17"/><circle cx="7.5" cy="1.5" r="2.4" fill="#C6FF3D" opacity=".28"/><circle cx="7.5" cy="1.5" r="1.4" fill="#C6FF3D" opacity=".55"/><rect x="7" y="1" width="1" height="1" fill="#C6FF3D"/></symbol>
+</svg>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- Movember banner, November 2026 only: hidden here, assets/movember-banner.js shows it until MOVEMBER_UNTIL. Not affiliated with Movember, no Movember logo. -->
-<aside class="mo" id="mo" aria-label="Movember fundraiser" hidden><div class="wrap mo-in">
-  <p class="mo-msg"><i class="mo-dot" aria-hidden="true"></i><span><strong>This November:</strong> get a free AI mo and support men's health. <small class="mo-na">Not affiliated with Movember.</small></span></p>
-  <div class="mo-acts">
-    <a class="mo-btn mo-go" href="mo-ify/">Make your mo</a>
-    <a class="mo-btn" href="https://movember.com/m/15609313" target="_blank" rel="noopener">Donate to Movember<span class="mo-sr"> (opens in a new tab)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-  </div>
-  <button class="mo-x" type="button" aria-label="Hide the Movember banner"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-</div></aside>
-<script src="assets/movember-banner.js"></script>
-
-<header class="hdr" id="hdr"><div class="wrap hdr-in">
-  <a class="logo" href="index.html" aria-label="Glim, by sh. industries. Home"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>Glim <small>by sh. industries</small></a>
-  <nav class="nav" id="nav" aria-label="Main">
-    <a href="#explain">Explain</a><a href="#trade">Try it</a><a href="#beta">Beta</a><a href="#pricing">Pricing</a><a href="#faq">Questions</a>
-    <div class="dd"><a href="products.html">Products<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
-      <div class="dd-menu"><div class="dd-in">
-        <a href="products.html#glim"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span><span><b>Glim</b><span>Texts back the calls your business misses. Founding beta.</span></span></a>
-        <a href="duckyguard/"><img src="duckyguard/assets/duck-96.png" alt="" width="84" height="96" loading="lazy"><span><b>DuckyGuard</b><span>A free Mac tool that spots USB gadgets typing like a machine.</span></span></a>
-        <div class="dd-sep" role="presentation"></div>
-        <a class="dd-plain" href="products.html"><b>All products</b></a>
-        <a class="dd-plain" href="about.html"><b>About sh. industries</b></a>
-      </div></div>
-    </div>
+<header class="hdr top" id="hdr"><div class="wrap top-in">
+  <a class="logo co-logo" href="./" aria-label="sh. industries, home"><svg class="co-mark" viewBox="220 180 1570 900" aria-hidden="true"><path d="M526 1042Q391 1042 313.5 985.0Q236 928 230 826H407Q415 866 445.5 885.0Q476 904 534 904Q624 904 624 857Q624 838 610.5 826.5Q597 815 566 809L432 783Q248 747 248 611Q248 523 319.0 470.5Q390 418 515 418Q640 418 712.0 472.0Q784 526 790 624H613Q603 585 577.5 567.5Q552 550 503 550Q463 550 441.5 561.0Q420 572 420 594Q420 610 433.0 621.0Q446 632 472 637L610 664Q706 683 751.0 726.0Q796 769 796 842Q796 936 726.5 989.0Q657 1042 526 1042Z"/><path d="M846.0 1030V190H1030.0V512H1034.0Q1063.0 466 1110.5 442.5Q1158.0 419 1225.0 419Q1338.0 419 1404.0 488.0Q1470.0 557 1470.0 673V1030H1286.0V709Q1286.0 647 1253.5 615.0Q1221.0 583 1158.0 583Q1095.0 583 1062.5 615.0Q1030.0 647 1030.0 709V1030Z"/><circle class="co-dot" cx="1640" cy="928" r="112"/></svg></a>
+  <nav class="top-nav" aria-label="Main">
+    <a href="glim/">Glim</a>
+    <a href="#goodducky">GoodDucky</a>
+    <a href="about.html">About</a>
   </nav>
-  <a class="btn btn-ink btn-sm" data-buy href="#waitlist"><span class="when-closed">Join waitlist</span><span class="when-open">Get Glim</span></a>
-  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Open menu"><svg class="ic-bars" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="ic-x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <a class="btn btn-ink btn-sm top-cta" data-buy href="glim/#waitlist"><span class="when-closed">Join the Glim waitlist</span><span class="when-open">Get Glim</span></a>
 </div></header>
 
 <main id="main">
 
-<!-- ======== HERO ======== -->
-<section class="hero"><div class="wrap hero-grid">
-  <div>
-    <p class="kick px"><i aria-hidden="true"></i>Give your business a second brain</p>
-    <a class="xbtn" href="#explain" data-explain><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>Explain Glim <small>· scroll story, 2 min</small></a>
-    <h1 class="h1">Never lose a customer to a missed call.</h1>
-    <p class="hook">A missed call is a customer who called the next number. Glim texts them back before they do.</p>
-    <p class="lede">You're with a customer, on a job or behind the counter, and the phone rings out. Within seconds the caller gets a text from your business, in your own words. You see the reply, tap once, and the customer is yours. Add it to your phone's home screen in 30 seconds. No app store.</p>
-    <div class="cta">
-      <a class="btn btn-go" data-buy href="#waitlist"><span class="when-closed">Join the founding shops waitlist</span><span class="when-open">Get Glim · <span class="pr">$29</span>/month</span></a>
-      <a class="btn btn-line" href="#trade">Try it with your business</a>
-    </div>
-    <p class="fine">
-      <span class="betapill"><b class="px">Beta</b><a href="#beta">What that means</a></span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Founding price $29/month, locked</span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>7-day money-back</span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>No contract</span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>400 texts a month included</span>
-    </p>
-  </div>
+  <!-- 1 · the company in one sentence, then its two apps as an index (Glim first, with its price and button),
+       beside Glim running on a phone. Glim's own line is a product line, not the page headline. -->
+  <section class="hero" aria-labelledby="hero-h"><div class="wrap">
+    <h1 class="hero-h" id="hero-h">sh. industries makes small apps that each do one&nbsp;job.</h1>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="read hero-sub">A small software company in Massachusetts. Each app shows its price and its limits up front, so you never need a sales call to find out.</p>
+        <ul class="apps" role="list">
+          <li class="app" aria-labelledby="app-glim">
+            <span class="gt app-mark" aria-hidden="true"><svg><use href="#glim"/></svg></span>
+            <div class="app-body">
+              <h2 class="app-name" id="app-glim">Glim <span>For any business that lives on calls</span></h2>
+              <p class="app-line">Miss a call. Glim texts them back in&nbsp;seconds.</p>
+              <p class="app-desc">The caller gets a text from your business, in your own words, before they ring the next shop. You read their reply and tap once to answer it.</p>
+              <div class="hero-cta">
+                <a class="btn btn-ink" data-buy href="glim/#waitlist"><span class="when-closed">Join the waitlist</span><span class="when-open">Get Glim · <span class="pr">$29</span>/month</span></a>
+                <a class="tl" href="glim/">How Glim works<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+              </div>
+              <p class="app-price if-founding"><b>$29 a month</b> for the first 10 businesses, then $39. 400 texts a month included. 7-day money-back, no contract.</p>
+              <p class="app-price if-full"><b>$39 a month.</b> 400 texts a month included. 7-day money-back, no contract.</p>
+            </div>
+          </li>
+          <li class="app" aria-labelledby="app-duck">
+            <img class="app-mark" src="duckyguard/assets/duck-96.png" alt="" width="84" height="96">
+            <div class="app-body">
+              <h2 class="app-name" id="app-duck">GoodDucky <span>Free Mac app · coming soon</span></h2>
+              <p class="app-line">Stops a USB stick that types like a&nbsp;machine.</p>
+              <a class="tl" href="#goodducky">How it works<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+            </div>
+          </li>
+        </ul>
+      </div>
 
-  <figure class="stage" style="margin:0">
-    <div class="phone" id="phone" data-step="0" role="img" aria-label="The Glim app on a phone. A missed call from Dana Reyes comes in at 2:14. Glim texts her back from Northside Plumbing within seconds. She replies that a sink is leaking. Glim drafts the next reply, the owner approves it with one tap, and the call counter goes from 0 to 1 saved today.">
-      <div class="notif" aria-hidden="true"><span class="ph"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M16 2l6 6M22 2l-6 6"/></svg></span><div><b>Missed call</b><small>Dana Reyes · (508) 555-0142</small></div><em>2:14 PM</em></div>
-      <div class="scr" aria-hidden="true">
-        <p class="shop">Northside Plumbing</p>
-        <p class="watch"><i></i>Watching your phone</p>
-        <div class="counter">
-          <div><b class="num" id="cnt">0</b><small>calls saved today</small></div>
-          <div class="mascot"><svg><use href="#glim"/></svg><span class="stamp">SAVED</span></div>
-        </div>
-        <div class="thread">
-          <div class="who"><b>Dana Reyes</b><span>Missed call · 2:14 PM</span></div>
-          <p class="by" data-at="2"><span class="gt"><svg><use href="#glim"/></svg></span>Glim texted back</p>
-          <p class="msg out" data-at="2" data-sent="3"><span class="typing"><i></i><i></i><i></i></span><span class="txt">Hi, this is Rob's assistant at Northside Plumbing. Rob's on a job and will call you back today. Is it a leak, a clog, or no hot water?</span></p>
-          <p class="sentline" data-at="3">Sent 2:14 PM · 9 seconds after the call</p>
-          <p class="msg in" data-at="4">Leak. Under the kitchen sink, water everywhere. Can someone come today?</p>
-          <p class="by" data-at="5"><span class="gt"><svg><use href="#glim"/></svg></span>Glim drafted · waiting on you</p>
-          <p class="msg out" data-at="5" data-sent="5">Got it, Dana. Turn the shutoff valve under the sink clockwise for now. Rob can be there between 3 and 5 today. Does that work?</p>
-        </div>
-        <div class="needs" data-at="5"><div><small>Needs you</small><b>Approve reply to Dana</b></div><span class="go">→</span></div>
-        <div class="tabs">
-          <span class="cur"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>Today</span>
-          <span><svg viewBox="0 0 24 24"><path d="M3 12l3-8h12l3 8v7H3z"/><path d="M3 12h5l2 3h4l2-3h5"/></svg>Inbox</span>
-          <span><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>Reviews</span>
-          <span><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>Settings</span>
+      <figure class="stage">
+        <!-- Ships in its finished state (step 6), so no JS shows a complete screen. assets/home2.js plays it once
+             from step 0 when it scrolls into view and stops on the finished screen; the button replays it. -->
+      <div class="phone lit" id="phone" data-step="6" role="img" aria-label="The Glim app on a phone. A missed call from Dana Reyes comes in at 2:14. Glim texts her back from Northside Plumbing 9 seconds later. She replies that a sink is leaking. Glim drafts the next reply, the owner approves it with one tap, and the counter goes from 0 to 1 call saved today.">
+        <div class="notif" aria-hidden="true"><span class="ph"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M16 2l6 6M22 2l-6 6"/></svg></span><div><b>Missed call</b><small>Dana Reyes · (508) 555-0142</small></div><em>2:14 PM</em></div>
+        <div class="scr" aria-hidden="true">
+          <p class="shop">Northside Plumbing</p>
+          <p class="watch"><i></i>Watching your phone</p>
+          <div class="counter">
+            <div><b class="num" id="cnt">1</b><small id="cnt-l">call saved today</small></div>
+            <div class="mascot"><svg><use href="#glim"/></svg><span class="stamp">SAVED</span></div>
+          </div>
+          <div class="thread">
+            <div class="who on" data-at="1"><b>Dana Reyes</b><span>Missed call · 2:14 PM</span></div>
+            <div class="thr-body">
+              <p class="empty" data-at="0" data-to="0">No missed calls yet today.</p>
+              <p class="by on" data-at="2"><span class="gt"><svg><use href="#glim"/></svg></span>Glim texted back · 2:14 PM</p>
+              <p class="msg out on sent" data-at="2" data-sent="3"><span class="typing"><i></i><i></i><i></i></span><span class="txt">Hi, this is Rob's assistant at Northside Plumbing. Rob's on a job and will call you back today. Is it a leak, a clog, or no hot water?</span></p>
+              <p class="sentline" data-at="3" data-to="4">Sent 9 seconds after the call</p>
+              <p class="msg in on" data-at="4">Leak. Under the kitchen sink, water everywhere. Can someone come today?</p>
+              <p class="by" data-at="5" data-to="5"><span class="gt"><svg><use href="#glim"/></svg></span>Glim drafted · waiting on you</p>
+              <p class="msg out draft on sent" data-at="5" data-sent="6">Got it, Dana. Turn the shutoff valve under the sink clockwise for now. Rob can be there between 3 and 5 today. Does that work?</p>
+              <p class="sentline on" data-at="6">Sent 2:31 PM · Rob approved</p>
+            </div>
+          </div>
+          <div class="needs" data-at="5" data-to="5"><div><small>Needs you</small><b>Approve reply to Dana</b></div><span class="go">→</span></div>
+          <div class="tabs">
+            <span class="cur"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>Today</span>
+            <span><svg viewBox="0 0 24 24"><path d="M3 12l3-8h12l3 8v7H3z"/><path d="M3 12h5l2 3h4l2-3h5"/></svg>Inbox</span>
+            <span><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>Reviews</span>
+            <span><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>Settings</span>
+          </div>
         </div>
       </div>
+      <figcaption class="demo-note">Glim on a phone, with a made-up shop and caller. <button type="button" id="replay" hidden>Play it again</button></figcaption>
+      </figure>
     </div>
-    <figcaption class="demo">Demo shop, made-up names and numbers. <button type="button" id="replay">Play it again</button></figcaption>
-  </figure>
-</div></section>
+  </div></section>
 
-<!-- ======== EXPLAIN GLIM: scroll story (layered by assets/explain/explain.js; static stacked without it) ======== -->
-<section class="x" id="explain" aria-label="Explain Glim: how it works, in ten scenes">
-<div class="xtrack"><div class="xstage">
-
-  <section class="xs" data-i="0"><div class="wrap xs-in"><div>
-    <a class="xskip-static" href="#pricing">Skip the story, go to pricing</a>
-    <p class="xk px"><i aria-hidden="true"></i>Explain Glim · 1 of 10</p>
-    <h2 class="xh">You're under a sink.</h2>
-    <p class="xh2">The phone rings. You can't reach it.</p>
-    <p class="xtw">missed</p>
-    <p class="xp">One ring-out and that caller is a <b>missed call</b>. The same thing happens behind a salon chair, on a job site, at a front desk, in a kitchen at the dinner rush.</p>
+  <!-- 2 · GoodDucky in detail. Not out: no download, no repo link. One centred column, the diagram under it. -->
+  <section class="duck" id="goodducky" aria-labelledby="gd-h"><div class="wrap"><div class="duck-in">
+    <img class="duck-img" src="duckyguard/assets/duck-256.png" width="224" height="256" alt="GoodDucky's mascot: a pixel-art duck holding a shield with a USB symbol" loading="lazy" decoding="async">
+    <p class="duck-id"><b>GoodDucky</b> Free Mac app · coming soon</p>
+    <h2 class="h-2" id="gd-h">A person types unevenly. A gadget posing as a keyboard doesn't.</h2>
+    <p class="read duck-p">Some USB sticks pretend to be a keyboard and type a script into your Mac in seconds. GoodDucky watches the typing rhythm, and when a burst is too fast and too even to be a person, it pulls focus to its own window so the rest lands there instead.</p>
+    <figure class="keys" aria-labelledby="keys-cap">
+      <div class="k-row"><span class="k-lab">You typing</span>
+        <svg class="k-ticks k-human" viewBox="0 0 480 24" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="4" width="3" height="16"/><rect x="34" y="4" width="3" height="16"/><rect x="58" y="4" width="3" height="16"/><rect x="104" y="4" width="3" height="16"/><rect x="121" y="4" width="3" height="16"/><rect x="166" y="4" width="3" height="16"/><rect x="214" y="4" width="3" height="16"/><rect x="231" y="4" width="3" height="16"/><rect x="287" y="4" width="3" height="16"/><rect x="306" y="4" width="3" height="16"/><rect x="359" y="4" width="3" height="16"/><rect x="398" y="4" width="3" height="16"/><rect x="421" y="4" width="3" height="16"/><rect x="474" y="4" width="3" height="16"/></svg></div>
+      <div class="k-row"><span class="k-lab">A gadget posing as a keyboard</span>
+        <svg class="k-ticks k-bot" viewBox="0 0 480 24" preserveAspectRatio="none" aria-hidden="true"><g class="k-hit"><rect x="0" y="4" width="3" height="16"/><rect x="8" y="4" width="3" height="16"/><rect x="16" y="4" width="3" height="16"/><rect x="24" y="4" width="3" height="16"/><rect x="32" y="4" width="3" height="16"/><rect x="40" y="4" width="3" height="16"/><rect x="48" y="4" width="3" height="16"/><rect x="56" y="4" width="3" height="16"/><rect x="64" y="4" width="3" height="16"/><rect x="72" y="4" width="3" height="16"/><rect x="80" y="4" width="3" height="16"/><rect x="88" y="4" width="3" height="16"/></g><rect class="k-stop" x="100" y="0" width="2" height="24"/><g class="k-held"><rect x="110" y="4" width="3" height="16"/><rect x="118" y="4" width="3" height="16"/><rect x="126" y="4" width="3" height="16"/><rect x="134" y="4" width="3" height="16"/><rect x="142" y="4" width="3" height="16"/><rect x="150" y="4" width="3" height="16"/><rect x="158" y="4" width="3" height="16"/><rect x="166" y="4" width="3" height="16"/><rect x="174" y="4" width="3" height="16"/><rect x="182" y="4" width="3" height="16"/><rect x="190" y="4" width="3" height="16"/><rect x="198" y="4" width="3" height="16"/><rect x="206" y="4" width="3" height="16"/><rect x="214" y="4" width="3" height="16"/><rect x="222" y="4" width="3" height="16"/><rect x="230" y="4" width="3" height="16"/><rect x="238" y="4" width="3" height="16"/><rect x="246" y="4" width="3" height="16"/><rect x="254" y="4" width="3" height="16"/><rect x="262" y="4" width="3" height="16"/><rect x="270" y="4" width="3" height="16"/><rect x="278" y="4" width="3" height="16"/><rect x="286" y="4" width="3" height="16"/><rect x="294" y="4" width="3" height="16"/><rect x="302" y="4" width="3" height="16"/><rect x="310" y="4" width="3" height="16"/><rect x="318" y="4" width="3" height="16"/><rect x="326" y="4" width="3" height="16"/><rect x="334" y="4" width="3" height="16"/><rect x="342" y="4" width="3" height="16"/><rect x="350" y="4" width="3" height="16"/><rect x="358" y="4" width="3" height="16"/><rect x="366" y="4" width="3" height="16"/><rect x="374" y="4" width="3" height="16"/><rect x="382" y="4" width="3" height="16"/><rect x="390" y="4" width="3" height="16"/><rect x="398" y="4" width="3" height="16"/><rect x="406" y="4" width="3" height="16"/><rect x="414" y="4" width="3" height="16"/><rect x="422" y="4" width="3" height="16"/><rect x="430" y="4" width="3" height="16"/><rect x="438" y="4" width="3" height="16"/><rect x="446" y="4" width="3" height="16"/><rect x="454" y="4" width="3" height="16"/><rect x="462" y="4" width="3" height="16"/><rect x="470" y="4" width="3" height="16"/></g></svg></div>
+      <figcaption id="keys-cap">Each mark is one keypress. After about 12 keys that come too fast and too evenly, GoodDucky steps in at the line, and if focus moves in time the rest of the burst misses your terminal. The keys before the line still get through, and a script typed at human speed can pass.</figcaption>
+    </figure>
+    <a class="tl" href="mailto:steven@shindustries.co?subject=Tell%20me%20when%20GoodDucky%20is%20out">Tell me when it's out<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div></div></section>
 
-  <div class="xphone" aria-hidden="true"><div class="xphone-in">
-    <img class="xposter" src="assets/explain/phone-poster.webp" width="640" height="360" alt="" loading="lazy" decoding="async">
-    <img class="xsaved" src="assets/explain/phone-saved.webp" width="1280" height="720" alt="" loading="lazy" decoding="async">
-  </div><p class="xphone-cap px">Demo shop · made-up names · rendered phone</p></div>
-
-  <section class="xs" data-i="1"><div class="wrap xs-in"><div>
-    <p class="xk px"><i aria-hidden="true"></i>2 of 10</p>
-    <h2 class="xh">Dana doesn't leave a voicemail.</h2>
-    <p class="xp">She has a list. Your business was first on it. The next number on that list picks up.</p>
-    <p class="xrows" role="img" aria-label="She calls the next number"><span class="xrow">the next number · the next number · the next number</span><span class="xrow"><b>she calls <u>the next number</u>.</b></span><span class="xrow">the next number · the next number · the next number</span></p>
-  </div></div></section>
-
-  <section class="xs" data-i="2"><div class="wrap xs-in"><div>
-    <p class="xk px"><i aria-hidden="true"></i>3 of 10</p>
-    <div class="xmascot" aria-hidden="true"><svg><use href="#glim"/></svg><i></i></div>
-    <h2 class="xh">Glim's dot lights up.</h2>
-    <p class="xp">Seconds after the ring-out, Dana has a text from your business, in your business's words. Nothing to type.</p>
-    <p class="xbub out"><small>Northside Plumbing · 9 seconds after the call</small><span class="xtxt">Hi, this is Rob's assistant at Northside Plumbing. Rob's on a job and will call you back today. Is it a leak, a clog, or no hot water?</span></p>
-  </div></div></section>
-
-  <section class="xs" data-i="3"><div class="wrap xs-in"><div>
-    <p class="xk px"><i aria-hidden="true"></i>4 of 10</p>
-    <h2 class="xh">She replies. You tap once.</h2>
-    <div class="xthread">
-      <p class="xbub in"><small>Dana · 2:16 PM</small>Leak. Under the kitchen sink, water everywhere. Can someone come today?</p>
-      <p class="xbub out"><small>Glim drafted · waiting on you</small>Got it, Dana. Turn the shutoff valve under the sink clockwise for now. Rob can be there between 3 and 5 today. Does that work?</p>
-    </div>
-    <div class="xapprove"><div class="xring" role="img" aria-label="Approve"><span>Approve</span></div><p>One tap sends it. Edit it first if you want. Then the customer is yours.<span class="xstamp" aria-hidden="true">SAVED</span></p></div>
-  </div></div></section>
-
-  <section class="xs" data-i="4"><div class="wrap xs-in"><div>
-    <p class="xk px"><i aria-hidden="true"></i>5 of 10</p>
-    <h2 class="xh">Quotes get a follow-up.</h2>
-    <p class="xp">Send a quote from the app. If it goes quiet, Glim checks in on day 2 and day 5 (your business type's defaults, adjustable), then stops. The moment they book or say no, it stops too.</p>
-    <div class="xline" role="list" aria-label="Follow-up timeline"><span class="xline-bar"></span><span class="xline-fill"></span>
-      <span class="xdot" role="listitem"><i></i><b>Day 0</b>Quote sent</span><span class="xdot" role="listitem"><i></i><b>Day 2</b>Check-in</span><span class="xdot" role="listitem"><i></i><b>Day 5</b>Last check-in</span><span class="xdot" role="listitem"><i></i><b>Then</b>It stops</span>
+  <!-- 3 · Movember, November 2026 only. Not a product: a small dated card, quieter than either app.
+       Ships hidden; assets/seasonal.js shows everything marked data-season="movember" until
+       2026-12-01T05:00:00Z (end of Nov 30, US Eastern); assets/home2.js keeps the days left current
+       and removes every data-season="movember" node at the cutoff, even in a tab left open. No Movember logo.
+       The face is Mo-ify me's own drawn example (no real person); "before" is the same drawing without the mo. -->
+  <section class="mv" id="movember" data-season="movember" hidden aria-labelledby="mv-h"><div class="wrap"><div class="mv-card">
+    <figure class="mv-ba">
+      <div class="mv-pair">
+        <img src="assets/mo-before.webp" width="640" height="640" alt="Before: a line-drawn face" loading="lazy" decoding="async">
+        <img src="assets/mo-face.webp" width="640" height="640" alt="After: the same face with a moustache from Mo-ify me" loading="lazy" decoding="async">
+      </div>
+      <figcaption aria-hidden="true"><span>Before</span><span>After</span></figcaption>
+    </figure>
+    <div class="mv-copy">
+      <h2 class="mv-h" id="mv-h"><span class="mv-tag">Movember fundraiser<span class="sr">:</span></span> <span class="mv-title">A moustache on your photo, for men's health.</span></h2>
+      <p class="mv-left"><b id="mv-n">Until Nov 30</b> <span id="mv-u"></span></p>
+      <p class="mv-p">Mo-ify me is Steven's free tool supporting Movember. It finds your face and draws a moustache on it in a few seconds. The AI runs in your browser, so your photo is never uploaded. If it makes you smile, give a little.</p>
+      <div class="mv-acts">
+        <a class="btn btn-line btn-sm" href="mo-ify/">Make your mo</a>
+        <a class="btn btn-line btn-sm" href="https://movember.com/m/15609313" target="_blank" rel="noopener">Donate to Steven's Mo Space<span class="sr"> (opens in a new tab)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+      <p class="mv-fine">Not affiliated with Movember. Donations go straight to Movember through Steven's Mo Space.</p>
     </div>
   </div></div></section>
+  <script src="assets/seasonal.js"></script>
 
-  <section class="xs" data-i="5"><div class="wrap xs-in"><div>
-    <p class="xk px"><i aria-hidden="true"></i>6 of 10</p>
-    <h2 class="xh">Then it asks for the review.<span class="xtag">Coming soon</span></h2>
-    <p class="xp">After the job or visit is marked done, a thank-you with your Google review link. Being built now; it arrives as a free update, nothing to re-buy.</p>
-    <div class="xstars" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg></div>
+  <!-- 4 · A note from Steven: one narrow column, typed signature, no photo. -->
+  <section class="note" aria-labelledby="note-h"><div class="wrap"><div class="note-in">
+    <h2 class="h-2" id="note-h">Hi, I'm Steven.</h2>
+    <div class="letter">
+      <p>I study cybersecurity at WPI, and I started sh. industries in 2026.</p>
+      <p>Glim came from a simple pattern: a plumber under a sink, a stylist mid-cut, a phone that rings out. That caller usually dials the next number. Glim texts them back before they do.</p>
+      <p>GoodDucky grew out of my security coursework. It ships once I've tested it against real hardware.</p>
+    </div>
+    <p class="sig"><span class="sig-name">Steven Hainley</span><span class="sig-role">Founder, sh. industries · WPI, Massachusetts</span></p>
+    <p class="letter-more"><a class="tl" href="about.html">More about the company<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
   </div></div></section>
-
-  <section class="xs" data-i="6"><div class="wrap xs-in"><div>
-    <p class="xk px"><i aria-hidden="true"></i>7 of 10</p>
-    <h2 class="xh">Whatever you run, Glim sets itself up for it.</h2>
-    <p class="xp">The app starts by asking what kind of business you run. The text-back, the questions it asks, the quote lines and the quiet hours come out in your words.</p>
-    <div class="xtrades" aria-hidden="true"><span class="on">Salon</span><span>Restaurant</span><span>Clinic front desk</span><span>Gym</span><span>Real estate</span><span>Photographer</span><span>Cleaner</span><span>Shop</span><span>Consultant</span><span>Plumber</span></div>
-    <div class="xmorph" role="group" aria-label="The first question Glim texts, by business type">
-      <p class="xq on"><small>Salon</small><span class="xqt">Is it a cut, color, or a touch-up?</span></p>
-      <p class="xq"><small>Restaurant</small><span class="xqt">A table tonight, or a takeout order?</span></p>
-      <p class="xq"><small>Clinic front desk</small><span class="xqt">Booking a visit, or asking about one?</span></p>
-      <p class="xq"><small>Gym</small><span class="xqt">Signing up, or a question about classes?</span></p>
-      <p class="xq"><small>Real estate</small><span class="xqt">Buying, selling, or asking about a listing?</span></p>
-      <p class="xq"><small>Photographer</small><span class="xqt">A wedding, a portrait, or an event?</span></p>
-      <p class="xq"><small>Cleaner</small><span class="xqt">A regular clean, or a one-time clean?</span></p>
-      <p class="xq"><small>Shop</small><span class="xqt">Checking stock, or placing an order?</span></p>
-      <p class="xq"><small>Consultant</small><span class="xqt">A new project, or a question about one?</span></p>
-      <p class="xq"><small>Plumber</small><span class="xqt">Is it a leak, a clog, or no hot water?</span></p>
-    </div>
-    <p class="xfine">Example questions. Twelve ready-made setups at launch (salon, cleaner, trades and more); any other business picks “Something else” and writes its own.</p>
-  </div></div></section>
-
-  <section class="xs" data-i="7"><div class="wrap xs-in"><div>
-    <p class="xk px"><i aria-hidden="true"></i>8 of 10</p>
-    <h2 class="xh">You choose how much it does alone.</h2>
-    <p class="xp">Most owners start with everything waiting for a tap, then loosen it after a week of messages. One switch in Settings.</p>
-    <div class="xauto"><div class="xauto-rail" aria-hidden="true"><span class="xauto-knob"></span></div>
-      <ol><li class="on"><b>Approve everything</b><span>Nothing goes out in your name until you tap. Even the first text-back.</span></li><li><b>Auto text-back, approve the rest</b><span>Missed calls get the first text instantly. Replies, quotes and reminders wait for you.</span></li><li><b>Hands-off</b><span>Glim texts back, answers simple questions and follows up quotes by itself. One note a day. Big quotes still wait for you.</span></li></ol>
-    </div>
-  </div></div></section>
-
-  <section class="xs" data-i="8"><div class="wrap xs-in"><div>
-    <p class="xk px"><i aria-hidden="true"></i>9 of 10</p>
-    <h2 class="xh">Nothing to download.</h2>
-    <p class="xh2 xinstall">Add it to your phone's home screen in 30 seconds. No app store.</p>
-    <p class="xp">Glim is a web app you add to your home screen. It opens full-screen like any app and can tell you when a customer texts. App Store and Google Play versions come later, included.</p>
-    <ol class="xsteps"><li><span>Sign up, then open the link you land on.</span></li><li><span>Tap <b>Share</b> (iPhone) or the three dots (Android).</span></li><li><span>Tap <b>Add to Home Screen</b>.</span></li><li><span>Open Glim from the new icon. Done.</span></li></ol>
-  </div></div></section>
-
-  <section class="xs" data-i="9"><div class="wrap xs-in"><div>
-    <p class="xk px"><i aria-hidden="true"></i>10 of 10</p>
-    <h2 class="xh">The next number shouldn't get your customer.</h2>
-    <p class="xprice num">$29<small>a month · founding beta</small></p>
-    <p class="xlist">
-      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Locked while you stay subscribed</span>
-      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>First 10 businesses, then $39</span>
-      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>400 texts a month included</span>
-      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>7-day money-back</span>
-      <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>No contract, cancel any month</span>
-    </p>
-    <div class="xcta"><a class="btn btn-go" data-buy href="#waitlist"><span class="when-closed">Join the founding shops waitlist</span><span class="when-open">Get Glim · <span class="pr">$29</span>/month</span></a><a class="btn btn-line" href="#pricing">See the full pricing</a></div>
-    <p class="xfine">Glim is in beta. Salon, shop, clinic front desk, job site: if your business lives on calls and messages, it fits. Demo business above, made-up names.</p>
-  </div></div></section>
-
-  <div class="xui">
-    <div class="xprog" aria-hidden="true"><i></i></div>
-    <p class="xprog-lbl px" aria-live="polite"><b>1</b> / 10 · Under a sink</p>
-    <span class="xglim" aria-hidden="true"><svg><use href="#glim"/></svg></span>
-    <div class="xctl">
-      <a class="btn btn-line xskip" href="#pricing" data-skip><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l7 7-7 7M13 5l7 7-7 7"/></svg>Skip to pricing</a>
-      <button class="btn btn-line xsound" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5L6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg><span>Sound off</span></button>
-    </div>
-  </div>
-
-</div></div>
-</section>
-
-<!-- ======== STORY: the 17 minutes ======== -->
-<section class="sec sec-line" id="story"><div class="wrap">
-  <p class="lbl rv">How it works</p>
-  <h2 class="h2 rv">Seventeen minutes, start to booked. You were under a sink the whole time.</h2>
-  <p class="sub rv">One example, a plumber, from the phone above. Every message is a real Glim template, with made-up names. A salon, a cleaner or a front desk gets the same flow in its own words: <a href="#trade">try yours</a>.</p>
-  <div class="tl">
-    <div class="beat rv"><time>2:14 PM</time><h3>Dana calls. You can't pick up.</h3><p>Her call forwards to your Glim number after it rings out. That's a one-time code you dial into your phone; we show you how. Your number doesn't change.</p></div>
-    <div class="beat glim rv"><time>2:14 PM · 9 seconds later</time><h3>Glim texts her back as your business.</h3><q>Hi, this is Rob's assistant at Northside Plumbing. Rob's on a job and will call you back today. Is it a leak, a clog, or no hot water?</q></div>
-    <div class="beat glim rv"><time>2:16 PM</time><h3>She answers. Glim drafts the next reply.</h3><p>It knows a plumber's words: shutoff valve, water heater, drain. It reads her message, writes a reply, and puts it in front of you with a one-tap Approve.</p></div>
-    <div class="beat rv"><time>2:31 PM</time><h3>You surface, tap once. The customer is yours.</h3><p>One tap sends the reply. Later, Glim follows up the quote if it goes quiet, and stops the moment she books or says no.</p></div>
-  </div>
-  <p class="tl-note rv">Minutes shown are from the demo. The text-back goes out within seconds of the missed call; how fast you tap Approve is up to you. Or let Glim send on its own: see <a href="#auto">who decides</a>.</p>
-</div></section>
-
-<!-- ======== TRY IT: mini demo (templates from apps/glim-mobile/src/data/verticals.json) ======== -->
-<section class="sec sec-line" id="trade"><div class="wrap">
-  <p class="lbl rv">Try it</p>
-  <h2 class="h2 rv">See a missed call turn into a text from your business.</h2>
-  <p class="sub rv">Pick your kind of business and type its name. This uses the same message templates as the app.</p>
-  <div class="try">
-    <form class="tryform rv" id="tryform">
-      <label class="fld"><span>Kind of business</span>
-        <select id="try-type" autocomplete="off"></select>
-      </label>
-      <label class="fld"><span>Business name</span>
-        <input id="try-shop" type="text" maxlength="40" placeholder="Maple Street Salon" autocomplete="organization">
-      </label>
-      <label class="fld"><span>Your first name <small>optional</small></span>
-        <input id="try-owner" type="text" maxlength="20" placeholder="Sam" autocomplete="given-name">
-      </label>
-      <button class="btn btn-line" type="submit" id="try-play">Miss a call</button>
-      <p class="tryhint">Nothing you type leaves this page.</p>
-    </form>
-    <div class="thr rv" id="thr" aria-live="polite">
-      <p class="thr-miss"><span class="thr-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M16 2l6 6M22 2l-6 6"/><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><b>Missed call</b> · <span id="thr-who">a new customer</span></span></p>
-      <div class="tb tb-out" data-k="1"><small><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>Glim texted back · within seconds</small><p id="thr-text"></p></div>
-      <div class="tb tb-in" data-k="2"><small id="thr-cname">Customer</small><p id="thr-ask"></p></div>
-      <div class="tb tb-out tb-draft" data-k="3"><small><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>Glim drafted · waiting on you</small><p id="thr-reply"></p><span class="tb-ok">Approve</span></div>
-      <p class="thr-meta" id="thr-meta"></p>
-      <p class="thr-note">Customer messages are examples from the app's setup for this kind of business. Your real texts start from these and change as you edit them.</p>
-    </div>
-  </div>
-</div></section>
-
-<!-- ======== COST: visitor's own numbers only ======== -->
-<section class="sec sec-line" id="cost"><div class="wrap">
-  <p class="lbl rv">Your numbers</p>
-  <h2 class="h2 rv">What a missed call costs you.</h2>
-  <p class="sub rv">Your numbers, your estimate. We don't fill anything in for you.</p>
-  <div class="calc rv" id="calc" role="group" aria-label="What a missed call costs you">
-    <label class="fld"><span>Calls you miss a week</span><input id="c-calls" type="number" inputmode="numeric" min="0" max="1000" step="1" placeholder="e.g. 5"></label>
-    <span class="op" aria-hidden="true">×</span>
-    <label class="fld"><span>What one customer is worth to you ($)</span><input id="c-worth" type="number" inputmode="decimal" min="0" max="1000000" step="1" placeholder="e.g. 120"></label>
-    <span class="op" aria-hidden="true">×</span>
-    <label class="fld"><span>Weeks</span><input id="c-weeks" type="number" inputmode="numeric" min="1" max="52" step="1" value="4"></label>
-    <label class="fld"><span>Share that would have booked (%) <i style="font-weight:400;opacity:.7">optional</i></span><input id="c-share" type="number" inputmode="numeric" min="0" max="100" step="5" placeholder="e.g. 30"></label>
-  </div>
-  <div class="calc-out rv">
-    <p class="calc-sum" aria-live="polite"><output id="c-out" for="c-calls c-worth c-weeks" class="num">$ —</output><span id="c-lbl">Fill in your two numbers above.</span></p>
-    <p class="calc-note">This is your own estimate from your own numbers, not a claim of ours. Not every caller would have booked, so read it as the most those calls could be worth. Glim doesn't promise to win any of them back; it makes sure each one gets a text from you within seconds.</p>
-  </div>
-</div></section>
-
-<!-- ======== AUTOPILOT ======== -->
-<section class="sec sec-line" id="auto"><div class="wrap">
-  <p class="lbl rv">Who decides</p>
-  <h2 class="h2 rv">You choose how much Glim does on its own.</h2>
-  <p class="sub rv">Most owners start with everything waiting for a tap, then loosen it once they've seen a week of messages. Change it any time in Settings.</p>
-  <div class="auto">
-    <div class="modes rv" role="radiogroup" aria-label="Autopilot level">
-      <label class="mode"><input type="radio" name="auto" value="textback" checked><span class="mt"><b>Auto text-back, approve the rest</b><span>Missed calls get the first text instantly. Every follow-up reply, quote and reminder waits for your tap.</span></span></label>
-      <label class="mode"><input type="radio" name="auto" value="approve"><span class="mt"><b>Approve everything</b><span>Nothing goes out in your name until you tap Approve. Even the first text-back. Slower, fully yours.</span></span></label>
-      <label class="mode"><input type="radio" name="auto" value="hands"><span class="mt"><b>Hands-off</b><span>Glim texts back, answers simple questions, and follows up quotes by itself. You get one note a day. Big-ticket quotes still wait for you.</span></span></label>
-    </div>
-    <div class="outcome rv" id="outcome"><small>What happens when Dana calls</small><p id="outcome-p"></p><p class="nt">Whatever you pick: Glim only texts people who contacted your business, never sends a sales blast, honours STOP, and stays quiet overnight (your business type's hours, adjustable).</p></div>
-  </div>
-</div></section>
-
-<!-- ======== BETA, HONESTLY ======== -->
-<section class="sec sec-line" id="beta"><div class="wrap">
-  <p class="lbl rv">Beta, honestly</p>
-  <h2 class="h2 rv">Glim is in beta. Here's exactly what that means.</h2>
-  <p class="sub rv">It works, and it's new. Here is what's solid, what's still being built, and what to expect. “Rolling out” means it's being built and arrives as a free update; nothing here is promised for a date.</p>
-  <div class="inv">
-    <div class="rv"><div><h3>Missed-call text-back</h3><p>Unanswered calls to your number get a text from your business within seconds. Replies land in your Glim inbox with a drafted answer.</p></div><span class="st st-live"><i></i>Works today</span></div>
-    <div class="rv"><div><h3>Quote follow-up</h3><p>Send a quote from the app. If there's no answer, Glim checks in twice on your business type's schedule (adjustable), then stops.</p></div><span class="st st-live"><i></i>Works today</span></div>
-    <div class="rv"><div><h3>Set up for your kind of business</h3><p>Twelve ready-made setups (words, quick replies, quote lines, quiet hours), plus “Something else” for any other business.</p></div><span class="st st-live"><i></i>Works today</span></div>
-    <div class="rv"><div><h3>Autopilot levels</h3><p>Approve everything, auto text-back, or hands-off. One switch in Settings.</p></div><span class="st st-live"><i></i>Works today</span></div>
-    <div class="rv"><div><h3>Installs from the browser</h3><p>Add it to your phone's home screen in 30 seconds. No app store.</p></div><span class="st st-live"><i></i>Works today</span></div>
-    <div class="rv"><div><h3>Review requests</h3><p>After a visit or job is marked done, Glim texts a thank-you with your Google review link.</p></div><span class="st st-soon">Rolling out</span></div>
-    <div class="rv"><div><h3>Invoice reminders</h3><p>A friendly nudge on an unpaid invoice, stopping the moment it's marked paid.</p></div><span class="st st-soon">Rolling out</span></div>
-    <div class="rv"><div><h3>iPhone App Store and Google Play versions</h3><p>Store listings come later as updates; nothing to re-buy.</p></div><span class="st st-later">Later</span></div>
-  </div>
-  <div class="honest">
-    <div class="rv"><h3>What to expect</h3><p>Things will change as the first businesses use it, and you may hit a bug. When something breaks, tell us and we fix it; when something changes, we tell you what and why. We'll ask what you think. Answering is up to you.</p></div>
-    <div class="rv"><h3>How support works</h3><p>Email <a href="mailto:glim@shindustries.co">glim@shindustries.co</a>. A person reads every email, including setting up call forwarding with your carrier.</p></div>
-    <div class="rv"><h3>How to cancel</h3><p>Settings, then Cancel subscription. No call, no email, no contract. Inside the first 7 days, email us and every cent comes back.</p></div>
-    <div class="rv"><h3>Your founding price</h3><p>The first 10 businesses pay $29 a month, and it stays $29 for as long as they stay subscribed. After the beta, the price is $39 a month.</p></div>
-  </div>
-</div></section>
-
-<!-- ======== PRICING ======== -->
-<section class="sec sec-line" id="pricing"><div class="wrap">
-  <p class="lbl rv">Pricing</p>
-  <h2 class="h2 rv">Founding beta: $29 a month, kept for as long as you stay.</h2>
-  <p class="sub rv">We're opening the first 10 founding spots when enough businesses say yes. One plan, no tiers, no per-seat math, no “call for pricing”: the first 10 businesses get $29 a month, kept for as long as you stay subscribed; the standard price later is $39. 400 texts a month, 7-day money-back, no contract. Not for sale yet: tell us below if you would use it.</p>
-  <div class="price-grid">
-    <div class="why rv">
-      <div><b>What it replaces</b><p>A paid answering service, a receptionist add-on bolted onto another plan, or nothing at all: the caller who dials the next number on the list.</p></div>
-      <div><b>What it doesn't do</b><p>Glim doesn't answer the phone with a voice, and it doesn't run your calendar. It texts, follows up, and hands you the decision.</p></div>
-      <div><b>If it isn't for you</b><p>Email us inside 7 days and you get every cent back. After that it's month to month; cancel from Settings before your next bill.</p></div>
-    </div>
-    <article class="plan rv" aria-labelledby="plan-glim">
-      <p class="plan-name" id="plan-glim"><span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>Glim <span class="badge px">Founding beta</span></p>
-      <p class="plan-price num if-founding">$29<small>per month</small></p>
-      <p class="plan-price num if-full">$39<small>per month</small></p>
-      <p class="plan-lock if-founding"><b>Locked while you stay subscribed.</b> First 10 businesses only.</p>
-      <p class="plan-later if-founding">Standard price later: <s>$39/month</s></p>
-      <p class="plan-from">Billed monthly by card through Stripe. No contract. Cancel any month.</p>
-      <ul>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Missed-call text-back, within seconds</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Quote follow-ups that stop when they should</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Set up for your kind of business</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Your choice of autopilot level</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>A texting number for your business; your own number stays</li>
-        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12l4 4L19 6"/></svg>Your customer list is yours: export or delete it any time</li>
-        <li class="soon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg>Review requests and invoice reminders, rolling out as free updates</li>
-      </ul>
-      <div class="texts"><b class="num">400 texts a month</b>Included. We text you at 320 so it's never a surprise. Need more? Packs of 300 for $10, only if you choose to buy one. No surprise overage, ever.</div>
-      <a class="btn btn-go" data-buy href="#waitlist"><span class="when-closed">Join the founding shops waitlist</span><span class="when-open">Get Glim · <span class="pr">$29</span>/month</span></a>
-      <p class="spots" data-spots>10 founding spots in total.</p>
-      <p class="guar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span><b>7-day money-back guarantee.</b> Not working for you in the first 7 days? Email glim@shindustries.co and your payment comes back, no questions.</span></p>
-    </article>
-  </div>
-  <div class="wl when-closed rv" id="waitlist">
-    <div class="wl-head">
-      <h3>We're opening the first 10 founding spots when enough businesses say yes.</h3>
-      <p>Glim isn't for sale yet and we won't charge anyone. Four quick questions tell us whether to open it, and put you first in line if we do. Founding price: $29 a month, kept for as long as you stay subscribed (standard $39 later), 400 texts a month, 7-day money-back, no contract.</p>
-    </div>
-    <form class="wl-form" id="wl-form" action="mailto:glim@shindustries.co?subject=Glim%20founding%20waitlist" method="post" enctype="text/plain" novalidate>
-      <label class="fld"><span>Business name</span><input id="wl-name" name="business_name" type="text" required maxlength="80" autocomplete="organization" aria-describedby="wl-err"></label>
-      <label class="fld"><span>Email</span><input id="wl-email" name="email" type="email" required autocomplete="email" placeholder="you@yourbusiness.com" aria-describedby="wl-err"></label>
-      <label class="fld"><span>Kind of business</span><select id="wl-type" name="business" required>
-        <option value="">Choose one</option>
-        <option>Salon or barber</option><option>Cleaning</option><option>Plumbing</option><option>HVAC</option><option>Electrical</option><option>Landscaping or lawn</option><option>Roofing</option><option>Painting</option><option>Handyman</option><option>Pest control</option><option>Auto repair</option><option>Restaurant or café</option><option>Clinic or front desk</option><option>Gym or studio</option><option>Shop or retail</option><option>Something else</option>
-      </select></label>
-      <label class="fld"><span>How many calls does your business miss in a typical week?</span><select id="wl-calls" name="calls_missed" required>
-        <option value="">Choose one</option><option value="0-2">0 to 2</option><option value="3-5">3 to 5</option><option value="6-10">6 to 10</option><option value="11+">11 or more</option><option value="not sure">Not sure</option>
-      </select></label>
-      <fieldset class="pay" id="wl-pay"><legend>Would you pay $29 a month for Glim?</legend>
-        <div class="pay-opts"><label><input type="radio" name="would_pay" value="yes" required>Yes</label><label><input type="radio" name="would_pay" value="maybe">Maybe</label><label><input type="radio" name="would_pay" value="no">Not for me</label></div>
-      </fieldset>
-      <label class="fld"><span>What would make Glim a no-brainer for you? <small>optional</small></span><textarea id="wl-wish" name="wish" maxlength="300" rows="3" aria-describedby="wl-cnt"></textarea><span class="cnt" id="wl-cnt" aria-live="off">0 / 300</span></label>
-      <label class="fld"><span>Phone carrier <small>optional, helps us set up call forwarding</small></span><select id="wl-carrier" name="carrier">
-        <option value="">Skip</option><option>Verizon</option><option>AT&amp;T</option><option>T-Mobile</option><option>A business line (RingCentral, Google Voice, etc.)</option><option>Other</option><option>Not sure</option>
-      </select></label>
-      <div class="hp" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off" id="wl-hp"></label></div>
-      <button class="btn btn-go" type="submit" id="wl-btn">Tell us, and join the list</button>
-      <p class="wl-err" id="wl-err" role="alert"></p>
-      <p class="wl-priv">What you'll get from us: one email when the founding spots open, and occasional beta updates, each with a one-click unsubscribe. Glim never texts anyone unsolicited. No sharing, no selling. <a href="privacy.html">Privacy</a>.</p>
-    </form>
-    <div class="wl-done" id="wl-done" tabindex="-1" hidden>
-      <h3>You're on the list.</h3>
-      <p id="wl-done-p">Thank you. We'll email you once when the founding spots open. Questions before then? glim@shindustries.co.</p>
-    </div>
-  </div>
-</div></section>
-
-<!-- ======== INSTALL ======== -->
-<section class="sec sec-line" id="install"><div class="wrap">
-  <p class="lbl rv">Install</p>
-  <h2 class="h2 rv">On your phone in 30 seconds. No app store.</h2>
-  <p class="sub rv">Add it to your phone's home screen in 30 seconds. No app store. It opens full-screen like any other app, and can tell you when a customer texts. After you sign up, follow the steps on the screen you land on.</p>
-  <div class="install rv">
-    <div>
-      <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>iPhone (Safari)</h3>
-      <ol>
-        <li><span>Tap the <b>Share</b> button, the square with an arrow at the bottom of Safari.</span></li>
-        <li><span>Scroll the list and tap <b>Add to Home Screen</b>.</span></li>
-        <li><span>Tap <b>Add</b>. Open Glim from the new icon, not from Safari.</span></li>
-      </ol>
-    </div>
-    <div>
-      <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4"/></svg>Android (Chrome)</h3>
-      <ol>
-        <li><span>Tap <b>Install</b> when the button appears at the bottom.</span></li>
-        <li><span>No button? Tap the three dots, then <b>Add to Home screen</b>.</span></li>
-        <li><span>Tap <b>Install</b>. Glim is now on your home screen.</span></li>
-      </ol>
-    </div>
-    <p class="install-note">Works on any iPhone or Android phone from the last few years. App Store and Google Play versions come later as updates, included in the same subscription. On a laptop? Glim works there too, but it's built for one thumb.</p>
-  </div>
-</div></section>
-
-<!-- ======== FAQ ======== -->
-<section class="sec sec-line" id="faq"><div class="wrap">
-  <p class="lbl rv">Questions</p>
-  <h2 class="h2 rv">Straight answers.</h2>
-  <div class="faq rv">
-    <details open><summary>Do I need to be technical?</summary><div class="ans">
-      <p>No. If you can send a text, you can run Glim. Setup is four screens: your business name, your kind of business, how customers reach you, and how much Glim does on its own. The only fiddly bit is forwarding unanswered calls, and that's one code you dial into your phone once. We show it on screen for your carrier.</p>
-      <p>Stuck? Email glim@shindustries.co and a person answers.</p>
-    </div></details>
-    <details><summary>Is this for my kind of business?</summary><div class="ans">
-      <p>If customers call you and you sometimes can't pick up, yes. Glim has ready-made setups for salons and barbers, cleaners, plumbers, HVAC, electricians, landscapers, roofers, painters, handymen, pest control and auto repair. Any other business (a restaurant, a clinic front desk, a gym, a consultant) picks “Something else” and writes its own first question once.</p>
-      <p>Not a fit: if you need a voice that answers the phone, or you want to send marketing texts to a list. Glim does neither.</p>
-    </div></details>
-    <details><summary>What does “beta” mean for me?</summary><div class="ans">
-      <p>Glim works and is being used, but it's new. Some features are still rolling out (see <a href="#beta">Beta, honestly</a>), you may hit a bug, and we'll ask what you think. You get the founding price, $29 a month for as long as you stay subscribed, and the same 7-day money-back as everyone.</p>
-    </div></details>
-    <details><summary>Why can't I buy it yet?</summary><div class="ans">
-      <p>We open sales once a readiness checklist passes: texting registration approved with the carriers, the money-back and cancel flows tested end to end, and support ready. We open the first 10 founding spots when enough businesses say yes, so the waitlist questions are the test: answer them honestly, including “Not for me”. We email you once when the spots open.</p>
-    </div></details>
-    <details><summary>Does my phone number change?</summary><div class="ans">
-      <p>No. Customers keep calling the number they already have. Glim gives your business a separate texting number; when a call to your phone rings out, it forwards there and the text-back goes out from it. Every text names your business.</p>
-    </div></details>
-    <details><summary>What happens if I go over 400 texts?</summary><div class="ans">
-      <p>We text you at 320 so you see it coming. If you hit 400, Glim keeps answering missed calls and replying to customers who text in, and pauses the optional stuff like quote check-ins. We never add a surprise charge to your bill. If you want more, a pack of 300 texts is $10, and only if you choose to buy one.</p>
-    </div></details>
-    <details><summary>Will it text a customer at 2 a.m.?</summary><div class="ans">
-      <p>No. Each kind of business has default quiet hours (most are 8 p.m. to 8 a.m.) and you can change them. A call that comes in overnight gets its text-back in the morning.</p>
-    </div></details>
-    <details><summary>Will it send something embarrassing?</summary><div class="ans">
-      <p>Only if you let it. Start on "approve everything" and nothing leaves without your tap. Glim's messages are plain and short, use your business's words, and never promise a price you didn't set. You can edit any draft before it goes.</p>
-    </div></details>
-    <details><summary>Is this a real app or a website?</summary><div class="ans">
-      <p>Both, honestly. It's a web app you add to your home screen, so it opens full-screen with its own icon and can notify you. There's no App Store or Google Play listing yet; those come later as updates. You won't pay again for them.</p>
-    </div></details>
-    <details><summary>What happens to my customers' data?</summary><div class="ans">
-      <p>Your customer list, quotes and message history are yours. Export or delete them whenever you want. When Glim drafts a reply, only the text it needs goes to an AI model. We don't sell or share anything. The full wording is in the <a href="privacy.html">privacy policy</a>, which a lawyer reviews before launch.</p>
-    </div></details>
-    
-  </div>
-</div></section>
-
-<!-- ======== CLOSE ======== -->
-<section class="close"><div class="wrap">
-  <span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>
-  <h2 class="rv">Your next missed call can still be a customer.</h2>
-  <p class="rv">Founding beta: $29 a month, locked while you stay. 400 texts included. 7-day money-back.</p>
-  <div class="cta rv"><a class="btn btn-go" data-buy href="#waitlist"><span class="when-closed">Join the founding shops waitlist</span><span class="when-open">Get Glim · <span class="pr">$29</span>/month</span></a></div>
-</div></section>
-
 </main>
 
-<footer class="ft"><div class="wrap">
-  <div class="ft-top">
-    <div class="ft-brand">
-      <span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>
-      <p class="ft-tag">Give your business a second brain.</p>
-      <p class="ft-co">sh. industries, Massachusetts. Small software that does the boring part for small businesses. Questions, setup help, anything: <a href="mailto:glim@shindustries.co">glim@shindustries.co</a>, a person reads it.</p>
-    </div>
-    <nav class="ft-cols" aria-label="Site">
-      <div><p class="ft-h">Glim</p><ul>
-        <li><a href="#explain">Explain Glim</a></li><li><a href="#trade">Try it with your business</a></li><li><a href="#beta">Beta, honestly</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#install">Install</a></li><li><a href="#faq">Questions</a></li>
-      </ul></div>
-      <div><p class="ft-h">Products</p><ul>
-        <li><a href="products.html#glim">Glim<small>Founding beta · $29 a month</small></a></li>
-        <li><a href="duckyguard/">DuckyGuard<small>Free Mac tool · in development</small></a></li>
-        <li><a href="products.html">All products</a></li>
-      </ul></div>
-      <div><p class="ft-h">Company</p><ul>
-        <li><a href="about.html">About sh. industries</a></li>
-        <li><a href="https://stevenhainley.net" rel="noopener">Steven Hainley, founder<small>stevenhainley.net</small></a></li>
-        <li><a href="mailto:glim@shindustries.co">glim@shindustries.co</a></li>
-      </ul></div>
-      <div><p class="ft-h">Legal</p><ul>
-        <li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="refunds.html">Refunds</a></li><li><a href="sms.html">Text messaging</a></li>
-      </ul></div>
-    </nav>
-  </div>
-  <div class="ft-bot">
+<footer class="foot"><div class="wrap">
+  <section class="help" aria-labelledby="help-h">
+    <h2 class="help-h" id="help-h">Where to write</h2>
+    <ul class="help-list" role="list">
+      <li><a href="mailto:glim@shindustries.co"><b>Glim support</b><span>Setup, call forwarding, billing and refunds.</span><em>glim@shindustries.co</em></a></li>
+      <li><a href="mailto:steven@shindustries.co"><b>Email Steven</b><span>App ideas, questions, anything else. I read every email.</span><em>steven@shindustries.co</em></a></li>
+    </ul>
+  </section>
+  <div class="foot-base">
     <span>© 2026 sh. industries · Massachusetts, USA</span>
-    <span>Made by <a href="https://stevenhainley.net" rel="noopener">Steven Hainley</a></span>
-    <span class="px">No trackers · no cookies</span>
+    <nav aria-label="Footer"><a href="glim/">Glim</a><a href="#goodducky">GoodDucky</a><a href="about.html">About</a><a href="products.html">Products</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a><a href="sms.html">Text messaging</a></nav>
+    <span>No trackers, no cookies</span>
   </div>
 </div></footer>
 
-<script src="assets/site.js" defer></script>
-<script src="assets/home.js" defer></script>
+<script src="assets/home2.js" defer></script>
 </body>
 </html>

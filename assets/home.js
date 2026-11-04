@@ -2,6 +2,8 @@
  * Shared header/footer/reveals live in site.js; launch switches in switches.js. */
 (() => {
   const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // URLs relative to this script (assets/home.js), not the page, so the page can live in any folder (it is at /glim/ now)
+  const HERE = (document.currentScript && document.currentScript.src) || new URL("/assets/home.js", location.href).href;
 
 
   /* phone: missed call -> text back -> reply -> approve -> saved */
@@ -110,7 +112,7 @@
         try {
           const r = await fetch(cfg.WAITLIST_ENDPOINT, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
           if (!r.ok) throw new Error(r.status);
-          location.href = "thanks.html"; return;
+          location.href = new URL("../thanks.html", HERE).href; return;
         } catch (_) {
           btn.disabled = false; btn.textContent = "Tell us, and join the list";
           err.textContent = "That didn't go through. Try again, or email glim@shindustries.co and we'll add you by hand."; return;
@@ -134,7 +136,7 @@
   document.querySelectorAll('input[name="auto"]').forEach(r => r.addEventListener("change", () => setOut(r.value)));
 
   /* Explain Glim: lazy init after the hero has painted and the page is idle */
-  const bootExplain = () => { const s = document.createElement("script"); s.src = "assets/explain/explain.js"; s.defer = true; document.body.appendChild(s); };
+  const bootExplain = () => { const s = document.createElement("script"); s.src = new URL("explain/explain.js", HERE).href; s.defer = true; document.body.appendChild(s); };
   const idle = cb => ("requestIdleCallback" in window ? requestIdleCallback(cb, {timeout: 1500}) : setTimeout(cb, 300));
   if (document.readyState === "complete") idle(bootExplain); else addEventListener("load", () => idle(bootExplain), {once:true});
 })();

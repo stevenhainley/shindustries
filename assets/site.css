@@ -131,6 +131,11 @@ html:not(.js) .hdr{border-bottom-color:var(--line)}
 .logo small{font:500 13px var(--fs);color:var(--text-3);letter-spacing:0;margin-left:2px}
 @media(max-width:439px){.logo small{display:none}}
 .logo .gt svg{transition:filter var(--dur-fast) var(--ease)}
+/* the sh. mark: company pages (home, about, products, 404); Glim's own pages keep the Glim lockup */
+.co-logo{display:inline-flex;align-items:center;padding:10px 0;color:var(--text);text-decoration:none;border-radius:6px}
+.co-mark{height:20px;width:auto;fill:currentColor;overflow:visible}
+.co-mark .co-dot{fill:var(--green)}
+@media (prefers-color-scheme:light){.co-mark .co-dot{fill:var(--green-text)}}
 .nav{display:none}
 .nav a,.dd > a{text-decoration:none;color:var(--text-2);padding:8px 12px;border-radius:999px;transition:color var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease);font-size:15px}
 .nav a:hover,.dd > a:hover,.dd:focus-within > a{color:var(--text);background:var(--surface-2)}

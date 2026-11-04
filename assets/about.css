@@ -1,0 +1,47 @@
+/* about.html: page styles, moved out of an inline <style> block so the page can run the strict CSP (style-src 'self').
+ * Loads after site.css and chrome.css. */
+/* Hallmark · pre-emit critique: P5 H4 E4 S5 R5 V4
+ * about.html · macrostructure: Long Document (letter-led) · nav/footer shared · enrichment: none (typography only)
+ * differs from index (Marquee Hero + scroll story) on structure; same custom theme, same scale */
+.ab-hero{padding:56px 0 40px}
+@media(min-width:980px){.ab-hero{padding:88px 0 56px}}
+.ab-hero .lede{font-size:var(--t-lede);color:var(--text-2);margin-top:22px;max-width:34em}
+.ab-hero .h1{max-width:12em}
+.cols{display:grid;gap:32px;margin-top:40px}
+@media(min-width:900px){.cols{grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:start}}
+.cols .h2{font-size:clamp(26px,3.6vw,36px)}
+.prose p{color:var(--text-2);margin-top:14px;max-width:38em;font-size:17.5px}
+.prose p:first-child{margin-top:0}
+.prose p b{color:var(--text)}
+.status{display:grid;gap:12px;margin-top:40px}
+@media(min-width:760px){.status{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.status > div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px 22px 20px;display:grid;gap:10px;align-content:start}
+.status .top{display:flex;align-items:center;gap:12px}
+.status h3{font-size:var(--t-h3);line-height:1.15;letter-spacing:-.015em}
+.status .st{font:600 12px/1 var(--fs);letter-spacing:.05em;padding:7px 10px;border-radius:999px;white-space:nowrap;display:inline-flex;align-items:center;gap:6px;margin-left:auto}
+.st-live{background:var(--green-dim);color:var(--green-text)}
+.st-live i{width:6px;height:6px;border-radius:50%;background:var(--green)}
+.st-soon{border:1px solid var(--line-strong);color:var(--text-2)}
+.st-plain{border:1px solid var(--line);color:var(--text-3)}
+.status p{color:var(--text-2);font-size:15.5px}
+.status ul{margin:0;padding:0;list-style:none;display:grid;gap:6px;font-size:15px;color:var(--text-2)}
+.status li{display:flex;gap:10px;align-items:flex-start}
+.status li svg{flex:0 0 16px;height:16px;margin-top:4px;stroke:var(--green-text);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.status li.wait svg{stroke:var(--text-3)}
+.status a{color:var(--text)}
+.status img{width:30px;height:auto;flex:none}
+.how{margin-top:40px;border-top:1px solid var(--line)}
+.how > div{display:grid;gap:8px 24px;padding:22px 0;border-bottom:1px solid var(--line)}
+@media(min-width:760px){.how > div{grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr)}}
+.how h3{font-size:20px;line-height:1.2;letter-spacing:-.01em;font-weight:700}
+.how p{color:var(--text-2);font-size:16px;max-width:40em}
+.founder{margin-top:40px;background:var(--surface);border:1px solid var(--line-strong);border-radius:24px;padding:28px 24px;display:grid;gap:20px}
+@media(min-width:900px){.founder{grid-template-columns:auto minmax(0,1fr);gap:32px;padding:36px;align-items:start}}
+.founder .gt{width:72px;height:72px;border-radius:20px}
+.founder h3{font-size:clamp(24px,3vw,30px);line-height:1.1;letter-spacing:-.02em}
+.founder .role{color:var(--text-2);margin-top:8px;font-size:17px}
+.founder p+p{margin-top:12px;color:var(--text-2);max-width:40em}
+.founder .links{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.ab-cta{border-top:1px solid var(--line);padding:72px 0;text-align:center}
+.ab-cta h2{font-size:clamp(30px,5vw,52px);line-height:1.02;letter-spacing:-.03em;max-width:14em;margin:0 auto}
+.ab-cta .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:28px}
