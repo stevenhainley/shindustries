@@ -1,6 +1,6 @@
 /* sh. industries company homepage (index.html only). Loads after site.css and chrome.css (header, footer).
  * Flow: the company in one sentence (the only H1) -> its two apps as an index, Glim first with its price and
- * button, GoodDucky second, beside Glim running on a phone -> GoodDucky in detail -> the Movember fundraiser,
+ * button, beside Glim running on a phone (the product ring above it is assets/ring.css) -> DuckyGuard in brief -> the Movember fundraiser,
  * a small dated card gone after November -> a note from Steven -> where to write.
  * Type steps (outside the phone): 13 label, 15 small, --t-read body, 22 lead, --t-h2b section, --t-hero H1.
  * Green is only ever a dot: the sh. dot and the Glim app's own dot in the phone. Movember never outranks an app:
@@ -21,8 +21,8 @@
   --ui-text:#F2F1EC; --ui-text-2:#A8A69F; --ui-line:rgba(255,255,255,.1); --ui-line-2:rgba(255,255,255,.08);
   --ui-out:#C6FF3D; --ui-out-ink:#1E2A00;
   --ui-notif:#F2F1EC; --ui-notif-ink:#1A1A17; --ui-notif-2:#55534C; --ui-notif-3:#85827A; --ui-call:#C8322E; --ui-call-ink:#FFFFFF;
-  /* GoodDucky: its mascot's shield orange, only on the line where it steps in */
-  --duck:#F08A24;
+  /* DuckyGuard: the app's yellow ink, only on the line where it steps in */
+  --duck:#F9E015;
   /* Movember: one warm cream for its label (never the house lime, never a colour field) */
   --mo-ink-2:#F6D9BF;
 }
@@ -148,11 +148,12 @@
 .notif small{font-size:12px;color:var(--ui-notif-2)}
 .notif em{margin-left:auto;font-style:normal;font-size:11px;color:var(--ui-notif-3);align-self:flex-start}
 
-/* ---------- 2 · GoodDucky: one centred column, the keypress diagram full width under it ---------- */
+/* ---------- 2 · DuckyGuard: one centred column, the keypress diagram full width under it ---------- */
 .duck{padding:0 0 var(--sec)}
 /* the rule sits on the content edge, like every other rule on the page */
 .duck-in{display:grid;justify-items:center;text-align:center;border-top:1px solid var(--line);padding-top:clamp(64px,8vw,112px)}
 .duck-img{width:112px;height:auto;image-rendering:pixelated;margin:0 0 18px}
+.duck-icon{width:96px;height:96px;margin:0 0 14px}
 .duck-id{margin:0 0 18px;font-size:15px;color:var(--text-3)}
 .duck-id b{font:800 var(--t-read)/1.3 var(--fd);letter-spacing:-.01em;color:var(--text);margin-right:8px}
 .duck-in .h-2{max-width:17em}

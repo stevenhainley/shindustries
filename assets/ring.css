@@ -1,0 +1,89 @@
+/* The product ring on the company homepage (index.html). Loads after company.css; script: assets/ring.js.
+ * One card per product, standing on a circle: the one in front faces you, its neighbours turn away to each side,
+ * and a card that leaves one side comes back round the other. DuckyGuard is first, so it is in front on load.
+ * Without JS the cards are a plain row you can scroll sideways. No inline styles (CSP style-src 'self'):
+ * ring.js moves the cards through the CSSOM.
+ * The DuckyGuard card wears the DuckyGuard app's own look (navy paper, yellow ink, its two faces, square corners,
+ * the app's 3D duck). Its tokens are the app's, copied from duckyguard/duck.css, and are used nowhere else here. */
+@font-face{font-family:"Sofia Sans Extra Condensed";src:url("../duckyguard/fonts/SofiaSansExtraCondensed.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("../duckyguard/fonts/JetBrainsMono.woff2") format("woff2");font-weight:100 800;font-display:swap}
+
+.ring{
+  --pc-w:min(78vw,320px); --pc-h:520px;
+  --dg-paper:#080c1c; --dg-paper-2:#0f1327; --dg-rule:#262c45; --dg-control:#5a627d; --dg-text:#f4f2e9; --dg-muted:#b1b6cb;
+  --dg-accent:#f9e015; --dg-accent-hi:#ffee51; --dg-accent-ink:#0b1023;
+  position:relative;margin-top:clamp(20px,2.4vw,32px);border-radius:8px;
+}
+@media (min-width:760px){.ring{--pc-w:340px;--pc-h:540px}}
+@media (min-width:760px) and (max-height:820px){.ring{--pc-w:300px;--pc-h:492px}.pc-duck .pc-name{font-size:50px}}
+.ring-track{list-style:none;margin:0;padding:4px 0 12px;display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.pc{flex:0 0 var(--pc-w);width:var(--pc-w);height:var(--pc-h);scroll-snap-align:center;display:flex;flex-direction:column;padding:20px;border-radius:var(--r-lg);border:1px solid var(--line);background:var(--surface);color:var(--text);min-width:0}
+.pc-top{position:relative;flex:0 0 auto;width:100%;aspect-ratio:1;overflow:hidden}
+.pc-name{margin:18px 0 0;font:800 34px/1 var(--fd);letter-spacing:-.025em}
+.pc-name a{color:inherit;text-decoration:none}
+.pc-line{margin:8px 0 0;font-size:16px;line-height:1.4;color:var(--text-2);text-wrap:pretty}
+.pc-meta{margin:6px 0 0;font-size:var(--t-lab);line-height:1.4;color:var(--text-3)}
+.pc-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px}
+.pc-foot .tl{font-size:16px;padding:8px 0}
+
+/* DuckyGuard: the app's look */
+.pc-duck{padding:14px;border-radius:0;border-color:var(--dg-rule);background:var(--dg-paper);color:var(--dg-text)}
+.pc-duck .pc-top{background:var(--dg-paper-2)}
+.pc-duck .pc-top img,.pc-duck .pc-top canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+.pc-duck .pc-top canvas{touch-action:pan-y}
+.pc-duck .pc-top.live img{display:none}
+.pc-chip{position:absolute;font:400 10.5px/1.3 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--dg-text);background:var(--dg-paper);padding:3px 6px;white-space:nowrap;pointer-events:none}
+.pc-chip b{font-weight:400;color:var(--dg-accent)}
+.pc-chip.tl{top:8px;left:8px}.pc-chip.tr{top:8px;right:8px}.pc-chip.bl{bottom:8px;left:8px}.pc-chip.br{bottom:8px;right:8px}
+.pc-duck .pc-name{margin-top:14px;font:400 56px/.86 "Sofia Sans Extra Condensed","Arial Narrow",sans-serif;letter-spacing:-.012em}
+.pc-duck .pc-line{color:var(--dg-muted)}
+.pc-duck .pc-foot{padding-top:10px}
+.dg-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:9px 16px 7px;background:var(--dg-accent);color:var(--dg-accent-ink);border:1px solid var(--dg-accent);font:500 20px/1 "Sofia Sans Extra Condensed","Arial Narrow",sans-serif;letter-spacing:.05em;text-transform:uppercase;text-decoration:none;white-space:nowrap;transition:background var(--dur-fast) var(--ease)}
+.dg-btn:hover{background:var(--dg-accent-hi)}
+.dg-btn:active{transform:translateY(1px)}
+.dg-note{font:400 10.5px/1.3 "JetBrains Mono",ui-monospace,Menlo,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--dg-muted);text-align:right}
+
+/* Glim: the site's own surface, its creature, a missed call turning into a text */
+.pc-glim .pc-top{display:grid;place-items:center;align-content:center;gap:22px;border-radius:14px;background:var(--bg);border:1px solid var(--line)}
+.pc-glim .pc-top::before{content:"";position:absolute;inset:0;background:var(--dither);opacity:.03;pointer-events:none}
+.pc-sprite{width:44%;aspect-ratio:1;position:relative}
+.pc-sprite svg{width:100%;height:100%}
+.pc-flow{display:flex;align-items:center;gap:10px;position:relative}
+.pc-call{width:38px;height:38px;border-radius:10px;background:var(--ui-call);display:grid;place-items:center}
+.pc-call svg{width:19px;height:19px;stroke:var(--ui-call-ink);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pc-arrow{width:22px;height:22px;stroke:var(--text-3);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pc-bubble{display:inline-flex;gap:4px;align-items:center;height:38px;padding:0 14px;border-radius:14px 14px 4px 14px;background:var(--ui-out)}
+.pc-bubble i{width:6px;height:6px;border-radius:50%;background:var(--ui-out-ink);opacity:.75}
+.pc-glim .btn{min-height:44px}
+
+/* the next one: an empty place on the ring */
+.pc-next{background:transparent;border-style:dashed;border-color:var(--line-strong)}
+.pc-next .pc-top{display:grid;place-items:center;border-radius:14px;border:1px dashed var(--line)}
+.pc-next .pc-top span{font:800 96px/1 var(--fd);color:var(--surface-3)}
+.pc-next .pc-name{color:var(--text-2)}
+
+/* controls: hidden until ring.js turns the row into a ring */
+.ring-ctl{display:none;align-items:center;justify-content:center;gap:6px;margin-top:14px}
+.ring-on .ring-ctl{display:flex}
+.ring-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-strong);background:transparent;color:var(--text);cursor:pointer;transition:border-color var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease)}
+.ring-btn:hover{border-color:var(--text);background:var(--surface)}
+.ring-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ring-dots{display:flex;gap:2px;margin:0 6px}
+.ring-dot{min-height:44px;padding:0 12px;border:0;border-radius:999px;background:transparent;font:500 15px/1 var(--fs);color:var(--text-3);cursor:pointer;transition:color var(--dur-fast) var(--ease)}
+.ring-dot:hover{color:var(--text)}
+.ring-dot[aria-current="true"]{color:var(--text);text-decoration:underline;text-decoration-color:var(--green);text-decoration-thickness:2px;text-underline-offset:7px}
+
+/* the ring itself */
+.ring-on .ring-track{display:block;position:relative;height:calc(var(--pc-h) + 28px);padding:0;overflow:visible;perspective:1500px;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
+.ring-on .ring-track.drag{cursor:grabbing}
+.ring-on .pc{position:absolute;left:50%;top:10px;margin-left:calc(var(--pc-w) / -2);will-change:transform,opacity;backface-visibility:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.8)}
+.ring-on .pc:not(.front){cursor:pointer}
+.ring-on .pc:not(.front) a,.ring-on .pc:not(.front) canvas{pointer-events:none}
+.hero{overflow-x:clip}
+
+/* Glim's own row under the ring: its index entry beside the phone, as before */
+.glim-row{padding:0 0 clamp(64px,8vw,112px)}
+.glim-row .hero-grid{margin-top:0}
+.glim-row .apps{margin-top:0}
+.hero{padding-bottom:clamp(40px,5vw,64px)}
+.hero .hero-sub{margin-top:clamp(14px,1.6vw,20px)}

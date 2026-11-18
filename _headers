@@ -32,6 +32,9 @@
 /duckyguard/assets/*
   Cache-Control: public, max-age=2592000
 
+/duckyguard/vendor/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
 /assets/*.css
   Cache-Control: public, max-age=86400, must-revalidate
 

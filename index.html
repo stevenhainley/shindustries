@@ -6,21 +6,24 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'">
 <script src="assets/legacy-hash.js"></script>
 <script src="assets/switches.js"></script>
-<!-- Company homepage (rebuilt 2026-11-03). Glim's own page is glim/ (it was this page until 2026-11-03).
-     Flow: the company in one sentence (the only H1) -> its two apps as an index, Glim first with its price and
-     button, GoodDucky second, beside Glim running on a phone -> GoodDucky's detail (not out yet) -> the
+<!-- Company homepage (rebuilt 2026-11-03; product ring added 2026-11-13). Glim's own page is glim/, DuckyGuard's is duckyguard/.
+     Flow: the company in one sentence (the only H1) -> the product ring: one card per product on a circle,
+     DuckyGuard first (in front on load), then Glim, then an empty place for the next app -> Glim's index entry
+     with its price and button, beside Glim running on a phone -> DuckyGuard in brief (2.1 is not out yet) -> the
      Movember fundraiser, a small dated card gone after November (no top strip on this page: the card replaces
      it) -> a note from Steven -> where to write.
-     Products are Glim and GoodDucky only; Mo-ify me is a seasonal fundraiser, never in a product list.
-     No inline scripts or styles: page CSS is assets/chrome.css + assets/company.css, page JS is assets/home2.js. -->
+     Products are DuckyGuard and Glim only; Mo-ify me is a seasonal fundraiser, never in a product list.
+     DuckyGuard was called GoodDucky on this page until 2026-11-13; the section keeps id="goodducky" so old links land.
+     No inline scripts or styles: page CSS is assets/chrome.css + assets/company.css + assets/ring.css,
+     page JS is assets/home2.js + assets/ring.js. -->
 <title>sh. industries · Small apps that each do one job</title>
-<meta name="description" content="sh. industries is a small software company in Massachusetts. Glim texts back the calls a business misses: $29 a month for the first 10 businesses, then $39, 7-day money-back, no contract. GoodDucky, a free Mac app, is coming soon.">
+<meta name="description" content="sh. industries is a small software company in Massachusetts. Glim texts back the calls a business misses: $29 a month for the first 10 businesses, then $39, 7-day money-back, no contract. DuckyGuard, a free open-source Mac app, blocks fake keyboards.">
 <link rel="canonical" href="https://shindustries.co/">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="sh. industries">
 <meta property="og:title" content="sh. industries · Small apps that each do one job">
-<meta property="og:description" content="A small software company in Massachusetts. Glim texts back the calls a business misses. GoodDucky, a free Mac app, is coming soon.">
+<meta property="og:description" content="A small software company in Massachusetts. Glim texts back the calls a business misses. DuckyGuard 2.1, a free Mac app, blocks fake keyboards.">
 <meta property="og:url" content="https://shindustries.co/">
 <meta property="og:image" content="https://shindustries.co/assets/og/og-about.png">
 <meta property="og:image:width" content="1200">
@@ -28,7 +31,7 @@
 <meta property="og:image:alt" content="sh. industries: Software that does the boring part. A small Massachusetts software company, started by a student. Beside it, Glim, the pixel creature with one green dot">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="sh. industries · Small apps that each do one job">
-<meta name="twitter:description" content="A small software company in Massachusetts. Glim texts back the calls a business misses. GoodDucky, a free Mac app, is coming soon.">
+<meta name="twitter:description" content="A small software company in Massachusetts. Glim texts back the calls a business misses. DuckyGuard 2.1, a free Mac app, blocks fake keyboards.">
 <meta name="twitter:image" content="https://shindustries.co/assets/og/og-about.png">
 <meta name="theme-color" content="#0E0E0D">
 <meta name="color-scheme" content="dark">
@@ -42,6 +45,7 @@
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/chrome.css">
 <link rel="stylesheet" href="assets/company.css">
+<link rel="stylesheet" href="assets/ring.css">
 </head>
 <body>
 <svg class="sprite" width="0" height="0" aria-hidden="true">
@@ -53,7 +57,7 @@
   <a class="logo co-logo" href="./" aria-label="sh. industries, home"><svg class="co-mark" viewBox="220 180 1570 900" aria-hidden="true"><path d="M526 1042Q391 1042 313.5 985.0Q236 928 230 826H407Q415 866 445.5 885.0Q476 904 534 904Q624 904 624 857Q624 838 610.5 826.5Q597 815 566 809L432 783Q248 747 248 611Q248 523 319.0 470.5Q390 418 515 418Q640 418 712.0 472.0Q784 526 790 624H613Q603 585 577.5 567.5Q552 550 503 550Q463 550 441.5 561.0Q420 572 420 594Q420 610 433.0 621.0Q446 632 472 637L610 664Q706 683 751.0 726.0Q796 769 796 842Q796 936 726.5 989.0Q657 1042 526 1042Z"/><path d="M846.0 1030V190H1030.0V512H1034.0Q1063.0 466 1110.5 442.5Q1158.0 419 1225.0 419Q1338.0 419 1404.0 488.0Q1470.0 557 1470.0 673V1030H1286.0V709Q1286.0 647 1253.5 615.0Q1221.0 583 1158.0 583Q1095.0 583 1062.5 615.0Q1030.0 647 1030.0 709V1030Z"/><circle class="co-dot" cx="1640" cy="928" r="112"/></svg></a>
   <nav class="top-nav" aria-label="Main">
     <a href="glim/">Glim</a>
-    <a href="#goodducky">GoodDucky</a>
+    <a href="duckyguard/">DuckyGuard</a>
     <a href="about.html">About</a>
   </nav>
   <a class="btn btn-ink btn-sm top-cta" data-buy href="glim/#waitlist"><span class="when-closed">Join the Glim waitlist</span><span class="when-open">Get Glim</span></a>
@@ -61,13 +65,57 @@
 
 <main id="main">
 
-  <!-- 1 · the company in one sentence, then its two apps as an index (Glim first, with its price and button),
-       beside Glim running on a phone. Glim's own line is a product line, not the page headline. -->
+  <!-- 1 · the company in one sentence, then the product ring. assets/ring.js turns the row of cards into a ring
+       (drag, swipe, arrow keys, the buttons under it); without JS it is a row that scrolls sideways.
+       DuckyGuard's card wears the DuckyGuard app's own look; its duck is the app's 3D plate, started by ring.js
+       over the still image. The ring never turns by itself. -->
   <section class="hero" aria-labelledby="hero-h"><div class="wrap">
     <h1 class="hero-h" id="hero-h">sh. industries makes small apps that each do one&nbsp;job.</h1>
+    <p class="read hero-sub">A small software company in Massachusetts. Each app shows its price and its limits up front, so you never need a sales call to find out.</p>
+
+    <div class="ring" id="ring" role="group" aria-roledescription="carousel" aria-label="Products" tabindex="0">
+      <ol class="ring-track" role="list">
+        <li class="pc pc-duck" data-name="DuckyGuard" aria-labelledby="pc-duck-h">
+          <div class="pc-top">
+            <img src="duckyguard/assets/duck-poster.png" width="556" height="556" alt="The DuckyGuard duck: a duck's head with one mechanical eye, engraved in yellow dots on navy, inside a wire cage.">
+            <canvas hidden aria-hidden="true"></canvas>
+            <span class="pc-chip tl">Free Mac app</span><span class="pc-chip tr">2.1 <b>out now</b></span>
+          </div>
+          <h2 class="pc-name" id="pc-duck-h"><a href="duckyguard/">DuckyGuard</a></h2>
+          <p class="pc-line">Keyboards that type too fast get stopped.</p>
+          <div class="pc-foot"><a class="dg-btn" href="duckyguard/">See DuckyGuard</a><span class="dg-note">Tested on one<br>Flipper Zero</span></div>
+        </li>
+        <li class="pc pc-glim" data-name="Glim" aria-labelledby="pc-glim-h">
+          <div class="pc-top" aria-hidden="true">
+            <span class="pc-sprite"><svg><use href="#glim"/></svg></span>
+            <span class="pc-flow"><span class="pc-call"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M16 2l6 6M22 2l-6 6"/></svg></span><svg class="pc-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="pc-bubble"><i></i><i></i><i></i></span></span>
+          </div>
+          <h2 class="pc-name" id="pc-glim-h"><a href="glim/">Glim</a></h2>
+          <p class="pc-line">Miss a call. Glim texts them back in&nbsp;seconds.</p>
+          <p class="pc-meta if-founding">$29 a month for the first 10 businesses, then $39.</p>
+          <p class="pc-meta if-full">$39 a month.</p>
+          <div class="pc-foot"><a class="btn btn-ink btn-sm" href="glim/">See Glim</a></div>
+        </li>
+        <li class="pc pc-next" data-name="Next" aria-labelledby="pc-next-h">
+          <div class="pc-top" aria-hidden="true"><span>?</span></div>
+          <h2 class="pc-name" id="pc-next-h">The next app</h2>
+          <p class="pc-line">Not announced yet. It will do one job, and show its price and its limits up front.</p>
+          <div class="pc-foot"><a class="tl" href="mailto:steven@shindustries.co?subject=An%20app%20I%27d%20use">Tell Steven what you'd use<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+        </li>
+      </ol>
+      <div class="ring-ctl">
+        <button class="ring-btn" type="button" data-dir="-1" aria-label="Previous product"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <div class="ring-dots"><button class="ring-dot" type="button" aria-current="true">DuckyGuard</button><button class="ring-dot" type="button">Glim</button><button class="ring-dot" type="button">Next</button></div>
+        <button class="ring-btn" type="button" data-dir="1" aria-label="Next product"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <p class="sr" id="ring-say" aria-live="polite"></p>
+    </div>
+  </div></section>
+
+  <!-- 1b · Glim's index entry with its price and button, beside Glim running on a phone. -->
+  <section class="glim-row" aria-labelledby="app-glim"><div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="read hero-sub">A small software company in Massachusetts. Each app shows its price and its limits up front, so you never need a sales call to find out.</p>
         <ul class="apps" role="list">
           <li class="app" aria-labelledby="app-glim">
             <span class="gt app-mark" aria-hidden="true"><svg><use href="#glim"/></svg></span>
@@ -81,14 +129,6 @@
               </div>
               <p class="app-price if-founding"><b>$29 a month</b> for the first 10 businesses, then $39. 400 texts a month included. 7-day money-back, no contract.</p>
               <p class="app-price if-full"><b>$39 a month.</b> 400 texts a month included. 7-day money-back, no contract.</p>
-            </div>
-          </li>
-          <li class="app" aria-labelledby="app-duck">
-            <img class="app-mark" src="duckyguard/assets/duck-96.png" alt="" width="84" height="96">
-            <div class="app-body">
-              <h2 class="app-name" id="app-duck">GoodDucky <span>Free Mac app · coming soon</span></h2>
-              <p class="app-line">Stops a USB stick that types like a&nbsp;machine.</p>
-              <a class="tl" href="#goodducky">How it works<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
             </div>
           </li>
         </ul>
@@ -133,20 +173,21 @@
     </div>
   </div></section>
 
-  <!-- 2 · GoodDucky in detail. Not out: no download, no repo link. One centred column, the diagram under it. -->
+  <!-- 2 · DuckyGuard in brief; its own page is duckyguard/. Numbers are from the hardware test in the DuckyGuard
+       repository (one Flipper Zero, 2026-11-10). One centred column, the diagram under it. -->
   <section class="duck" id="goodducky" aria-labelledby="gd-h"><div class="wrap"><div class="duck-in">
-    <img class="duck-img" src="duckyguard/assets/duck-256.png" width="224" height="256" alt="GoodDucky's mascot: a pixel-art duck holding a shield with a USB symbol" loading="lazy" decoding="async">
-    <p class="duck-id"><b>GoodDucky</b> Free Mac app · coming soon</p>
+    <img class="duck-icon" src="duckyguard/assets/app-icon-256.png" width="112" height="112" alt="DuckyGuard's icon: a duck's head with one mechanical eye, in yellow on navy" loading="lazy" decoding="async">
+    <p class="duck-id"><b>DuckyGuard</b> Free Mac app · 2.1 out now</p>
     <h2 class="h-2" id="gd-h">A person types unevenly. A gadget posing as a keyboard doesn't.</h2>
-    <p class="read duck-p">Some USB sticks pretend to be a keyboard and type a script into your Mac in seconds. GoodDucky watches the typing rhythm, and when a burst is too fast and too even to be a person, it pulls focus to its own window so the rest lands there instead.</p>
+    <p class="read duck-p">Some USB gadgets pretend to be a keyboard and type a script into your Mac in under a second. DuckyGuard times every key, and when a burst is faster than any hand could type, it blocks the rest before it reaches an app.</p>
     <figure class="keys" aria-labelledby="keys-cap">
       <div class="k-row"><span class="k-lab">You typing</span>
         <svg class="k-ticks k-human" viewBox="0 0 480 24" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="4" width="3" height="16"/><rect x="34" y="4" width="3" height="16"/><rect x="58" y="4" width="3" height="16"/><rect x="104" y="4" width="3" height="16"/><rect x="121" y="4" width="3" height="16"/><rect x="166" y="4" width="3" height="16"/><rect x="214" y="4" width="3" height="16"/><rect x="231" y="4" width="3" height="16"/><rect x="287" y="4" width="3" height="16"/><rect x="306" y="4" width="3" height="16"/><rect x="359" y="4" width="3" height="16"/><rect x="398" y="4" width="3" height="16"/><rect x="421" y="4" width="3" height="16"/><rect x="474" y="4" width="3" height="16"/></svg></div>
       <div class="k-row"><span class="k-lab">A gadget posing as a keyboard</span>
-        <svg class="k-ticks k-bot" viewBox="0 0 480 24" preserveAspectRatio="none" aria-hidden="true"><g class="k-hit"><rect x="0" y="4" width="3" height="16"/><rect x="8" y="4" width="3" height="16"/><rect x="16" y="4" width="3" height="16"/><rect x="24" y="4" width="3" height="16"/><rect x="32" y="4" width="3" height="16"/><rect x="40" y="4" width="3" height="16"/><rect x="48" y="4" width="3" height="16"/><rect x="56" y="4" width="3" height="16"/><rect x="64" y="4" width="3" height="16"/><rect x="72" y="4" width="3" height="16"/><rect x="80" y="4" width="3" height="16"/><rect x="88" y="4" width="3" height="16"/></g><rect class="k-stop" x="100" y="0" width="2" height="24"/><g class="k-held"><rect x="110" y="4" width="3" height="16"/><rect x="118" y="4" width="3" height="16"/><rect x="126" y="4" width="3" height="16"/><rect x="134" y="4" width="3" height="16"/><rect x="142" y="4" width="3" height="16"/><rect x="150" y="4" width="3" height="16"/><rect x="158" y="4" width="3" height="16"/><rect x="166" y="4" width="3" height="16"/><rect x="174" y="4" width="3" height="16"/><rect x="182" y="4" width="3" height="16"/><rect x="190" y="4" width="3" height="16"/><rect x="198" y="4" width="3" height="16"/><rect x="206" y="4" width="3" height="16"/><rect x="214" y="4" width="3" height="16"/><rect x="222" y="4" width="3" height="16"/><rect x="230" y="4" width="3" height="16"/><rect x="238" y="4" width="3" height="16"/><rect x="246" y="4" width="3" height="16"/><rect x="254" y="4" width="3" height="16"/><rect x="262" y="4" width="3" height="16"/><rect x="270" y="4" width="3" height="16"/><rect x="278" y="4" width="3" height="16"/><rect x="286" y="4" width="3" height="16"/><rect x="294" y="4" width="3" height="16"/><rect x="302" y="4" width="3" height="16"/><rect x="310" y="4" width="3" height="16"/><rect x="318" y="4" width="3" height="16"/><rect x="326" y="4" width="3" height="16"/><rect x="334" y="4" width="3" height="16"/><rect x="342" y="4" width="3" height="16"/><rect x="350" y="4" width="3" height="16"/><rect x="358" y="4" width="3" height="16"/><rect x="366" y="4" width="3" height="16"/><rect x="374" y="4" width="3" height="16"/><rect x="382" y="4" width="3" height="16"/><rect x="390" y="4" width="3" height="16"/><rect x="398" y="4" width="3" height="16"/><rect x="406" y="4" width="3" height="16"/><rect x="414" y="4" width="3" height="16"/><rect x="422" y="4" width="3" height="16"/><rect x="430" y="4" width="3" height="16"/><rect x="438" y="4" width="3" height="16"/><rect x="446" y="4" width="3" height="16"/><rect x="454" y="4" width="3" height="16"/><rect x="462" y="4" width="3" height="16"/><rect x="470" y="4" width="3" height="16"/></g></svg></div>
-      <figcaption id="keys-cap">Each mark is one keypress. After about 12 keys that come too fast and too evenly, GoodDucky steps in at the line, and if focus moves in time the rest of the burst misses your terminal. The keys before the line still get through, and a script typed at human speed can pass.</figcaption>
+        <svg class="k-ticks k-bot" viewBox="0 0 480 24" preserveAspectRatio="none" aria-hidden="true"><g class="k-hit"><rect x="0" y="4" width="3" height="16"/><rect x="8" y="4" width="3" height="16"/><rect x="16" y="4" width="3" height="16"/><rect x="24" y="4" width="3" height="16"/></g><rect class="k-stop" x="36" y="0" width="2" height="24"/><g class="k-held"><rect x="46" y="4" width="3" height="16"/><rect x="54" y="4" width="3" height="16"/><rect x="62" y="4" width="3" height="16"/><rect x="70" y="4" width="3" height="16"/><rect x="78" y="4" width="3" height="16"/><rect x="86" y="4" width="3" height="16"/><rect x="94" y="4" width="3" height="16"/><rect x="102" y="4" width="3" height="16"/><rect x="110" y="4" width="3" height="16"/><rect x="118" y="4" width="3" height="16"/><rect x="126" y="4" width="3" height="16"/><rect x="134" y="4" width="3" height="16"/><rect x="142" y="4" width="3" height="16"/><rect x="150" y="4" width="3" height="16"/><rect x="158" y="4" width="3" height="16"/><rect x="166" y="4" width="3" height="16"/><rect x="174" y="4" width="3" height="16"/><rect x="182" y="4" width="3" height="16"/><rect x="190" y="4" width="3" height="16"/><rect x="198" y="4" width="3" height="16"/><rect x="206" y="4" width="3" height="16"/><rect x="214" y="4" width="3" height="16"/><rect x="222" y="4" width="3" height="16"/><rect x="230" y="4" width="3" height="16"/><rect x="238" y="4" width="3" height="16"/><rect x="246" y="4" width="3" height="16"/><rect x="254" y="4" width="3" height="16"/><rect x="262" y="4" width="3" height="16"/><rect x="270" y="4" width="3" height="16"/><rect x="278" y="4" width="3" height="16"/><rect x="286" y="4" width="3" height="16"/><rect x="294" y="4" width="3" height="16"/><rect x="302" y="4" width="3" height="16"/><rect x="310" y="4" width="3" height="16"/><rect x="318" y="4" width="3" height="16"/><rect x="326" y="4" width="3" height="16"/><rect x="334" y="4" width="3" height="16"/><rect x="342" y="4" width="3" height="16"/><rect x="350" y="4" width="3" height="16"/><rect x="358" y="4" width="3" height="16"/><rect x="366" y="4" width="3" height="16"/><rect x="374" y="4" width="3" height="16"/><rect x="382" y="4" width="3" height="16"/><rect x="390" y="4" width="3" height="16"/><rect x="398" y="4" width="3" height="16"/><rect x="406" y="4" width="3" height="16"/><rect x="414" y="4" width="3" height="16"/><rect x="422" y="4" width="3" height="16"/><rect x="430" y="4" width="3" height="16"/><rect x="438" y="4" width="3" height="16"/><rect x="446" y="4" width="3" height="16"/><rect x="454" y="4" width="3" height="16"/><rect x="462" y="4" width="3" height="16"/><rect x="470" y="4" width="3" height="16"/></g></svg></div>
+      <figcaption id="keys-cap">Each mark is one keypress. In a test with a real Flipper Zero, 3 to 5 keys got through before DuckyGuard blocked the rest at the line. With new keyboards held, none got through in 3 runs. A script typed at human speed can still pass.</figcaption>
     </figure>
-    <a class="tl" href="mailto:steven@shindustries.co?subject=Tell%20me%20when%20GoodDucky%20is%20out">Tell me when it's out<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a class="tl" href="duckyguard/">See DuckyGuard and its limits<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
   </div></div></section>
 
   <!-- 3 · Movember, November 2026 only. Not a product: a small dated card, quieter than either app.
@@ -181,7 +222,7 @@
     <div class="letter">
       <p>I study cybersecurity at WPI, and I started sh. industries in 2026.</p>
       <p>Glim came from a simple pattern: a plumber under a sink, a stylist mid-cut, a phone that rings out. That caller usually dials the next number. Glim texts them back before they do.</p>
-      <p>GoodDucky grew out of my security coursework. It ships once I've tested it against real hardware.</p>
+      <p>DuckyGuard grew out of my security coursework. I tested it against a real Flipper Zero, and version 2.1 is out now.</p>
     </div>
     <p class="sig"><span class="sig-name">Steven Hainley</span><span class="sig-role">Founder, sh. industries · WPI, Massachusetts</span></p>
     <p class="letter-more"><a class="tl" href="about.html">More about the company<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
@@ -198,11 +239,12 @@
   </section>
   <div class="foot-base">
     <span>© 2026 sh. industries · Massachusetts, USA</span>
-    <nav aria-label="Footer"><a href="glim/">Glim</a><a href="#goodducky">GoodDucky</a><a href="about.html">About</a><a href="products.html">Products</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a><a href="sms.html">Text messaging</a></nav>
+    <nav aria-label="Footer"><a href="glim/">Glim</a><a href="duckyguard/">DuckyGuard</a><a href="about.html">About</a><a href="products.html">Products</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a><a href="sms.html">Text messaging</a></nav>
     <span>No trackers, no cookies</span>
   </div>
 </div></footer>
 
 <script src="assets/home2.js" defer></script>
+<script src="assets/ring.js" defer></script>
 </body>
 </html>
