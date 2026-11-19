@@ -126,9 +126,9 @@
         var isBad = btn.getAttribute('data-case') === 'skip';
         color = isBad ? '#FF4D6A' : '#C6FF3D';
         if (ov) ov.className = 'st-bt-overlay' + (isBad ? ' skip' : '');
-        if (ovT) ovT.textContent = isBad ? 'Wingstop · $4.75 · 7.6 mi (11.4m RT)' : 'Chipotle · $12.50 · 3.1 mi';
-        if (ovS) ovS.textContent = isBad ? '$0.31/mi net · Avg wait 17m · Deadhead trap' : '$3.48/mi net · $31.40/hr · +$1.88 -> VOO';
-        if (ovP) ovP.textContent = isBad ? 'SKIP' : 'ACCEPT';
+        if (ovT) ovT.textContent = isBad ? 'Wingstop · $4.75 · 7.6 mi (long return)' : 'Chipotle · $12.50 · 3.1 mi';
+        if (ovS) ovS.textContent = isBad ? '$0.31/mi after gas · Usually 17m wait' : '$3.48/mi after gas · ~$31/hr · Quick 3m wait';
+        if (ovP) ovP.textContent = isBad ? 'SKIP IT' : 'TAKE IT';
         if (reduce) draw(frame);
       });
     });

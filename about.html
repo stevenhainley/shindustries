@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'self'; object-src 'none'">
-<title>About sh. industries · Native Apple apps &amp; open-source security</title>
-<meta name="description" content="sh. industries is an independent software studio in Massachusetts founded by Steven Hainley (WPI Cybersecurity '29) in August 2025. Home of Blacktop and DuckyGuard 2.1.">
+<title>About sh. industries · Practical apps &amp; open-source security</title>
+<meta name="description" content="sh. industries is an independent software company in Massachusetts founded by Steven Hainley (WPI Cybersecurity '29) in August 2025. Home of Blacktop and DuckyGuard 2.1.">
 <link rel="canonical" href="https://shindustries.co/about.html">
 <meta name="theme-color" content="#0B0C0E">
 <meta name="color-scheme" content="dark">
@@ -24,11 +24,11 @@
   <a class="logo co-logo" href="./" aria-label="sh. industries, home"><svg class="co-mark" viewBox="220 180 1570 900" aria-hidden="true"><path d="M526 1042Q391 1042 313.5 985.0Q236 928 230 826H407Q415 866 445.5 885.0Q476 904 534 904Q624 904 624 857Q624 838 610.5 826.5Q597 815 566 809L432 783Q248 747 248 611Q248 523 319.0 470.5Q390 418 515 418Q640 418 712.0 472.0Q784 526 790 624H613Q603 585 577.5 567.5Q552 550 503 550Q463 550 441.5 561.0Q420 572 420 594Q420 610 433.0 621.0Q446 632 472 637L610 664Q706 683 751.0 726.0Q796 769 796 842Q796 936 726.5 989.0Q657 1042 526 1042Z"/><path d="M846.0 1030V190H1030.0V512H1034.0Q1063.0 466 1110.5 442.5Q1158.0 419 1225.0 419Q1338.0 419 1404.0 488.0Q1470.0 557 1470.0 673V1030H1286.0V709Q1286.0 647 1253.5 615.0Q1221.0 583 1158.0 583Q1095.0 583 1062.5 615.0Q1030.0 647 1030.0 709V1030Z"/><circle class="co-dot" cx="1640" cy="928" r="112"/></svg></a>
   <nav class="top-nav" aria-label="Main">
     <a href="blacktop/">Blacktop</a>
+    <a href="app/">Web App</a>
     <a href="duckyguard/">DuckyGuard</a>
-    <a class="hide-xs" href="./#lab">Lab</a>
     <a href="about.html" aria-current="page">About</a>
   </nav>
-  <a class="btn btn-go btn-sm top-cta" href="blacktop/#beta">Blacktop Beta</a>
+  <a class="btn btn-go btn-sm top-cta" href="app/">Open Blacktop</a>
 </div></header>
 
 <main id="main">
@@ -42,17 +42,17 @@
     <div class="doc-prose">
       <section>
         <h2>Why it exists</h2>
-        <p>Most student software dies in a class folder or turns into a pitch deck with no working code. sh. industries exists to ship real native Apple software and security tools that solve concrete problems—tested on real hardware, priced fairly up front, and kept private on your own device.</p>
+        <p>Most student software dies in a class folder or turns into a pitch deck with no working code. sh. industries exists to ship real, useful apps and security tools—tested on real hardware, priced fairly with one-time Stripe checkout, and kept private on your own device.</p>
       </section>
 
       <section>
         <h2>What is live right now</h2>
         <div class="doc-grid">
           <div class="doc-card">
-            <span class="tag">Flagship · TestFlight Beta</span>
-            <h3>Blacktop (iPhone + Mac)</h3>
-            <p>Dark Liquid Glass cockpit for DoorDash, Uber Eats, Instacart, and Spark drivers: 0.4s ban-proof OCR offer check, 2026 split mileage &amp; tip tracking, Shift Split wealth buckets, and Mac Tax + 4K Metal Vlog Studio. $9.99 founding unlock.</p>
-            <div class="doc-acts"><a href="blacktop/">Open Blacktop →</a></div>
+            <span class="tag">Flagship · Live</span>
+            <h3>Blacktop (Android + iPhone Web App)</h3>
+            <p>Driver toolkit for DoorDash, Uber Eats, Instacart, Grubhub, and Spark: instant order scoring, automatic 2026 mileage &amp; tip tracking, gate-code &amp; slow-spot notes, and shift money splits. Free to start, or $9.99 once via Stripe.</p>
+            <div class="doc-acts"><a href="blacktop/">Explore Blacktop →</a></div>
           </div>
           <div class="doc-card">
             <span class="tag">Open Source · Out Now</span>
@@ -68,8 +68,8 @@
           </div>
           <div class="doc-card">
             <span class="tag">Infrastructure</span>
-            <h3>This website</h3>
-            <p>Static pages served with strict Content-Security-Policy, bundled local fonts, zero third-party trackers, zero ad pixels, and zero cookies.</p>
+            <h3>This website &amp; payments</h3>
+            <p>Static pages served with strict Content-Security-Policy, bundled local fonts, zero third-party trackers, and PCI-compliant checkout handled exclusively by Stripe.</p>
             <div class="doc-acts"><a href="privacy.html">Read Privacy →</a></div>
           </div>
         </div>
@@ -78,9 +78,9 @@
       <section>
         <h2>Four operating rules</h2>
         <ul>
-          <li><b>On-device first:</b> Processing stays local on Apple silicon whenever possible—no selling user driving history, keystrokes, or receipts.</li>
-          <li><b>Honest limits up front:</b> Every hardware test and software boundary (like DuckyGuard's 60 ms hold limit or Blacktop's self-directed brokerage handoff) is published plainly on the product page.</li>
-          <li><b>Fair pricing:</b> No $120/year subscription traps for straightforward tools. Clear prices without sales calls.</li>
+          <li><b>Private on your device:</b> Your shift history, gate codes, and security logs stay local on your phone or Mac—never sold to advertisers or brokers.</li>
+          <li><b>Plain English limits:</b> Every hardware test and product boundary is published openly on the product page.</li>
+          <li><b>Fair pricing through Stripe:</b> No $120/year subscription traps for simple tools, plus a 30-day money-back guarantee.</li>
           <li><b>Direct builder support:</b> One developer reads and answers support emails directly.</li>
         </ul>
       </section>
@@ -89,7 +89,7 @@
         <h2>Founder &amp; direct contact</h2>
         <div class="doc-callout">
           <b>Steven Hainley</b> — Founder &amp; Developer, sh. industries · B.S. Cybersecurity (Law &amp; Technology minor), Worcester Polytechnic Institute, Class of 2029 · East Taunton / Worcester, Massachusetts.<br><br>
-          Email: <a href="mailto:steven@shindustries.co">steven@shindustries.co</a> · Engineering portfolio: <a href="https://stevenhainley.net" target="_blank" rel="noopener">stevenhainley.net</a> · GitHub: <a href="https://github.com/stevenhainley" target="_blank" rel="noopener">github.com/stevenhainley</a>
+          Support &amp; billing: <a href="mailto:steven@shindustries.co">steven@shindustries.co</a> · Engineering portfolio: <a href="https://stevenhainley.net" target="_blank" rel="noopener">stevenhainley.net</a> · GitHub: <a href="https://github.com/stevenhainley" target="_blank" rel="noopener">github.com/stevenhainley</a>
         </div>
       </section>
     </div>
@@ -99,8 +99,8 @@
 <footer class="foot"><div class="wrap">
   <div class="foot-base">
     <span>© 2025–2026 sh. industries · Sole Proprietorship · Massachusetts, USA</span>
-    <nav aria-label="Footer"><a href="blacktop/">Blacktop</a><a href="duckyguard/">DuckyGuard</a><a href="glim/">Glim (Lab)</a><a href="about.html">About</a><a href="products.html">Products</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a></nav>
-    <span>No trackers, no cookies</span>
+    <nav aria-label="Footer"><a href="blacktop/">Blacktop</a><a href="app/">Web App</a><a href="duckyguard/">DuckyGuard</a><a href="glim/">Glim (Lab)</a><a href="about.html">About</a><a href="products.html">Products</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a></nav>
+    <span>Payments by Stripe · Zero trackers</span>
   </div>
 </div></footer>
 </body>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'self'; object-src 'none'">
 <title>Privacy Policy · sh. industries</title>
-<meta name="description" content="Plain-English privacy policy for shindustries.co, Blacktop, DuckyGuard, and archived prototypes by sh. industries.">
+<meta name="description" content="Plain-English privacy policy for shindustries.co, Blacktop (Android &amp; Web App), Stripe payments, DuckyGuard, and archived prototypes by sh. industries.">
 <link rel="canonical" href="https://shindustries.co/privacy.html">
 <meta name="theme-color" content="#0B0C0E">
 <meta name="color-scheme" content="dark">
@@ -22,11 +22,11 @@
   <a class="logo co-logo" href="./" aria-label="sh. industries, home"><svg class="co-mark" viewBox="220 180 1570 900" aria-hidden="true"><path d="M526 1042Q391 1042 313.5 985.0Q236 928 230 826H407Q415 866 445.5 885.0Q476 904 534 904Q624 904 624 857Q624 838 610.5 826.5Q597 815 566 809L432 783Q248 747 248 611Q248 523 319.0 470.5Q390 418 515 418Q640 418 712.0 472.0Q784 526 790 624H613Q603 585 577.5 567.5Q552 550 503 550Q463 550 441.5 561.0Q420 572 420 594Q420 610 433.0 621.0Q446 632 472 637L610 664Q706 683 751.0 726.0Q796 769 796 842Q796 936 726.5 989.0Q657 1042 526 1042Z"/><path d="M846.0 1030V190H1030.0V512H1034.0Q1063.0 466 1110.5 442.5Q1158.0 419 1225.0 419Q1338.0 419 1404.0 488.0Q1470.0 557 1470.0 673V1030H1286.0V709Q1286.0 647 1253.5 615.0Q1221.0 583 1158.0 583Q1095.0 583 1062.5 615.0Q1030.0 647 1030.0 709V1030Z"/><circle class="co-dot" cx="1640" cy="928" r="112"/></svg></a>
   <nav class="top-nav" aria-label="Main">
     <a href="blacktop/">Blacktop</a>
+    <a href="app/">Web App</a>
     <a href="duckyguard/">DuckyGuard</a>
-    <a class="hide-xs" href="./#lab">Lab</a>
     <a href="about.html">About</a>
   </nav>
-  <a class="btn btn-go btn-sm top-cta" href="blacktop/#beta">Blacktop Beta</a>
+  <a class="btn btn-go btn-sm top-cta" href="app/">Open Blacktop</a>
 </div></header>
 
 <main id="main">
@@ -40,16 +40,16 @@
     <div class="doc-prose">
       <section>
         <h2>1. This website (shindustries.co)</h2>
-        <p>shindustries.co is a static website hosted on GitHub Pages. It uses zero cookies, zero advertising pixels, zero third-party analytics scripts, and bundles its own fonts locally. GitHub Pages may record standard web server request logs (such as IP address and user agent) under GitHub's own privacy policy.</p>
+        <p>shindustries.co is a static website hosted on GitHub Pages. It uses zero advertising cookies, zero tracking pixels, and zero third-party analytics scripts, and bundles its own fonts locally. GitHub Pages may record standard web server request logs (such as IP address and user agent) under GitHub's own privacy policy.</p>
       </section>
 
       <section>
-        <h2>2. Blacktop (iOS &amp; macOS)</h2>
+        <h2>2. Blacktop (Android App &amp; Mobile Web App)</h2>
         <ul>
-          <li><b>On-device OCR &amp; AI:</b> Offer screenshots analyzed through the Blacktop Action Button / Shortcut workflow are processed locally in memory using Apple Vision and on-device Apple Foundation Models. Screenshots are not uploaded to sh. industries servers and are not saved to your Camera Roll.</li>
-          <li><b>Zero third-party logins:</b> Blacktop v1.x never asks for your DoorDash, Uber, Instacart, Grubhub, Spark, or brokerage account passwords.</li>
-          <li><b>Private Apple iCloud sync:</b> Your shifts, GPS mileage logs, odometer photos, private restaurant/gate-code notes, and Shift Split settings stay on your device and optionally sync solely through your own private Apple CloudKit container. sh. industries cannot read your private CloudKit database.</li>
-          <li><b>Public APIs:</b> When you request weather or local venue surge alerts, Blacktop queries Apple WeatherKit, Ticketmaster/SeatGeek, or EIA fuel data using approximate location coordinates as needed to return local forecasts and schedules.</li>
+          <li><b>Local-first storage:</b> Your shifts, mileage logs, earnings, apartment gate codes, slow-restaurant notes, and money-split settings are stored directly on your device (local Android storage or your browser's local storage). We do not sell, rent, or view your driving data.</li>
+          <li><b>No third-party account passwords:</b> Blacktop never asks for your DoorDash, Uber, Instacart, Grubhub, Spark, bank, or brokerage passwords.</li>
+          <li><b>On-device order reading:</b> On Android, order pay and distance are read locally on your phone to calculate pay per mile—nothing is uploaded to ad networks or stored on remote servers.</li>
+          <li><b>Payments via Stripe:</b> All Pro Pass payments are processed exclusively by Stripe, Inc. (<a href="https://stripe.com/privacy" target="_blank" rel="noopener">stripe.com/privacy</a>). sh. industries never sees or stores your full card number. We receive only your receipt email, payment confirmation, and license key status so we can unlock Pro on your devices and issue refunds when requested.</li>
         </ul>
       </section>
 
@@ -64,8 +64,8 @@
       </section>
 
       <section>
-        <h2>5. Email support &amp; deletion</h2>
-        <p>If you email <a href="mailto:steven@shindustries.co">steven@shindustries.co</a> (for example, to request a Blacktop TestFlight invite or ask a support question), we keep your email solely to reply and manage TestFlight access. We never sell or share email addresses. Ask us to delete your email thread at any time and we will remove it.</p>
+        <h2>5. Email support &amp; data deletion</h2>
+        <p>If you email <a href="mailto:steven@shindustries.co">steven@shindustries.co</a> or purchase a Pro Pass via Stripe, we keep your email solely to send receipts, manage license access, and answer support requests. We never sell or share email addresses. Email us anytime to delete your support or license record.</p>
       </section>
     </div>
   </div></section>
@@ -74,8 +74,8 @@
 <footer class="foot"><div class="wrap">
   <div class="foot-base">
     <span>© 2025–2026 sh. industries · Massachusetts, USA</span>
-    <nav aria-label="Footer"><a href="blacktop/">Blacktop</a><a href="duckyguard/">DuckyGuard</a><a href="glim/">Glim (Lab)</a><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a></nav>
-    <span>No trackers, no cookies</span>
+    <nav aria-label="Footer"><a href="blacktop/">Blacktop</a><a href="app/">Web App</a><a href="duckyguard/">DuckyGuard</a><a href="glim/">Glim (Lab)</a><a href="about.html">About</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a></nav>
+    <span>Payments by Stripe · Zero trackers</span>
   </div>
 </div></footer>
 </body>

@@ -1,7 +1,10 @@
-/* Blacktop interactive cockpit, Canvas night minimap, Shift Split calculator & Mac tabs.
- * Zero external requests, zero inline styles, strict CSP friendly. */
+/* Blacktop interactive preview, real-earnings calculator, platform tabs & Stripe checkout handoff.
+ * Zero external requests until user clicks Stripe Checkout, zero inline styles, strict CSP friendly. */
 (function(){
   'use strict';
+
+  /* Replace with your live Stripe Payment Link once activated in Stripe Dashboard */
+  var STRIPE_PAYMENT_LINK = '';
 
   /* Sticky glass header */
   var hdr = document.getElementById('hdr');
@@ -11,7 +14,7 @@
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 
-  /* 1. Animated 60fps Tactical Dark Night-Drive Minimap Canvas */
+  /* 1. Animated Dark Driving Map Canvas */
   var cv = document.getElementById('bt-map');
   if (cv && cv.getContext) {
     var ctx = cv.getContext('2d');
@@ -33,14 +36,12 @@
       }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      // Midnight asphalt base
       var bg = ctx.createLinearGradient(0, 0, w, h);
       bg.addColorStop(0, '#0D111A');
       bg.addColorStop(1, '#07080D');
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, w, h);
 
-      // Subtle rotated city street grid
       ctx.save();
       ctx.translate(w * 0.5, h * 0.5);
       ctx.rotate(-0.18);
@@ -52,14 +53,12 @@
       for (var gy = -h; gy <= h; gy += 24) {
         ctx.beginPath(); ctx.moveTo(-w, gy); ctx.lineTo(w, gy); ctx.stroke();
       }
-      // Major arterial avenues
       ctx.strokeStyle = 'rgba(255,255,255,0.12)';
       ctx.lineWidth = 2.2;
       ctx.beginPath(); ctx.moveTo(-w, -18); ctx.lineTo(w, -18); ctx.stroke();
       ctx.beginPath(); ctx.moveTo(-22, -h); ctx.lineTo(-22, h); ctx.stroke();
       ctx.restore();
 
-      // Ambient twilight heatmap zone glow
       var heat = ctx.createRadialGradient(w * 0.72, h * 0.34, 4, w * 0.72, h * 0.34, 68);
       heat.addColorStop(0, 'rgba(255,107,74,0.28)');
       heat.addColorStop(0.6, 'rgba(255,107,74,0.06)');
@@ -67,7 +66,6 @@
       ctx.fillStyle = heat;
       ctx.fillRect(0, 0, w, h);
 
-      // Route glow + crisp ribbon
       ctx.save();
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
@@ -85,7 +83,6 @@
       ctx.stroke();
       ctx.restore();
 
-      // Drop-off destination pulse
       var end = routePts[routePts.length - 1];
       var ex = end[0] * w, ey = end[1] * h;
       var pulse = (step * 0.02) % 1;
@@ -99,7 +96,6 @@
       ctx.fillStyle = '#FF6B4A';
       ctx.fill();
 
-      // Animated driver chevron along route
       var seg = Math.min(routePts.length - 2, Math.floor(((step * 0.004) % 1) * (routePts.length - 1)));
       var local = (((step * 0.004) % 1) * (routePts.length - 1)) - seg;
       var p0 = routePts[seg], p1 = routePts[seg + 1];
@@ -132,48 +128,48 @@
     drawMap(24);
     if (!reduce) window.requestAnimationFrame(tick);
 
-    /* 2. Interactive Offer-Check Simulator */
+    /* 2. Plain-English Order Check Simulator */
     var OFFERS = {
       chipotle: {
         cls: '',
         accent: '#C6FF3D',
-        pill: 'ACCEPT · $3.48/MI NET',
-        time: '0.38s OCR',
+        pill: 'TAKE IT · $3.48/MI',
+        time: 'After gas',
         title: 'Chipotle · $12.50 · 3.1 mi',
-        sub: 'Est. $31.40/hr · Avg wait 3m · +$2.36 IRS shield',
-        island: '+18.2 mi · $13.83 tax',
+        sub: '~$31.40/hr pace · Usually 3m wait · +$2.36 tax write-off',
+        island: '18.2 mi · $13.83 write-off',
         net: '$94.60',
         hr: '$28.40',
         voo: '$14.19',
-        zone: 'WORCESTER · HIGHLAND ST',
+        zone: 'HIGHLAND ST · BUSY',
         mph: '29'
       },
       wingstop: {
         cls: 'skip',
         accent: '#FF4D6A',
-        pill: 'SKIP · $0.31/MI NET',
-        time: '0.34s OCR',
-        title: 'Wingstop · $4.75 · 7.6 mi (11.4 mi RT)',
-        sub: 'Deadhead trap · Your note: Wingstop avg 17m wait',
+        pill: 'SKIP IT · $0.31/MI',
+        time: 'After gas',
+        title: 'Wingstop · $4.75 · 7.6 mi (long drive back)',
+        sub: 'Not worth it · Your note: Wingstop avg 17m wait',
         island: 'SAVED 38 MIN · SKIPPED',
         net: '$82.10',
         hr: '$26.80',
         voo: '$12.32',
-        zone: 'DEADHEAD WARNING · RT 12',
+        zone: 'LOW PAY · LONG RETURN',
         mph: '34'
       },
       surge: {
         cls: 'surge',
         accent: '#2CE6C5',
-        pill: 'ACCEPT · RAIN SURGE',
-        time: '0.41s OCR',
+        pill: 'TAKE IT · RAIN RUSH',
+        time: 'Busy now',
         title: 'Oishi Sushi · $18.25 · 4.8 mi',
-        sub: 'WeatherKit Rain +22% · DCU Center exit in 24m',
-        island: '+23.0 mi · $17.48 tax',
+        sub: 'Rain rush active · Concert letting out nearby in 24m',
+        island: '23.0 mi · $17.48 write-off',
         net: '$112.85',
         hr: '$33.10',
         voo: '$16.93',
-        zone: 'DOWNTOWN · EVENT SURGE',
+        zone: 'DOWNTOWN · BUSY NIGHT',
         mph: '24'
       }
     };
@@ -214,7 +210,7 @@
     });
   }
 
-  /* 3. Interactive Shift Split + 2026 Split-Rate Tax Calculator */
+  /* 3. Interactive Real-Earnings & 2026 Tax Calculator */
   var elGross = document.getElementById('calc-gross');
   var elMiles = document.getElementById('calc-miles');
   var elTax = document.getElementById('calc-tax');
@@ -232,17 +228,15 @@
     var taxPct = parseFloat(elTax.value) || 20;
     var invPct = parseFloat(elInv.value) || 15;
 
-    var gasCost = miles * 0.14; // ~$3.50/gal @ 25 mpg estimate
+    var gasCost = miles * 0.14;
     var net = Math.max(0, gross - gasCost);
     var taxVault = net * (taxPct / 100);
     var invSplit = net * (invPct / 100);
     var takeHome = Math.max(0, net - taxVault - invSplit);
 
-    // 2026 H2 IRS mileage deduction (76.0 cents/mi Jul-Dec 2026)
     var wkDeduction = miles * 0.76;
     var yrInvested = invSplit * 48;
-    var yrShares = yrInvested / activeTicker.price;
-    var estTips = gross * 0.56; // typical delivery voluntary tip share
+    var estTips = gross * 0.56;
 
     var set = function(id, val){ var el = document.getElementById(id); if (el) el.textContent = val; };
     set('out-gross-v', fmtInt(gross) + '/wk');
@@ -253,10 +247,16 @@
     set('rec-net', fmt(net));
     set('rec-take', fmt(takeHome));
     set('rec-tax', fmt(taxVault));
-    set('rec-inv', fmt(invSplit) + ' -> ' + activeTicker.sym);
+    set('rec-inv', fmt(invSplit) + ' → ' + (activeTicker.sym === 'CASH' ? 'Savings' : activeTicker.sym));
     set('rec-deduct', fmt(wkDeduction) + ' (76.0¢/mi)');
     set('rec-tips', fmt(estTips) + ' tracked');
-    set('rec-yr', fmtInt(yrInvested) + ' (~' + yrShares.toFixed(2) + ' ' + activeTicker.sym + ')');
+
+    if (activeTicker.sym === 'CASH') {
+      set('rec-yr', fmtInt(yrInvested) + ' cash saved');
+    } else {
+      var yrShares = yrInvested / activeTicker.price;
+      set('rec-yr', fmtInt(yrInvested) + ' (~' + yrShares.toFixed(2) + ' ' + activeTicker.sym + ')');
+    }
 
     var takePct = Math.max(5, 100 - taxPct - invPct);
     var bTake = document.getElementById('bar-take');
@@ -282,34 +282,35 @@
   });
   updateCalc();
 
-  /* 4. Mac Command Center Tabs */
+  /* 4. Platform Showcase Tabs */
   var macTabs = document.querySelectorAll('.bt-mac-tab');
   var macPanes = document.querySelectorAll('.bt-mac-pane');
   var macTitle = document.getElementById('bt-mac-title');
   macTabs.forEach(function(tab){
     tab.addEventListener('click', function(){
       var target = tab.getAttribute('data-pane');
-      var title = tab.getAttribute('data-title') || 'Blacktop — Mac Command Center';
+      var title = tab.getAttribute('data-title') || 'Blacktop';
       macTabs.forEach(function(t){ t.setAttribute('aria-selected', t === tab ? 'true' : 'false'); });
       macPanes.forEach(function(p){ p.hidden = p.id !== target; });
       if (macTitle) macTitle.textContent = title;
     });
   });
 
-  /* 5. Copy Beta Email (zero Mixed-Content mailto form!) */
-  var copyBtn = document.getElementById('bt-copy-email');
+  /* 5. Stripe Checkout Button */
+  var stripeBtn = document.getElementById('bt-stripe-btn');
   var copyMsg = document.getElementById('bt-copy-msg');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', function(){
+  if (stripeBtn) {
+    stripeBtn.addEventListener('click', function(){
+      if (STRIPE_PAYMENT_LINK) {
+        window.open(STRIPE_PAYMENT_LINK, '_blank', 'noopener');
+        return;
+      }
       var addr = 'steven@shindustries.co';
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(addr).then(function(){
-          if (copyMsg) copyMsg.textContent = 'Copied steven@shindustries.co — send "Blacktop TestFlight" to get the first invite.';
-        }).catch(function(){
-          if (copyMsg) copyMsg.textContent = 'Email steven@shindustries.co with subject "Blacktop TestFlight".';
-        });
-      } else if (copyMsg) {
-        copyMsg.textContent = 'Email steven@shindustries.co with subject "Blacktop TestFlight".';
+        navigator.clipboard.writeText(addr).catch(function(){});
+      }
+      if (copyMsg) {
+        copyMsg.textContent = 'Stripe Checkout opens at public launch. Try the full Free Web App now, or email steven@shindustries.co (copied) to get an early Android APK + $9.99 Stripe invoice.';
       }
     });
   }
