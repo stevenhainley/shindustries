@@ -494,3 +494,10 @@ html.x-live .xctl{pointer-events:auto}
 .stage-fig{margin:0}
 .fld .opt{font-weight:400;opacity:.7}
 .hp-off{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* Archived concept top notice bar */
+.glim-archive{background:rgba(255,194,61,.10);border-bottom:1px solid rgba(255,194,61,.26);font-size:13.5px;color:var(--text-2)}
+.glim-archive-in{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;padding:10px 0}
+.glim-archive b{color:var(--warn)}
+.glim-archive a{color:var(--green);font-weight:600;text-decoration:none;white-space:nowrap}
+.glim-archive a:hover{text-decoration:underline;text-underline-offset:3px}

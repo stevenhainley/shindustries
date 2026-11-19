@@ -35,7 +35,7 @@ const SUPPORT_EMAIL = "glim@shindustries.co";
     if (SALES_OPEN) document.querySelectorAll("[data-buy]").forEach(a => { a.href = CHECKOUT_URL; });
     if (SALES_OPEN && full) document.querySelectorAll(".pr").forEach(p => { p.textContent = "$39"; });
     const msg = !SALES_OPEN
-      ? `${FOUNDING_SPOTS_TOTAL} founding spots in total. Sales haven't opened yet, so none are taken.`
+      ? `Glim is an archived sh. lab concept preview and is not currently accepting signups.`
       : full ? `All ${FOUNDING_SPOTS_TOTAL} founding spots are taken. New businesses pay the standard $39 a month.`
       : FOUNDING_SPOTS_TAKEN === 0 ? `${FOUNDING_SPOTS_TOTAL} founding spots, all ${FOUNDING_SPOTS_TOTAL} still open.`
       : `${left} of ${FOUNDING_SPOTS_TOTAL} founding spots still open.`;

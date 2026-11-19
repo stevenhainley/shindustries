@@ -2,52 +2,39 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; form-action 'self' mailto:; base-uri 'self'; object-src 'none'">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; base-uri 'self'; object-src 'none'">
 <script src="assets/legacy-hash.js"></script>
-<script src="assets/switches.js"></script>
-<!-- Company homepage (rebuilt 2026-11-03; product ring added 2026-11-13). Glim's own page is glim/, DuckyGuard's is duckyguard/.
-     Flow: the company in one sentence (the only H1) -> the product ring: one card per product on a circle,
-     DuckyGuard first (in front on load), then Glim, then an empty place for the next app -> Glim's index entry
-     with its price and button, beside Glim running on a phone -> DuckyGuard in brief (2.1 is not out yet) -> the
-     Movember fundraiser, a small dated card gone after November (no top strip on this page: the card replaces
-     it) -> a note from Steven -> where to write.
-     Products are DuckyGuard and Glim only; Mo-ify me is a seasonal fundraiser, never in a product list.
-     DuckyGuard was called GoodDucky on this page until 2026-11-13; the section keeps id="goodducky" so old links land.
-     No inline scripts or styles: page CSS is assets/chrome.css + assets/company.css + assets/ring.css,
-     page JS is assets/home2.js + assets/ring.js. -->
-<title>sh. industries · Small apps that each do one job</title>
-<meta name="description" content="sh. industries is a small software company in Massachusetts. Glim texts back the calls a business misses: $29 a month for the first 10 businesses, then $39, 7-day money-back, no contract. DuckyGuard, a free open-source Mac app, blocks fake keyboards.">
+<title>sh. industries · Native Apple apps &amp; open-source security tools</title>
+<meta name="description" content="sh. industries is an independent software studio in Massachusetts built by Steven Hainley (WPI '29). Home of Blacktop (iPhone + Mac gig-driver cockpit, $9.99 once) and DuckyGuard 2.1 (free MIT macOS USB security).">
 <link rel="canonical" href="https://shindustries.co/">
 
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="sh. industries">
-<meta property="og:title" content="sh. industries · Small apps that each do one job">
-<meta property="og:description" content="A small software company in Massachusetts. Glim texts back the calls a business misses. DuckyGuard 2.1, a free Mac app, blocks fake keyboards.">
+<meta property="og:title" content="sh. industries · Native Apple apps &amp; open-source security tools">
+<meta property="og:description" content="Independent software studio in Massachusetts. Home of Blacktop ($9.99 once, iPhone + Mac gig cockpit) and DuckyGuard 2.1 (free MIT macOS USB defense).">
 <meta property="og:url" content="https://shindustries.co/">
 <meta property="og:image" content="https://shindustries.co/assets/og/og-about.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="sh. industries: Software that does the boring part. A small Massachusetts software company, started by a student. Beside it, Glim, the pixel creature with one green dot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="sh. industries · Small apps that each do one job">
-<meta name="twitter:description" content="A small software company in Massachusetts. Glim texts back the calls a business misses. DuckyGuard 2.1, a free Mac app, blocks fake keyboards.">
-<meta name="twitter:image" content="https://shindustries.co/assets/og/og-about.png">
-<meta name="theme-color" content="#0E0E0D">
+<meta name="theme-color" content="#0B0C0E">
 <meta name="color-scheme" content="dark">
+
 <link rel="icon" href="favicon.ico" sizes="32x32">
 <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
 <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://shindustries.co/#org","name":"sh. industries","url":"https://shindustries.co/","email":"steven@shindustries.co","logo":"https://shindustries.co/assets/icons/icon-512.png","address":{"@type":"PostalAddress","addressRegion":"MA","addressCountry":"US"},"founder":{"@type":"Person","name":"Steven Hainley","url":"https://stevenhainley.net","sameAs":["https://stevenhainley.net"]}},{"@type":"WebSite","url":"https://shindustries.co/","name":"sh. industries","publisher":{"@id":"https://shindustries.co/#org"}},{"@type":"SoftwareApplication","@id":"https://shindustries.co/glim/#glim","name":"Glim","url":"https://shindustries.co/glim/","author":{"@id":"https://shindustries.co/#org"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://shindustries.co/#org","name":"sh. industries","url":"https://shindustries.co/","email":"steven@shindustries.co","foundingDate":"2025-08","address":{"@type":"PostalAddress","addressRegion":"MA","addressCountry":"US"},"founder":{"@type":"Person","name":"Steven Hainley","url":"https://stevenhainley.net","sameAs":["https://stevenhainley.net","https://github.com/stevenhainley"]}},{"@type":"SoftwareApplication","name":"Blacktop","url":"https://shindustries.co/blacktop/","operatingSystem":"iOS 26, macOS 26","offers":{"@type":"Offer","price":"9.99","priceCurrency":"USD"},"author":{"@id":"https://shindustries.co/#org"}},{"@type":"SoftwareApplication","name":"DuckyGuard","url":"https://shindustries.co/duckyguard/","operatingSystem":"macOS 26 (Apple silicon)","softwareVersion":"2.1.0","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@id":"https://shindustries.co/#org"}}]}</script>
+
 <link rel="preload" href="assets/fonts/FunnelDisplay-800.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="assets/fonts/FunnelSans-400.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="assets/fonts/JetBrainsMono.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/chrome.css">
-<link rel="stylesheet" href="assets/company.css">
-<link rel="stylesheet" href="assets/ring.css">
+<link rel="stylesheet" href="assets/studio.css">
 </head>
-<body>
+<body class="st-page">
 <svg class="sprite" width="0" height="0" aria-hidden="true">
   <symbol id="glim" viewBox="0 0 16 16" shape-rendering="crispEdges"><rect x="6" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="0" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="1" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="2" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="3" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="4" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="5" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="6" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="8" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="9" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="10" width="1" height="1" fill="#F2F1EC"/><rect x="2" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="13" y="11" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="12" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="8" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="13" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="14" width="1" height="1" fill="#F2F1EC"/><rect x="3" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="4" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="6" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="9" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="10" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="12" y="15" width="1" height="1" fill="#F2F1EC"/><rect x="7" y="2" width="1" height="1" fill="#1A1A17"/><rect x="5" y="3" width="6" height="1" fill="#1A1A17"/><rect x="4" y="4" width="8" height="1" fill="#1A1A17"/><rect x="3" y="5" width="10" height="1" fill="#1A1A17"/><rect x="3" y="6" width="1" height="1" fill="#1A1A17"/><rect x="4" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="6" y="6" width="4" height="1" fill="#1A1A17"/><rect x="10" y="6" width="2" height="1" fill="#F2F1EC"/><rect x="12" y="6" width="1" height="1" fill="#1A1A17"/><rect x="3" y="7" width="1" height="1" fill="#1A1A17"/><rect x="4" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="5" y="7" width="5" height="1" fill="#1A1A17"/><rect x="10" y="7" width="1" height="1" fill="#F2F1EC"/><rect x="11" y="7" width="2" height="1" fill="#1A1A17"/><rect x="3" y="8" width="10" height="1" fill="#1A1A17"/><rect x="3" y="9" width="4" height="1" fill="#1A1A17"/><rect x="7" y="9" width="2" height="1" fill="#F2F1EC"/><rect x="9" y="9" width="4" height="1" fill="#1A1A17"/><rect x="3" y="10" width="10" height="1" fill="#1A1A17"/><rect x="4" y="11" width="8" height="1" fill="#1A1A17"/><rect x="5" y="12" width="6" height="1" fill="#1A1A17"/><rect x="5" y="13" width="1" height="1" fill="#1A1A17"/><rect x="10" y="13" width="1" height="1" fill="#1A1A17"/><rect x="4" y="14" width="2" height="1" fill="#1A1A17"/><rect x="10" y="14" width="2" height="1" fill="#1A1A17"/><circle cx="7.5" cy="1.5" r="2.4" fill="#C6FF3D" opacity=".28"/><circle cx="7.5" cy="1.5" r="1.4" fill="#C6FF3D" opacity=".55"/><rect x="7" y="1" width="1" height="1" fill="#C6FF3D"/></symbol>
 </svg>
@@ -56,195 +43,208 @@
 <header class="hdr top" id="hdr"><div class="wrap top-in">
   <a class="logo co-logo" href="./" aria-label="sh. industries, home"><svg class="co-mark" viewBox="220 180 1570 900" aria-hidden="true"><path d="M526 1042Q391 1042 313.5 985.0Q236 928 230 826H407Q415 866 445.5 885.0Q476 904 534 904Q624 904 624 857Q624 838 610.5 826.5Q597 815 566 809L432 783Q248 747 248 611Q248 523 319.0 470.5Q390 418 515 418Q640 418 712.0 472.0Q784 526 790 624H613Q603 585 577.5 567.5Q552 550 503 550Q463 550 441.5 561.0Q420 572 420 594Q420 610 433.0 621.0Q446 632 472 637L610 664Q706 683 751.0 726.0Q796 769 796 842Q796 936 726.5 989.0Q657 1042 526 1042Z"/><path d="M846.0 1030V190H1030.0V512H1034.0Q1063.0 466 1110.5 442.5Q1158.0 419 1225.0 419Q1338.0 419 1404.0 488.0Q1470.0 557 1470.0 673V1030H1286.0V709Q1286.0 647 1253.5 615.0Q1221.0 583 1158.0 583Q1095.0 583 1062.5 615.0Q1030.0 647 1030.0 709V1030Z"/><circle class="co-dot" cx="1640" cy="928" r="112"/></svg></a>
   <nav class="top-nav" aria-label="Main">
-    <a href="glim/">Glim</a>
+    <a href="blacktop/">Blacktop</a>
     <a href="duckyguard/">DuckyGuard</a>
+    <a class="hide-xs" href="#lab">Lab</a>
     <a href="about.html">About</a>
   </nav>
-  <a class="btn btn-ink btn-sm top-cta" data-buy href="glim/#waitlist"><span class="when-closed">Join the Glim waitlist</span><span class="when-open">Get Glim</span></a>
+  <a class="btn btn-go btn-sm top-cta" href="blacktop/#beta">Blacktop Beta</a>
 </div></header>
 
 <main id="main">
-
-  <!-- 1 · the company in one sentence, then the product ring. assets/ring.js turns the row of cards into a ring
-       (drag, swipe, arrow keys, the buttons under it); without JS it is a row that scrolls sideways.
-       DuckyGuard's card wears the DuckyGuard app's own look; its duck is the app's 3D plate, started by ring.js
-       over the still image. The ring never turns by itself. -->
-  <section class="hero" aria-labelledby="hero-h"><div class="wrap">
-    <h1 class="hero-h" id="hero-h">sh. industries makes small apps that each do one&nbsp;job.</h1>
-    <p class="read hero-sub">A small software company in Massachusetts. Each app shows its price and its limits up front, so you never need a sales call to find out.</p>
-
-    <div class="ring" id="ring" role="group" aria-roledescription="carousel" aria-label="Products" tabindex="0">
-      <ol class="ring-track" role="list">
-        <li class="pc pc-duck" data-name="DuckyGuard" aria-labelledby="pc-duck-h">
-          <div class="pc-top">
-            <img src="duckyguard/assets/duck-poster.png" width="556" height="556" alt="The DuckyGuard duck: a duck's head with one mechanical eye, engraved in yellow dots on navy, inside a wire cage.">
-            <canvas hidden aria-hidden="true"></canvas>
-            <span class="pc-chip tl">Free Mac app</span><span class="pc-chip tr">2.1 <b>out now</b></span>
-          </div>
-          <h2 class="pc-name" id="pc-duck-h"><a href="duckyguard/">DuckyGuard</a></h2>
-          <p class="pc-line">Keyboards that type too fast get stopped.</p>
-          <div class="pc-foot"><a class="dg-btn" href="duckyguard/">See DuckyGuard</a><span class="dg-note">Tested on one<br>Flipper Zero</span></div>
-        </li>
-        <li class="pc pc-glim" data-name="Glim" aria-labelledby="pc-glim-h">
-          <div class="pc-top" aria-hidden="true">
-            <span class="pc-sprite"><svg><use href="#glim"/></svg></span>
-            <span class="pc-flow"><span class="pc-call"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M16 2l6 6M22 2l-6 6"/></svg></span><svg class="pc-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="pc-bubble"><i></i><i></i><i></i></span></span>
-          </div>
-          <h2 class="pc-name" id="pc-glim-h"><a href="glim/">Glim</a></h2>
-          <p class="pc-line">Miss a call. Glim texts them back in&nbsp;seconds.</p>
-          <p class="pc-meta if-founding">$29 a month for the first 10 businesses, then $39.</p>
-          <p class="pc-meta if-full">$39 a month.</p>
-          <div class="pc-foot"><a class="btn btn-ink btn-sm" href="glim/">See Glim</a></div>
-        </li>
-        <li class="pc pc-next" data-name="Next" aria-labelledby="pc-next-h">
-          <div class="pc-top" aria-hidden="true"><span>?</span></div>
-          <h2 class="pc-name" id="pc-next-h">The next app</h2>
-          <p class="pc-line">Not announced yet. It will do one job, and show its price and its limits up front.</p>
-          <div class="pc-foot"><a class="tl" href="mailto:steven@shindustries.co?subject=An%20app%20I%27d%20use">Tell Steven what you'd use<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-        </li>
-      </ol>
-      <div class="ring-ctl">
-        <button class="ring-btn" type="button" data-dir="-1" aria-label="Previous product"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
-        <div class="ring-dots"><button class="ring-dot" type="button" aria-current="true">DuckyGuard</button><button class="ring-dot" type="button">Glim</button><button class="ring-dot" type="button">Next</button></div>
-        <button class="ring-btn" type="button" data-dir="1" aria-label="Next product"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+  <!-- HERO -->
+  <section class="st-hero" aria-labelledby="hero-h"><div class="wrap st-hero-grid">
+    <div>
+      <p class="st-pill"><i aria-hidden="true"></i>Massachusetts Software Studio · Est. 2025</p>
+      <h1 id="hero-h">Focused software built for the <em>craft.</em></h1>
+      <p class="st-sub">Independent iPhone and Mac software built by Steven Hainley. Every tool runs on-device first, posts its limits in plain English, and skips the $120/year subscription trap.</p>
+      <div class="st-cta">
+        <a class="btn btn-go" href="blacktop/">Explore Blacktop ($9.99 once)</a>
+        <a class="btn btn-line" href="duckyguard/">Download DuckyGuard 2.1</a>
       </div>
-      <p class="sr" id="ring-say" aria-live="polite"></p>
     </div>
-  </div></section>
 
-  <!-- 1b · Glim's index entry with its price and button, beside Glim running on a phone. -->
-  <section class="glim-row" aria-labelledby="app-glim"><div class="wrap">
-    <div class="hero-grid">
-      <div class="hero-copy">
-        <ul class="apps" role="list">
-          <li class="app" aria-labelledby="app-glim">
-            <span class="gt app-mark" aria-hidden="true"><svg><use href="#glim"/></svg></span>
-            <div class="app-body">
-              <h2 class="app-name" id="app-glim">Glim <span>For any business that lives on calls</span></h2>
-              <p class="app-line">Miss a call. Glim texts them back in&nbsp;seconds.</p>
-              <p class="app-desc">The caller gets a text from your business, in your own words, before they ring the next shop. You read their reply and tap once to answer it.</p>
-              <div class="hero-cta">
-                <a class="btn btn-ink" data-buy href="glim/#waitlist"><span class="when-closed">Join the waitlist</span><span class="when-open">Get Glim · <span class="pr">$29</span>/month</span></a>
-                <a class="tl" href="glim/">How Glim works<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-              </div>
-              <p class="app-price if-founding"><b>$29 a month</b> for the first 10 businesses, then $39. 400 texts a month included. 7-day money-back, no contract.</p>
-              <p class="app-price if-full"><b>$39 a month.</b> 400 texts a month included. 7-day money-back, no contract.</p>
-            </div>
-          </li>
-        </ul>
+    <!-- INTERACTIVE STUDIO CONSOLE -->
+    <div class="st-console st-glass" aria-label="Interactive product preview console">
+      <div class="st-con-top">
+        <div class="st-tabs" role="tablist" aria-label="Featured studio products">
+          <button class="st-tab" type="button" role="tab" aria-selected="true" data-target="con-bt" data-badge="IOS 26 + MACOS 26 · $9.99">01 · Blacktop</button>
+          <button class="st-tab" type="button" role="tab" aria-selected="false" data-target="con-dg" data-badge="MACOS 26 · FREE MIT">02 · DuckyGuard 2.1</button>
+        </div>
+        <span class="st-con-badge" id="st-con-badge">IOS 26 + MACOS 26 · $9.99</span>
       </div>
 
-      <figure class="stage">
-        <!-- Ships in its finished state (step 6), so no JS shows a complete screen. assets/home2.js plays it once
-             from step 0 when it scrolls into view and stops on the finished screen; the button replays it. -->
-      <div class="phone lit" id="phone" data-step="6" role="img" aria-label="The Glim app on a phone. A missed call from Dana Reyes comes in at 2:14. Glim texts her back from Northside Plumbing 9 seconds later. She replies that a sink is leaking. Glim drafts the next reply, the owner approves it with one tap, and the counter goes from 0 to 1 call saved today.">
-        <div class="notif" aria-hidden="true"><span class="ph"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/><path d="M16 2l6 6M22 2l-6 6"/></svg></span><div><b>Missed call</b><small>Dana Reyes · (508) 555-0142</small></div><em>2:14 PM</em></div>
-        <div class="scr" aria-hidden="true">
-          <p class="shop">Northside Plumbing</p>
-          <p class="watch"><i></i>Watching your phone</p>
-          <div class="counter">
-            <div><b class="num" id="cnt">1</b><small id="cnt-l">call saved today</small></div>
-            <div class="mascot"><svg><use href="#glim"/></svg><span class="stamp">SAVED</span></div>
-          </div>
-          <div class="thread">
-            <div class="who on" data-at="1"><b>Dana Reyes</b><span>Missed call · 2:14 PM</span></div>
-            <div class="thr-body">
-              <p class="empty" data-at="0" data-to="0">No missed calls yet today.</p>
-              <p class="by on" data-at="2"><span class="gt"><svg><use href="#glim"/></svg></span>Glim texted back · 2:14 PM</p>
-              <p class="msg out on sent" data-at="2" data-sent="3"><span class="typing"><i></i><i></i><i></i></span><span class="txt">Hi, this is Rob's assistant at Northside Plumbing. Rob's on a job and will call you back today. Is it a leak, a clog, or no hot water?</span></p>
-              <p class="sentline" data-at="3" data-to="4">Sent 9 seconds after the call</p>
-              <p class="msg in on" data-at="4">Leak. Under the kitchen sink, water everywhere. Can someone come today?</p>
-              <p class="by" data-at="5" data-to="5"><span class="gt"><svg><use href="#glim"/></svg></span>Glim drafted · waiting on you</p>
-              <p class="msg out draft on sent" data-at="5" data-sent="6">Got it, Dana. Turn the shutoff valve under the sink clockwise for now. Rob can be there between 3 and 5 today. Does that work?</p>
-              <p class="sentline on" data-at="6">Sent 2:31 PM · Rob approved</p>
+      <div class="st-pane" id="con-bt">
+        <div class="st-bt-stage">
+          <div class="st-bt-map">
+            <canvas id="st-map" width="440" height="184" aria-label="Interactive Blacktop tactical night-drive minimap preview"></canvas>
+            <div class="st-bt-overlay" id="st-bt-ov" role="status" aria-live="polite">
+              <div>
+                <strong id="st-ov-t">Chipotle · $12.50 · 3.1 mi</strong>
+                <span id="st-ov-s">$3.48/mi net · $31.40/hr · +$1.88 -> VOO</span>
+              </div>
+              <span class="st-bt-pill" id="st-ov-p">ACCEPT</span>
             </div>
           </div>
-          <div class="needs" data-at="5" data-to="5"><div><small>Needs you</small><b>Approve reply to Dana</b></div><span class="go">→</span></div>
-          <div class="tabs">
-            <span class="cur"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg>Today</span>
-            <span><svg viewBox="0 0 24 24"><path d="M3 12l3-8h12l3 8v7H3z"/><path d="M3 12h5l2 3h4l2-3h5"/></svg>Inbox</span>
-            <span><svg viewBox="0 0 24 24"><path d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1 6.2L12 17.3 6.5 20.2l1-6.2L3 9.6l6.2-.9z"/></svg>Reviews</span>
-            <span><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>Settings</span>
+          <div class="st-bt-actions">
+            <button class="st-mini-btn" type="button" data-case="accept" aria-pressed="true">Good offer<small>$12.50 · 3.1 mi</small></button>
+            <button class="st-mini-btn bad" type="button" data-case="skip" aria-pressed="false">Deadhead trap<small>Wingstop · $4.75</small></button>
+            <a class="st-con-link" href="blacktop/">Full demo →</a>
           </div>
         </div>
       </div>
-      <figcaption class="demo-note">Glim on a phone, with a made-up shop and caller. <button type="button" id="replay" hidden>Play it again</button></figcaption>
-      </figure>
+
+      <div class="st-pane" id="con-dg" hidden>
+        <div class="st-dg-stage">
+          <img src="duckyguard/assets/duck-poster.png" width="148" height="148" alt="DuckyGuard engraved yellow cyber-duck plate on navy">
+          <div class="st-dg-stats">
+            <h3>DuckyGuard 2.1</h3>
+            <p>Open-source macOS menu-bar security app blocking Flipper Zero &amp; BadUSB keystroke injectors inside a CGEvent tap.</p>
+            <div class="st-dg-kpis">
+              <span>0 / 124 held</span>
+              <span>123 tests</span>
+              <span>14 us tap</span>
+              <span>MIT OSS</span>
+            </div>
+            <div><a class="st-con-link" href="duckyguard/">Watch live Flipper replay →</a></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div></section>
 
-  <!-- 2 · DuckyGuard in brief; its own page is duckyguard/. Numbers are from the hardware test in the DuckyGuard
-       repository (one Flipper Zero, 2026-11-10). One centred column, the diagram under it. -->
-  <section class="duck" id="goodducky" aria-labelledby="gd-h"><div class="wrap"><div class="duck-in">
-    <img class="duck-icon" src="duckyguard/assets/app-icon-256.png" width="112" height="112" alt="DuckyGuard's icon: a duck's head with one mechanical eye, in yellow on navy" loading="lazy" decoding="async">
-    <p class="duck-id"><b>DuckyGuard</b> Free Mac app · 2.1 out now</p>
-    <h2 class="h-2" id="gd-h">A person types unevenly. A gadget posing as a keyboard doesn't.</h2>
-    <p class="read duck-p">Some USB gadgets pretend to be a keyboard and type a script into your Mac in under a second. DuckyGuard times every key, and when a burst is faster than any hand could type, it blocks the rest before it reaches an app.</p>
-    <figure class="keys" aria-labelledby="keys-cap">
-      <div class="k-row"><span class="k-lab">You typing</span>
-        <svg class="k-ticks k-human" viewBox="0 0 480 24" preserveAspectRatio="none" aria-hidden="true"><rect x="0" y="4" width="3" height="16"/><rect x="34" y="4" width="3" height="16"/><rect x="58" y="4" width="3" height="16"/><rect x="104" y="4" width="3" height="16"/><rect x="121" y="4" width="3" height="16"/><rect x="166" y="4" width="3" height="16"/><rect x="214" y="4" width="3" height="16"/><rect x="231" y="4" width="3" height="16"/><rect x="287" y="4" width="3" height="16"/><rect x="306" y="4" width="3" height="16"/><rect x="359" y="4" width="3" height="16"/><rect x="398" y="4" width="3" height="16"/><rect x="421" y="4" width="3" height="16"/><rect x="474" y="4" width="3" height="16"/></svg></div>
-      <div class="k-row"><span class="k-lab">A gadget posing as a keyboard</span>
-        <svg class="k-ticks k-bot" viewBox="0 0 480 24" preserveAspectRatio="none" aria-hidden="true"><g class="k-hit"><rect x="0" y="4" width="3" height="16"/><rect x="8" y="4" width="3" height="16"/><rect x="16" y="4" width="3" height="16"/><rect x="24" y="4" width="3" height="16"/></g><rect class="k-stop" x="36" y="0" width="2" height="24"/><g class="k-held"><rect x="46" y="4" width="3" height="16"/><rect x="54" y="4" width="3" height="16"/><rect x="62" y="4" width="3" height="16"/><rect x="70" y="4" width="3" height="16"/><rect x="78" y="4" width="3" height="16"/><rect x="86" y="4" width="3" height="16"/><rect x="94" y="4" width="3" height="16"/><rect x="102" y="4" width="3" height="16"/><rect x="110" y="4" width="3" height="16"/><rect x="118" y="4" width="3" height="16"/><rect x="126" y="4" width="3" height="16"/><rect x="134" y="4" width="3" height="16"/><rect x="142" y="4" width="3" height="16"/><rect x="150" y="4" width="3" height="16"/><rect x="158" y="4" width="3" height="16"/><rect x="166" y="4" width="3" height="16"/><rect x="174" y="4" width="3" height="16"/><rect x="182" y="4" width="3" height="16"/><rect x="190" y="4" width="3" height="16"/><rect x="198" y="4" width="3" height="16"/><rect x="206" y="4" width="3" height="16"/><rect x="214" y="4" width="3" height="16"/><rect x="222" y="4" width="3" height="16"/><rect x="230" y="4" width="3" height="16"/><rect x="238" y="4" width="3" height="16"/><rect x="246" y="4" width="3" height="16"/><rect x="254" y="4" width="3" height="16"/><rect x="262" y="4" width="3" height="16"/><rect x="270" y="4" width="3" height="16"/><rect x="278" y="4" width="3" height="16"/><rect x="286" y="4" width="3" height="16"/><rect x="294" y="4" width="3" height="16"/><rect x="302" y="4" width="3" height="16"/><rect x="310" y="4" width="3" height="16"/><rect x="318" y="4" width="3" height="16"/><rect x="326" y="4" width="3" height="16"/><rect x="334" y="4" width="3" height="16"/><rect x="342" y="4" width="3" height="16"/><rect x="350" y="4" width="3" height="16"/><rect x="358" y="4" width="3" height="16"/><rect x="366" y="4" width="3" height="16"/><rect x="374" y="4" width="3" height="16"/><rect x="382" y="4" width="3" height="16"/><rect x="390" y="4" width="3" height="16"/><rect x="398" y="4" width="3" height="16"/><rect x="406" y="4" width="3" height="16"/><rect x="414" y="4" width="3" height="16"/><rect x="422" y="4" width="3" height="16"/><rect x="430" y="4" width="3" height="16"/><rect x="438" y="4" width="3" height="16"/><rect x="446" y="4" width="3" height="16"/><rect x="454" y="4" width="3" height="16"/><rect x="462" y="4" width="3" height="16"/><rect x="470" y="4" width="3" height="16"/></g></svg></div>
-      <figcaption id="keys-cap">Each mark is one keypress. In a test with a real Flipper Zero, 3 to 5 keys got through before DuckyGuard blocked the rest at the line. With new keyboards held, none got through in 3 runs. A script typed at human speed can still pass.</figcaption>
-    </figure>
-    <a class="tl" href="duckyguard/">See DuckyGuard and its limits<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-  </div></div></section>
+  <!-- PROOF BAR -->
+  <section class="st-proof" aria-label="Studio benchmarks"><div class="wrap st-proof-grid">
+    <div class="st-proof-item"><b>Blacktop Universal</b><span>$9.99 founding rate · iPhone + Mac</span></div>
+    <div class="st-proof-item"><b>0 / 124 leaked</b><span>DuckyGuard 2.1 Flipper Zero hardware hold test</span></div>
+    <div class="st-proof-item"><b>100% on-device</b><span>Apple Vision, Foundation Models &amp; local IOKit</span></div>
+    <div class="st-proof-item"><b>Zero trackers</b><span>No ads, no analytics scripts, no dark-pattern subs</span></div>
+  </div></section>
 
-  <!-- 3 · Movember, November 2026 only. Not a product: a small dated card, quieter than either app.
-       Ships hidden; assets/seasonal.js shows everything marked data-season="movember" until
-       2026-12-01T05:00:00Z (end of Nov 30, US Eastern); assets/home2.js keeps the days left current
-       and removes every data-season="movember" node at the cutoff, even in a tab left open. No Movember logo.
-       The face is Mo-ify me's own drawn example (no real person); "before" is the same drawing without the mo. -->
-  <section class="mv" id="movember" data-season="movember" hidden aria-labelledby="mv-h"><div class="wrap"><div class="mv-card">
-    <figure class="mv-ba">
-      <div class="mv-pair">
-        <img src="assets/mo-before.webp" width="640" height="640" alt="Before: a line-drawn face" loading="lazy" decoding="async">
-        <img src="assets/mo-face.webp" width="640" height="640" alt="After: the same face with a moustache from Mo-ify me" loading="lazy" decoding="async">
-      </div>
-      <figcaption aria-hidden="true"><span>Before</span><span>After</span></figcaption>
-    </figure>
-    <div class="mv-copy">
-      <h2 class="mv-h" id="mv-h"><span class="mv-tag">Movember fundraiser<span class="sr">:</span></span> <span class="mv-title">A moustache on your photo, for men's health.</span></h2>
-      <p class="mv-left"><b id="mv-n">Until Nov 30</b> <span id="mv-u"></span></p>
-      <p class="mv-p">Mo-ify me is Steven's free tool supporting Movember. It finds your face and draws a moustache on it in a few seconds. The AI runs in your browser, so your photo is never uploaded. If it makes you smile, give a little.</p>
-      <div class="mv-acts">
-        <a class="btn btn-line btn-sm" href="mo-ify/">Make your mo</a>
-        <a class="btn btn-line btn-sm" href="https://movember.com/m/15609313" target="_blank" rel="noopener">Donate to Steven's Mo Space<span class="sr"> (opens in a new tab)</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
-      </div>
-      <p class="mv-fine">Not affiliated with Movember. Donations go straight to Movember through Steven's Mo Space.</p>
-    </div>
-  </div></div></section>
-  <script src="assets/seasonal.js"></script>
+  <!-- FLAGSHIP PRODUCTS -->
+  <section class="st-sec" id="products" aria-labelledby="prod-h"><div class="wrap">
+    <p class="st-eyebrow">01 // FLAGSHIP RELEASES</p>
+    <h2 class="st-h2" id="prod-h">Two focused products. Clear prices. Public limits.</h2>
+    <p class="st-lead">Each product solves one concrete problem natively on Apple hardware—no bloated suites, no hidden pricing calls.</p>
 
-  <!-- 4 · A note from Steven: one narrow column, typed signature, no photo. -->
-  <section class="note" aria-labelledby="note-h"><div class="wrap"><div class="note-in">
-    <h2 class="h-2" id="note-h">Hi, I'm Steven.</h2>
-    <div class="letter">
-      <p>I study cybersecurity at WPI, and I started sh. industries in 2026.</p>
-      <p>Glim came from a simple pattern: a plumber under a sink, a stylist mid-cut, a phone that rings out. That caller usually dials the next number. Glim texts them back before they do.</p>
-      <p>DuckyGuard grew out of my security coursework. I tested it against a real Flipper Zero, and version 2.1 is out now.</p>
+    <div class="st-flagships">
+      <article class="st-card st-glass bt-accent" id="blacktop">
+        <div>
+          <div class="st-card-head">
+            <span class="st-badge lime">iPhone + Mac Universal · TestFlight Beta</span>
+            <span class="st-price-tag">$9.99 once</span>
+          </div>
+          <h3>Blacktop</h3>
+          <p>A dark Liquid Glass cockpit for DoorDash, Uber Eats, Instacart, and Spark drivers. Instant 0.4s ban-proof OCR offer verdicts right over your delivery app, 2026 IRS split-rate mileage &amp; tip tracking, Shift Split wealth buckets, and a Mac studio for CPA exports and 4K vlog HUDs.</p>
+          <ul class="st-specs">
+            <li>Zero logins required — 100% compliant, zero deactivation risk</li>
+            <li>Built for 2026 H1 (72.5¢) / H2 (76.0¢) IRS split &amp; No Tax on Tips</li>
+            <li>WeatherKit + Ticketmaster/SeatGeek surge radar &amp; private gate-code notes</li>
+          </ul>
+        </div>
+        <div class="st-card-acts">
+          <a class="btn btn-go" href="blacktop/">Explore Blacktop</a>
+          <a class="st-text-link" href="blacktop/#beta">Request TestFlight →</a>
+        </div>
+      </article>
+
+      <article class="st-card st-glass dg-accent" id="goodducky">
+        <div>
+          <div class="st-card-head">
+            <span class="st-badge gold">macOS 26 Apple Silicon · Out Now</span>
+            <span class="st-price-tag">Free · MIT</span>
+          </div>
+          <h3>DuckyGuard 2.1</h3>
+          <p>Keyboards that type too fast get stopped. Inspects inter-key cadence, 1–2 ms key-release injector signatures, and IOKit USB HID inventory across 3,430 vendors inside a CGEvent tap—with connection-time keyboard quarantine and trackpad-only approval.</p>
+          <ul class="st-specs">
+            <li>0 of 124 injected chars landed with Hold on (real Flipper Zero test)</li>
+            <li>Exports MITRE ATT&amp;CK (T1674), YARA, and OCSF incident telemetry</li>
+            <li>123 automated pytest/Hypothesis tests &amp; SHA-256 verified DMG</li>
+          </ul>
+        </div>
+        <div class="st-card-acts">
+          <a class="btn btn-ink" href="duckyguard/">See DuckyGuard 2.1</a>
+          <a class="st-text-link" href="https://github.com/stevenhainley/duckyguard" target="_blank" rel="noopener">Source on GitHub →</a>
+        </div>
+      </article>
     </div>
-    <p class="sig"><span class="sig-name">Steven Hainley</span><span class="sig-role">Founder, sh. industries · WPI, Massachusetts</span></p>
-    <p class="letter-more"><a class="tl" href="about.html">More about the company<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
-  </div></div></section>
+  </div></section>
+
+  <!-- LAB / ARCHIVED CONCEPTS -->
+  <section class="st-sec st-sec-line" id="lab" aria-labelledby="lab-h"><div class="wrap">
+    <p class="st-eyebrow">02 // SH. LAB · ARCHIVED SIDE PROJECTS</p>
+    <h2 class="st-h2" id="lab-h">Concepts and prototypes kept in the open.</h2>
+    <p class="st-lead">Earlier side projects that aren't open for signups right now, left online so you can test the interactive ideas behind them.</p>
+
+    <div class="st-lab-grid">
+      <article class="st-lab-card">
+        <div class="st-lab-top">
+          <span class="gt" aria-hidden="true"><svg><use href="#glim"/></svg></span>
+          <h3>Glim</h3>
+          <span class="st-lab-status">Concept · Not Available</span>
+        </div>
+        <p>A missed-call SMS responder prototype built for local trades and service shops (plumbers, HVAC, salons, auto repair). When a shop misses a call on a job, Glim drafts and sends an instant reply in the owner's voice and waits for 1-tap approval. Paused as a side project—try the interactive phone simulator on its archive page.</p>
+        <div class="st-lab-foot">
+          <span class="st-lab-note">Expo PWA + Python/Twilio prototype</span>
+          <a class="st-con-link" href="glim/">View interactive concept →</a>
+        </div>
+      </article>
+
+      <article class="st-lab-card">
+        <div class="st-lab-top">
+          <h3>Mo-ify me</h3>
+          <span class="st-lab-status exp">Browser AI Tool</span>
+        </div>
+        <p>A lightweight, 100% browser-local face-landmark experiment built for Movember men's health awareness. Runs completely client-side so your photo never leaves your device.</p>
+        <div class="st-lab-foot">
+          <span class="st-lab-note">Client-side canvas experiment</span>
+          <a class="st-con-link" href="mo-ify/">Open experiment →</a>
+        </div>
+      </article>
+    </div>
+  </div></section>
+
+  <!-- FOUNDER NOTE -->
+  <section class="st-sec st-sec-line" aria-labelledby="note-h"><div class="wrap st-founder-grid">
+    <div>
+      <p class="st-eyebrow">03 // BEHIND THE STUDIO</p>
+      <h2 class="st-h2" id="note-h">Hi, I'm Steven.</h2>
+    </div>
+    <div>
+      <div class="st-letter">
+        <p>I started <b>sh. industries</b> in August 2025 alongside my Cybersecurity B.S. (Law &amp; Technology minor) at Worcester Polytechnic Institute as a place to ship real, testable software instead of leaving ideas in class folders.</p>
+        <p><b>DuckyGuard 2.1</b> grew out of building a $6 Raspberry Pi Pico BadUSB tool and wanting to engineer the defensive half—hardware-tested against a Flipper Zero with every limitation documented up front.</p>
+        <p><b>Blacktop</b> came from driving late-night DoorDash shifts myself and getting tired of paying $100+/year for clunky spreadsheet trackers that ignore deadhead miles, restaurant waits, and 2026 tax rules.</p>
+      </div>
+      <div class="st-sig">
+        <div>
+          <span class="st-sig-name">Steven Hainley</span>
+          <span class="st-sig-role">Founder &amp; Developer · sh. industries · WPI Class of 2029</span>
+        </div>
+        <div class="st-cta">
+          <a class="btn btn-line btn-sm" href="about.html">About the studio</a>
+          <a class="btn btn-line btn-sm" href="https://stevenhainley.net" target="_blank" rel="noopener">Portfolio: stevenhainley.net</a>
+        </div>
+      </div>
+    </div>
+  </div></section>
 </main>
 
 <footer class="foot"><div class="wrap">
   <section class="help" aria-labelledby="help-h">
     <h2 class="help-h" id="help-h">Where to write</h2>
     <ul class="help-list" role="list">
-      <li><a href="mailto:glim@shindustries.co"><b>Glim support</b><span>Setup, call forwarding, billing and refunds.</span><em>glim@shindustries.co</em></a></li>
-      <li><a href="mailto:steven@shindustries.co"><b>Email Steven</b><span>App ideas, questions, anything else. I read every email.</span><em>steven@shindustries.co</em></a></li>
+      <li><a href="mailto:steven@shindustries.co"><b>Email Steven</b><span>Blacktop TestFlight, DuckyGuard, bugs, or anything else. I read every email.</span><em>steven@shindustries.co</em></a></li>
+      <li><a href="https://github.com/stevenhainley" target="_blank" rel="noopener"><b>GitHub</b><span>Open-source releases, hardware benchmarks, and SHA-256 checksums.</span><em>github.com/stevenhainley</em></a></li>
     </ul>
   </section>
   <div class="foot-base">
-    <span>© 2026 sh. industries · Massachusetts, USA</span>
-    <nav aria-label="Footer"><a href="glim/">Glim</a><a href="duckyguard/">DuckyGuard</a><a href="about.html">About</a><a href="products.html">Products</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a><a href="sms.html">Text messaging</a></nav>
+    <span>© 2025–2026 sh. industries · Sole Proprietorship · Massachusetts, USA</span>
+    <nav aria-label="Footer"><a href="blacktop/">Blacktop</a><a href="duckyguard/">DuckyGuard</a><a href="glim/">Glim (Lab)</a><a href="about.html">About</a><a href="products.html">Products</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refunds.html">Refunds</a></nav>
     <span>No trackers, no cookies</span>
   </div>
 </div></footer>
 
-<script src="assets/home2.js" defer></script>
-<script src="assets/ring.js" defer></script>
+<script src="assets/studio.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,287 @@
+/* Blacktop · GTA 6 × Apple Liquid Glass night-drive product page
+ * Zero inline styles (strict CSP). Uses bundled Funnel Display, Funnel Sans, JetBrains Mono. */
+
+body.bt-page{
+  background:
+    radial-gradient(900px 540px at 84% -6%, rgba(255,107,74,.14), transparent 62%),
+    radial-gradient(760px 520px at 10% 18%, rgba(44,230,197,.085), transparent 60%),
+    radial-gradient(640px 440px at 52% 96%, rgba(198,255,61,.06), transparent 60%),
+    #090A0E;
+  color:var(--text);
+}
+
+.bt-mono{font-family:var(--fm);font-variant-numeric:tabular-nums}
+.bt-glass{
+  background:linear-gradient(180deg, rgba(255,255,255,.075) 0%, rgba(255,255,255,.025) 100%);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14), 0 24px 64px rgba(0,0,0,.48);
+  -webkit-backdrop-filter:blur(20px) saturate(1.35);
+  backdrop-filter:blur(20px) saturate(1.35);
+}
+
+/* ---------- Hero ---------- */
+.bt-hero{padding:clamp(40px,6vw,78px) 0 clamp(48px,7vw,84px)}
+.bt-hero-grid{display:grid;gap:40px;align-items:center}
+@media(min-width:980px){.bt-hero-grid{grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:56px}}
+
+.bt-kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:6px 12px 6px 8px;border-radius:999px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);
+  font:500 12px/1 var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--text-2);
+  margin-bottom:20px;
+}
+.bt-kicker i{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+.bt-hero h1{
+  font-size:clamp(42px,6.4vw,72px);line-height:.98;letter-spacing:-.035em;
+  max-width:12ch;color:var(--text);
+}
+.bt-hero h1 em{
+  font-style:normal;
+  background:linear-gradient(100deg, #F3F2ED 10%, #FFB088 55%, #C6FF3D 95%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.bt-lede{margin-top:20px;font-size:clamp(17px,1.5vw,19.5px);line-height:1.55;color:var(--text-2);max-width:44ch}
+.bt-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.bt-cta .btn{min-height:48px;padding:0 22px;font-size:15.5px}
+
+.bt-meta-row{
+  display:flex;flex-wrap:wrap;gap:10px 20px;margin-top:24px;
+  font:500 13px/1.4 var(--fm);color:var(--text-3);
+}
+.bt-meta-row span{display:inline-flex;align-items:center;gap:6px}
+.bt-meta-row b{color:var(--text-2);font-weight:600}
+
+/* ---------- Interactive iPhone Cockpit ---------- */
+.bt-device-wrap{display:flex;flex-direction:column;align-items:center;gap:16px}
+.bt-phone{
+  width:min(100%, 352px);
+  border-radius:42px;
+  padding:11px;
+  background:linear-gradient(145deg, rgba(255,255,255,.22), rgba(255,255,255,.04) 45%, rgba(255,107,74,.18) 100%);
+  box-shadow:0 36px 90px rgba(0,0,0,.72), inset 0 1px 0 rgba(255,255,255,.32);
+}
+.bt-screen{
+  position:relative;border-radius:33px;overflow:hidden;
+  background:#07080C;border:1px solid rgba(255,255,255,.08);
+  padding:12px 13px 14px;display:flex;flex-direction:column;gap:10px;
+}
+
+/* Dynamic Island */
+.bt-island{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  margin:0 auto;width:92%;padding:7px 12px;border-radius:999px;
+  background:#020204;border:1px solid rgba(255,255,255,.12);
+  font:600 11px/1 var(--fm);color:var(--text);
+}
+.bt-island-dot{display:inline-flex;align-items:center;gap:6px;color:var(--green)}
+.bt-island-dot i{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.bt-island-tax{color:var(--teal)}
+
+/* Tactical Minimap Canvas */
+.bt-map-box{
+  position:relative;height:186px;border-radius:20px;overflow:hidden;
+  background:#0C1018;border:1px solid rgba(255,255,255,.12);
+}
+.bt-map-box canvas{width:100%;height:100%;display:block}
+.bt-map-badge{
+  position:absolute;top:10px;left:10px;display:inline-flex;align-items:center;gap:6px;
+  padding:5px 9px;border-radius:999px;font:600 10.5px/1 var(--fm);letter-spacing:.04em;
+  background:rgba(9,10,14,.76);border:1px solid rgba(255,255,255,.16);color:var(--text);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+}
+.bt-map-badge i{width:6px;height:6px;border-radius:50%;background:var(--coral)}
+.bt-map-speed{
+  position:absolute;bottom:10px;right:10px;
+  padding:5px 9px;border-radius:10px;text-align:right;
+  background:rgba(9,10,14,.80);border:1px solid rgba(255,255,255,.14);
+  font:600 11px/1.15 var(--fm);color:var(--text-2);
+}
+.bt-map-speed b{display:block;font-size:16px;color:var(--text)}
+
+/* Floating Offer Check Snippet Banner (iOS ShowsSnippetView simulation) */
+.bt-verdict{
+  border-radius:18px;padding:11px 12px;
+  border:1px solid rgba(198,255,61,.38);
+  background:linear-gradient(135deg, rgba(198,255,61,.16), rgba(16,18,24,.92) 55%);
+  transition:border-color 220ms var(--ease), background 220ms var(--ease), transform 220ms var(--ease);
+}
+.bt-verdict.skip{
+  border-color:rgba(255,77,106,.45);
+  background:linear-gradient(135deg, rgba(255,77,106,.18), rgba(16,18,24,.94) 55%);
+}
+.bt-verdict.surge{
+  border-color:rgba(44,230,197,.45);
+  background:linear-gradient(135deg, rgba(44,230,197,.18), rgba(16,18,24,.94) 55%);
+}
+.bt-verdict-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.bt-v-pill{
+  font:700 11px/1 var(--fm);letter-spacing:.08em;text-transform:uppercase;
+  padding:4px 8px;border-radius:999px;background:var(--green);color:var(--green-ink);
+}
+.bt-verdict.skip .bt-v-pill{background:var(--danger);color:#FFF}
+.bt-verdict.surge .bt-v-pill{background:var(--teal);color:#041A16}
+.bt-v-time{font:500 10.5px/1 var(--fm);color:var(--text-3)}
+.bt-v-title{font:700 14px/1.25 var(--fd);color:var(--text);margin-top:7px}
+.bt-v-sub{font:500 11.5px/1.4 var(--fm);color:var(--text-2);margin-top:4px}
+
+/* HUD Metric Tiles */
+.bt-hud-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.bt-tile{
+  border-radius:14px;padding:9px 9px 8px;
+  background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);
+}
+.bt-tile small{display:block;font:500 9.5px/1 var(--fm);letter-spacing:.06em;text-transform:uppercase;color:var(--text-3)}
+.bt-tile b{display:block;margin-top:5px;font:700 15px/1.1 var(--fm);color:var(--text)}
+.bt-tile b.lime{color:var(--green)}
+.bt-tile b.coral{color:#FF9A7E}
+.bt-tile b.teal{color:var(--teal)}
+
+/* Interactive Offer Picker Buttons */
+.bt-sim-bar{width:min(100%, 420px)}
+.bt-sim-label{font:500 11.5px/1 var(--fm);letter-spacing:.08em;text-transform:uppercase;color:var(--text-3);text-align:center;margin-bottom:9px}
+.bt-sim-btns{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.bt-offer-btn{
+  cursor:pointer;text-align:left;padding:10px 10px;border-radius:14px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.11);
+  color:var(--text);font-family:var(--fs);transition:border-color 160ms var(--ease), background 160ms var(--ease), transform 140ms var(--ease);
+}
+.bt-offer-btn:hover{border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.075)}
+.bt-offer-btn[aria-pressed="true"]{border-color:var(--green);background:rgba(198,255,61,.10)}
+.bt-offer-btn.bad[aria-pressed="true"]{border-color:var(--danger);background:rgba(255,77,106,.12)}
+.bt-offer-btn.surge[aria-pressed="true"]{border-color:var(--teal);background:rgba(44,230,197,.12)}
+.bt-offer-btn strong{display:block;font:700 13px/1.15 var(--fm);color:var(--text)}
+.bt-offer-btn span{display:block;font-size:11.5px;color:var(--text-2);margin-top:3px;line-height:1.25}
+
+/* ---------- Proof Strip ---------- */
+.bt-proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;background:rgba(255,255,255,.018)}
+.bt-proof-grid{display:grid;gap:16px 24px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(min-width:860px){.bt-proof-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.bt-proof-item b{display:block;font:700 18px/1.2 var(--fm);color:var(--text)}
+.bt-proof-item span{display:block;margin-top:4px;font-size:13.5px;color:var(--text-3)}
+
+/* ---------- Pillars Bento ---------- */
+.bt-sec{padding:clamp(60px,8vw,104px) 0}
+.bt-sec-line{border-top:1px solid var(--line)}
+.bt-eyebrow{font:500 12px/1 var(--fm);letter-spacing:.12em;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
+.bt-h2{font-size:clamp(30px,4.5vw,48px);line-height:1.05;letter-spacing:-.025em;max-width:19ch}
+.bt-sub{margin-top:14px;font-size:17.5px;color:var(--text-2);max-width:54ch}
+
+.bt-bento{display:grid;gap:16px;margin-top:36px}
+@media(min-width:840px){.bt-bento{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bt-card{border-radius:22px;padding:28px;display:flex;flex-direction:column;gap:12px}
+.bt-card-tag{
+  display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+  padding:5px 10px;border-radius:999px;font:600 11px/1 var(--fm);letter-spacing:.07em;text-transform:uppercase;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:var(--text-2);
+}
+.bt-card-tag.lime{color:var(--green);border-color:rgba(198,255,61,.3);background:rgba(198,255,61,.08)}
+.bt-card-tag.coral{color:#FF9A7E;border-color:rgba(255,107,74,.32);background:rgba(255,107,74,.09)}
+.bt-card-tag.teal{color:var(--teal);border-color:rgba(44,230,197,.32);background:rgba(44,230,197,.08)}
+.bt-card h3{font-size:23px;line-height:1.18}
+.bt-card p{color:var(--text-2);font-size:15.5px;line-height:1.55}
+.bt-card ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:7px;font-size:14.5px;color:var(--text-2)}
+.bt-card li{display:flex;gap:8px;align-items:flex-start}
+.bt-card li::before{content:"→";color:var(--green);font-family:var(--fm);flex:0 0 auto}
+
+/* ---------- Interactive Shift Split + 2026 Tax Calculator ---------- */
+.bt-split-grid{display:grid;gap:24px;margin-top:36px;align-items:stretch}
+@media(min-width:900px){.bt-split-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.08fr)}}
+.bt-panel{border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:18px}
+.bt-ctrl label{display:flex;justify-content:space-between;align-items:baseline;font-size:14.5px;color:var(--text-2);margin-bottom:8px}
+.bt-ctrl label b{font:700 16px var(--fm);color:var(--text)}
+.bt-range{width:100%;accent-color:var(--green);cursor:pointer}
+.bt-chips{display:flex;flex-wrap:wrap;gap:8px}
+.bt-chip{
+  cursor:pointer;padding:8px 13px;border-radius:999px;font:600 13px/1 var(--fm);
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);color:var(--text-2);
+  transition:all 150ms var(--ease);
+}
+.bt-chip:hover{color:var(--text);border-color:rgba(255,255,255,.32)}
+.bt-chip[aria-pressed="true"]{background:var(--green);color:var(--green-ink);border-color:var(--green)}
+
+.bt-receipt{
+  border-radius:22px;padding:26px;
+  background:linear-gradient(160deg, rgba(255,107,74,.09), rgba(19,20,24,.96) 36%, rgba(44,230,197,.08) 100%);
+  border:1px solid rgba(255,255,255,.14);
+  display:flex;flex-direction:column;justify-content:space-between;gap:18px;
+}
+.bt-rec-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px dashed rgba(255,255,255,.16);padding-bottom:14px}
+.bt-rec-head b{font:700 14px var(--fm);letter-spacing:.08em;text-transform:uppercase}
+.bt-rec-grade{
+  display:inline-grid;place-items:center;width:36px;height:36px;border-radius:10px;
+  background:var(--green);color:var(--green-ink);font:800 18px var(--fd);
+}
+.bt-rec-rows{display:grid;gap:11px}
+.bt-rec-row{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;color:var(--text-2)}
+.bt-rec-row b{font:600 16px var(--fm);color:var(--text)}
+.bt-rec-row b.lime{color:var(--green)}
+.bt-rec-row b.teal{color:var(--teal)}
+.bt-rec-row b.coral{color:#FF9A7E}
+.bt-rec-bar{height:10px;border-radius:999px;overflow:hidden;display:flex;background:rgba(255,255,255,.08)}
+.bt-bar-take{background:var(--green)}
+.bt-bar-tax{background:var(--teal)}
+.bt-bar-inv{background:var(--coral)}
+.bt-rec-foot{font-size:13px;color:var(--text-3);line-height:1.45;border-top:1px solid rgba(255,255,255,.10);padding-top:12px}
+
+/* ---------- Mac Command Center Showcase ---------- */
+.bt-mac-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.bt-mac-tab{
+  cursor:pointer;padding:10px 16px;border-radius:999px;font:600 14px/1 var(--fs);
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);color:var(--text-2);
+  transition:background 150ms var(--ease), color 150ms var(--ease), border-color 150ms var(--ease);
+}
+.bt-mac-tab:hover{color:var(--text);border-color:rgba(255,255,255,.32)}
+.bt-mac-tab[aria-selected="true"]{background:var(--text);color:#0B0C0E;border-color:var(--text)}
+.bt-mac-frame{margin-top:18px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#0D0F14;box-shadow:var(--shadow)}
+.bt-mac-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.03)}
+.bt-mac-dots{display:flex;gap:6px}
+.bt-mac-dots i{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.22)}
+.bt-mac-title{margin-left:8px;font:500 12.5px var(--fm);color:var(--text-3)}
+.bt-mac-body{padding:24px}
+.bt-mac-pane[hidden]{display:none}
+.bt-table{width:100%;border-collapse:collapse;font:500 13.5px/1.4 var(--fm)}
+.bt-table th{text-align:left;color:var(--text-3);font-weight:500;padding:8px 10px;border-bottom:1px solid rgba(255,255,255,.12);font-size:11.5px;text-transform:uppercase;letter-spacing:.06em}
+.bt-table td{padding:11px 10px;border-bottom:1px solid rgba(255,255,255,.07);color:var(--text-2)}
+.bt-table td b{color:var(--text)}
+.bt-table td.lime{color:var(--green)}
+.bt-table-wrap{overflow-x:auto}
+
+.bt-heat-grid{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(175px,1fr))}
+.bt-heat-cell{border-radius:14px;padding:14px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03)}
+.bt-heat-cell.hot{border-color:rgba(198,255,61,.35);background:rgba(198,255,61,.08)}
+.bt-heat-cell.mid{border-color:rgba(44,230,197,.28);background:rgba(44,230,197,.06)}
+.bt-heat-cell.cold{border-color:rgba(255,77,106,.30);background:rgba(255,77,106,.06)}
+.bt-heat-cell small{display:block;font:600 11px var(--fm);color:var(--text-3);text-transform:uppercase}
+.bt-heat-cell strong{display:block;font:700 22px var(--fm);margin-top:6px;color:var(--text)}
+.bt-heat-cell span{display:block;font-size:13px;color:var(--text-2);margin-top:4px}
+
+.bt-vlog-tracks{display:grid;gap:10px}
+.bt-track{display:grid;grid-template-columns:140px 1fr;gap:12px;align-items:center}
+@media(max-width:560px){.bt-track{grid-template-columns:1fr}}
+.bt-track-lbl{font:600 12px var(--fm);color:var(--text-2)}
+.bt-track-bar{height:30px;border-radius:8px;padding:0 12px;display:flex;align-items:center;font:600 12px var(--fm);border:1px solid rgba(255,255,255,.14)}
+.bt-track-bar.t1{background:rgba(255,107,74,.20);border-color:rgba(255,107,74,.4);color:#FFC0AE}
+.bt-track-bar.t2{background:rgba(44,230,197,.16);border-color:rgba(44,230,197,.36);color:var(--teal)}
+.bt-track-bar.t3{background:rgba(198,255,61,.15);border-color:rgba(198,255,61,.36);color:var(--green)}
+
+/* ---------- Pricing & Beta ---------- */
+.bt-price-grid{display:grid;gap:20px;margin-top:36px}
+@media(min-width:820px){.bt-price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.bt-tier{border-radius:24px;padding:30px;display:flex;flex-direction:column;gap:16px}
+.bt-tier.featured{
+  border-color:rgba(198,255,61,.42);
+  background:linear-gradient(160deg, rgba(198,255,61,.11), rgba(19,20,24,.94) 48%, rgba(255,107,74,.08) 100%);
+}
+.bt-tier-price{font:800 46px/1 var(--fd);letter-spacing:-.03em;color:var(--text)}
+.bt-tier-price small{font:500 15px var(--fm);color:var(--text-2);margin-left:6px}
+.bt-tier ul{list-style:none;margin:0;padding:0;display:grid;gap:9px;font-size:15px;color:var(--text-2)}
+.bt-tier li::before{content:"✓ ";color:var(--green);font-weight:700}
+
+.bt-beta-box{margin-top:28px;border-radius:22px;padding:28px;display:grid;gap:16px}
+@media(min-width:760px){.bt-beta-box{grid-template-columns:1fr auto;align-items:center;gap:28px}}
+.bt-beta-h{margin-top:10px}
+.bt-beta-p{margin-top:6px;font-size:15.5px}
+.bt-beta-acts{display:flex;flex-wrap:wrap;gap:10px}
+.bt-copy-msg{font:500 13px var(--fm);color:var(--green);min-height:18px}
+.bt-disclaimer{margin-top:20px;font-size:13px;line-height:1.55;color:var(--text-3);max-width:78ch}

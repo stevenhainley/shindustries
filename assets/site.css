@@ -12,21 +12,27 @@
 @font-face{font-family:"Funnel Sans";font-weight:500;font-display:swap;src:url(fonts/FunnelSans-500.ttf) format("truetype")}
 @font-face{font-family:"Funnel Sans";font-weight:600;font-display:swap;src:url(fonts/FunnelSans-600.ttf) format("truetype")}
 @font-face{font-family:"Silkscreen";font-weight:400;font-display:swap;src:url(fonts/Silkscreen-Regular.ttf) format("truetype")} /* OFL 1.1, fonts/Silkscreen-OFL.txt · eyebrows only (brand/PIXEL_THEME.md device 3) */
+@font-face{font-family:"JetBrains Mono";font-weight:400 700;font-display:swap;src:url(fonts/JetBrainsMono.woff2) format("woff2")}
 
 :root{
-  color-scheme:dark light;
-  /* dark (favourite) */
-  --bg:#0E0E0D; --surface:#161614; --surface-2:#1E1E1B; --surface-3:#262623;
-  --line:rgba(255,255,255,.12); --line-strong:rgba(255,255,255,.22);
-  --text:#F2F1EC; --text-2:#A8A69F; --text-3:#85827A;
-  --green:#C6FF3D; --green-ink:#1E2A00; --green-text:#D7FF6E; --green-dim:rgba(198,255,61,.14);
+  color-scheme:dark;
+  /* obsidian dark studio + Liquid Glass + coastal twilight tokens */
+  --bg:#0B0C0E; --surface:#131418; --surface-2:#1A1C22; --surface-3:#23262F;
+  --glass:rgba(255,255,255,.045); --glass-2:rgba(255,255,255,.085); --glass-edge:rgba(255,255,255,.14);
+  --line:rgba(255,255,255,.10); --line-strong:rgba(255,255,255,.20);
+  --text:#F3F2ED; --text-2:#A8A8B3; --text-3:#7A7B86;
+  --green:#C6FF3D; --green-ink:#141E00; --green-text:#D7FF6E; --green-dim:rgba(198,255,61,.14);
+  --coral:#FF6B4A; --coral-dim:rgba(255,107,74,.16);
+  --teal:#2CE6C5; --teal-dim:rgba(44,230,197,.14);
   --warn:#FFC23D; --warn-ink:#3A2600; --warn-soft:rgba(255,194,61,.14); --warn-text:#FFC23D;
+  --danger:#FF4D6A; --danger-dim:rgba(255,77,106,.16);
   --cf:#3A2600; --cf-bg:#FFC23D;
-  --btn:#F2F1EC; --btn-ink:#0E0E0D;
-  --phone:#0E0E0D; --phone-edge:rgba(255,255,255,.16);
-  --shadow:0 24px 64px rgba(0,0,0,.55);
+  --btn:#F3F2ED; --btn-ink:#0B0C0E;
+  --phone:#0B0C0E; --phone-edge:rgba(255,255,255,.16);
+  --shadow:0 24px 64px rgba(0,0,0,.62);
   --focus:#FFFFFF;
   --fd:"Funnel Display","Funnel Sans",system-ui,sans-serif; --fs:"Funnel Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --fm:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --fpx:"Silkscreen","Funnel Sans",monospace;
   --ease:cubic-bezier(.2,0,0,1); --ease-exit:cubic-bezier(.4,0,1,1);
   --dur-fast:160ms; --dur:220ms; --dur-slow:360ms; --dur-reveal:520ms;
@@ -36,20 +42,6 @@
   --sp-1:4px; --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-7:48px; --sp-8:64px; --sp-9:96px; --sp-10:128px;
   /* type scale (one scale, every page) */
   --t-display:clamp(42px,8.6vw,78px); --t-h1:clamp(36px,7vw,60px); --t-h2:clamp(30px,5vw,48px); --t-h3:22px; --t-lede:19px; --t-body:17px; --t-small:14.5px; --t-fine:13px; --t-px:12px;
-}
-@media (prefers-color-scheme:light){
-  :root{
-    --bg:#F7F6F1; --surface:#FFFFFF; --surface-2:#EFEDE6; --surface-3:#E6E3DA;
-    --line:#E3E0D7; --line-strong:#C9C6BC;
-    --text:#1A1A17; --text-2:#55534C; --text-3:#6B6860;
-    --green-text:#5E8A00; --green-dim:rgba(134,184,0,.16);
-    --warn:#C77800; --warn-ink:#FFFFFF; --warn-soft:#FFF4DC; --warn-text:#8A5A00;
-    --cf:#5C3C00; --cf-bg:#FFE9A8;
-    --btn:#1A1A17; --btn-ink:#F7F6F1;
-    --phone-edge:rgba(0,0,0,.35);
-    --shadow:0 24px 64px rgba(20,20,18,.22);
-    --focus:#1A1A17;
-  }
 }
 
 /* ---------- cross-document page transitions (View Transitions API; browsers without it just navigate) ---------- */
@@ -94,9 +86,9 @@ b,strong{font-weight:600}
 .h1{font-size:var(--t-display);line-height:1.0;letter-spacing:-.03em;max-width:11em}
 .h2{font-size:var(--t-h2);line-height:1.06;max-width:18em}
 .sub{color:var(--text-2);margin-top:16px;max-width:36em;font-size:18px}
-.rv{opacity:0;transform:translateY(10px);transition:opacity var(--dur-reveal) var(--ease),transform var(--dur-reveal) var(--ease)}
+.rv{opacity:1;transform:none;transition:opacity var(--dur-reveal) var(--ease),transform var(--dur-reveal) var(--ease)}
 .rv.on{opacity:1;transform:none}
-html:not(.js) .rv{opacity:1;transform:none}
+@media print{.rv{opacity:1!important;transform:none!important}}
 @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 
 /* ---------- buttons (magnetic on fine pointers: --mx/--my set by site.js) ---------- */
@@ -135,7 +127,6 @@ html:not(.js) .hdr{border-bottom-color:var(--line)}
 .co-logo{display:inline-flex;align-items:center;padding:10px 0;color:var(--text);text-decoration:none;border-radius:6px}
 .co-mark{height:20px;width:auto;fill:currentColor;overflow:visible}
 .co-mark .co-dot{fill:var(--green)}
-@media (prefers-color-scheme:light){.co-mark .co-dot{fill:var(--green-text)}}
 .nav{display:none}
 .nav a,.dd > a{text-decoration:none;color:var(--text-2);padding:8px 12px;border-radius:999px;transition:color var(--dur-fast) var(--ease),background var(--dur-fast) var(--ease);font-size:15px}
 .nav a:hover,.dd > a:hover,.dd:focus-within > a{color:var(--text);background:var(--surface-2)}
@@ -190,7 +181,6 @@ html:not(.js) .menu-btn{display:none}
 /* ---------- footer (grouped columns: Glim · Products · Company · Legal) ---------- */
 .ft{border-top:1px solid var(--line);padding:56px 0 40px;color:var(--text-3);font-size:14.5px;position:relative}
 .ft::before{content:"";position:absolute;left:0;right:0;top:0;height:120px;pointer-events:none;background:var(--dither);opacity:.022;-webkit-mask-image:linear-gradient(to bottom,#000,transparent);mask-image:linear-gradient(to bottom,#000,transparent)}
-@media (prefers-color-scheme:light){.ft::before{opacity:.05;filter:invert(1)}}
 .ft-top{display:grid;gap:40px}
 @media(min-width:900px){.ft-top{grid-template-columns:minmax(0,1.1fr) minmax(0,2fr);gap:64px}}
 .ft-brand .gt{width:44px;height:44px;border-radius:12px}

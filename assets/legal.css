@@ -1,0 +1,32 @@
+/* Shared dark editorial styling for legal & studio info pages (strict CSP, zero inline styles). */
+body.doc-page{
+  background:radial-gradient(760px 440px at 82% -6%, rgba(198,255,61,.05), transparent 60%), #0B0C0E;
+  color:var(--text);
+}
+.doc-hero{padding:clamp(44px,6vw,76px) 0 32px;border-bottom:1px solid var(--line)}
+.doc-hero .eyebrow{font:500 12px/1 var(--fm);letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+.doc-hero h1{font-size:clamp(34px,5vw,54px);line-height:1.05;letter-spacing:-.025em;max-width:18ch}
+.doc-hero .upd{margin-top:12px;font:500 13px var(--fm);color:var(--text-3)}
+.doc-hero .lede{margin-top:16px;font-size:18px;line-height:1.55;color:var(--text-2);max-width:58ch}
+.doc-body{padding:44px 0 80px}
+.doc-prose{max-width:70ch;display:grid;gap:28px}
+.doc-prose section{display:grid;gap:10px}
+.doc-prose h2{font-size:22px;line-height:1.25;color:var(--text)}
+.doc-prose p,.doc-prose li{font-size:16px;line-height:1.65;color:var(--text-2)}
+.doc-prose ul{margin:0;padding-left:20px;display:grid;gap:7px}
+.doc-prose a{color:var(--text);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-strong)}
+.doc-prose a:hover{color:var(--green);text-decoration-color:var(--green)}
+.doc-callout{
+  padding:18px 20px;border-radius:16px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);
+  font-size:15px;line-height:1.6;color:var(--text-2);
+}
+.doc-callout b{color:var(--text)}
+.doc-grid{display:grid;gap:16px;margin-top:24px}
+@media(min-width:760px){.doc-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.doc-card{padding:24px;border-radius:20px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.11);display:grid;gap:10px}
+.doc-card h3{font-size:20px}
+.doc-card p{font-size:15px;line-height:1.55;color:var(--text-2)}
+.doc-card .tag{font:600 11px/1 var(--fm);letter-spacing:.07em;text-transform:uppercase;color:var(--green)}
+.doc-card .tag.warn{color:var(--warn)}
+.doc-acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
