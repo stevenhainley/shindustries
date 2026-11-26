@@ -58,7 +58,7 @@ body.st-page{
 
 .st-pane[hidden]{display:none}
 
-/* Blacktop mini preview inside console */
+
 .st-bt-stage{display:grid;gap:12px}
 .st-bt-map{position:relative;height:184px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.12);background:#0A0D14}
 .st-bt-map canvas{width:100%;height:100%;display:block}

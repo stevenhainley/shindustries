@@ -40,7 +40,7 @@
     set("[data-short]", a => { a.href = DOWNLOAD_URL; a.textContent = "Download"; });
   } else if (RELEASED) {
     set("[data-get-title]", el => el.textContent = "Download soon.");
-    set("[data-get-copy]", el => el.textContent = "Version 2.1.0 is out as source on GitHub. The packaged download is being prepared and will appear here.");
+    set("[data-get-copy]", el => el.textContent = "Version 2.2.0 is out as source on GitHub. The packaged download is being prepared and will appear here.");
   }
   if (SUPPORT_URL) {
     set("[data-support-btn]", a => { a.href = SUPPORT_URL; a.rel = "noopener"; a.textContent = "Buy me a coffee"; });

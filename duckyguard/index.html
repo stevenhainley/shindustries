@@ -29,7 +29,7 @@
 <meta name="theme-color" content="#080C1C">
 <link rel="icon" type="image/png" href="assets/app-icon-64.png">
 <link rel="apple-touch-icon" href="assets/app-icon-256.png">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"DuckyGuard","url":"https://shindustries.co/duckyguard/","applicationCategory":"SecurityApplication","operatingSystem":"macOS 26 (Apple silicon)","softwareVersion":"2.1.0","downloadUrl":"https://github.com/stevenhainley/duckyguard/releases/download/v2.1.0/DuckyGuard-2.1.0.dmg","description":"A free, open-source Mac menu bar app that times every key and blocks keystroke-injection devices by the rhythm of their typing.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"sh. industries","url":"https://shindustries.co/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"DuckyGuard","url":"https://shindustries.co/duckyguard/","applicationCategory":"SecurityApplication","operatingSystem":"macOS 26 (Apple silicon)","softwareVersion":"2.2.0","downloadUrl":"https://github.com/stevenhainley/duckyguard/releases/download/v2.2.0/DuckyGuard-2.2.0.dmg","description":"A free, open-source Mac menu bar app that times every key and blocks keystroke-injection devices by the rhythm of their typing.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"sh. industries","url":"https://shindustries.co/"}}</script>
 <link rel="preload" href="fonts/SofiaSansExtraCondensed.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fonts/HankenGrotesk.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="duck.css">
@@ -75,11 +75,11 @@
 
     <div class="col">
       <section class="pane" id="overview" aria-labelledby="h-main">
-        <p class="label eyebrow" id="eyebrow">DuckyGuard <b>2.1</b> · Free Mac app · <b data-state>Out now</b></p>
+        <p class="label eyebrow" id="eyebrow">DuckyGuard <b>2.2</b> · Free Mac app · <b data-state>Out now</b></p>
         <h1 id="h-main">Keyboards that type too fast get stopped.</h1>
         <p class="lede">A USB gadget can claim to be a keyboard and type a command in under a second. DuckyGuard times every key on your Mac and blocks a burst that no hand could type.</p>
         <div class="decide">
-          <a class="primary" href="https://github.com/stevenhainley/duckyguard/releases/download/v2.1.0/DuckyGuard-2.1.0.dmg" data-main>Download for Mac</a>
+          <a class="primary" href="https://github.com/stevenhainley/duckyguard/releases/download/v2.2.0/DuckyGuard-2.2.0.dmg" data-main>Download for Mac</a>
           <a class="ghost" href="#block" data-second>Watch it block</a>
         </div>
         <p class="aside" id="live-note" hidden>The duck on this page is the one in the app. Type anything, or drag it: it reads only the timing of your keys, never which key, and nothing is stored or sent.</p>
@@ -116,6 +116,9 @@
       <div class="row"><span class="n">B</span><h3>Blocks the burst</h3><p>When a burst is faster and more even than any hand, or its keys are let go faster than a finger can, the rest of that burst is blocked before it reaches any app. <b>In five of six hardware runs, 3 to 5 characters got through first</b>; in the sixth, 1.</p></div>
       <div class="row"><span class="n">C</span><h3>Holds new keyboards</h3><p>With Hold new keyboards on, a keyboard you have not trusted is held the moment it is plugged in. Nothing it types gets through until you choose Keep blocked, Allow once or Always allow, with the trackpad or mouse. Your own keyboard is off during the hold too. <b>If nobody chooses, the hold ends after 20 seconds</b> and the keyboard may type, still subject to the timing rules.</p></div>
       <div class="row"><span class="n">D</span><h3>Says why, and keeps it on your Mac</h3><p>Every block is explained in a sentence, with the rate, the rhythm, the key press time and the text of the burst. Incidents, trusted keyboards and settings stay on your Mac. The only network request is an opt-in, once-a-day update check.</p></div>
+      <div class="row"><span class="n">E</span><h3>New in 2.2: Spotlight &amp; dropper sequence rules (P1 / P2)</h3><p>Tracks hardware <b>Cmd+Space</b> chords across Spotlight's open delay so a fast terminal launcher (<code>terminal</code>, <code>iterm</code>, <code>warp</code>, <code>alacritty</code>) is blocked at the 6th character before Return opens a shell, even with 22% timing jitter. Catches jittered macOS dropper strings (<code>python -c</code>, Keychain reads, Gatekeeper <code>xattr</code> strips, <code>launchctl</code>) with ATT&amp;CK <code>T1059.006</code>, <code>T1555.001</code>, and <code>T1553.001</code>.</p></div>
+      <div class="row"><span class="n">F</span><h3>New in 2.2: Lockdown mode, SHA-256 device pins &amp; hash-chained audit log</h3><p><b>Lockdown mode</b> (menu bar or <code>duckyguard lockdown on</code>) holds every newly connected USB or Bluetooth keyboard without a countdown, even trusted ones, until approved by trackpad or mouse. Trusted keyboards now pin a SHA-256 hardware descriptor digest (<code>duckyguard devices --export</code>), and every block or hold is recorded in a tamper-evident SHA-256 hash chain (<code>duckyguard audit --verify</code>), backed by <b>148 passing tests</b>.</p></div>
+
     </div>
     <div class="shots">
       <figure><img src="assets/app-overview.png" width="1640" height="1120" loading="lazy" decoding="async" alt="The DuckyGuard window. Status: Protected. Typing looks human. The duck sits in its cage with readings around it: burst 4 keys, key press 86 ms, reads as a hand, rate 5.6 a second, rhythm uneven 76 percent."><figcaption>The app's Overview while someone types.</figcaption></figure>
@@ -187,9 +190,9 @@
       <div>
         <p class="get-id"><img src="assets/app-icon-256.png" width="64" height="64" alt=""><span class="label">DuckyGuard · macOS 26 · Apple silicon · Free</span></p>
         <p data-get-copy>Free, and it runs on your Mac alone. After you install it, turn on Input Monitoring and Accessibility for DuckyGuard in System Settings › Privacy &amp; Security. The first-run screen has a button for each.</p>
-        <p class="aside" data-get-gk>macOS will block the first launch: open System Settings › Privacy &amp; Security and choose Open Anyway. DMG SHA-256: 72155807b2bac5ac6b29c73b5b6fa00bf97ae23f09640d4867276773e2bf4ea1</p>
+        <p class="aside" data-get-gk>macOS will block the first launch: open System Settings › Privacy &amp; Security and choose Open Anyway. DMG SHA-256: eecdc382443261e197033eb3d0129f5d3f8698adb3e1d357a0e1a64cf339ff51</p>
         <div class="decide">
-          <a class="primary" href="https://github.com/stevenhainley/duckyguard/releases/download/v2.1.0/DuckyGuard-2.1.0.dmg" data-get-btn>Download for Mac</a>
+          <a class="primary" href="https://github.com/stevenhainley/duckyguard/releases/download/v2.2.0/DuckyGuard-2.2.0.dmg" data-get-btn>Download for Mac</a>
           <a class="ghost" href="https://github.com/stevenhainley/duckyguard" rel="noopener" data-repo-btn>View on GitHub</a>
         </div>
       </div>
@@ -206,7 +209,7 @@
 <footer class="foot"><div class="wrap">
   <div class="foot-in label">
     <span>© 2025–2026 sh. industries · Massachusetts, USA</span>
-    <nav aria-label="Footer"><a href="../">sh. industries</a><a href="../blacktop/">Blacktop</a><a href="../glim/">Glim (Lab)</a><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../refunds.html">Refunds</a></nav>
+    <nav aria-label="Footer"><a href="../">sh. industries</a><a href="../glim/">Glim (Lab)</a><a href="../about.html">About</a><a href="../privacy.html">Privacy</a><a href="../terms.html">Terms</a><a href="../refunds.html">Refunds</a></nav>
     <span>No trackers, no cookies</span>
   </div>
   <p class="by">Built by Steven Hainley, a cybersecurity student at WPI, for sh. industries. Operating systems trust anything that says it is a keyboard. DuckyGuard is a second opinion on that trust. The duck is drawn with three.js (MIT).</p>
